@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vjaya Robotics — learn robotics and explore components and project kits.">
+  <title>Vjaya Robotics</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home">V<span>J</span>AYA<span class="brand-dot">.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#learn">Learn Robotics</a>
+      <a href="#store">Store</a>
+      <a href="#about">About</a>
+    </nav>
+    <button id="cart-toggle" class="cart-button" type="button">Cart <span id="cart-count">0</span></button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">LEARN · BUILD · CREATE</p>
+        <h1>Build your ideas<br><span>into reality.</span></h1>
+        <p class="hero-text">A place to learn robotics, explore Arduino and ESP32 projects, and find the components to build your next invention.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#store">Explore the store</a>
+          <a class="button secondary" href="#learn">Start learning</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Robotics illustration">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="robot">🤖</div>
+        <div class="chip">ESP32<br><strong>ROBOTICS</strong></div>
+      </div>
+    </section>
+
+   
+<section class="section" id="learn">
+
+    <div class="section-heading">
+        <p class="eyebrow">VJAYA ROBOTICS ACADEMY</p>
+        <h2>Arduino Learning Center</h2>
+        <p>Learn Arduino programming and build real robotics projects.</p>
+    </div>
+
+    <!-- ARDUINO LEARNING -->
+    
+
+    
+<div class="feature-grid">
+
+    <article class="feature-card">
+        <div class="feature-icon">🔌</div>
+        <h3>Arduino Projects</h3>
+        <p>Explore Arduino circuits, programming and practical robotics builds.</p>
+        <a href="projects.html?platform=Arduino" class="button secondary">
+            Explore Arduino
+        </a>
+    </article>
+
+    <article class="feature-card">
+        <div class="feature-icon">📡</div>
+        <h3>ESP32 Projects</h3>
+        <p>Discover Wi-Fi, IoT, automation and ESP32 robotics projects.</p>
+        <a href="projects.html?platform=ESP32" class="button secondary">
+            Explore ESP32
+        </a>
+    </article>
+
+    <article class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <h3>Raspberry Pi Projects</h3>
+        <p>Explore Python, AI, computer vision and Raspberry Pi robotics.</p>
+        <a href="projects.html?platform=Raspberry Pi" class="button secondary">
+            Explore Raspberry Pi
+        </a>
+    </article>
+
+</div>
+
+
+
+
+
+    <!-- ARDUINO CONTENT AREAS -->
+    <div id="arduino-basics" class="section-heading">
+        <p class="eyebrow">START LEARNING</p>
+        <h2>Arduino Basics</h2>
+        <p>Your Arduino lessons and tutorials will be published here.</p>
+    </div>
+
+    <div id="arduino-components" class="section-heading">
+        <p class="eyebrow">UNDERSTAND THE HARDWARE</p>
+        <h2>Arduino Components</h2>
+        <p>Component explanations, connections and practical demonstrations.</p>
+    </div>
+
+    <div id="arduino-projects" class="section-heading">
+        <p class="eyebrow">BUILD SOMETHING REAL</p>
+        <h2>Arduino Projects</h2>
+        <p>Your project photographs, component lists, wiring diagrams and source code will appear here.</p>
+    </div>
+
+</section>
+
+
+
+    
+<section class="section store-section" id="store">
+
+    <div class="section-heading store-heading">
+        <div>
+            <p class="eyebrow">ROBOTICS COMPONENTS</p>
+            <h2>Explore the store</h2>
+            <p>Explore robotics components for your projects.</p>
+        </div>
+
+        <input
+            id="product-search"
+            class="search"
+            type="search"
+            placeholder="Search components..."
+            aria-label="Search products">
+    </div>
+
+    <!-- PRODUCT CATEGORY BUTTONS -->
+    <div class="category-filters">
+
+        <button class="active" data-category="All"
+            onclick="filterCategory('All')">All</button>
+
+        <button data-category="Microcontrollers"
+            onclick="filterCategory('Microcontrollers')">Microcontrollers</button>
+
+        <button data-category="Sensors"
+            onclick="filterCategory('Sensors')">Sensors</button>
+
+        <button data-category="Motors"
+            onclick="filterCategory('Motors')">Motors</button>
+
+        <button data-category="Drivers"
+            onclick="filterCategory('Drivers')">Drivers</button>
+
+        <button data-category="Modules"
+            onclick="filterCategory('Modules')">Modules</button>
+
+        <button data-category="Kits"
+            onclick="filterCategory('Kits')">Kits</button>
+
+        <button data-category="Accessories"
+            onclick="filterCategory('Accessories')">Accessories</button>
+
+    </div>
+
+    <!-- PRODUCT DISPLAY -->
+    <div id="product-grid" class="product-grid"></div>
+
+</section>
+
+
+    <section class="about-section" id="about">
+      <p class="eyebrow">ABOUT VJAYA</p><h2>Made for curious builders.</h2>
+      <p>Vjaya is a robotics-focused learning and project platform. Lessons, project details and demonstrations will be added using the material you provide.</p>
+    </section>
+  </main>
+
+  <aside id="cart-panel" class="cart-panel" aria-label="Shopping cart" aria-hidden="true">
+    <div class="cart-header"><h2>Your cart</h2><button id="cart-close" class="close-button" type="button" aria-label="Close cart">×</button></div>
+    <div id="cart-items" class="cart-items"><p class="empty-cart">Your cart is empty.</p></div>
+    <div class="cart-footer"><div class="cart-total"><span>Total</span><strong id="cart-total">₹0</strong></div><button id="checkout-button" class="button primary checkout" type="button">Continue to checkout</button><p class="small-note">Demo only. Online payments will be added later.</p></div>
+  </aside>
+  <div id="cart-backdrop" class="cart-backdrop"></div>
+
+  <footer><span>© <span id="year"></span> Vjaya Robotics</span><span>Learn · Build · Create</span></footer>
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

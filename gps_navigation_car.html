@@ -1,0 +1,616 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GPS Navigation Car using Arduino UNO, GPS, compass, Bluetooth and obstacle detection.">
+    <title>GPS Navigation Car | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="container header-content">
+        <a href="index.html" class="logo">VJaYa Robotics</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#learn">Learn</a>
+            <a href="index.html#store">Store</a>
+        </nav>
+    </div>
+</header>
+
+<main class="project-detail-page">
+
+    <section class="project-detail-hero">
+        <div class="container">
+            <p class="eyebrow">ARDUINO ROBOTICS PROJECT</p>
+            <span class="project-tag">Arduino UNO</span>
+
+            <h1>GPS NAVIGATION CAR</h1>
+
+            <p class="project-intro">
+                Build an autonomous robot car that navigates toward
+                destination coordinates received from a smartphone
+                through Bluetooth. The system uses GPS positioning,
+                a digital compass, motor control and ultrasonic
+                obstacle detection.
+            </p>
+
+            <a href="#source-code" class="button primary">
+                Explore Source Code
+            </a>
+        </div>
+    </section>
+
+    <section class="project-content-section">
+        <div class="container">
+
+            <div class="project-section-heading">
+                <p class="eyebrow">PROJECT OVERVIEW</p>
+                <h2>About This Project</h2>
+            </div>
+
+            <p>
+                The GPS Navigation Car is based on an Arduino UNO.
+                A smartphone sends destination latitude and longitude
+                through an HC-05 Bluetooth module.
+            </p>
+
+            <p>
+                The GPS module provides the current location.
+                The QMC5883L compass measures the car's heading.
+                The navigation module calculates the direction
+                toward the destination and controls the motors
+                through an L298N motor driver.
+            </p>
+
+            <p>
+                An HC-SR04 ultrasonic sensor checks for obstacles
+                in front of the car and stops the motors when an
+                obstacle is detected within the configured distance.
+            </p>
+
+        </div>
+    </section>
+
+    <section class="project-content-section">
+        <div class="container">
+
+            <div class="project-section-heading">
+                <p class="eyebrow">PROJECT FEATURES</p>
+                <h2>Main Features</h2>
+            </div>
+
+            <div class="project-info-grid">
+
+                <article class="project-info-card">
+                    <h3>GPS Positioning</h3>
+                    <p>
+                        Reads the car's latitude and longitude
+                        using the GPS module.
+                    </p>
+                </article>
+
+                <article class="project-info-card">
+                    <h3>Phone Destination</h3>
+                    <p>
+                        Receives destination coordinates from
+                        a smartphone over Bluetooth.
+                    </p>
+                </article>
+
+                <article class="project-info-card">
+                    <h3>Compass Direction</h3>
+                    <p>
+                        Uses the QMC5883L compass to determine
+                        the current heading.
+                    </p>
+                </article>
+
+                <article class="project-info-card">
+                    <h3>Obstacle Detection</h3>
+                    <p>
+                        Uses an ultrasonic sensor to stop the
+                        car when an obstacle is detected nearby.
+                    </p>
+                </article>
+
+                <article class="project-info-card">
+                    <h3>Automatic Motor Control</h3>
+                    <p>
+                        Controls forward, backward, left, right
+                        and stop movements using the L298N.
+                    </p>
+                </article>
+
+                <article class="project-info-card">
+                    <h3>Destination Arrival</h3>
+                    <p>
+                        Stops navigation when the GPS distance
+                        to the destination is 5 metres or less.
+                    </p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="project-content-section">
+        <div class="container">
+
+            <div class="project-section-heading">
+                <p class="eyebrow">HARDWARE</p>
+                <h2>Required Components</h2>
+            </div>
+
+            <div class="project-info-grid">
+
+                <article class="project-info-card">
+                    <h3>Arduino UNO</h3>
+                    <p>Main microcontroller for the navigation system.</p>
+                </article>
+
+                <article class="project-info-card">
+                    <h3>NEO-6M GPS Module</h3>
+                    <p>Provides geographical location coordinates.</p>
+                </article>
+
+                <article class="project-info-card">
+                    <h3>QMC5883L Compass</h3>
+                    <p>Measures the car's magnetic heading.</p>
+                </article>
+
+                <article class="project-info-card">
+                    <h3>HC-05 Bluetooth</h3>
+                    <p>Receives destination and stop commands from a phone.</p>
+                </article>
+
+                <article class="project-info-card">
+                    <h3>L298N Motor Driver</h3>
+                    <p>Controls the direction and speed of two DC motors.</p>
+                </article>
+
+                <article class="project-info-card">
+                    <h3>HC-SR04 Sensor</h3>
+                    <p>Measures the distance to nearby obstacles.</p>
+                </article>
+
+                <article class="project-info-card">
+                    <h3>DC Geared Motors</h3>
+                    <p>Drive the two-wheel robot car.</p>
+                </article>
+
+                <article class="project-info-card">
+                    <h3>Robot Chassis</h3>
+                    <p>Supports the motors, wheels and electronics.</p>
+                </article>
+
+                <article class="project-info-card">
+                    <h3>Power Supply</h3>
+                    <p>Suitable regulated supplies for the Arduino, modules and motors.</p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="project-content-section">
+        <div class="container">
+
+            <div class="project-section-heading">
+                <p class="eyebrow">CONNECTIONS</p>
+                <h2>Wiring Connections</h2>
+            </div>
+
+            <h3>GPS Module — AltSoftSerial</h3>
+
+            <div class="project-table-wrapper">
+                <table class="project-table">
+                    <thead>
+                        <tr>
+                            <th>GPS Module</th>
+                            <th>Arduino UNO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>TX</td><td>D8 (AltSoftSerial RX)</td></tr>
+                        <tr><td>RX</td><td>D9 (AltSoftSerial TX)</td></tr>
+                        <tr><td>VCC</td><td>According to module specification</td></tr>
+                        <tr><td>GND</td><td>GND</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>HC-05 Bluetooth Module</h3>
+
+            <div class="project-table-wrapper">
+                <table class="project-table">
+                    <thead>
+                        <tr>
+                            <th>HC-05</th>
+                            <th>Arduino UNO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>TXD</td><td>D2 (BT_RX)</td></tr>
+                        <tr><td>RXD</td><td>D3 (BT_TX), through a voltage divider</td></tr>
+                        <tr><td>VCC</td><td>According to breakout-board specification</td></tr>
+                        <tr><td>GND</td><td>GND</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>L298N Motor Driver</h3>
+
+            <div class="project-table-wrapper">
+                <table class="project-table">
+                    <thead>
+                        <tr>
+                            <th>L298N</th>
+                            <th>Arduino UNO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>ENA</td><td>D5</td></tr>
+                        <tr><td>ENB</td><td>D6</td></tr>
+                        <tr><td>IN1</td><td>D4</td></tr>
+                        <tr><td>IN2</td><td>D7</td></tr>
+                        <tr><td>IN3</td><td>D12</td></tr>
+                        <tr><td>IN4</td><td>D13</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>HC-SR04 Ultrasonic Sensor</h3>
+
+            <div class="project-table-wrapper">
+                <table class="project-table">
+                    <thead>
+                        <tr>
+                            <th>HC-SR04</th>
+                            <th>Arduino UNO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>TRIG</td><td>D10</td></tr>
+                        <tr><td>ECHO</td><td>D11</td></tr>
+                        <tr><td>VCC</td><td>5V</td></tr>
+                        <tr><td>GND</td><td>GND</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>QMC5883L Compass</h3>
+
+            <div class="project-table-wrapper">
+                <table class="project-table">
+                    <thead>
+                        <tr>
+                            <th>Compass</th>
+                            <th>Arduino UNO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>SDA</td><td>A4</td></tr>
+                        <tr><td>SCL</td><td>A5</td></tr>
+                        <tr><td>VCC</td><td>According to module specification</td></tr>
+                        <tr><td>GND</td><td>GND</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="project-note">
+                <strong>Important:</strong>
+                AltSoftSerial uses fixed pins D8 and D9 on Arduino UNO.
+                Connect GPS TX to D8 and GPS RX to D9.
+                Use a voltage divider on the Arduino D3 to HC-05 RXD
+                signal. Check the voltage requirements of each module.
+                Connect the grounds together. Use a suitable motor supply
+                rather than powering the motors from the Arduino 5V pin.
+            </div>
+
+        </div>
+    </section>
+
+    <section class="project-content-section">
+        <div class="container">
+
+            <div class="project-section-heading">
+                <p class="eyebrow">SOFTWARE</p>
+                <h2>Software Requirements</h2>
+            </div>
+
+            <ul class="project-list">
+                <li>Arduino IDE</li>
+                <li>AltSoftSerial library</li>
+                <li>TinyGPS++ library</li>
+                <li>QMC5883LCompass library</li>
+                <li>SoftwareSerial library (included with Arduino AVR core)</li>
+                <li>Arduino UNO board support</li>
+            </ul>
+
+        </div>
+    </section>
+
+    <section class="project-content-section">
+        <div class="container">
+
+            <div class="project-section-heading">
+                <p class="eyebrow">HOW IT WORKS</p>
+                <h2>Working Principle</h2>
+            </div>
+
+            <ol class="project-list">
+                <li>
+                    The Arduino initializes the motors, GPS, compass,
+                    Bluetooth and obstacle sensor.
+                </li>
+                <li>
+                    The phone sends a destination using the Bluetooth
+                    command format:
+                    <strong>DEST,latitude,longitude</strong>
+                </li>
+                <li>
+                    The GPS module continuously updates the current
+                    geographical position.
+                </li>
+                <li>
+                    The navigation module calculates the distance
+                    and bearing toward the destination.
+                </li>
+                <li>
+                    The compass measures the current heading.
+                    The controller compares it with the target bearing.
+                </li>
+                <li>
+                    The car makes short turning or forward motor
+                    movements according to the heading error.
+                </li>
+                <li>
+                    The ultrasonic sensor checks for obstacles.
+                    The car stops when the measured distance is below
+                    the configured obstacle threshold.
+                </li>
+                <li>
+                    The car stops and sends a Bluetooth message when
+                    it reaches the configured arrival distance.
+                </li>
+            </ol>
+
+        </div>
+    </section>
+
+    <section class="project-content-section">
+        <div class="container">
+
+            <div class="project-section-heading">
+                <p class="eyebrow">CONFIGURATION</p>
+                <h2>Navigation Settings</h2>
+            </div>
+
+            <div class="project-table-wrapper">
+                <table class="project-table">
+                    <thead>
+                        <tr>
+                            <th>Setting</th>
+                            <th>Code Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>GPS baud rate</td><td>9600</td></tr>
+                        <tr><td>Bluetooth baud rate</td><td>9600</td></tr>
+                        <tr><td>Motor speed</td><td>150</td></tr>
+                        <tr><td>Arrival distance</td><td>5 metres</td></tr>
+                        <tr><td>Obstacle threshold</td><td>30 cm</td></tr>
+                        <tr><td>Turn threshold</td><td>20 degrees</td></tr>
+                        <tr><td>GPS timeout</td><td>3000 milliseconds</td></tr>
+                        <tr><td>Compass declination</td><td>0 degrees, 0 minutes (default)</td></tr>
+                        <tr><td>Turning movement pulse</td><td>150 milliseconds</td></tr>
+                        <tr><td>Forward movement pulse</td><td>300 milliseconds</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="project-note">
+                Compass declination is currently set to zero in the
+                supplied configuration. It must be checked and adjusted
+                for the actual test location. GPS accuracy, compass
+                calibration, motor direction and movement timing need
+                real-world testing.
+            </div>
+
+        </div>
+    </section>
+
+    <section class="project-content-section" id="source-code">
+        <div class="container">
+
+            <div class="project-section-heading">
+                <p class="eyebrow">DOWNLOADS</p>
+                <h2>Project Source Code</h2>
+                <p>
+                    Download the original modular Arduino project files.
+                </p>
+            </div>
+
+            <div class="project-source-grid">
+
+                <article class="project-source-card">
+                    <h3>Main Arduino Sketch</h3>
+                    <p>GPS Navigation Car</p>
+                    <a href="source/gps_navigation_car/gps_navigation_car.ino" download>
+                        Download .ino
+                    </a>
+                </article>
+
+                <article class="project-source-card">
+                    <h3>Configuration</h3>
+                    <p>Pin definitions and navigation settings</p>
+                    <a href="source/gps_navigation_car/config.h" download>
+                        Download config.h
+                    </a>
+                </article>
+
+                <article class="project-source-card">
+                    <h3>Motor Control</h3>
+                    <p>Motor driver declarations</p>
+                    <a href="source/gps_navigation_car/motor_control.h" download>
+                        Download .h
+                    </a>
+                    <a href="source/gps_navigation_car/motor_control.cpp" download>
+                        Download .cpp
+                    </a>
+                </article>
+
+                <article class="project-source-card">
+                    <h3>GPS Navigation</h3>
+                    <p>GPS position, distance and bearing</p>
+                    <a href="source/gps_navigation_car/gps_navigation.h" download>
+                        Download .h
+                    </a>
+                    <a href="source/gps_navigation_car/gps_navigation.cpp" download>
+                        Download .cpp
+                    </a>
+                </article>
+
+                <article class="project-source-card">
+                    <h3>Compass Control</h3>
+                    <p>Compass heading measurement</p>
+                    <a href="source/gps_navigation_car/compass_control.h" download>
+                        Download .h
+                    </a>
+                    <a href="source/gps_navigation_car/compass_control.cpp" download>
+                        Download .cpp
+                    </a>
+                </article>
+
+                <article class="project-source-card">
+                    <h3>Bluetooth Control</h3>
+                    <p>Phone commands and messages</p>
+                    <a href="source/gps_navigation_car/bluetooth_control.h" download>
+                        Download .h
+                    </a>
+                    <a href="source/gps_navigation_car/bluetooth_control.cpp" download>
+                        Download .cpp
+                    </a>
+                </article>
+
+                <article class="project-source-card">
+                    <h3>Obstacle Sensor</h3>
+                    <p>Ultrasonic distance measurement</p>
+                    <a href="source/gps_navigation_car/obstacle_sensor.h" download>
+                        Download .h
+                    </a>
+                    <a href="source/gps_navigation_car/obstacle_sensor.cpp" download>
+                        Download .cpp
+                    </a>
+                </article>
+
+                <article class="project-source-card">
+                    <h3>Navigator</h3>
+                    <p>Destination and motor navigation logic</p>
+                    <a href="source/gps_navigation_car/navigator.h" download>
+                        Download .h
+                    </a>
+                    <a href="source/gps_navigation_car/navigator.cpp" download>
+                        Download .cpp
+                    </a>
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="project-content-section">
+        <div class="container">
+
+            <div class="project-section-heading">
+                <p class="eyebrow">PROJECT DEMONSTRATION</p>
+                <h2>Watch the Robot in Action</h2>
+            </div>
+
+            <div class="project-image-placeholder">
+                <p>GPS Navigation Car Demo Video</p>
+                <span>Your project demonstration video will appear here.</span>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="project-content-section">
+        <div class="container">
+
+            <div class="project-section-heading">
+                <p class="eyebrow">SAFETY AND TESTING</p>
+                <h2>Important Notes</h2>
+            </div>
+
+            <ul class="project-list">
+                <li>
+                    Test the motors with the wheels lifted before
+                    allowing the car to move on the ground.
+                </li>
+                <li>
+                    Test GPS reception outdoors with a clear view
+                    of the sky.
+                </li>
+                <li>
+                    Calibrate the compass away from motors, magnets
+                    and other magnetic interference.
+                </li>
+                <li>
+                    Check the motor direction and sensor readings
+                    before autonomous operation.
+                </li>
+                <li>
+                    The ultrasonic sensor only checks the area in
+                    front of its mounting position.
+                </li>
+                <li>
+                    GPS navigation is not precise enough for
+                    collision-free operation around people, roads
+                    or moving vehicles. Supervise all tests.
+                </li>
+            </ul>
+
+            <div class="project-note">
+                This is an educational robotics prototype.
+                The supplied code uses short motor movement pulses;
+                it does not provide map-based route planning or
+                certified autonomous vehicle safety.
+            </div>
+
+        </div>
+    </section>
+
+    <section class="project-content-section">
+        <div class="container">
+            <a href="projects.html?platform=Arduino" class="button secondary">
+                ← Back to Arduino Projects
+            </a>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>© <span id="year"></span> VJaYa Robotics</p>
+        <p>Learn · Build · Create</p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>

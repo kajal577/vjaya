@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="ESP32 WiFi Scanner and WiFi Setup Portal robotics project by VJaYa Robotics.">
+
+    <title>ESP32 WiFi Scanner | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT 01</p>
+
+        <span class="project-tag">ESP32 PROJECT</span>
+
+        <h1>ESP32 WiFi Scanner & Setup Portal</h1>
+
+        <p>
+            Scan nearby WiFi networks, display network information
+            on an OLED screen and configure your ESP32 through
+            a mobile-friendly WiFi setup webpage.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            This project uses an ESP32 development board to discover
+            nearby wireless networks and show their information.
+            It also provides a browser-based setup portal that lets
+            a user select a WiFi network and enter its password.
+        </p>
+
+        <p>
+            After a successful connection, the ESP32 saves the
+            WiFi credentials using its Preferences storage.
+            On the next startup, it can attempt to reconnect
+            automatically.
+        </p>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WHAT IT CAN DO</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>WiFi Scanning</h3>
+                <p>Discover nearby wireless networks.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Network Information</h3>
+                <p>Display SSID, RSSI signal strength and channel.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>OLED Display</h3>
+                <p>Display up to six discovered networks.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Setup Access Point</h3>
+                <p>Create a temporary WiFi network for configuration.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Web Configuration</h3>
+                <p>Select a WiFi network and enter its password using a phone.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Save Credentials</h3>
+                <p>Store WiFi credentials in ESP32 Preferences.</p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMPONENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>ESP32 DevKit V1 development board</li>
+            <li>SSD1306 128×64 I2C OLED display</li>
+            <li>Jumper wires</li>
+            <li>USB data cable</li>
+            <li>Computer with Arduino IDE</li>
+            <li>Smartphone for WiFi setup</li>
+        </ul>
+
+    </section>
+
+
+    <!-- WIRING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE CONNECTION</p>
+            <h2>ESP32 OLED Wiring</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>OLED Pin</th>
+                        <th>ESP32 Pin</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr><td>VCC</td><td>3.3V*</td></tr>
+                    <tr><td>GND</td><td>GND</td></tr>
+                    <tr><td>SDA</td><td>GPIO 4</td></tr>
+                    <tr><td>SCL</td><td>GPIO 15</td></tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            *Check your OLED module's voltage requirements before connecting VCC.
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>OLED Wiring Diagram</p>
+            <span>Your actual wiring photograph or diagram will appear here.</span>
+        </div>
+
+    </section>
+
+
+    <!-- SOFTWARE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Arduino IDE Libraries</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>WiFi.h — ESP32 WiFi functionality</li>
+            <li>WebServer.h — browser-based web server</li>
+            <li>Preferences.h — save WiFi credentials</li>
+            <li>Adafruit GFX Library</li>
+            <li>Adafruit SSD1306 Library</li>
+        </ul>
+
+        <p>
+            WiFi.h, WebServer.h and Preferences.h are provided
+            by the ESP32 Arduino platform.
+        </p>
+
+    </section>
+
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>Step-by-Step Operation</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>Power on the ESP32.</li>
+
+            <li>Scan nearby WiFi networks.</li>
+
+            <li>Display the discovered networks on the OLED.</li>
+
+            <li>Attempt to connect using saved WiFi credentials.</li>
+
+            <li>If connection fails, start the MUSKAN_SETUP access point.</li>
+
+            <li>Connect your phone to the setup network.</li>
+
+            <li>Open the setup webpage using the IP address shown in Serial Monitor.</li>
+
+            <li>Select a network and enter its password.</li>
+
+            <li>Connect and save the credentials.</li>
+
+        </ol>
+
+    </section>
+
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+            <p>Download the ESP32 WiFi Scanner project files.</p>
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/wifi_scanner/wifi_scanner.ino"
+               download>
+
+                <span>📄</span>
+                <h3>Main Sketch</h3>
+                <p>wifi_scanner.ino</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/wifi_scanner/oled.cpp"
+               download>
+
+                <span>📟</span>
+                <h3>OLED Module</h3>
+                <p>oled.cpp</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/wifi_scanner/oled.h"
+               download>
+
+                <span>📑</span>
+                <h3>OLED Header</h3>
+                <p>oled.h</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch It Working</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>WiFi Scanner Demonstration</p>
+            <span>Your demonstration video will appear here.</span>
+        </div>
+
+    </section>
+
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html?platform=ESP32"
+           class="button secondary">
+            ← Back to ESP32 Projects
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>

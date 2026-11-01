@@ -1,0 +1,459 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Arduino UNO Smart Home Automation project by VJaYa Robotics. Control light and fan using serial voice commands and relay modules.">
+
+    <title>Smart Home Automation | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT 03</p>
+
+        <span class="project-tag">ARDUINO PROJECT</span>
+
+        <h1>SMART HOME AUTOMATION</h1>
+
+        <p>
+            Control household appliances such as lights and fans
+            using Arduino UNO, a two-channel relay module
+            and serial voice commands.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+
+    <!-- OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            Smart Home Automation is an Arduino-based project
+            that controls household appliances using text commands
+            received through serial communication.
+        </p>
+
+        <p>
+            The Arduino UNO controls two relay outputs. One relay
+            is assigned to the light and the other to the fan.
+            The program receives commands, converts them to
+            lowercase, checks the requested appliance operation
+            and switches the corresponding relay.
+        </p>
+
+        <p>
+            The program accepts commands such as "light on",
+            "light off", "fan on" and "fan off".
+        </p>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SYSTEM CAPABILITIES</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Light Control</h3>
+                <p>Controls the light using the first relay output.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Fan Control</h3>
+                <p>Controls the fan using the second relay output.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Voice Commands</h3>
+                <p>Accepts text commands generated from voice input.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Serial Communication</h3>
+                <p>Receives serial data at 9600 baud.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Multiple Commands</h3>
+                <p>Accepts short and alternative command phrases.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Command Processing</h3>
+                <p>Converts commands to lowercase and removes extra spaces.</p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- HARDWARE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Arduino UNO</li>
+            <li>2-Channel Relay Module</li>
+            <li>Light or low-voltage demonstration load</li>
+            <li>Fan or low-voltage demonstration load</li>
+            <li>Jumper wires</li>
+            <li>Suitable power supply</li>
+            <li>Serial command input device or interface</li>
+        </ul>
+
+    </section>
+
+
+    <!-- WIRING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE CONNECTION</p>
+            <h2>Arduino UNO Pin Connections</h2>
+        </div>
+
+        <h3>2-Channel Relay Module</h3>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th>Relay Connection</th>
+                        <th>Arduino UNO Pin</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Relay 1 IN</td>
+                        <td>Digital Pin 7</td>
+                        <td>Light control</td>
+                    </tr>
+
+                    <tr>
+                        <td>Relay 2 IN</td>
+                        <td>Digital Pin 8</td>
+                        <td>Fan control</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <h3>Serial Communication</h3>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th>Communication Setting</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Communication</td>
+                        <td>Hardware Serial</td>
+                    </tr>
+
+                    <tr>
+                        <td>Baud Rate</td>
+                        <td>9600</td>
+                    </tr>
+
+                    <tr>
+                        <td>Command Ending</td>
+                        <td>Newline or carriage return ignored</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            The supplied Arduino sketch uses Hardware Serial and
+            does not define separate Bluetooth pins. Any Bluetooth
+            module or voice-command interface must be connected
+            according to the actual hardware setup. Check the relay
+            module's voltage and input requirements before wiring.
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>Smart Home Automation Wiring Diagram</p>
+            <span>Your actual wiring diagram will appear here.</span>
+        </div>
+
+    </section>
+
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SYSTEM OPERATION</p>
+            <h2>How It Works</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>The Arduino initializes the serial communication at 9600 baud.</li>
+
+            <li>The Arduino configures digital pins 7 and 8 as outputs.</li>
+
+            <li>Both relay outputs are initialized HIGH.</li>
+
+            <li>The program receives incoming serial characters.</li>
+
+            <li>The received command is converted to lowercase and trimmed.</li>
+
+            <li>The Arduino checks whether the command matches a light-control instruction.</li>
+
+            <li>If the command matches, digital pin 7 is switched HIGH or LOW.</li>
+
+            <li>If the command matches a fan-control instruction, digital pin 8 is switched HIGH or LOW.</li>
+
+            <li>The Arduino prints the received command and appliance status through Serial Monitor.</li>
+
+            <li>The command variable is cleared to receive the next command.</li>
+
+        </ol>
+
+        <p class="project-note">
+            The descriptions of relay output levels below reproduce
+            the digitalWrite values in your supplied sketch.
+            Actual appliance ON/OFF behavior depends on the relay
+            module's input logic and wiring.
+        </p>
+
+    </section>
+
+
+    <!-- SOFTWARE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Programming Requirements</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Arduino IDE</li>
+            <li>Arduino UNO board support</li>
+            <li>Arduino Hardware Serial communication</li>
+            <li>Serial Monitor or compatible serial command interface</li>
+        </ul>
+
+    </section>
+
+
+    <!-- VOICE COMMANDS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">COMMAND SYSTEM</p>
+            <h2>Supported Voice Commands</h2>
+        </div>
+
+        <p>
+            The following commands are supported by the
+            original Arduino program.
+        </p>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th>Appliance</th>
+                        <th>Command</th>
+                        <th>Arduino Output</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Light</td>
+                        <td>light off</td>
+                        <td>Pin 7 HIGH</td>
+                    </tr>
+
+                    <tr>
+                        <td>Light</td>
+                        <td>turn off light</td>
+                        <td>Pin 7 HIGH</td>
+                    </tr>
+
+                    <tr>
+                        <td>Light</td>
+                        <td>light on</td>
+                        <td>Pin 7 LOW</td>
+                    </tr>
+
+                    <tr>
+                        <td>Light</td>
+                        <td>turn on light</td>
+                        <td>Pin 7 LOW</td>
+                    </tr>
+
+                    <tr>
+                        <td>Fan</td>
+                        <td>fan off</td>
+                        <td>Pin 8 HIGH</td>
+                    </tr>
+
+                    <tr>
+                        <td>Fan</td>
+                        <td>turn off fan</td>
+                        <td>Pin 8 HIGH</td>
+                    </tr>
+
+                    <tr>
+                        <td>Fan</td>
+                        <td>fan on</td>
+                        <td>Pin 8 LOW</td>
+                    </tr>
+
+                    <tr>
+                        <td>Fan</td>
+                        <td>turn on fan</td>
+                        <td>Pin 8 LOW</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+            <p>Download the original Arduino project sketch.</p>
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/smart_home_automation/smart_home_automation.ino"
+               download>
+
+                <span>📄</span>
+
+                <h3>Arduino Main Code</h3>
+
+                <p>smart_home_automation.ino</p>
+
+                <strong>Download ↓</strong>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- DEMONSTRATION VIDEO -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch It Working</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>Smart Home Automation Demonstration</p>
+            <span>Your project demonstration video will appear here.</span>
+        </div>
+
+    </section>
+
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html?platform=Arduino"
+           class="button secondary">
+            ← Back to Arduino Projects
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Arduino UNO Self-Balancing Robot using MPU6050, L298N and HC-05 Bluetooth by VJaYa Robotics.">
+
+    <title>Self-Balancing Robot | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT 03</p>
+
+        <span class="project-tag">ARDUINO PROJECT</span>
+
+        <h1>Self-Balancing Robot</h1>
+
+        <p>
+            Build a two-wheel robot that automatically maintains
+            its upright position using an MPU6050 sensor,
+            PID control and an L298N motor driver.
+            Control its movement wirelessly using Bluetooth.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            The Self-Balancing Robot is a two-wheel robotic system
+            designed to balance itself in an upright position.
+            It uses an MPU6050 accelerometer and gyroscope to
+            measure its tilt and rotational movement.
+        </p>
+
+        <p>
+            An Arduino UNO processes the sensor readings and
+            calculates the required motor correction using a
+            PID-based controller. The L298N motor driver controls
+            the two DC motors to help maintain balance.
+        </p>
+
+        <p>
+            An HC-05 Bluetooth module receives wireless movement
+            commands from a compatible Bluetooth controller.
+        </p>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WHAT IT CAN DO</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Self Balancing</h3>
+                <p>Automatically corrects the robot's tilt using motor feedback.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>MPU6050 Sensor</h3>
+                <p>Measures acceleration and angular velocity.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>PID Controller</h3>
+                <p>Calculates motor correction to maintain balance.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Bluetooth Control</h3>
+                <p>Receives movement commands through HC-05.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Two-Wheel Drive</h3>
+                <p>Controls independent left and right motors.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Fall Protection</h3>
+                <p>Stops motor drive when the tilt exceeds the configured limit.</p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMPONENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Arduino UNO</li>
+            <li>MPU6050 accelerometer and gyroscope module</li>
+            <li>L298N dual H-bridge motor driver</li>
+            <li>HC-05 Bluetooth module</li>
+            <li>Two DC geared motors</li>
+            <li>Two robot wheels</li>
+            <li>Robot chassis and mounting hardware</li>
+            <li>Suitable motor battery and power supply</li>
+            <li>Jumper wires</li>
+        </ul>
+
+    </section>
+
+
+    <!-- L298N WIRING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">MOTOR CONNECTIONS</p>
+            <h2>L298N Motor Driver Wiring</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>L298N Pin</th>
+                        <th>Arduino UNO Pin</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr><td>ENA</td><td>D5</td></tr>
+                    <tr><td>IN1</td><td>D7</td></tr>
+                    <tr><td>IN2</td><td>D8</td></tr>
+                    <tr><td>ENB</td><td>D6</td></tr>
+                    <tr><td>IN3</td><td>D9</td></tr>
+                    <tr><td>IN4</td><td>D4</td></tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <p>
+            Connect the left and right motors to the corresponding
+            L298N output terminals. Confirm the actual motor
+            direction before attempting to balance.
+        </p>
+
+    </section>
+
+
+    <!-- MPU6050 WIRING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SENSOR CONNECTIONS</p>
+            <h2>MPU6050 Wiring</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>MPU6050 Pin</th>
+                        <th>Arduino UNO Pin</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr><td>VCC</td><td>Suitable module supply voltage</td></tr>
+                    <tr><td>GND</td><td>GND</td></tr>
+                    <tr><td>SDA</td><td>A4</td></tr>
+                    <tr><td>SCL</td><td>A5</td></tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            The MPU6050 uses the Arduino UNO I2C interface.
+            Check the sensor breakout board's voltage requirements.
+        </div>
+
+    </section>
+
+
+    <!-- BLUETOOTH WIRING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WIRELESS CONTROL</p>
+            <h2>HC-05 Bluetooth Wiring</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>HC-05 Pin</th>
+                        <th>Arduino UNO Connection</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr><td>TXD</td><td>D10 (BT_RX)</td></tr>
+                    <tr><td>RXD</td><td>D11 (BT_TX), through a voltage divider</td></tr>
+                    <tr><td>GND</td><td>GND</td></tr>
+                    <tr><td>VCC</td><td>According to HC-05 breakout specifications</td></tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            The Arduino receives Bluetooth data on D10 and transmits
+            on D11 using SoftwareSerial at 9600 baud.
+            Use a voltage divider to reduce Arduino TX voltage
+            before connecting to HC-05 RX.
+        </div>
+
+    </section>
+
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>Working Principle</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>The Arduino initializes the motor driver and Bluetooth module.</li>
+
+            <li>The MPU6050 initializes and checks sensor communication.</li>
+
+            <li>The gyroscope is calibrated while the robot remains still and upright.</li>
+
+            <li>The MPU6050 provides accelerometer and gyroscope readings.</li>
+
+            <li>A complementary filter estimates the robot's tilt angle.</li>
+
+            <li>The PID-based controller calculates the balancing output.</li>
+
+            <li>The L298N drives the motors to correct the robot's tilt.</li>
+
+            <li>Bluetooth commands adjust movement and turning behavior.</li>
+
+            <li>If the robot tilts beyond the configured fall limit, motor drive stops.</li>
+
+        </ol>
+
+    </section>
+
+
+    <!-- BLUETOOTH COMMANDS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WIRELESS OPERATION</p>
+            <h2>Bluetooth Commands</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Command</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr><td>A</td><td>Arm the robot</td></tr>
+                    <tr><td>X</td><td>Disarm the robot</td></tr>
+                    <tr><td>F</td><td>Forward movement target</td></tr>
+                    <tr><td>B</td><td>Backward movement target</td></tr>
+                    <tr><td>L</td><td>Left turn</td></tr>
+                    <tr><td>R</td><td>Right turn</td></tr>
+                    <tr><td>S</td><td>Stop movement command</td></tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            Send commands as single characters over Bluetooth.
+            The robot must be armed before motor balancing is enabled.
+        </div>
+
+    </section>
+
+
+    <!-- SOFTWARE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Arduino IDE Requirements</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Arduino IDE</li>
+            <li>Arduino.h</li>
+            <li>Wire.h</li>
+            <li>SoftwareSerial.h</li>
+            <li>Arduino UNO board support</li>
+        </ul>
+
+        <p>
+            Wire and SoftwareSerial are included with the standard
+            Arduino AVR board package. The supplied project uses
+            its own MPU6050 sensor implementation.
+        </p>
+
+    </section>
+
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+            <p>Download the modular Self-Balancing Robot project files.</p>
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/self_balancing_robot/self_balancing_robot.ino"
+               download>
+                <span>📄</span>
+                <h3>Main Sketch</h3>
+                <p>self_balancing_robot.ino</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/self_balancing_robot/balance_config.h"
+               download>
+                <span>⚙️</span>
+                <h3>Balance Configuration</h3>
+                <p>balance_config.h</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/self_balancing_robot/balance_controller.h"
+               download>
+                <span>📑</span>
+                <h3>Controller Header</h3>
+                <p>balance_controller.h</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/self_balancing_robot/balance_controller.cpp"
+               download>
+                <span>🧠</span>
+                <h3>Balance Controller</h3>
+                <p>balance_controller.cpp</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/self_balancing_robot/bluetooth_control.h"
+               download>
+                <span>📑</span>
+                <h3>Bluetooth Header</h3>
+                <p>bluetooth_control.h</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/self_balancing_robot/bluetooth_control.cpp"
+               download>
+                <span>📡</span>
+                <h3>Bluetooth Module</h3>
+                <p>bluetooth_control.cpp</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/self_balancing_robot/motor.h"
+               download>
+                <span>📑</span>
+                <h3>Motor Header</h3>
+                <p>motor.h</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/self_balancing_robot/motor.cpp"
+               download>
+                <span>⚙️</span>
+                <h3>Motor Module</h3>
+                <p>motor.cpp</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/self_balancing_robot/mpu6050.h"
+               download>
+                <span>📑</span>
+                <h3>MPU6050 Header</h3>
+                <p>mpu6050.h</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/self_balancing_robot/mpu6050.cpp"
+               download>
+                <span>📐</span>
+                <h3>MPU6050 Module</h3>
+                <p>mpu6050.cpp</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch It Working</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>Self-Balancing Robot Demonstration</p>
+            <span>Your project demonstration video will appear here.</span>
+        </div>
+
+    </section>
+
+
+    <!-- SAFETY NOTE -->
+
+    <section class="project-content-section">
+
+        <div class="project-note">
+            <strong>Important:</strong>
+            The PID values and balance angle are starting values
+            and require careful tuning. Test with the wheels raised
+            initially, secure the robot during testing, and keep
+            hands clear of moving wheels. The fall detection feature
+            stops motor drive but does not guarantee physical safety.
+        </div>
+
+    </section>
+
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html?platform=Arduino"
+           class="button secondary">
+            ← Back to Arduino Projects
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>

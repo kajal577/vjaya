@@ -1,0 +1,408 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Arduino UNO Maze Solver Car robotics project by VJaYa Robotics.">
+
+    <title>Maze Solver Car | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT 02</p>
+
+        <span class="project-tag">ARDUINO PROJECT</span>
+
+        <h1>MAZE SOLVER CAR</h1>
+
+        <p>
+            Build an autonomous robot car using Arduino UNO,
+            an ultrasonic distance sensor, a servo motor
+            and an L298N motor driver.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+
+    <!-- OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            The Maze Solver Car is an autonomous robot that
+            uses an ultrasonic sensor mounted on a servo motor
+            to measure distances in different directions.
+        </p>
+
+        <p>
+            The Arduino UNO processes the distance measurements
+            and controls the motors through an L298N motor driver.
+            The navigation program prioritizes turning left,
+            moving forward and turning right. When all three
+            directions are blocked, it performs a reverse and
+            turning sequence.
+        </p>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">ROBOT CAPABILITIES</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Obstacle Detection</h3>
+                <p>Measures distances using an ultrasonic sensor.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Servo Scanning</h3>
+                <p>Scans the left, front and right directions.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Automatic Movement</h3>
+                <p>Controls forward, backward, left and right movement.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Left-Priority Navigation</h3>
+                <p>Checks the left direction first, followed by front and right.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Dead-End Response</h3>
+                <p>Reverses and performs a programmed turn when blocked.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Modular Programming</h3>
+                <p>Uses separate motor, sensor and navigation modules.</p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- HARDWARE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Arduino UNO</li>
+            <li>L298N motor driver</li>
+            <li>HC-SR04 ultrasonic distance sensor</li>
+            <li>Servo motor</li>
+            <li>Two DC geared motors</li>
+            <li>Robot chassis and wheels</li>
+            <li>Suitable motor power supply</li>
+            <li>Jumper wires</li>
+        </ul>
+
+    </section>
+
+
+    <!-- WIRING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE CONNECTION</p>
+            <h2>Arduino UNO Pin Connections</h2>
+        </div>
+
+        <h3>L298N Motor Driver</h3>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th>Motor Driver Pin</th>
+                        <th>Arduino UNO Pin</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr><td>ENA</td><td>5</td></tr>
+                    <tr><td>ENB</td><td>6</td></tr>
+                    <tr><td>IN1</td><td>7</td></tr>
+                    <tr><td>IN2</td><td>8</td></tr>
+                    <tr><td>IN3</td><td>9</td></tr>
+                    <tr><td>IN4</td><td>10</td></tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <h3>Ultrasonic Sensor</h3>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th>Sensor Pin</th>
+                        <th>Arduino UNO Pin</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr><td>TRIG</td><td>11</td></tr>
+                    <tr><td>ECHO</td><td>12</td></tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <h3>Servo Motor</h3>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th>Servo Wire</th>
+                        <th>Connection</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr><td>Signal</td><td>Arduino UNO Pin 3</td></tr>
+                    <tr><td>VCC</td><td>Suitable power supply</td></tr>
+                    <tr><td>GND</td><td>Common GND</td></tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            Remove the L298N ENA and ENB jumpers when using
+            Arduino PWM speed control on pins 5 and 6.
+            Connect the Arduino, motor driver and external
+            power supply grounds together. Do not power the
+            motors directly from the Arduino 5V pin.
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>Maze Solver Car Wiring Diagram</p>
+            <span>Your actual wiring diagram will appear here.</span>
+        </div>
+
+    </section>
+
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">NAVIGATION LOGIC</p>
+            <h2>How It Works</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>The servo positions the ultrasonic sensor to the left.</li>
+
+            <li>The sensor measures the left-side distance.</li>
+
+            <li>The sensor scans forward and measures the front distance.</li>
+
+            <li>The sensor scans right and measures the right distance.</li>
+
+            <li>The Arduino checks whether each direction has more than 25 cm clearance.</li>
+
+            <li>If the left path is open, the robot turns left.</li>
+
+            <li>Otherwise, it checks the front and then the right.</li>
+
+            <li>If all directions are blocked, the robot reverses and turns around.</li>
+
+        </ol>
+
+        <p class="project-note">
+            This implementation uses distance thresholds and timed
+            motor movements. Turning accuracy depends on the motors,
+            battery, chassis and timing calibration. It does not
+            map the maze or guarantee an optimal route.
+        </p>
+
+    </section>
+
+
+    <!-- SOFTWARE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Programming Requirements</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Arduino IDE</li>
+            <li>Arduino AVR Boards package for Arduino UNO</li>
+            <li>Servo library</li>
+        </ul>
+
+    </section>
+
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+            <p>Download the seven separate project files.</p>
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/maze_solver_car/maze_solver_car.ino" download>
+                <span>📄</span>
+                <h3>Main Sketch</h3>
+                <p>maze_solver_car.ino</p>
+                <strong>Download ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/maze_solver_car/motor_control.h" download>
+                <span>📄</span>
+                <h3>Motor Header</h3>
+                <p>motor_control.h</p>
+                <strong>Download ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/maze_solver_car/motor_control.cpp" download>
+                <span>⚙️</span>
+                <h3>Motor Module</h3>
+                <p>motor_control.cpp</p>
+                <strong>Download ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/maze_solver_car/maze_sensor.h" download>
+                <span>📄</span>
+                <h3>Sensor Header</h3>
+                <p>maze_sensor.h</p>
+                <strong>Download ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/maze_solver_car/maze_sensor.cpp" download>
+                <span>📡</span>
+                <h3>Sensor Module</h3>
+                <p>maze_sensor.cpp</p>
+                <strong>Download ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/maze_solver_car/navigator.h" download>
+                <span>📄</span>
+                <h3>Navigation Header</h3>
+                <p>navigator.h</p>
+                <strong>Download ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/maze_solver_car/navigator.cpp" download>
+                <span>🧠</span>
+                <h3>Navigation Module</h3>
+                <p>navigator.cpp</p>
+                <strong>Download ↓</strong>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch It Working</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>Maze Solver Car Video</p>
+            <span>Your project demonstration video will appear here.</span>
+        </div>
+
+    </section>
+
+    <section class="project-content-section">
+        <a href="projects.html?platform=Arduino"
+           class="button secondary">
+            ← Back to Arduino Projects
+        </a>
+    </section>
+
+</main>
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>

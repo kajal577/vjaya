@@ -1,0 +1,454 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="ESP32 Smart Security Door Lock robotics project by VJaYa Robotics.">
+
+    <title>ESP32 Smart Security Door Lock | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">ESP32 PROJECT</span>
+
+        <h1>Smart Security Door Lock</h1>
+
+        <p>
+            Build an ESP32-based smart door lock using an SG90 servo motor,
+            vibration detection, WiFi web control, browser voice commands
+            and Telegram emergency notifications.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            This project uses an ESP32 development board to control
+            a door-lock mechanism using an SG90 servo motor.
+            The system provides a web-based interface for locking
+            and unlocking the door.
+        </p>
+
+        <p>
+            It also supports browser-based voice commands.
+            A vibration sensor monitors disturbances and can trigger
+            an emergency notification through a Telegram bot.
+        </p>
+
+        <div class="project-image-placeholder">
+            <p>Smart Security Door Lock</p>
+            <span>Your actual project photograph will appear here.</span>
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WHAT IT CAN DO</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>WiFi Connectivity</h3>
+                <p>Connect the ESP32 to a wireless network.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Web-Based Control</h3>
+                <p>Lock and unlock the door through a browser interface.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>SG90 Servo Control</h3>
+                <p>Control the locking mechanism using servo movement.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Voice Commands</h3>
+                <p>Use supported browser voice recognition for lock commands.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Vibration Detection</h3>
+                <p>Monitor vibration using a vibration sensor module.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Telegram Alerts</h3>
+                <p>Send an emergency notification when alert conditions are met.</p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMPONENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>ESP32 Development Board</li>
+            <li>SG90 Servo Motor</li>
+            <li>Vibration Sensor Module</li>
+            <li>Green LED</li>
+            <li>Red LED</li>
+            <li>Suitable LED resistors</li>
+            <li>Jumper wires</li>
+            <li>Regulated 5V power supply for the servo</li>
+            <li>WiFi connection</li>
+            <li>Computer or smartphone</li>
+            <li>Telegram account and bot</li>
+        </ul>
+
+    </section>
+
+
+    <!-- WIRING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE CONNECTION</p>
+            <h2>ESP32 Wiring Connections</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Component Pin</th>
+                        <th>ESP32 Pin</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>SG90 Servo</td>
+                        <td>Signal</td>
+                        <td>GPIO 13</td>
+                    </tr>
+
+                    <tr>
+                        <td>SG90 Servo</td>
+                        <td>VCC</td>
+                        <td>External regulated 5V</td>
+                    </tr>
+
+                    <tr>
+                        <td>SG90 Servo</td>
+                        <td>GND</td>
+                        <td>Common GND</td>
+                    </tr>
+
+                    <tr>
+                        <td>Green LED</td>
+                        <td>Positive through resistor</td>
+                        <td>GPIO 14</td>
+                    </tr>
+
+                    <tr>
+                        <td>Red LED</td>
+                        <td>Positive through resistor</td>
+                        <td>GPIO 12</td>
+                    </tr>
+
+                    <tr>
+                        <td>Vibration Sensor</td>
+                        <td>Digital Output</td>
+                        <td>GPIO 15</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            Power the SG90 using a suitable regulated 5V supply.
+            Connect the external supply GND to ESP32 GND.
+            Do not power the servo from the ESP32 3.3V pin.
+            Check your vibration sensor module's voltage requirements.
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>Security Door Lock Wiring Diagram</p>
+            <span>Your actual wiring photograph or diagram will appear here.</span>
+        </div>
+
+    </section>
+
+
+    <!-- SOFTWARE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Arduino IDE Libraries</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>WiFi.h — ESP32 WiFi connectivity</li>
+            <li>WebServer.h — ESP32 web server</li>
+            <li>ESP32Servo.h — Servo motor control</li>
+            <li>WiFiClientSecure.h — Secure network client interface</li>
+            <li>HTTPClient.h — HTTP communication</li>
+        </ul>
+
+        <p>
+            WiFi.h, WebServer.h, WiFiClientSecure.h and HTTPClient.h
+            are provided by the ESP32 Arduino platform.
+            Install the ESP32Servo library separately.
+        </p>
+
+    </section>
+
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>Step-by-Step Operation</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>Power on the ESP32 development board.</li>
+
+            <li>The ESP32 connects to the configured WiFi network.</li>
+
+            <li>The ESP32 starts its web server on port 80.</li>
+
+            <li>Open the smart lock webpage using a browser.</li>
+
+            <li>Send a lock or unlock command through the web interface.</li>
+
+            <li>The SG90 servo moves to the programmed position.</li>
+
+            <li>The red and green LEDs indicate the lock command state.</li>
+
+            <li>The vibration sensor monitors its digital output.</li>
+
+            <li>When vibration alert conditions are met, the ESP32
+                attempts to send a Telegram notification.</li>
+
+            <li>Supported browsers can also recognize voice commands.</li>
+
+        </ol>
+
+    </section>
+
+
+    <!-- LOCK OPERATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SERVO OPERATION</p>
+            <h2>Lock and Unlock Positions</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Operation</th>
+                        <th>Servo Angle</th>
+                        <th>Red LED</th>
+                        <th>Green LED</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Door Locked</td>
+                        <td>0°</td>
+                        <td>ON</td>
+                        <td>OFF</td>
+                    </tr>
+
+                    <tr>
+                        <td>Door Unlocked</td>
+                        <td>90°</td>
+                        <td>OFF</td>
+                        <td>ON</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+            <p>Download the ESP32 Smart Security Door Lock sketch.</p>
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/security_door_lock/security_door_lock.ino"
+               download>
+
+                <span>📄</span>
+                <h3>Main Sketch</h3>
+                <p>security_door_lock.ino</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+        </div>
+
+        <div class="project-note">
+            Before publishing the source code, remove your real
+            WiFi password and Telegram bot token. Replace them
+            with placeholders. If a real bot token was exposed,
+            revoke it and generate a new one.
+        </div>
+
+    </section>
+
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch It Working</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>Security Door Lock Demonstration</p>
+            <span>Your demonstration video will appear here.</span>
+        </div>
+
+    </section>
+
+
+    <!-- SAFETY -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+            <h2>Safety and Security Notes</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>The current web control endpoints do not require
+                authentication. Use only on a trusted private network.</li>
+
+            <li>Do not expose the ESP32 web server directly to the
+                public internet.</li>
+
+            <li>The sketch uses setInsecure() for Telegram HTTPS
+                requests, which disables certificate verification.</li>
+
+            <li>Browser voice recognition support varies by browser.</li>
+
+            <li>The SG90 is intended for a small demonstration mechanism,
+                not a heavy real door bolt.</li>
+
+            <li>This project is an educational prototype, not a
+                certified home-security system.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html?platform=ESP32"
+           class="button secondary">
+            ← Back to ESP32 Projects
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>
