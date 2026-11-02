@@ -21,30 +21,48 @@ const roboticsProjects = [
         description: "Build an autonomous Arduino UNO robot car that scans its surroundings and navigates around obstacles.",
         page: "maze_solver_car.html"
     },
-
     {
-    id: "self_balancing_robot",
-    name: "SELF-BALANCING ROBOT",
-    platform: "Arduino",
-    description: "Build a two-wheel self-balancing robot using Arduino UNO, MPU6050, L298N motor driver and Bluetooth control.",
-    page: "self_balancing_robot.html"
+        id: "self_balancing_robot",
+        name: "SELF-BALANCING ROBOT",
+        platform: "Arduino",
+        description: "Build a two-wheel self-balancing robot using Arduino UNO, MPU6050, L298N motor driver and Bluetooth control.",
+        page: "self_balancing_robot.html"
     },
-     {
+    {
         id: "security_door_lock",
         name: "SMART SECURITY DOOR LOCK",
         platform: "ESP32",
         description: "ESP32 smart door lock using an SG90 servo, vibration detection, WiFi web control, voice commands and Telegram emergency alerts.",
         page: "security_door_lock.html"
     },
-        {
+    {
         id: "gps_navigation_car",
         name: "GPS NAVIGATION CAR",
         platform: "Arduino",
         description: "Build an Arduino UNO navigation car using GPS positioning, QMC5883L compass, HC-05 Bluetooth and ultrasonic obstacle detection.",
         page: "gps_navigation_car.html"
     },
-
-    
+    {
+        id: "ai_vision_robot",
+        name: "AI VISION ROBOT",
+        platform: "ESP32",
+        description: "Control a robot using PC webcam-based hand gesture detection with Python, OpenCV and MediaPipe.",
+        page: "ai_vision_robot.html"
+    },
+    {
+        id: "offline_google",
+        name: "OFFLINE GOOGLE - MUSKAN AI",
+        platform: "ESP32 + Python",
+        description: "An offline English and Hindi AI assistant using Ollama, Vosk, an ESP32 push button and OLED display.",
+        page: "offline_google.html"
+    },
+    {
+        id: "ai_assistant",
+        name: "AI ASSISTANT — PC VOICE ASSISTANT",
+        platform: "Python + Windows PC",
+        description: "MUSKAN is a Python desktop voice assistant using Groq AI, Google speech recognition, text-to-speech, Windows PC controls, personal memory and optional ESP32 MQTT communication.",
+        page: "ai_assistant.html"
+    }
 ];
 
 const pageParams = new URLSearchParams(window.location.search);
