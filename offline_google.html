@@ -1,0 +1,675 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="OFFLINE GOOGLE - MUSKAN AI, an offline English and Hindi AI assistant using Python, Ollama, Qwen 2.5, Vosk and ESP32.">
+
+    <title>OFFLINE GOOGLE - MUSKAN AI | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">OFFLINE AI PROJECT</span>
+
+        <h1>OFFLINE GOOGLE - MUSKAN AI</h1>
+
+        <p>
+            Build a personal offline AI assistant using Python,
+            Ollama, Qwen 2.5 3B, Vosk speech recognition and ESP32.
+            Ask questions in English or Hindi, receive spoken answers,
+            and interact with the assistant using an ESP32 push button
+            and OLED display.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            OFFLINE GOOGLE is a local AI assistant project named
+            MUSKAN. It uses a Windows computer as its AI processing
+            system and an ESP32 development board as its hardware
+            interface.
+        </p>
+
+        <p>
+            The Python application communicates with Ollama running
+            locally on the computer. The Qwen 2.5 3B model generates
+            answers without requiring a cloud AI API.
+        </p>
+
+        <p>
+            Vosk provides offline English and Hindi speech recognition.
+            Python speech libraries handle microphone input and spoken
+            responses.
+        </p>
+
+        <p>
+            The ESP32 connects to the computer through USB serial
+            communication. It provides a push button for interaction
+            and an SSD1306 OLED display for showing information.
+        </p>
+
+        <div class="project-image-placeholder">
+            <p>MUSKAN AI - OFFLINE ASSISTANT</p>
+            <span>Your actual MUSKAN AI project photograph will appear here.</span>
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WHAT IT CAN DO</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Local AI Brain</h3>
+                <p>
+                    Generate answers using Ollama and the
+                    locally installed Qwen 2.5 3B model.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>English Voice Recognition</h3>
+                <p>
+                    Recognize spoken English using the
+                    Vosk English speech model.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Hindi Voice Recognition</h3>
+                <p>
+                    Recognize spoken Hindi using the
+                    Vosk Hindi speech model.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Voice Responses</h3>
+                <p>
+                    Speak generated answers using
+                    the Python text-to-speech system.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>ESP32 Communication</h3>
+                <p>
+                    Exchange commands and display information
+                    between the computer and ESP32 through USB serial.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>OLED Display</h3>
+                <p>
+                    Show assistant status and information
+                    on an SSD1306 OLED display.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Push Button</h3>
+                <p>
+                    Use a physical button connected to the
+                    ESP32 to interact with the assistant.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Local Processing</h3>
+                <p>
+                    Process AI questions locally after the
+                    required software and models are installed.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMPONENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>ESP32 Development Board</li>
+            <li>SSD1306 128x64 I2C OLED Display</li>
+            <li>Push Button</li>
+            <li>USB Data Cable</li>
+            <li>Jumper Wires</li>
+            <li>Windows Computer or Laptop</li>
+            <li>Microphone</li>
+            <li>Speaker or Headphones</li>
+        </ul>
+
+    </section>
+
+
+    <!-- WIRING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE CONNECTION</p>
+            <h2>ESP32 Wiring Connections</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Component Pin</th>
+                        <th>ESP32 Connection</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>OLED Display</td>
+                        <td>SDA</td>
+                        <td>GPIO 4</td>
+                    </tr>
+
+                    <tr>
+                        <td>OLED Display</td>
+                        <td>SCL</td>
+                        <td>GPIO 15</td>
+                    </tr>
+
+                    <tr>
+                        <td>OLED Display</td>
+                        <td>VCC</td>
+                        <td>Suitable supply voltage for the display module</td>
+                    </tr>
+
+                    <tr>
+                        <td>OLED Display</td>
+                        <td>GND</td>
+                        <td>GND</td>
+                    </tr>
+
+                    <tr>
+                        <td>Push Button</td>
+                        <td>One terminal</td>
+                        <td>GPIO 27</td>
+                    </tr>
+
+                    <tr>
+                        <td>Push Button</td>
+                        <td>Other terminal</td>
+                        <td>GND</td>
+                    </tr>
+
+                    <tr>
+                        <td>ESP32</td>
+                        <td>USB</td>
+                        <td>Computer USB port</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            The push button uses the ESP32 INPUT_PULLUP configuration.
+            The OLED uses I2C communication at address 0x3C.
+            Check the voltage requirements of your OLED module
+            before connecting its power pins.
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>MUSKAN AI Wiring Diagram</p>
+            <span>Your actual wiring photograph or diagram will appear here.</span>
+        </div>
+
+    </section>
+
+
+    <!-- SOFTWARE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Software and Libraries</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Windows 10 or Windows 11</li>
+            <li>Python 3.11</li>
+            <li>Ollama</li>
+            <li>Qwen 2.5 3B model</li>
+            <li>Vosk English speech model</li>
+            <li>Vosk Hindi speech model</li>
+            <li>PySerial</li>
+            <li>PyWin32</li>
+            <li>PyAudio</li>
+            <li>SpeechRecognition</li>
+            <li>pyttsx3</li>
+            <li>Arduino IDE</li>
+            <li>Adafruit GFX Library</li>
+            <li>Adafruit SSD1306 Library</li>
+        </ul>
+
+        <p>
+            Install the Python dependencies from the supplied
+            requirements.txt file:
+        </p>
+
+        <pre><code>py -3.11 -m pip install -r requirements.txt</code></pre>
+
+    </section>
+
+
+    <!-- INSTALLATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">INSTALLATION GUIDE</p>
+            <h2>How to Set Up MUSKAN AI</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>Install Python 3.11 on your Windows computer.</li>
+
+            <li>Install Ollama on the computer.</li>
+
+            <li>Open Command Prompt and download the Qwen model using:
+                <pre><code>ollama pull qwen2.5:3b</code></pre>
+            </li>
+
+            <li>Install the Python dependencies using the supplied
+                requirements.txt file.</li>
+
+            <li>Create a folder named models inside the Python project folder.</li>
+
+            <li>Download the Vosk English model:
+                <strong>vosk-model-small-en-us-0.15</strong>.
+            </li>
+
+            <li>Download the Vosk Hindi model:
+                <strong>vosk-model-small-hi-0.22</strong>.
+            </li>
+
+            <li>Extract both model folders inside the models folder.</li>
+
+            <li>Connect the ESP32 to the computer using a USB data cable.</li>
+
+            <li>Open muskan_hardware.ino in Arduino IDE.</li>
+
+            <li>Install the required Adafruit display libraries and upload
+                the firmware to the ESP32.</li>
+
+            <li>Check the serial port used by the ESP32 in the Python
+                application configuration.</li>
+
+            <li>Start the Ollama service and run the Python application.</li>
+
+        </ol>
+
+        <div class="project-note">
+            The two Vosk speech models are not included in the GitHub
+            source downloads because they are large files. They must
+            be downloaded and extracted separately. The Qwen model
+            is installed through Ollama.
+        </div>
+
+    </section>
+
+
+    <!-- MODEL STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">MODEL INSTALLATION</p>
+            <h2>Required Folder Structure</h2>
+        </div>
+
+        <p>
+            After downloading and extracting the two Vosk models,
+            your Python project should have this folder structure:
+        </p>
+
+        <pre><code>MUSKAN_HARDWARE/
+│
+├── main_hardware.py
+├── local_ai.py
+├── voice.py
+├── requirements.txt
+│
+└── models/
+    │
+    ├── vosk-model-small-en-us-0.15/
+    │
+    └── vosk-model-small-hi-0.22/</code></pre>
+
+        <p>
+            Keep the model folder names exactly as shown because
+            voice.py uses these names to locate the models.
+        </p>
+
+    </section>
+
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>Step-by-Step Operation</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>Connect the ESP32 to the Windows computer.</li>
+
+            <li>The ESP32 initializes the OLED display and push button.</li>
+
+            <li>Start the Python MUSKAN application.</li>
+
+            <li>The application loads the English and Hindi Vosk models.</li>
+
+            <li>Ask a question using the supported text or voice interaction.</li>
+
+            <li>The speech recognition system processes microphone input.</li>
+
+            <li>The recognized question is sent to the local Qwen AI model
+                through Ollama.</li>
+
+            <li>The AI generates an answer locally.</li>
+
+            <li>The Python application speaks the answer using pyttsx3.</li>
+
+            <li>The computer communicates with the ESP32 to display
+                information on the OLED.</li>
+
+        </ol>
+
+    </section>
+
+
+    <!-- PROJECT FILES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAM STRUCTURE</p>
+            <h2>Project Source Files</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>main_hardware.py</h3>
+                <p>
+                    Main application, hardware communication
+                    and assistant operation.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>local_ai.py</h3>
+                <p>
+                    Sends questions to the local Ollama
+                    Qwen AI model and returns answers.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>voice.py</h3>
+                <p>
+                    Loads speech models, recognizes audio
+                    and speaks generated answers.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>muskan_hardware.ino</h3>
+                <p>
+                    ESP32 firmware for OLED display
+                    and push-button communication.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>requirements.txt</h3>
+                <p>
+                    Lists the Python packages required
+                    to install the application.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+            <p>
+                Download the original MUSKAN AI project files.
+            </p>
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/offline_google/main_hardware.py"
+               download>
+
+                <span>📄</span>
+                <h3>Main Application</h3>
+                <p>main_hardware.py</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/offline_google/local_ai.py"
+               download>
+
+                <span>📄</span>
+                <h3>Local AI Engine</h3>
+                <p>local_ai.py</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/offline_google/voice.py"
+               download>
+
+                <span>📄</span>
+                <h3>Voice System</h3>
+                <p>voice.py</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/offline_google/muskan_hardware.ino"
+               download>
+
+                <span>📄</span>
+                <h3>ESP32 Firmware</h3>
+                <p>muskan_hardware.ino</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/offline_google/requirements.txt"
+               download>
+
+                <span>📄</span>
+                <h3>Python Dependencies</h3>
+                <p>requirements.txt</p>
+                <strong>Download File ↓</strong>
+
+            </a>
+
+        </div>
+
+        <div class="project-note">
+            The source downloads contain the application files.
+            Vosk speech models and the Ollama Qwen model must
+            be installed separately.
+        </div>
+
+    </section>
+
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch MUSKAN AI Working</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>MUSKAN AI Demonstration Video</p>
+            <span>Your actual project demonstration video will appear here.</span>
+        </div>
+
+    </section>
+
+
+    <!-- SAFETY -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+            <h2>Operating Notes</h2>
+        </div>
+
+        <ul class="project-list">
+
+            <li>Use a USB data cable that supports serial communication.</li>
+
+            <li>Check the correct ESP32 COM port before running the application.</li>
+
+            <li>Close other applications that may be using the ESP32 serial port.</li>
+
+            <li>Ensure both Vosk model folders are extracted correctly.</li>
+
+            <li>Make sure Ollama is running and qwen2.5:3b is installed.</li>
+
+            <li>Connect a working microphone and speaker or headphones.</li>
+
+            <li>Check the OLED wiring and power supply before switching on.</li>
+
+            <li>Keep the original Python files and folder names together.</li>
+
+        </ul>
+
+        <div class="project-note">
+            Offline operation requires the software, AI model,
+            speech models and dependencies to be installed first.
+            Internet may be needed for initial downloads and updates.
+        </div>
+
+    </section>
+
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html"
+           class="button secondary">
+            ← Back to Robotics Projects
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>
+

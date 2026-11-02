@@ -1,0 +1,624 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="AI Vision Robot project by VJaYa Robotics. Build a computer vision robot using Python, OpenCV, MediaPipe, ESP32 and L298N.">
+
+    <title>AI Vision Robot | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">AI ROBOTICS PROJECT</span>
+
+        <h1>AI Vision Robot</h1>
+
+        <p>
+            Build an intelligent vision-based robot using Python,
+            OpenCV, MediaPipe, ESP32 and an L298N motor driver.
+            The computer camera captures visual information,
+            while AI-based vision processing helps control
+            the robot's movement.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            The AI Vision Robot combines computer vision and
+            robotics to create a robot that responds to visual
+            information captured through a computer webcam.
+        </p>
+
+        <p>
+            Python handles the AI vision processing using
+            OpenCV and MediaPipe. The computer communicates
+            with an ESP32 development board through USB serial.
+        </p>
+
+        <p>
+            The ESP32 controls an L298N motor driver to move
+            the robot forward, backward, left, right or stop.
+        </p>
+
+        <div class="project-image-placeholder">
+            <p>AI Vision Robot</p>
+            <span>Your actual AI Vision Robot photograph will appear here.</span>
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WHAT IT CAN DO</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Computer Vision</h3>
+                <p>
+                    Capture and process live camera frames
+                    using Python and OpenCV.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>MediaPipe Detection</h3>
+                <p>
+                    Use MediaPipe vision processing
+                    to detect and interpret visual information.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>ESP32 Communication</h3>
+                <p>
+                    Send movement commands from the
+                    computer to the ESP32 through USB serial.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Motor Control</h3>
+                <p>
+                    Control the robot's DC motors using
+                    an L298N motor driver.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Real-Time Movement</h3>
+                <p>
+                    Send forward, backward, left,
+                    right and stop commands.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Emergency Stop</h3>
+                <p>
+                    Stop robot movement using an emergency
+                    stop command and command timeout.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMPONENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>ESP32 Development Board</li>
+            <li>L298N Motor Driver</li>
+            <li>DC Geared Motors</li>
+            <li>Robot Chassis</li>
+            <li>Robot Wheels</li>
+            <li>Suitable Motor Power Supply</li>
+            <li>USB Data Cable</li>
+            <li>Jumper Wires</li>
+            <li>Computer or Laptop</li>
+            <li>Computer Webcam</li>
+        </ul>
+
+    </section>
+
+
+    <!-- WIRING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE CONNECTION</p>
+            <h2>ESP32 and L298N Wiring Connections</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Component Pin</th>
+                        <th>ESP32 / Connection</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>L298N</td>
+                        <td>IN1</td>
+                        <td>GPIO 16</td>
+                    </tr>
+
+                    <tr>
+                        <td>L298N</td>
+                        <td>IN2</td>
+                        <td>GPIO 17</td>
+                    </tr>
+
+                    <tr>
+                        <td>L298N</td>
+                        <td>IN3</td>
+                        <td>GPIO 18</td>
+                    </tr>
+
+                    <tr>
+                        <td>L298N</td>
+                        <td>IN4</td>
+                        <td>GPIO 19</td>
+                    </tr>
+
+                    <tr>
+                        <td>L298N</td>
+                        <td>OUT1 and OUT2</td>
+                        <td>Motor 1</td>
+                    </tr>
+
+                    <tr>
+                        <td>L298N</td>
+                        <td>OUT3 and OUT4</td>
+                        <td>Motor 2</td>
+                    </tr>
+
+                    <tr>
+                        <td>L298N</td>
+                        <td>Motor Supply</td>
+                        <td>Suitable external supply</td>
+                    </tr>
+
+                    <tr>
+                        <td>ESP32</td>
+                        <td>GND</td>
+                        <td>Common GND with L298N</td>
+                    </tr>
+
+                    <tr>
+                        <td>Computer</td>
+                        <td>USB</td>
+                        <td>ESP32 USB connection</td>
+                    </tr>
+
+                    <tr>
+                        <td>Webcam</td>
+                        <td>USB / Computer Camera</td>
+                        <td>Computer</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            The computer connects to the ESP32 using a USB data cable.
+            The webcam connects to the computer, not directly to the ESP32.
+            Connect ESP32 GND and L298N GND together.
+            Power the motors using a suitable external supply.
+            Check the L298N enable-pin configuration and motor
+            supply requirements before powering the circuit.
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>AI Vision Robot Wiring Diagram</p>
+            <span>Your actual wiring photograph or diagram will appear here.</span>
+        </div>
+
+    </section>
+
+
+    <!-- SOFTWARE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Python Software and Libraries</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Python 3.11</li>
+            <li>OpenCV — Camera and image processing</li>
+            <li>MediaPipe — Vision and detection processing</li>
+            <li>PySerial — Computer-to-ESP32 serial communication</li>
+            <li>NumPy — Numerical processing</li>
+            <li>Visual Studio Code or another Python editor</li>
+        </ul>
+
+        <p>
+            Install the required Python libraries using:
+        </p>
+
+        <pre><code>pip install opencv-python mediapipe pyserial numpy</code></pre>
+
+    </section>
+
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>Step-by-Step Operation</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>Power the ESP32 and L298N motor driver.</li>
+
+            <li>Connect the ESP32 to the computer using a USB data cable.</li>
+
+            <li>Connect the webcam to the computer.</li>
+
+            <li>Start the Python AI Vision Robot application.</li>
+
+            <li>Open the webcam and capture live camera frames.</li>
+
+            <li>Process visual information using OpenCV and MediaPipe.</li>
+
+            <li>Generate the appropriate robot movement command.</li>
+
+            <li>Send the command to the ESP32 through USB serial communication.</li>
+
+            <li>The ESP32 controls the L298N motor driver.</li>
+
+            <li>The DC motors move the robot according to the received command.</li>
+
+            <li>The robot stops when a STOP or emergency stop command is received.</li>
+
+            <li>A command timeout helps stop the motors if fresh commands stop arriving.</li>
+
+        </ol>
+
+    </section>
+
+
+    
+<!-- MOVEMENT COMMANDS -->
+
+<section class="project-content-section">
+
+    <div class="project-section-heading">
+        <p class="eyebrow">HAND GESTURE CONTROL</p>
+        <h2>Hand Gesture Movement Commands</h2>
+    </div>
+
+    <p>
+        The robot is controlled using hand gestures in front of
+        the PC webcam. OpenCV and MediaPipe detect the hand gestures,
+        and Python sends the corresponding movement commands to ESP32.
+    </p>
+
+    <div class="project-table-wrapper">
+
+        <table class="project-table">
+
+            <thead>
+                <tr>
+                    <th>Hand Gesture</th>
+                    <th>Robot Movement</th>
+                    <th>Serial Command</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>1 Finger Raised</td>
+                    <td>Forward</td>
+                    <td>FWD</td>
+                </tr>
+
+                <tr>
+                    <td>2 Fingers Raised</td>
+                    <td>Right</td>
+                    <td>RIGHT</td>
+                </tr>
+
+                <tr>
+                    <td>3 Fingers Raised</td>
+                    <td>Left</td>
+                    <td>LEFT</td>
+                </tr>
+
+                <tr>
+                    <td>5 Fingers Raised (Open Palm)</td>
+                    <td>Stop All Motors</td>
+                    <td>STOP</td>
+                </tr>
+
+                <tr>
+                    <td>Closed Fist</td>
+                    <td>Backward</td>
+                    <td>BACK</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        </div>
+
+        <div class="project-note">
+            The ESP32 firmware must use the same serial command
+            format as the Python application. The movement timeout
+            is configured for approximately 1200 milliseconds
+            in the current robot setup.
+        </div>
+
+    </section>
+
+
+    <!-- PROJECT SOFTWARE STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAM STRUCTURE</p>
+            <h2>Python Project Files</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>main.py</h3>
+                <p>
+                    Main application entry point.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>config.py</h3>
+                <p>
+                    Project configuration and settings.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>vision.py</h3>
+                <p>
+                    Camera and computer vision processing.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>serial_link.py</h3>
+                <p>
+                    Serial communication between computer and ESP32.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+            <p>Download the AI Vision Robot Python project files.</p>
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/ai_vision_robot/main.py"
+               download>
+
+                <span>📄</span>
+                <h3>Main Application</h3>
+                <p>main.py</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_vision_robot/config.py"
+               download>
+
+                <span>📄</span>
+                <h3>Configuration</h3>
+                <p>config.py</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_vision_robot/vision.py"
+               download>
+
+                <span>📄</span>
+                <h3>Vision Processing</h3>
+                <p>vision.py</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_vision_robot/serial_link.py"
+               download>
+
+                <span>📄</span>
+                <h3>Serial Communication</h3>
+                <p>serial_link.py</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+        </div>
+
+        <div class="project-note">
+            These download links will work after the corresponding
+            original Python files have been added to the website's
+            source/ai_vision_robot/ folder.
+
+            The ESP32 firmware must also be included with the
+            project when its verified source file is available.
+        </div>
+
+    </section>
+
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch It Working</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>AI Vision Robot Demonstration</p>
+            <span>Your actual demonstration video will appear here.</span>
+        </div>
+
+    </section>
+
+
+    <!-- SAFETY -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+            <h2>Safety and Operating Notes</h2>
+        </div>
+
+        <ul class="project-list">
+
+            <li>Test the motor driver with the robot wheels lifted
+                before placing the robot on the ground.</li>
+
+            <li>Use a suitable motor power supply and check
+                the L298N voltage and current limits.</li>
+
+            <li>Ensure the ESP32 and L298N share a common ground.</li>
+
+            <li>Keep the emergency stop function available during testing.</li>
+
+            <li>Check the correct serial port before starting the Python application.</li>
+
+            <li>Close other applications that may be using the ESP32 serial port.</li>
+
+            <li>Stop the robot before disconnecting the USB cable
+                or changing the wiring.</li>
+
+            <li>Use the robot on a clear surface away from people,
+                pets and obstacles during testing.</li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html"
+           class="button secondary">
+            ← Back to Robotics Projects
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>
