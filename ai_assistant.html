@@ -1,0 +1,622 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="AI Assistant PC Voice Assistant by VJaYa Robotics. A Python desktop assistant using Groq AI, speech recognition, voice output, PC controls and ESP32 MQTT communication.">
+
+    <title>AI Assistant - PC Voice Assistant | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">PYTHON AI PROJECT</span>
+
+        <h1>AI Assistant — PC Voice Assistant</h1>
+
+        <p>
+            Meet MUSKAN, a Python-based personal desktop voice assistant.
+            Ask questions using your voice, receive spoken AI answers,
+            control supported Windows applications, save personal memories,
+            and communicate with ESP32 devices through MQTT.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            MUSKAN is a PC-based voice assistant developed using Python.
+            It listens to spoken commands through a microphone and
+            responds using text-to-speech.
+        </p>
+
+        <p>
+            Groq provides the online AI service used to generate answers.
+            Google speech recognition converts spoken input into text.
+            The assistant can also manage personal memory and perform
+            selected Windows PC commands.
+        </p>
+
+        <p>
+            An optional MQTT connection allows MUSKAN to send supported
+            commands to an ESP32 through a HiveMQ broker.
+        </p>
+
+        <div class="project-image-placeholder">
+            <p>MUSKAN AI — PC Voice Assistant</p>
+            <span>Your actual MUSKAN assistant photograph or screenshot will appear here.</span>
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WHAT IT CAN DO</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Voice Recognition</h3>
+                <p>
+                    Listen to spoken questions and commands
+                    through the computer microphone.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>AI Question Answering</h3>
+                <p>
+                    Generate conversational answers using
+                    the Groq AI API.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Voice Responses</h3>
+                <p>
+                    Read assistant responses aloud using
+                    Python text-to-speech.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>PC Control</h3>
+                <p>
+                    Open supported Windows applications,
+                    open websites and lock the computer.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Personal Memory</h3>
+                <p>
+                    Remember, recall and forget facts
+                    using voice commands.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>ESP32 MQTT Control</h3>
+                <p>
+                    Send supported LED, fan and gate commands
+                    through a configured HiveMQ connection.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- HARDWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Windows PC or Laptop</li>
+            <li>Microphone</li>
+            <li>Speakers or Headphones</li>
+            <li>Python-compatible computer</li>
+            <li>Internet connection</li>
+            <li>ESP32 Development Board — optional for device control</li>
+            <li>Supported relay and device hardware — optional</li>
+        </ul>
+
+        <div class="project-note">
+            The PC voice assistant can run without an ESP32.
+            The ESP32 and compatible hardware are needed only
+            for the optional MQTT device-control features.
+        </div>
+
+    </section>
+
+    <!-- SOFTWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Python Software and Libraries</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Windows 10 or Windows 11</li>
+            <li>Python 3.11 recommended</li>
+            <li>Visual Studio Code</li>
+            <li>Groq API account and API key</li>
+            <li>HiveMQ account — optional</li>
+            <li>Requests</li>
+            <li>Python-dotenv</li>
+            <li>SpeechRecognition</li>
+            <li>PyAudio</li>
+            <li>Pyttsx3</li>
+            <li>Paho-MQTT</li>
+        </ul>
+
+        <p>Install the project dependencies using:</p>
+
+        <pre><code>py -3.11 -m pip install -r requirements.txt</code></pre>
+
+    </section>
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>Step-by-Step Operation</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>Start the MUSKAN Python application on the Windows PC.</li>
+
+            <li>The assistant initializes its voice and AI modules.</li>
+
+            <li>The microphone listens for a spoken command.</li>
+
+            <li>Google speech recognition converts the speech into text.</li>
+
+            <li>The main application checks whether the input is a memory, PC or device command.</li>
+
+            <li>Supported PC commands are handled by the PC control module.</li>
+
+            <li>Memory commands are handled by the memory storage module.</li>
+
+            <li>ESP32 commands are sent through MQTT when the connection is configured and ready.</li>
+
+            <li>Other questions are sent to the Groq AI service.</li>
+
+            <li>MUSKAN speaks the resulting response.</li>
+
+            <li>The application continues listening until an exit command or interruption occurs.</li>
+
+        </ol>
+
+    </section>
+
+    <!-- VOICE COMMANDS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">VOICE CONTROL</p>
+            <h2>Example Voice Commands</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Voice Command</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Open Notepad</td>
+                        <td>Opens Windows Notepad</td>
+                    </tr>
+                    <tr>
+                        <td>Open Calculator</td>
+                        <td>Opens Windows Calculator</td>
+                    </tr>
+                    <tr>
+                        <td>Open Google</td>
+                        <td>Opens Google in the browser</td>
+                    </tr>
+                    <tr>
+                        <td>Open YouTube</td>
+                        <td>Opens YouTube</td>
+                    </tr>
+                    <tr>
+                        <td>Open File Explorer</td>
+                        <td>Opens Windows File Explorer</td>
+                    </tr>
+                    <tr>
+                        <td>Lock Computer</td>
+                        <td>Locks the Windows workstation</td>
+                    </tr>
+                    <tr>
+                        <td>Remember that my favorite color is blue</td>
+                        <td>Saves a personal memory</td>
+                    </tr>
+                    <tr>
+                        <td>What do you remember?</td>
+                        <td>Reads saved memories</td>
+                    </tr>
+                    <tr>
+                        <td>Forget favorite color</td>
+                        <td>Removes matching saved memory</td>
+                    </tr>
+                    <tr>
+                        <td>Goodbye</td>
+                        <td>Stops the assistant</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- ESP32 MQTT COMMANDS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">OPTIONAL HARDWARE CONTROL</p>
+            <h2>ESP32 MQTT Commands</h2>
+        </div>
+
+        <p>
+            When HiveMQ credentials are configured and the MQTT
+            connection is ready, MUSKAN can send the following
+            supported commands to the ESP32.
+        </p>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Voice Command</th>
+                        <th>MQTT Command</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>LED ON</td>
+                        <td>LED ON</td>
+                    </tr>
+                    <tr>
+                        <td>LED OFF</td>
+                        <td>LED OFF</td>
+                    </tr>
+                    <tr>
+                        <td>Fan One ON</td>
+                        <td>FAN1 ON</td>
+                    </tr>
+                    <tr>
+                        <td>Fan One OFF</td>
+                        <td>FAN1 OFF</td>
+                    </tr>
+                    <tr>
+                        <td>Fan Two ON</td>
+                        <td>FAN2 ON</td>
+                    </tr>
+                    <tr>
+                        <td>Fan Two OFF</td>
+                        <td>FAN2 OFF</td>
+                    </tr>
+                    <tr>
+                        <td>Gate Open</td>
+                        <td>GATE OPEN</td>
+                    </tr>
+                    <tr>
+                        <td>Gate Close</td>
+                        <td>GATE CLOSE</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            MQTT uses the command topic muskan/device/command
+            and the status topic muskan/device/status.
+            The ESP32 must have compatible MQTT firmware.
+            MQTT device control is optional.
+        </div>
+
+    </section>
+
+    <!-- PROJECT FILE STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAM STRUCTURE</p>
+            <h2>Python Project Files</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>main1.py</h3>
+                <p>Main application and command handling.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>config.py</h3>
+                <p>Assistant settings and environment configuration.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>ai_client.py</h3>
+                <p>Groq AI API communication.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>voice.py</h3>
+                <p>Microphone speech recognition and spoken responses.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>memory_store.py</h3>
+                <p>Save, recall and delete personal memories.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>pc_control.py</h3>
+                <p>Supported Windows application and PC controls.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>mqtt_control.py</h3>
+                <p>HiveMQ MQTT connection and ESP32 commands.</p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+            <p>Download the original MUSKAN PC Voice Assistant files.</p>
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/muskan_jarvis/main1.py"
+               download>
+                <span>📄</span>
+                <h3>Main Application</h3>
+                <p>main1.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/muskan_jarvis/config.py"
+               download>
+                <span>📄</span>
+                <h3>Configuration</h3>
+                <p>config.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/muskan_jarvis/ai_client.py"
+               download>
+                <span>📄</span>
+                <h3>AI Connection</h3>
+                <p>ai_client.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/muskan_jarvis/voice.py"
+               download>
+                <span>📄</span>
+                <h3>Voice Module</h3>
+                <p>voice.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/muskan_jarvis/memory_store.py"
+               download>
+                <span>📄</span>
+                <h3>Memory Module</h3>
+                <p>memory_store.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/muskan_jarvis/pc_control.py"
+               download>
+                <span>📄</span>
+                <h3>PC Control</h3>
+                <p>pc_control.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/muskan_jarvis/mqtt_control.py"
+               download>
+                <span>📄</span>
+                <h3>MQTT Control</h3>
+                <p>mqtt_control.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/muskan_jarvis/requirements.txt"
+               download>
+                <span>📄</span>
+                <h3>Dependencies</h3>
+                <p>requirements.txt</p>
+                <strong>Download File ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/muskan_jarvis/.env.example"
+               download>
+                <span>📄</span>
+                <h3>Configuration Template</h3>
+                <p>.env.example</p>
+                <strong>Download File ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/muskan_jarvis/README.md"
+               download>
+                <span>📄</span>
+                <h3>Installation Guide</h3>
+                <p>README.md</p>
+                <strong>Download File ↓</strong>
+            </a>
+
+        </div>
+
+        <div class="project-note">
+            Never upload your real .env file, API keys,
+            MQTT passwords or other private credentials.
+            Users must create their own .env file from
+            the supplied .env.example template.
+        </div>
+
+    </section>
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch MUSKAN Working</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>MUSKAN PC Voice Assistant Demonstration</p>
+            <span>Your actual assistant screenshot or demonstration video will appear here.</span>
+        </div>
+
+    </section>
+
+    <!-- IMPORTANT INFORMATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+            <h2>Requirements and Safety Notes</h2>
+        </div>
+
+        <ul class="project-list">
+
+            <li>Groq AI requires an internet connection and a valid API key.</li>
+
+            <li>Google speech recognition requires an internet connection.</li>
+
+            <li>Microphone access must be enabled in Windows.</li>
+
+            <li>HiveMQ credentials are optional and required only for MQTT device control.</li>
+
+            <li>Never publish your private API key or MQTT password.</li>
+
+            <li>Only use the supported PC commands included in the project code.</li>
+
+            <li>Check the ESP32 firmware and device wiring before sending hardware commands.</li>
+
+            <li>Disconnect power before changing hardware wiring.</li>
+
+        </ul>
+
+    </section>
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html" class="button secondary">
+            ← Back to Robotics Projects
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>

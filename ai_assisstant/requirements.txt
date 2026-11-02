@@ -1,0 +1,6 @@
+requests
+python-dotenv
+SpeechRecognition
+PyAudio
+pyttsx3
+paho-mqtt
