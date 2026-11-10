@@ -173,7 +173,7 @@ function setCartOpen(isOpen) {
 
 // Local testing server.
 // Change this URL when the backend is deployed.
-const PAYMENT_API = "http://localhost:5000";
+const PAYMENT_API = "https://vjaya-robotics-api.onrender.com";
 
 async function startCheckout() {
     const checkoutButton = document.getElementById("checkout-button");
