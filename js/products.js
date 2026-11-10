@@ -12,7 +12,7 @@ const products = [
     {
         id: 1,
         name: "ESP32 Development Board",
-        category: "Boards",
+        category: "Microcontrollers",
         description: "Wi-Fi and Bluetooth development board.",
         price: 450,
         stock: 20,
@@ -21,7 +21,7 @@ const products = [
     {
         id: 2,
         name: "Arduino UNO Compatible",
-        category: "Boards",
+        category: "Microcontrollers",
         description: "Beginner-friendly microcontroller board.",
         price: 550,
         stock: 20,
@@ -30,7 +30,7 @@ const products = [
     {
         id: 7,
         name: "Arduino Nano",
-        category: "Boards",
+        category: "Microcontrollers",
         description: "Compact board for embedded robotics projects.",
         price: 250,
         stock: 20,
@@ -39,7 +39,7 @@ const products = [
     {
         id: 8,
         name: "Arduino Mega 2560",
-        category: "Boards",
+        category: "Microcontrollers",
         description: "Microcontroller with many input and output pins.",
         price: 850,
         icon: "🖥️"
@@ -47,7 +47,7 @@ const products = [
     {
         id: 9,
         name: "ESP32-CAM",
-        category: "Boards",
+        category: "Microcontrollers",
         description: "ESP32 board with an integrated camera.",
         price: 650,
         stock: 20,
@@ -56,7 +56,7 @@ const products = [
     {
         id: 10,
         name: "Raspberry Pi Pico",
-        category: "Boards",
+        category: "Microcontrollers",
         description: "Compact RP2040 microcontroller development board.",
         price: 400,
         stock: 20,
@@ -65,7 +65,7 @@ const products = [
     {
         id: 11,
         name: "NodeMCU ESP8266",
-        category: "Boards",
+        category: "Microcontrollers",
         description: "Wi-Fi development board for IoT projects.",
         price: 300,
         stock: 20,
