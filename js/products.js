@@ -1,4 +1,4 @@
-
+javascript
 // ==========================================
 // VJAYA ROBOTICS STORE - PRODUCT CATALOGUE
 // ==========================================
@@ -12,31 +12,34 @@ const products = [
     {
         id: 1,
         name: "ESP32 Development Board",
-        category: "Microcontrollers",
+        category: "Boards",
         description: "Wi-Fi and Bluetooth development board.",
         price: 450,
+        stock: 20,
         icon: "📟"
     },
     {
         id: 2,
         name: "Arduino UNO Compatible",
-        category: "Microcontrollers",
+        category: "Boards",
         description: "Beginner-friendly microcontroller board.",
         price: 550,
+        stock: 20,
         icon: "🔌"
     },
     {
         id: 7,
         name: "Arduino Nano",
-        category: "Microcontrollers",
+        category: "Boards",
         description: "Compact board for embedded robotics projects.",
         price: 250,
+        stock: 20,
         icon: "📟"
     },
     {
         id: 8,
         name: "Arduino Mega 2560",
-        category: "Microcontrollers",
+        category: "Boards",
         description: "Microcontroller with many input and output pins.",
         price: 850,
         icon: "🖥️"
@@ -44,68 +47,30 @@ const products = [
     {
         id: 9,
         name: "ESP32-CAM",
-        category: "Microcontrollers",
+        category: "Boards",
         description: "ESP32 board with an integrated camera.",
         price: 650,
+        stock: 20,
         icon: "📷"
     },
     {
         id: 10,
         name: "Raspberry Pi Pico",
-        category: "Microcontrollers",
+        category: "Boards",
         description: "Compact RP2040 microcontroller development board.",
         price: 400,
+        stock: 20,
         icon: "💻"
     },
     {
         id: 11,
         name: "NodeMCU ESP8266",
-        category: "Microcontrollers",
+        category: "Boards",
         description: "Wi-Fi development board for IoT projects.",
         price: 300,
+        stock: 20,
         icon: "📡"
     },
-
-	{
-    id: 33,
-    name: "ESP32-S3 Development Board",
-    category: "Microcontrollers",
-    description: "Advanced ESP32 board with Wi-Fi, Bluetooth LE and AI-friendly processing.",
-    price: 550,
-    icon: "📟"
-},
-{
-    id: 34,
-    name: "ESP32-C3 Development Board",
-    category: "Microcontrollers",
-    description: "Compact RISC-V microcontroller with Wi-Fi and Bluetooth LE.",
-    price: 300,
-    icon: "📟"
-},
-{
-    id: 35,
-    name: "Arduino Leonardo",
-    category: "Microcontrollers",
-    description: "Arduino board with native USB communication.",
-    price: 650,
-    icon: "🔌"
-},
-{
-    id: 36,
-    name: "STM32 Blue Pill",
-    category: "Microcontrollers",
-    description: "32-bit ARM Cortex-M3 microcontroller development board.",
-    price: 180,
-    icon: "📟"
-},
-{
-    id: 37,
-    name: "Raspberry Pi Pico W",
-    category: "Microcontrollers",
-    description: "RP2040 microcontroller board with Wi-Fi connectivity.",
-    price: 450,
-    icon: "📟"
-},
 
     // ======================================
     // SENSORS
@@ -117,6 +82,7 @@ const products = [
         category: "Sensors",
         description: "Measure distance for obstacle detection.",
         price: 120,
+        stock: 20,
         icon: "📡"
     },
     {
@@ -125,6 +91,7 @@ const products = [
         category: "Sensors",
         description: "Detect nearby objects and line surfaces.",
         price: 60,
+        stock: 20,
         icon: "🔴"
     },
     {
@@ -133,6 +100,7 @@ const products = [
         category: "Sensors",
         description: "Detect movement using infrared radiation.",
         price: 100,
+        stock: 20,
         icon: "🚶"
     },
     {
@@ -141,6 +109,7 @@ const products = [
         category: "Sensors",
         description: "Measure temperature and humidity.",
         price: 90,
+        stock: 20,  
         icon: "🌡️"
     },
     {
@@ -157,6 +126,7 @@ const products = [
         category: "Sensors",
         description: "Six-axis motion and orientation sensor.",
         price: 180,
+        stock: 20,
         icon: "🧭"
     },
     {
@@ -165,69 +135,9 @@ const products = [
         category: "Sensors",
         description: "Detect smoke and certain combustible gases.",
         price: 130,
+        stock: 20,
         icon: "💨"
     },
-
-
-	{
-    id: 38,
-    name: "Flame Sensor Module",
-    category: "Sensors",
-    description: "Detects flame using infrared light for fire detection projects.",
-    price: 80,
-    icon: "🔥"
-},
-{
-    id: 39,
-    name: "Rain Sensor Module",
-    category: "Sensors",
-    description: "Detects rain and water droplets for weather monitoring projects.",
-    price: 90,
-    icon: "🌧️"
-},
-{
-    id: 40,
-    name: "Sound Sensor Module",
-    category: "Sensors",
-    description: "Detects sound levels for sound-activated robotics projects.",
-    price: 70,
-    icon: "🔊"
-},
-{
-    id: 41,
-    name: "Touch Sensor TTP223",
-    category: "Sensors",
-    description: "Capacitive touch sensor for touch-controlled projects.",
-    price: 40,
-    icon: "👆"
-},
-{
-    id: 42,
-    name: "Water Level Sensor",
-    category: "Sensors",
-    description: "Detects water level for tank monitoring and automation.",
-    price: 80,
-    icon: "💧"
-},
-{
-    id: 43,
-    name: "TCS34725 Color Sensor",
-    category: "Sensors",
-    description: "Detects colors using RGB light sensing.",
-    price: 180,
-    icon: "🌈"
-},
-{
-    id: 44,
-    name: "R307 Fingerprint Sensor",
-    category: "Sensors",
-    description: "Fingerprint recognition module for biometric access-control projects.",
-    price: 450,
-    icon: "🔐"
-},
-
-
-
 
     // ======================================
     // MOTORS
@@ -239,6 +149,7 @@ const products = [
         category: "Motors",
         description: "Small servo for robotic arms and grippers.",
         price: 150,
+        stock: 20,
         icon: "⚙️"
     },
     {
@@ -247,6 +158,7 @@ const products = [
         category: "Motors",
         description: "Geared DC motor for mobile robots.",
         price: 180,
+        stock: 20,
         icon: "⚙️"
     },
     {
@@ -255,6 +167,7 @@ const products = [
         category: "Motors",
         description: "DC geared motor for robot cars.",
         price: 100,
+        stock: 20,
         icon: "🚗"
     },
     {
@@ -271,6 +184,7 @@ const products = [
         category: "Motors",
         description: "High-torque servo for robotic mechanisms.",
         price: 350,
+        stock: 20,
         icon: "🦾"
     },
     {
@@ -279,6 +193,7 @@ const products = [
         category: "Motors",
         description: "Compact geared stepper motor.",
         price: 120,
+        stock: 20,
         icon: "🔄"
     },
 
@@ -292,6 +207,7 @@ const products = [
         category: "Drivers",
         description: "Control two DC motors independently.",
         price: 180,
+        stock: 20,
         icon: "🧩"
     },
     {
@@ -300,6 +216,7 @@ const products = [
         category: "Drivers",
         description: "Dual H-bridge motor driver IC/module.",
         price: 100,
+        stock: 20,
         icon: "🔌"
     },
     {
@@ -308,6 +225,7 @@ const products = [
         category: "Drivers",
         description: "High-current motor driver module.",
         price: 450,
+        stock: 20,
         icon: "⚡"
     },
 
@@ -321,6 +239,7 @@ const products = [
         category: "Modules",
         description: "Switch electrical loads using a control signal.",
         price: 80,
+        stock: 20,
         icon: "🔋"
     },
     {
@@ -329,6 +248,7 @@ const products = [
         category: "Modules",
         description: "Control four separate electrical circuits.",
         price: 180,
+        stock: 20,
         icon: "🔌"
     },
     {
@@ -337,6 +257,7 @@ const products = [
         category: "Modules",
         description: "Bluetooth serial communication for Arduino.",
         price: 250,
+        stock: 20,
         icon: "📶"
     },
 
@@ -350,6 +271,7 @@ const products = [
         category: "Kits",
         description: "Starter kit concept for building a mobile robot.",
         price: 999,
+        stock: 20,
         icon: "🚗"
     },
     {
@@ -358,6 +280,7 @@ const products = [
         category: "Accessories",
         description: "Chassis platform for DIY robot cars.",
         price: 250,
+        stock: 20,
         icon: "🚙"
     },
     {
@@ -366,6 +289,7 @@ const products = [
         category: "Accessories",
         description: "Male-to-male, male-to-female and female-to-female wires.",
         price: 100,
+        stock: 20,
         icon: "🔗"
     },
     {
@@ -374,6 +298,7 @@ const products = [
         category: "Accessories",
         description: "Reusable solderless prototyping board.",
         price: 90,
+        stock: 20,
         icon: "🧱"
     },
     {
@@ -382,6 +307,7 @@ const products = [
         category: "Accessories",
         description: "Battery holder for powering robotics projects.",
         price: 60,
+        stock: 20,
         icon: "🔋"
     },
     {
@@ -390,6 +316,7 @@ const products = [
         category: "Accessories",
         description: "Wheels and caster for mobile robot platforms.",
         price: 180,
+        stock: 20,
         icon: "🛞"
     }
 

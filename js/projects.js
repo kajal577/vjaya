@@ -1,12 +1,12 @@
-
 const roboticsProjects = [
     {
         id: "wifi_scanner",
-        name: "ESP32 WiFi Scanner & Setup Portal",
+        name: "ESP32 WIFI SCANNER & SETUP PORTAL",
         platform: "ESP32",
         description: "Scan nearby WiFi networks, view SSID and signal strength on an OLED, and configure WiFi through a phone-friendly setup portal.",
         page: "wifi_scanner.html"
     },
+
     {
         id: "smart_home_automation",
         name: "SMART HOME AUTOMATION",
@@ -14,20 +14,15 @@ const roboticsProjects = [
         description: "Arduino smart home automation project. Project details and source code will be added.",
         page: "smart_home_automation.html"
     },
+
     {
         id: "maze_solver_car",
         name: "MAZE SOLVER CAR",
         platform: "Arduino",
-        description: "Build an autonomous Arduino UNO robot car that scans its surroundings and navigates around obstacles.",
+        description: "Arduino maze-solving robot car project. Project details and source code will be added.",
         page: "maze_solver_car.html"
     },
-    {
-        id: "self_balancing_robot",
-        name: "SELF-BALANCING ROBOT",
-        platform: "Arduino",
-        description: "Build a two-wheel self-balancing robot using Arduino UNO, MPU6050, L298N motor driver and Bluetooth control.",
-        page: "self_balancing_robot.html"
-    },
+
     {
         id: "security_door_lock",
         name: "SMART SECURITY DOOR LOCK",
@@ -35,34 +30,72 @@ const roboticsProjects = [
         description: "ESP32 smart door lock using an SG90 servo, vibration detection, WiFi web control, voice commands and Telegram emergency alerts.",
         page: "security_door_lock.html"
     },
+
+    {
+        id: "smart_home_gesture_control",
+        name: "SMART HOME GESTURE CONTROL",
+        platform: "Arduino",
+        description: "Control smart home devices using hand gestures detected by a webcam and processed with Python and OpenCV.",
+        page: "smart_home_gesture_control.html"
+    },
+
+    {
+        id: "ai_vision_robot_car",
+        name: "AI VISION ROBOT CAR",
+        platform: "Arduino",
+        description: "Control a robot car using hand gesture detection with Python, OpenCV and MediaPipe, sending movement commands to an Arduino.",
+        page: "ai_vision_robot_car.html"
+    },
+
+    {
+        id: "ai_assisstant",
+        name: "AI ASSISTANT",
+        platform: "ESP32",
+        description: "An AI assistant project using ESP32, capable of voice recognition and natural language processing.",
+        page: "ai_assistant.html"
+    },
+    {
+       id: "ai_vision_robot",
+        name: "AI VISION ROBOT",
+        platform: "esp32",
+        description: "An AI vision robot project using esp32 ,python code, capable of recognizing objects and navigating through web camera input.",
+        page: "ai_vision_robot.html"                                                
+    },
+    {
+         id: "offline_google",
+         name: "OFFLINE GOOGLE ASSISTANT",
+         platform: "esp32",
+         description: "An offline google assistant project using esp32 ,python code, capable of recognizing voice commands and responding without internet.",
+         page: "offline_google.html"
+    },
     {
         id: "gps_navigation_car",
         name: "GPS NAVIGATION CAR",
         platform: "Arduino",
-        description: "Build an Arduino UNO navigation car using GPS positioning, QMC5883L compass, HC-05 Bluetooth and ultrasonic obstacle detection.",
+        description: "An Arduino GPS navigation car project using GPS module and motor driver to navigate through predefined waypoints.",
         page: "gps_navigation_car.html"
     },
     {
-        id: "ai_vision_robot",
-        name: "AI VISION ROBOT",
-        platform: "ESP32",
-        description: "Control a robot using PC webcam-based hand gesture detection with Python, OpenCV and MediaPipe.",
-        page: "ai_vision_robot.html"
+        id: "object_avoidance_car",
+        name: "OBJECT AVOIDANCE CAR",
+        platform: "Arduino",
+        description: "An Arduino object avoidance car project using ultrasonic sensors to detect obstacles and navigate around them.",
+        page: "object_avoidance_car.html"
     },
     {
-        id: "offline_google",
-        name: "OFFLINE GOOGLE - MUSKAN AI",
-        platform: "ESP32 + Python",
-        description: "An offline English and Hindi AI assistant using Ollama, Vosk, an ESP32 push button and OLED display.",
-        page: "offline_google.html"
+        id: "line_follower_car",
+        name: "LINE FOLLOWER CAR",
+        platform: "Arduino",
+        description: "An Arduino line follower car project using infrared sensors to follow a line on the ground.",
+        page: "line_follower_car.html"
     },
     {
-        id: "ai_assistant",
-        name: "AI ASSISTANT — PC VOICE ASSISTANT",
-        platform: "Python + Windows PC",
-        description: "MUSKAN is a Python desktop voice assistant using Groq AI, Google speech recognition, text-to-speech, Windows PC controls, personal memory and optional ESP32 MQTT communication.",
-        page: "ai_assistant.html"
-    }
+        id: "bluetooth_controlled_car",
+        name: "BLUETOOTH CONTROLLED CAR",
+        platform: "Arduino",
+        description: "An Arduino Bluetooth controlled car project using a Bluetooth module and motor driver to control the car with a smartphone.",
+        page: "bluetooth_controlled_car.html"
+    },
 ];
 
 const pageParams = new URLSearchParams(window.location.search);
@@ -103,11 +136,13 @@ function renderProjects() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+
     const filterButtons = document.querySelectorAll(
         ".project-filters button"
     );
 
     filterButtons.forEach(button => {
+
         button.classList.toggle(
             "active",
             button.dataset.platform === selectedPlatform

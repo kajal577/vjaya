@@ -127,12 +127,6 @@ function filterCategory(category) {
         });
 
     renderProducts();
-
-    document.getElementById("product-grid")
-        .scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
 }
 
 // =====================================
