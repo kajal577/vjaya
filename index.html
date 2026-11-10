@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Explore VJaYa Robotics, your destination for robotics projects, Arduino and ESP32 tutorials, practical learning, and robotics components.">
- <title>VJaYa Robotics | Arduino, ESP32 & Robotics Projects</title>
+  <title>VJaYa Robotics | Arduino, ESP32 & Robotics Projects</title>
   <link rel="stylesheet" href="css/style.css">
   <meta name="google-site-verification" content="DPhvAk3akUUnA47BgwqqYK1K9coSTHgFO6ZfsmOELFY" />
 </head>
@@ -132,7 +132,7 @@
         <button class="active" data-category="All"
             onclick="filterCategory('All')">All</button>
 
-        <button data-category="boards"
+        <button data-category="Microcontrollers"
             onclick="filterCategory('Microcontrollers')">Microcontrollers</button>
 
         <button data-category="Sensors"
@@ -167,14 +167,96 @@
     </section>
   </main>
 
-  <aside id="cart-panel" class="cart-panel" aria-label="Shopping cart" aria-hidden="true">
-    <div class="cart-header"><h2>Your cart</h2><button id="cart-close" class="close-button" type="button" aria-label="Close cart">×</button></div>
-    <div id="cart-items" class="cart-items"><p class="empty-cart">Your cart is empty.</p></div>
-    <div class="cart-footer"><div class="cart-total"><span>Total</span><strong id="cart-total">₹0</strong></div><button id="checkout-button" class="button primary checkout" type="button">Continue to checkout</button><p class="small-note">Demo only. Online payments will be added later.</p></div>
-  </aside>
-  <div id="cart-backdrop" class="cart-backdrop"></div>
+  
+<aside id="cart-panel" class="cart-panel" aria-label="Shopping cart" aria-hidden="true">
+
+    <div class="cart-header">
+        <h2>Your cart</h2>
+        <button id="cart-close" class="close-button" type="button" aria-label="Close cart">×</button>
+    </div>
+
+    <div id="cart-items" class="cart-items">
+        <p class="empty-cart">Your cart is empty.</p>
+    </div>
+
+    <div class="cart-footer">
+
+        <div class="cart-total">
+            <span>Total</span>
+            <strong id="cart-total">₹0</strong>
+        </div>
+
+        <h3>Customer & Delivery Details</h3>
+
+        <form id="customer-details" class="customer-details">
+
+            <label for="customer-name">Full Name</label>
+            <input
+                type="text"
+                id="customer-name"
+                name="name"
+                placeholder="Enter your full name"
+                maxlength="100"
+                autocomplete="name"
+                required
+            >
+
+            <label for="customer-email">Email Address</label>
+            <input
+                type="email"
+                id="customer-email"
+                name="email"
+                placeholder="Enter your email"
+                maxlength="254"
+                autocomplete="email"
+                required
+            >
+
+            <label for="customer-phone">Mobile Number</label>
+            <input
+                type="tel"
+                id="customer-phone"
+                name="phone"
+                placeholder="Enter your mobile number"
+                maxlength="20"
+                autocomplete="tel"
+                required
+            >
+
+            <label for="customer-address">Complete Delivery Address</label>
+            <textarea
+                id="customer-address"
+                name="address"
+                placeholder="House number, street, city, state and PIN code"
+                maxlength="1000"
+                autocomplete="street-address"
+                rows="3"
+                required
+            ></textarea>
+
+        </form>
+
+        <button
+            id="checkout-button"
+            class="button primary checkout"
+            type="button"
+        >
+            Continue to checkout
+        </button>
+
+        <p class="small-note">
+            Your details will be used to process and deliver your order.
+        </p>
+
+    </div>
+</aside>
+
+<div id="cart-backdrop" class="cart-backdrop"></div>
+
 
   <footer><span>© <span id="year"></span> Vjaya Robotics</span><span>Learn · Build · Create</span></footer>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
   <script src="js/products.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/app.js"></script>
