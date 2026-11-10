@@ -175,9 +175,8 @@ function setCartOpen(isOpen) {
 // Change this URL when the backend is deployed.
 const PAYMENT_API = "https://vjaya-robotics-api.onrender.com";
 
-async function startCheckout() {
-    const checkoutButton = document.getElementById("checkout-button");
 
+function startCheckout() {
     if (!cart.length) {
         alert("Your cart is empty.");
         return;
@@ -185,19 +184,23 @@ async function startCheckout() {
 
     const customerForm = document.getElementById("customer-details");
 
-if (!customerForm.reportValidity()) return;
+    if (!customerForm.reportValidity()) return;
 
-const customer = {
-    name: document.getElementById("customer-name").value.trim(),
-    email: document.getElementById("customer-email").value.trim(),
-    phone: document.getElementById("customer-phone").value.trim(),
-    address: document.getElementById("customer-address").value.trim()
-};
+    const customer = {
+        name: document.getElementById("customer-name").value.trim(),
+        email: document.getElementById("customer-email").value.trim(),
+        phone: document.getElementById("customer-phone").value.trim(),
+        address: document.getElementById("customer-address").value.trim()
+    };
 
-    if (typeof Razorpay === "undefined") {
-        alert("Razorpay Checkout could not load. Check your internet connection.");
-        return;
-    }
+    alert(
+        "Demo checkout successful!\n\n" +
+        "Thank you, " + customer.name + "!\n" +
+        "Your order details have been received for demonstration.\n\n" +
+        "Online payments will be added later."
+    );
+}
+
 
     checkoutButton.disabled = true;
     checkoutButton.textContent = "Preparing payment...";
