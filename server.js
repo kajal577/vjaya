@@ -7,7 +7,7 @@ const Razorpay = require("razorpay");
 const crypto = require("crypto");
 
 const products = require("./catalogue");
-const db = require("./database");
+const { pool, initDatabase } = require("./postgres");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -147,10 +147,12 @@ if (
                 });
             }
 
-            const inventoryItem = db.prepare(`
-    SELECT stock FROM inventory
-    WHERE product_id = ?
-`).get(productId);
+           const inventoryResult = await pool.query(
+    `SELECT stock FROM inventory WHERE product_id = $1`,
+    [productId]
+);
+
+const inventoryItem = inventoryResult.rows[0];
 
 if (!inventoryItem || quantity > inventoryItem.stock) {
     return res.status(400).json({
@@ -186,50 +188,61 @@ if (!inventoryItem || quantity > inventoryItem.stock) {
         });
 
 
-const saveOrder = db.transaction(() => {
-    db.prepare(`
+const client = await pool.connect();
+
+try {
+    await client.query("BEGIN");
+
+    await client.query(`
         INSERT INTO orders (
             order_id,
-        customer_name,
-        customer_email,
-        customer_phone,
-        shipping_address,
-        amount,
-        currency,
-        status
+            customer_name,
+            customer_email,
+            customer_phone,
+            shipping_address,
+            amount,
+            currency,
+            status
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?, 'pending'')
-    `).run( order.id,
-    customerName,
-    customerEmail,
-    customerPhone,
-    shippingAddress,
-    order.amount,
-    order.currency);
-
-    const insertItem = db.prepare(`
-        INSERT INTO order_items (
-            order_id, product_id, product_name,
-            unit_price, quantity
-        )
-        VALUES (?, ?, ?, ?, ?)
-    `);
+        VALUES ($1, $2, $3, $4, $5, $6, $7, 'pending')
+    `, [
+        order.id,
+        customerName,
+        customerEmail,
+        customerPhone,
+        shippingAddress,
+        order.amount,
+        order.currency
+    ]);
 
     for (const item of orderItems) {
         const product = products.find(p => p.id === item.id);
 
-        insertItem.run(
+        await client.query(`
+            INSERT INTO order_items (
+                order_id,
+                product_id,
+                product_name,
+                unit_price,
+                quantity
+            )
+            VALUES ($1, $2, $3, $4, $5)
+        `, [
             order.id,
             item.id,
             item.name,
             product.price,
             item.quantity
-        );
+        ]);
     }
-});
 
-saveOrder();
-
+    await client.query("COMMIT");
+} catch (error) {
+    await client.query("ROLLBACK");
+    throw error;
+} finally {
+    client.release();
+}
 
         res.json({
             success: true,
@@ -330,9 +343,12 @@ app.post("/api/verify-payment", async (req, res) => {
 
 
 // Confirm that this order exists in our database.
-const savedOrder = db.prepare(`
-    SELECT * FROM orders WHERE order_id = ?
-`).get(razorpay_order_id);
+const savedOrderResult = await pool.query(
+    "SELECT * FROM orders WHERE order_id = $1",
+    [razorpay_order_id]
+);
+
+const savedOrder = savedOrderResult.rows[0];
 
 if (!savedOrder) {
     return res.status(404).json({
@@ -352,72 +368,90 @@ if (
 }
 
 // Process payment and stock updates atomically.
-const processPayment = db.transaction(() => {
-
-    // Prevent duplicate stock deductions.
-    if (savedOrder.status === "paid") {
-        if (savedOrder.payment_id === payment.id) {
-            return "already_processed";
-        }
-
-        throw new Error("Order has already been paid.");
-    }
-
-    if (savedOrder.status !== "pending") {
-        throw new Error("Order is not pending.");
-    }
-
-    const items = db.prepare(`
-        SELECT product_id, quantity
-        FROM order_items
-        WHERE order_id = ?
-    `).all(razorpay_order_id);
-
-    if (items.length === 0) {
-        throw new Error("No products found in this order.");
-    }
-
-    const updateStock = db.prepare(`
-        UPDATE inventory
-        SET stock = stock - ?
-        WHERE product_id = ? AND stock >= ?
-    `);
-
-    for (const item of items) {
-        const result = updateStock.run(
-            item.quantity,
-            item.product_id,
-            item.quantity
-        );
-
-        if (result.changes !== 1) {
-            throw new Error("Insufficient stock for a paid order.");
-        }
-    }
-
-    db.prepare(`
-        UPDATE orders
-        SET payment_id = ?,
-            status = 'paid',
-            paid_at = CURRENT_TIMESTAMP
-        WHERE order_id = ? AND status = 'pending'
-    `).run(payment.id, razorpay_order_id);
-
-    return "processed";
-});
-
+// Process payment and stock updates atomically.
+const client = await pool.connect();
 let processingResult;
 
 try {
-    processingResult = processPayment();
+    await client.query("BEGIN");
+
+    // Lock the order to prevent duplicate stock deductions.
+    const lockedOrderResult = await client.query(
+        "SELECT * FROM orders WHERE order_id = $1 FOR UPDATE",
+        [razorpay_order_id]
+    );
+
+    const lockedOrder = lockedOrderResult.rows[0];
+
+    if (!lockedOrder) {
+        throw new Error("Order not found.");
+    }
+
+    if (lockedOrder.status === "paid") {
+        if (lockedOrder.payment_id === payment.id) {
+            processingResult = "already_processed";
+        } else {
+            throw new Error("Order has already been paid.");
+        }
+    } else {
+        if (lockedOrder.status !== "pending") {
+            throw new Error("Order is not pending.");
+        }
+
+        const itemsResult = await client.query(
+            `SELECT product_id, quantity
+             FROM order_items
+             WHERE order_id = $1`,
+            [razorpay_order_id]
+        );
+
+        const items = itemsResult.rows;
+
+        if (items.length === 0) {
+            throw new Error("No products found in this order.");
+        }
+
+        for (const item of items) {
+            const result = await client.query(
+                `UPDATE inventory
+                 SET stock = stock - $1
+                 WHERE product_id = $2 AND stock >= $1`,
+                [item.quantity, item.product_id]
+            );
+
+            if (result.rowCount !== 1) {
+                throw new Error("Insufficient stock for a paid order.");
+            }
+        }
+
+        await client.query(
+            `UPDATE orders
+             SET payment_id = $1,
+                 status = 'paid',
+                 paid_at = CURRENT_TIMESTAMP
+             WHERE order_id = $2 AND status = 'pending'`,
+            [payment.id, razorpay_order_id]
+        );
+
+        processingResult = "processed";
+    }
+
+    await client.query("COMMIT");
+
 } catch (error) {
-    console.error("Order processing failed:", error.message);
+    await client.query("ROLLBACK");
+
+    console.error("Payment processing failed:", error.message);
 
     return res.status(409).json({
         success: false,
         message: error.message
     });
+
+} finally {
+    client.release();
 }
+
 
 
         res.json({
@@ -454,9 +488,22 @@ app.use((error, req, res, next) => {
 // START SERVER
 // ------------------------------------------
 
-app.listen(PORT, () => {
-    console.log("--------------------------------");
-    console.log("VJaYa Robotics Payment Server");
-    console.log(`Running on port ${PORT}`);
-    console.log("--------------------------------");
-});
+async function startServer() {
+    try {
+        await initDatabase();
+
+        app.listen(PORT, "0.0.0.0", () => {
+            console.log("--------------------------------");
+            console.log("VJaYa Robotics Payment Server");
+            console.log("PostgreSQL Connected");
+            console.log(`Running on port ${PORT}`);
+            console.log("--------------------------------");
+        });
+
+    } catch (error) {
+        console.error("Failed to start payment server:", error.message);
+        process.exit(1);
+    }
+}
+
+startServer();
