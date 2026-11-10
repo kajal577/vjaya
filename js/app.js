@@ -166,6 +166,151 @@ function setCartOpen(isOpen) {
 // INITIALIZE WEBSITE
 // =====================================
 
+
+// ==========================================
+// RAZORPAY CHECKOUT INTEGRATION
+// ==========================================
+
+// Local testing server.
+// Change this URL when the backend is deployed.
+const PAYMENT_API = "http://localhost:5000";
+
+async function startCheckout() {
+    const checkoutButton = document.getElementById("checkout-button");
+
+    if (!cart.length) {
+        alert("Your cart is empty.");
+        return;
+    }
+
+    const customerForm = document.getElementById("customer-details");
+
+if (!customerForm.reportValidity()) return;
+
+const customer = {
+    name: document.getElementById("customer-name").value.trim(),
+    email: document.getElementById("customer-email").value.trim(),
+    phone: document.getElementById("customer-phone").value.trim(),
+    address: document.getElementById("customer-address").value.trim()
+};
+
+    if (typeof Razorpay === "undefined") {
+        alert("Razorpay Checkout could not load. Check your internet connection.");
+        return;
+    }
+
+    checkoutButton.disabled = true;
+    checkoutButton.textContent = "Preparing payment...";
+
+    try {
+        // Step 1: Ask backend to create a trusted order.
+        const orderResponse = await fetch(
+            `${PAYMENT_API}/api/create-order`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    items: cart.map(item => ({
+                        id: item.id,
+                        quantity: item.quantity
+                    })),
+                     customer: customer
+                })
+            }
+        );
+
+        const orderData = await orderResponse.json();
+
+        if (!orderResponse.ok || !orderData.success) {
+            throw new Error(orderData.message || "Could not create order.");
+        }
+
+        // Step 2: Open Razorpay Checkout.
+        const options = {
+            key: orderData.key,
+            amount: orderData.order.amount,
+            currency: orderData.order.currency,
+            name: "VJaYa Robotics",
+            description: "Robotics Store Purchase",
+            order_id: orderData.order.id,
+
+            handler: async function (response) {
+                try {
+                    // Step 3: Verify payment on backend.
+                    const verifyResponse = await fetch(
+                        `${PAYMENT_API}/api/verify-payment`,
+                        {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(response)
+                        }
+                    );
+
+                    const verifyData = await verifyResponse.json();
+
+                    if (!verifyResponse.ok || !verifyData.success) {
+                        throw new Error(
+                            verifyData.message || "Payment verification failed."
+                        );
+                    }
+
+                    alert(
+                        "Payment successful!\n" +
+                        "Payment ID: " + verifyData.paymentId
+                    );
+
+                    // Clear cart only after server verification.
+                    cart.length = 0;
+                    renderCart();
+                    setCartOpen(false);
+
+                } catch (error) {
+                    alert("Payment verification issue: " + error.message);
+                } finally {
+                    checkoutButton.disabled = false;
+                    checkoutButton.textContent = "Checkout";
+                }
+            },
+
+            modal: {
+                ondismiss: function () {
+                    checkoutButton.disabled = false;
+                    checkoutButton.textContent = "Checkout";
+                }
+            },
+
+            theme: {
+                color: "#62e6c5"
+            }
+        };
+
+        const razorpayCheckout = new Razorpay(options);
+
+        razorpayCheckout.on("payment.failed", function (response) {
+            alert(
+                "Payment failed: " +
+                (response.error.description || "Please try again.")
+            );
+
+            checkoutButton.disabled = false;
+            checkoutButton.textContent = "Checkout";
+        });
+
+        razorpayCheckout.open();
+
+    } catch (error) {
+        alert("Checkout error: " + error.message);
+
+        checkoutButton.disabled = false;
+        checkoutButton.textContent = "Checkout";
+    }
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
     // Product search
@@ -200,12 +345,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .addEventListener("click", () => setCartOpen(false));
 
     // Checkout demo
+    
     document.getElementById("checkout-button")
-        .addEventListener("click", () => {
-            alert(
-                "This is the starter demo. Online checkout and payments will be connected later."
-            );
-        });
+    .addEventListener("click", startCheckout);
 
     // Footer year
     document.getElementById("year").textContent =
