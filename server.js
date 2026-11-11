@@ -551,6 +551,10 @@ app.post("/api/track-order", async (req, res) => {
 
 app.post("/api/recover-payment", async (req, res) => {
     const expectedSecret = process.env.RECOVERY_SECRET;
+    console.log("RECOVERY AUTH CHECK:", {
+    secretExists: Boolean(expectedSecret),
+    secretLength: expectedSecret?.length
+});
     const suppliedSecret = req.get("x-recovery-secret");
 
     if (!expectedSecret || !suppliedSecret) {
