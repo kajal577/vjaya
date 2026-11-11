@@ -10,6 +10,16 @@ const products = [
     // ======================================
 
     {
+        id: 32,
+        name: "male to male",
+        category: "jumper wires",
+        description: "Wheels and caster for mobile robot platforms.",
+        price: 1,
+        stock: 20,
+        icon: "🛞"
+    }
+
+    {
         id: 1,
         name: "ESP32 Development Board",
         category: "Boards",
