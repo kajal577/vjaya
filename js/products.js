@@ -17,7 +17,7 @@ const products = [
         price: 1,
         stock: 20,
         icon: "🛞"
-    }
+    },
 
     {
         id: 1,
