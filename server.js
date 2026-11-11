@@ -266,6 +266,7 @@ try {
 // ------------------------------------------
 
 app.post("/api/verify-payment", async (req, res) => {
+    console.log("VERIFY PAYMENT ROUTE REACHED:", req.body.razorpay_payment_id);
     try {
         const {
             razorpay_order_id,
