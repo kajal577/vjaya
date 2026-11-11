@@ -601,6 +601,32 @@ let recoveryStep = "Razorpay payment lookup";
 
         const paymentList = await razorpay.orders.fetchPayments(orderId);
 
+        
+console.log("RECOVERY ORDER CHECK:", {
+    id: razorpayOrder.id,
+    status: razorpayOrder.status,
+    amount: razorpayOrder.amount,
+    amount_paid: razorpayOrder.amount_paid,
+    amount_due: razorpayOrder.amount_due
+});
+
+console.log("RECOVERY PAYMENTS CHECK:", {
+    count: paymentList?.count,
+    itemCount: Array.isArray(paymentList?.items)
+        ? paymentList.items.length
+        : null,
+    items: (Array.isArray(paymentList?.items)
+        ? paymentList.items
+        : []).map(item => ({
+            id: item.id,
+            order_id: item.order_id,
+            status: item.status,
+            amount: item.amount,
+            currency: item.currency
+        }))
+});
+
+
         const payment = (paymentList.items || []).find(
             item =>
                 item.id === paymentId &&
