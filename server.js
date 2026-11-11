@@ -639,9 +639,9 @@ app.post("/api/recover-payment", async (req, res) => {
             await client.query("ROLLBACK").catch(() => {});
         }
 
-       console.error(
-    "RECOVERY ERROR JSON:",
-    JSON.stringify(error, Object.getOwnPropertyNames(error || {}), 2)
+      console.error(
+    "RECOVERY ERROR FULL:",
+    require("util").inspect(error, { depth: 6, colors: false })
 );
         return res.status(409).json({
             success: false,
