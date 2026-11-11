@@ -12,7 +12,7 @@ const products = [
     {
         id: 32,
         name: "male to male",
-        category: "jumper wires",
+        category: "boards",
         description: "Wheels and caster for mobile robot platforms.",
         price: 1,
         stock: 20,
