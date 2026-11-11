@@ -472,6 +472,188 @@ try {
     }
 });
 
+
+// ------------------------------------------
+// SECURE EXISTING PAYMENT RECOVERY
+// ------------------------------------------
+
+app.post("/api/recover-payment", async (req, res) => {
+    const expectedSecret = process.env.RECOVERY_SECRET;
+    const suppliedSecret = req.get("x-recovery-secret");
+
+    if (!expectedSecret || !suppliedSecret) {
+        return res.status(401).json({
+            success: false,
+            message: "Recovery authentication required."
+        });
+    }
+
+    const expectedBuffer = Buffer.from(expectedSecret);
+    const suppliedBuffer = Buffer.from(suppliedSecret);
+
+    if (
+        expectedBuffer.length !== suppliedBuffer.length ||
+        !crypto.timingSafeEqual(expectedBuffer, suppliedBuffer)
+    ) {
+        return res.status(401).json({
+            success: false,
+            message: "Recovery authentication failed."
+        });
+    }
+
+    const { orderId, paymentId } = req.body || {};
+
+    if (
+        typeof orderId !== "string" ||
+        typeof paymentId !== "string"
+    ) {
+        return res.status(400).json({
+            success: false,
+            message: "Invalid order or payment ID."
+        });
+    }
+
+    let client;
+
+    try {
+        // Verify the existing payment directly with Razorpay.
+        const payment = await razorpay.payments.fetch(paymentId);
+        const razorpayOrder = await razorpay.orders.fetch(orderId);
+
+        if (
+            payment.id !== paymentId ||
+            payment.order_id !== orderId ||
+            razorpayOrder.id !== orderId ||
+            payment.currency !== "INR" ||
+            razorpayOrder.currency !== "INR" ||
+            Number(payment.amount) !== Number(razorpayOrder.amount) ||
+            payment.status !== "captured"
+        ) {
+            return res.status(409).json({
+                success: false,
+                message: "Razorpay payment details do not match or payment is not captured."
+            });
+        }
+
+        client = await pool.connect();
+        await client.query("BEGIN");
+
+        // Lock the saved order to prevent duplicate processing.
+        const result = await client.query(
+            "SELECT * FROM orders WHERE order_id = $1 FOR UPDATE",
+            [orderId]
+        );
+
+        const savedOrder = result.rows[0];
+
+        if (!savedOrder) {
+            throw new Error("The order does not exist in the database.");
+        }
+
+        if (
+            Number(savedOrder.amount) !== Number(payment.amount) ||
+            savedOrder.currency !== payment.currency
+        ) {
+            throw new Error("Payment does not match the saved order.");
+        }
+
+        if (savedOrder.status === "paid") {
+            if (savedOrder.payment_id === paymentId) {
+                await client.query("COMMIT");
+
+                return res.json({
+                    success: true,
+                    message: "This payment was already processed.",
+                    orderId,
+                    paymentId
+                });
+            }
+
+            throw new Error("This order has already been paid with another payment.");
+        }
+
+        if (
+            savedOrder.status !== "pending" ||
+            savedOrder.payment_id
+        ) {
+            throw new Error("This order is not eligible for recovery.");
+        }
+
+        // Prevent the same payment from being attached to another order.
+        const duplicatePayment = await client.query(
+            "SELECT order_id FROM orders WHERE payment_id = $1",
+            [paymentId]
+        );
+
+        if (duplicatePayment.rows.length > 0) {
+            throw new Error("This payment is already linked to an order.");
+        }
+
+        const itemsResult = await client.query(
+            `SELECT product_id, quantity
+             FROM order_items
+             WHERE order_id = $1`,
+            [orderId]
+        );
+
+        if (itemsResult.rows.length === 0) {
+            throw new Error("No products were found in this order.");
+        }
+
+        // Deduct stock only once, inside the same transaction.
+        for (const item of itemsResult.rows) {
+            const stockResult = await client.query(
+                `UPDATE inventory
+                 SET stock = stock - $1
+                 WHERE product_id = $2 AND stock >= $1`,
+                [item.quantity, item.product_id]
+            );
+
+            if (stockResult.rowCount !== 1) {
+                throw new Error("Insufficient stock for an item in this paid order.");
+            }
+        }
+
+        await client.query(
+            `UPDATE orders
+             SET payment_id = $1,
+                 status = 'paid',
+                 paid_at = CURRENT_TIMESTAMP
+             WHERE order_id = $2 AND status = 'pending'`,
+            [paymentId, orderId]
+        );
+
+        await client.query("COMMIT");
+
+        console.log("Existing payment recovered:", orderId);
+
+        return res.json({
+            success: true,
+            message: "Existing payment recovered successfully.",
+            orderId,
+            paymentId
+        });
+
+    } catch (error) {
+        if (client) {
+            await client.query("ROLLBACK").catch(() => {});
+        }
+
+        console.error("Payment recovery failed:", error.message);
+
+        return res.status(409).json({
+            success: false,
+            message: error.message
+        });
+
+    } finally {
+        if (client) {
+            client.release();
+        }
+    }
+});
+
+
 // ------------------------------------------
 // ERROR HANDLER
 // ------------------------------------------
