@@ -634,18 +634,31 @@ app.post("/api/recover-payment", async (req, res) => {
             paymentId
         });
 
+    
     } catch (error) {
         if (client) {
             await client.query("ROLLBACK").catch(() => {});
         }
 
-      console.error(
-    "RECOVERY ERROR FULL:",
-    require("util").inspect(error, { depth: 6, colors: false })
-);
+        const diagnostic = require("util").inspect(error, {
+            depth: 6,
+            colors: false,
+            compact: true,
+            breakLength: Infinity
+        });
+
+        const errorMessage =
+            error?.error?.description ||
+            error?.description ||
+            error?.message ||
+            (typeof error === "string" ? error : diagnostic);
+
+        console.error("RECOVERY ERROR FULL:", diagnostic);
+
         return res.status(409).json({
             success: false,
-            message: error.message
+            message: String(errorMessage).slice(0, 1500),
+            code: error?.error?.code || error?.code || null
         });
 
     } finally {
@@ -653,6 +666,7 @@ app.post("/api/recover-payment", async (req, res) => {
             client.release();
         }
     }
+
 });
 
 
