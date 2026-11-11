@@ -514,10 +514,11 @@ app.post("/api/recover-payment", async (req, res) => {
     }
 
     let client;
-
+let recoveryStep = "Razorpay payment lookup";
     try {
         // Verify the existing payment directly with Razorpay.
         const payment = await razorpay.payments.fetch(paymentId);
+        recoveryStep = "Razorpay order lookup";
         const razorpayOrder = await razorpay.orders.fetch(orderId);
 
         if (
@@ -659,6 +660,7 @@ app.post("/api/recover-payment", async (req, res) => {
             success: false,
             message: String(errorMessage).slice(0, 1500),
             code: error?.error?.code || error?.code || null
+            step: recoveryStep
         });
 
     } finally {
