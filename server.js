@@ -516,10 +516,30 @@ app.post("/api/recover-payment", async (req, res) => {
     let client;
 let recoveryStep = "Razorpay payment lookup";
     try {
-        // Verify the existing payment directly with Razorpay.
-        const payment = await razorpay.payments.fetch(paymentId);
+               // Verify the existing payment through its Razorpay order.
         recoveryStep = "Razorpay order lookup";
+
         const razorpayOrder = await razorpay.orders.fetch(orderId);
+
+        if (razorpayOrder.id !== orderId) {
+            throw new Error("Razorpay order ID does not match.");
+        }
+
+        recoveryStep = "Razorpay order payments lookup";
+
+        const paymentList = await razorpay.orders.fetchPayments(orderId);
+
+        const payment = (paymentList.items || []).find(
+            item =>
+                item.id === paymentId &&
+                item.order_id === orderId
+        );
+
+        if (!payment) {
+            throw new Error(
+                "Payment ID was not found under the supplied Razorpay order."
+            );
+        }
 
         if (
             payment.id !== paymentId ||
