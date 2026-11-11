@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track My Order | VJaYa Robotics</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px 16px;
+            min-height: 100vh;
+            background: #080d19;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #111a2b;
+            border: 1px solid #26364e;
+            border-radius: 16px;
+        }
+
+        h1 {
+            color: #62e6c5;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #aab6ca;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        label {
+            display: block;
+            margin: 20px 0 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid #34445d;
+            background: #080d19;
+            color: white;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 22px;
+            padding: 14px;
+            border: 0;
+            border-radius: 8px;
+            background: #62e6c5;
+            color: #080d19;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: wait;
+        }
+
+        #message {
+            margin-top: 20px;
+            text-align: center;
+            color: #ff9b9b;
+        }
+
+        #orderDetails {
+            display: none;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid #34445d;
+        }
+
+        .detail {
+            margin: 12px 0;
+            color: #cbd5e1;
+            overflow-wrap: anywhere;
+        }
+
+        .product {
+            padding: 12px;
+            margin-top: 10px;
+            background: #19263a;
+            border-radius: 8px;
+        }
+
+        .status {
+            color: #62e6c5;
+            font-weight: bold;
+        }
+
+        a {
+            display: block;
+            margin-top: 25px;
+            text-align: center;
+            color: #62e6c5;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Track My Order</h1>
+
+    <p class="subtitle">
+        Enter your Order ID and checkout email address
+        to view your VJaYa Robotics purchase.
+    </p>
+
+    <form id="trackForm">
+
+        <label for="orderId">Order ID</label>
+        <input
+            type="text"
+            id="orderId"
+            placeholder="Enter your Order ID"
+            required
+        >
+
+        <label for="email">Email Address</label>
+        <input
+            type="email"
+            id="email"
+            placeholder="Enter your checkout email"
+            required
+        >
+
+        <button type="submit" id="trackButton">
+            Track Order
+        </button>
+
+    </form>
+
+    <div id="message" role="status"></div>
+
+    <div id="orderDetails" aria-live="polite"></div>
+
+    <a href="index.html">← Continue Shopping</a>
+
+</div>
+
+<script>
+const PAYMENT_API = "https://vjaya-robotics-api.onrender.com";
+
+const form = document.getElementById("trackForm");
+const message = document.getElementById("message");
+const orderDetails = document.getElementById("orderDetails");
+const trackButton = document.getElementById("trackButton");
+
+function safeText(value) {
+    return String(value ?? "")
+        .replace(/[&<>"']/g, character => ({
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;"
+        })[character]);
+}
+
+form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    message.textContent = "";
+    orderDetails.style.display = "none";
+    orderDetails.innerHTML = "";
+    trackButton.disabled = true;
+    trackButton.textContent = "Searching...";
+
+    try {
+        const response = await fetch(
+            `${PAYMENT_API}/api/track-order`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    orderId: document.getElementById("orderId").value.trim(),
+                    email: document.getElementById("email").value.trim()
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || "Unable to find order.");
+        }
+
+        const order = data.order;
+
+        const productsHTML = order.items.map(item => `
+            <div class="product">
+                <strong>${safeText(item.product_name)}</strong>
+                <div>Quantity: ${safeText(item.quantity)}</div>
+                <div>Price: ₹${safeText(item.unit_price)}</div>
+            </div>
+        `).join("");
+
+        orderDetails.innerHTML = `
+            <h2>Order Details</h2>
+
+            <p class="detail">
+                <strong>Order ID:</strong>
+                ${safeText(order.orderId)}
+            </p>
+
+            <p class="detail">
+                <strong>Customer:</strong>
+                ${safeText(order.customerName)}
+            </p>
+
+            <p class="detail">
+                <strong>Order Status:</strong>
+                <span class="status">${safeText(order.status)}</span>
+            </p>
+
+            <p class="detail">
+                <strong>Total Amount:</strong>
+                ₹${safeText(order.amount / 100)}
+            </p>
+
+            <p class="detail">
+                <strong>Order Date:</strong>
+                ${safeText(order.createdAt
+                    ? new Date(order.createdAt).toLocaleString()
+                    : "Not available")}
+            </p>
+
+            <p class="detail">
+                <strong>Payment Date:</strong>
+                ${safeText(order.paidAt
+                    ? new Date(order.paidAt).toLocaleString()
+                    : "Not paid yet")}
+            </p>
+
+            <h3>Purchased Components</h3>
+            ${productsHTML || "No products found."}
+        `;
+
+        orderDetails.style.display = "block";
+
+    } catch (error) {
+        message.textContent = error.message;
+    } finally {
+        trackButton.disabled = false;
+        trackButton.textContent = "Track Order";
+    }
+});
+</script>
+
+</body>
+</html>
