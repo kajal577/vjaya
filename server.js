@@ -639,7 +639,18 @@ app.post("/api/recover-payment", async (req, res) => {
             await client.query("ROLLBACK").catch(() => {});
         }
 
-        console.error("Payment recovery failed details:", error, error?.stack);
+        console.error(
+    "RECOVERY ERROR:",
+    String(error),
+    "MESSAGE:",
+    error?.message,
+    "CODE:",
+    error?.code,
+    "DETAIL:",
+    error?.detail,
+    "STACK:",
+    error?.stack
+);
 
         return res.status(409).json({
             success: false,
