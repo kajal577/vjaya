@@ -659,7 +659,7 @@ let recoveryStep = "Razorpay payment lookup";
         return res.status(409).json({
             success: false,
             message: String(errorMessage).slice(0, 1500),
-            code: error?.error?.code || error?.code || null
+            code: error?.error?.code || error?.code || null,
             step: recoveryStep
         });
 
