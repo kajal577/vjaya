@@ -474,6 +474,78 @@ try {
 
 
 // ------------------------------------------
+// TRACK CUSTOMER ORDER
+// ------------------------------------------
+
+app.post("/api/track-order", async (req, res) => {
+    try {
+        const { orderId, email } = req.body;
+
+        if (
+            typeof orderId !== "string" ||
+            typeof email !== "string" ||
+            !orderId.trim() ||
+            !email.trim()
+        ) {
+            return res.status(400).json({
+                success: false,
+                message: "Please enter your Order ID and email address."
+            });
+        }
+
+        const orderResult = await pool.query(
+            `SELECT order_id, customer_name, customer_email,
+                    amount, currency, status, created_at, paid_at
+             FROM orders
+             WHERE order_id = $1
+               AND LOWER(TRIM(customer_email)) = LOWER(TRIM($2))
+             LIMIT 1`,
+            [orderId.trim(), email.trim()]
+        );
+
+        if (orderResult.rows.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "No order found. Please check your Order ID and email."
+            });
+        }
+
+        const order = orderResult.rows[0];
+
+        const itemsResult = await pool.query(
+            `SELECT product_id, product_name, unit_price, quantity
+             FROM order_items
+             WHERE order_id = $1`,
+            [order.order_id]
+        );
+
+        return res.json({
+            success: true,
+            order: {
+                orderId: order.order_id,
+                customerName: order.customer_name,
+                amount: order.amount,
+                currency: order.currency,
+                status: order.status,
+                createdAt: order.created_at,
+                paidAt: order.paid_at,
+                items: itemsResult.rows
+            }
+        });
+
+    } catch (error) {
+        console.error("Order tracking failed:", error.message);
+
+        return res.status(500).json({
+            success: false,
+            message: "Unable to retrieve your order."
+        });
+    }
+});
+
+
+
+// ------------------------------------------
 // SECURE EXISTING PAYMENT RECOVERY
 // ------------------------------------------
 
