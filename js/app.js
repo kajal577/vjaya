@@ -258,15 +258,18 @@ const customer = {
                         );
                     }
 
-                    alert(
-                        "Payment successful!\n" +
-                        "Payment ID: " + verifyData.paymentId
-                    );
+                   // Save order details for the confirmation page.
+const orderId = response.razorpay_order_id;
+const paymentId = verifyData.paymentId;
 
-                    // Clear cart only after server verification.
-                    cart.length = 0;
-                    renderCart();
-                    setCartOpen(false);
+// Clear cart only after successful server verification.
+cart.length = 0;
+renderCart();
+setCartOpen(false);
+
+// Redirect to the order confirmation page.
+window.location.href =
+    `order-success.html?order_id=${encodeURIComponent(orderId)}&payment_id=${encodeURIComponent(paymentId)}`;
 
                 } catch (error) {
                     alert("Payment verification issue: " + error.message);
