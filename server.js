@@ -550,6 +550,7 @@ app.post("/api/track-order", async (req, res) => {
 // ------------------------------------------
 
 app.post("/api/recover-payment", async (req, res) => {
+    console.log("RECOVER PAYMENT ROUTE HIT");
     const expectedSecret = process.env.RECOVERY_SECRET;
     console.log("RECOVERY AUTH CHECK:", {
     secretExists: Boolean(expectedSecret),
