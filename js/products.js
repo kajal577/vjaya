@@ -6,18 +6,43 @@
 const products = [
 
     // ======================================
-    // DEVELOPMENT BOARDS
+    // jumper wires
     // ======================================
 
-    {
+     {
         id: 32,
         name: "male to male",
         category: "boards",
         description: "Wheels and caster for mobile robot platforms.",
-        price: 1,
+        price: 10,
         stock: 20,
         icon: "🛞"
     },
+
+    {
+        id: 32,
+        name: "male to female",
+        category: "boards",
+        description: "Wheels and caster for mobile robot platforms.",
+        price: 10,
+        stock: 20,
+        icon: "🛞"
+    },
+    {
+        id: 32,
+        name: "female to female",
+        category: "boards",
+        description: "Wheels and caster for mobile robot platforms.",
+        price: 10,
+        stock: 20,
+        icon: "🛞"
+    },
+
+    // ======================================
+    // DEVELOPMENT BOARDS
+    // ======================================
+
+   
 
     {
         id: 1,
