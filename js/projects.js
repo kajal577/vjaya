@@ -57,14 +57,14 @@ const roboticsProjects = [
     {
        id: "ai_vision_robot",
         name: "AI VISION ROBOT",
-        platform: "esp32",
+        platform: "ESP32",
         description: "An AI vision robot project using esp32 ,python code, capable of recognizing objects and navigating through web camera input.",
         page: "ai_vision_robot.html"                                                
     },
     {
          id: "offline_google",
          name: "OFFLINE GOOGLE ASSISTANT",
-         platform: "esp32",
+         platform: "ESP32",
          description: "An offline google assistant project using esp32 ,python code, capable of recognizing voice commands and responding without internet.",
          page: "offline_google.html"
     },
