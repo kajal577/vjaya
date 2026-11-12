@@ -37,6 +37,7 @@ const products = [
     { id: 30, name: "Breadboard", price: 90, stock: 20 },
     { id: 31, name: "Battery Holder", price: 60, stock: 20 },
     { id: 32, name: "Robot Wheel and Caster Set", price: 180, stock: 20 }
+    { id: 33, name: "jumper wires", price: 180, stock: 20 }
 ];
 
 module.exports = products;
