@@ -1,0 +1,881 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="AI Vision Robot Car by VJaYa Robotics. Control an Arduino UNO robot car using hand gestures, Python, OpenCV, MediaPipe and HC-05 Bluetooth.">
+
+    <title>AI Vision Robot Car | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">AI VISION ROBOTICS PROJECT</span>
+
+        <h1>AI Vision Robot Car</h1>
+
+        <p>
+            Control a robotic car using hand gestures.
+            This project combines Python, OpenCV, MediaPipe,
+            Arduino UNO and HC-05 Bluetooth communication
+            to recognize hand movements and control robot
+            movement wirelessly.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            The AI Vision Robot Car is a hand gesture-controlled
+            robotic vehicle. A computer webcam captures the
+            user's hand movements, while Python processes
+            the video using OpenCV and MediaPipe.
+        </p>
+
+        <p>
+            MediaPipe detects hand landmarks and the vision
+            module counts the number of upright fingers.
+            The Python control program converts the detected
+            finger count into a robot movement command.
+        </p>
+
+        <p>
+            The command is transmitted wirelessly through
+            an HC-05 Bluetooth module. Arduino UNO receives
+            the command and controls an L298N motor driver
+            to move the robot car.
+        </p>
+
+        <div class="project-image-placeholder">
+            <p>AI Vision Robot Car</p>
+            <span>Your actual robot car photograph will appear here.</span>
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WHAT IT CAN DO</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Hand Detection</h3>
+                <p>
+                    Detect a hand using a webcam and
+                    MediaPipe hand landmark detection.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Finger Counting</h3>
+                <p>
+                    Count four upright fingers using
+                    detected hand landmarks.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Gesture Recognition</h3>
+                <p>
+                    Convert finger counts into forward,
+                    backward, left, right and stop actions.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Wireless Bluetooth Control</h3>
+                <p>
+                    Send movement commands from Python
+                    to Arduino UNO using HC-05 Bluetooth.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Gesture Stability</h3>
+                <p>
+                    Confirm a gesture over multiple frames
+                    before executing the movement.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Automatic Safety Stop</h3>
+                <p>
+                    Stop the motors when no hand is detected
+                    or when the Arduino receives no command
+                    within the configured timeout.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- HARDWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Arduino UNO</li>
+            <li>L298N motor driver</li>
+            <li>HC-05 Bluetooth module</li>
+            <li>DC geared motors</li>
+            <li>Robot car chassis</li>
+            <li>Robot car wheels</li>
+            <li>Suitable motor battery supply</li>
+            <li>USB cable for Arduino programming</li>
+            <li>Jumper wires</li>
+            <li>Windows PC or Laptop</li>
+            <li>Webcam or computer camera</li>
+        </ul>
+
+        <div class="project-note">
+            The computer performs hand gesture recognition.
+            Arduino UNO receives Bluetooth commands and
+            controls the robot motors through the L298N.
+        </div>
+
+    </section>
+
+    <!-- ARDUINO WIRING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE CONNECTIONS</p>
+            <h2>Arduino UNO Wiring</h2>
+        </div>
+
+        <h3>L298N Motor Driver Connections</h3>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Arduino UNO</th>
+                        <th>L298N</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>D8</td>
+                        <td>IN1</td>
+                    </tr>
+                    <tr>
+                        <td>D9</td>
+                        <td>IN2</td>
+                    </tr>
+                    <tr>
+                        <td>D10</td>
+                        <td>IN3</td>
+                    </tr>
+                    <tr>
+                        <td>D11</td>
+                        <td>IN4</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <h3>HC-05 Bluetooth Connections</h3>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Arduino UNO</th>
+                        <th>HC-05</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>D2 (SoftwareSerial RX)</td>
+                        <td>TX</td>
+                    </tr>
+                    <tr>
+                        <td>D3 (SoftwareSerial TX)</td>
+                        <td>RX</td>
+                    </tr>
+                    <tr>
+                        <td>5V</td>
+                        <td>VCC (check module breakout specifications)</td>
+                    </tr>
+                    <tr>
+                        <td>GND</td>
+                        <td>GND</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            Arduino D2 receives data from HC-05 TX.
+            Arduino D3 transmits data to HC-05 RX.
+            Use an appropriate voltage divider or level
+            shifter on the HC-05 RX input if required by
+            your module. Connect the motor supply and
+            Arduino ground appropriately.
+        </div>
+
+    </section>
+
+    <!-- SOFTWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Python Software and Libraries</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Windows 10 or Windows 11</li>
+            <li>Python 3.11</li>
+            <li>Visual Studio Code</li>
+            <li>Arduino IDE</li>
+            <li>OpenCV</li>
+            <li>MediaPipe Tasks</li>
+            <li>NumPy</li>
+            <li>PySerial</li>
+            <li>hand_landmarker.task model file</li>
+        </ul>
+
+        <p>Install the required Python libraries using:</p>
+
+        <pre><code>py -3.11 -m pip install pyserial opencv-python mediapipe numpy</code></pre>
+
+        <div class="project-note">
+            The MediaPipe hand_landmarker.task model
+            must be present in the Python models folder.
+        </div>
+
+    </section>
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>Step-by-Step Operation</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>Connect the Arduino UNO to the L298N motor driver and HC-05 Bluetooth module.</li>
+
+            <li>Upload the Arduino firmware to the UNO.</li>
+
+            <li>Pair the computer with the HC-05 Bluetooth module.</li>
+
+            <li>Configure the Bluetooth serial port in the Python config.py file.</li>
+
+            <li>Start the Python main application.</li>
+
+            <li>The webcam captures live video of the user's hand.</li>
+
+            <li>OpenCV processes the camera frames and MediaPipe detects hand landmarks.</li>
+
+            <li>The vision module counts the number of upright fingers.</li>
+
+            <li>The gesture control program checks the detected gesture over four consecutive frames.</li>
+
+            <li>The robot control module selects the corresponding movement function.</li>
+
+            <li>The Bluetooth link sends the movement character to HC-05.</li>
+
+            <li>Arduino receives the character and controls the L298N motor driver.</li>
+
+            <li>The robot stops when no hand is detected or the stop command is received.</li>
+
+        </ol>
+
+    </section>
+
+    <!-- GESTURE MAPPING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HAND GESTURE CONTROL</p>
+            <h2>Gesture-to-Robot Mapping</h2>
+        </div>
+
+        <p>
+            The Python program uses the number of upright
+            fingers to select a robot movement.
+        </p>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Upright Fingers</th>
+                        <th>Action</th>
+                        <th>Bluetooth Command</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>Stop</td>
+                        <td>S</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Forward</td>
+                        <td>F</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Backward</td>
+                        <td>B</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Left</td>
+                        <td>L</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Right</td>
+                        <td>R</td>
+                    </tr>
+                    <tr>
+                        <td>No hand detected</td>
+                        <td>Immediate stop</td>
+                        <td>S</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            The program confirms a gesture after four
+            consecutive frames. When no hand is detected,
+            the Python program immediately sends the stop
+            command if the robot was moving.
+        </div>
+
+    </section>
+
+    <!-- BLUETOOTH COMMUNICATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WIRELESS COMMUNICATION</p>
+            <h2>Bluetooth Commands</h2>
+        </div>
+
+        <p>
+            Python communicates with the Arduino UNO
+            using the HC-05 Bluetooth serial connection.
+            The connection uses a baud rate of 9600.
+        </p>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Character</th>
+                        <th>Arduino Function</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>F</td>
+                        <td>moveForward()</td>
+                        <td>Move forward</td>
+                    </tr>
+                    <tr>
+                        <td>B</td>
+                        <td>moveBackward()</td>
+                        <td>Move backward</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>turnLeft()</td>
+                        <td>Turn left</td>
+                    </tr>
+                    <tr>
+                        <td>R</td>
+                        <td>turnRight()</td>
+                        <td>Turn right</td>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>stopMotors()</td>
+                        <td>Stop motors</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            Bluetooth settings: COM6 and 9600 baud
+            in the supplied Python configuration.
+            Arduino uses SoftwareSerial on pins D2 and D3.
+        </div>
+
+    </section>
+
+    <!-- PYTHON PROJECT FILES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PYTHON PROGRAM STRUCTURE</p>
+            <h2>Python Project Files</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>main.py</h3>
+                <p>
+                    Starts the camera, detects gestures,
+                    maps gestures to movement functions
+                    and manages robot operation.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>config.py</h3>
+                <p>
+                    Stores Bluetooth COM port,
+                    baud rate and camera settings.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>vision.py</h3>
+                <p>
+                    Uses MediaPipe Tasks to detect
+                    hand landmarks and count upright fingers.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>robot_control.py</h3>
+                <p>
+                    Provides forward, backward,
+                    left, right and stop functions.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>bluetooth_link.py</h3>
+                <p>
+                    Establishes the serial Bluetooth
+                    connection and transmits commands.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>models/hand_landmarker.task</h3>
+                <p>
+                    MediaPipe hand landmark model
+                    required by the vision module.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- ARDUINO PROGRAM STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">ARDUINO PROGRAMMING</p>
+            <h2>Arduino UNO Firmware Files</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>AI_Vision_Robot_car.ino</h3>
+                <p>
+                    Initializes the motor and Bluetooth
+                    modules and continuously processes
+                    Bluetooth commands.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>config.h</h3>
+                <p>
+                    Defines motor pins, Bluetooth pins
+                    and the 1500 ms motor safety timeout.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>motor.h</h3>
+                <p>
+                    Declares the motor initialization,
+                    movement and stop functions.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>motor.cpp</h3>
+                <p>
+                    Implements the L298N motor control
+                    functions.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>bluetooth.h</h3>
+                <p>
+                    Declares Bluetooth initialization
+                    and command processing functions.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>bluetooth.cpp</h3>
+                <p>
+                    Receives HC-05 serial commands,
+                    selects motor actions and performs
+                    the automatic safety stop.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- SAFETY SYSTEM -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">ROBOT SAFETY</p>
+            <h2>Automatic Motor Safety Stop</h2>
+        </div>
+
+        <p>
+            The Arduino firmware includes a motor timeout
+            system. It records the time of the last received
+            Bluetooth command.
+        </p>
+
+        <p>
+            If no new command is received for more than
+            1500 milliseconds, the Arduino automatically
+            stops both motors.
+        </p>
+
+        <ul class="project-list">
+            <li>No hand detected: Python sends a stop command when needed.</li>
+            <li>Zero fingers detected: the robot receives the stop command.</li>
+            <li>Invalid Bluetooth character: Arduino stops the motors.</li>
+            <li>No Bluetooth command for 1500 ms: Arduino automatically stops the motors.</li>
+            <li>Program exit: Python attempts to stop the robot and disconnect Bluetooth.</li>
+        </ul>
+
+    </section>
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+            <p>
+                Download the Python and Arduino files
+                for the AI Vision Robot Car.
+            </p>
+        </div>
+
+        <h3>Python Source Files</h3>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/AI_Vision_Robot_car/python/main.py"
+               download>
+                <span>🐍</span>
+                <h3>Main Application</h3>
+                <p>main.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/AI_Vision_Robot_car/python/config.py"
+               download>
+                <span>🐍</span>
+                <h3>Configuration</h3>
+                <p>config.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/AI_Vision_Robot_car/python/vision.py"
+               download>
+                <span>🐍</span>
+                <h3>Vision Module</h3>
+                <p>vision.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/AI_Vision_Robot_car/python/robot_control.py"
+               download>
+                <span>🐍</span>
+                <h3>Robot Control</h3>
+                <p>robot_control.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/AI_Vision_Robot_car/python/bluetooth_link.py"
+               download>
+                <span>🐍</span>
+                <h3>Bluetooth Connection</h3>
+                <p>bluetooth_link.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/AI_Vision_Robot_car/python/requirements.txt"
+               download>
+                <span>📄</span>
+                <h3>Python Dependencies</h3>
+                <p>requirements.txt</p>
+                <strong>Download File ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/AI_Vision_Robot_car/python/models/hand_landmarker.task"
+               download>
+                <span>🧠</span>
+                <h3>Hand Detection Model</h3>
+                <p>hand_landmarker.task</p>
+                <strong>Download Model ↓</strong>
+            </a>
+
+        </div>
+
+        <h3>Arduino UNO Source Files</h3>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/AI_Vision_Robot_car/arduino/AI_Vision_Robot_car.ino"
+               download>
+                <span>📟</span>
+                <h3>Arduino Main Sketch</h3>
+                <p>AI_Vision_Robot_car.ino</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/AI_Vision_Robot_car/arduino/config.h"
+               download>
+                <span>📄</span>
+                <h3>Configuration</h3>
+                <p>config.h</p>
+                <strong>Download File ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/AI_Vision_Robot_car/arduino/motor.h"
+               download>
+                <span>📄</span>
+                <h3>Motor Header</h3>
+                <p>motor.h</p>
+                <strong>Download File ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/AI_Vision_Robot_car/arduino/motor.cpp"
+               download>
+                <span>📄</span>
+                <h3>Motor Module</h3>
+                <p>motor.cpp</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/AI_Vision_Robot_car/arduino/bluetooth.h"
+               download>
+                <span>📄</span>
+                <h3>Bluetooth Header</h3>
+                <p>bluetooth.h</p>
+                <strong>Download File ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/AI_Vision_Robot_car/arduino/bluetooth.cpp"
+               download>
+                <span>📄</span>
+                <h3>Bluetooth Module</h3>
+                <p>bluetooth.cpp</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+        </div>
+
+        <div class="project-note">
+            The links above assume that your existing source
+            files are organized into python and arduino
+            subfolders under source/AI_Vision_Robot_car.
+            Keep the actual filenames and folder structure
+            consistent with these links.
+        </div>
+
+    </section>
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch the Robot Working</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>AI Vision Robot Car Demonstration</p>
+            <span>Your actual robot car photograph or demonstration video will appear here.</span>
+        </div>
+
+    </section>
+
+    <!-- SAFETY NOTES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+            <h2>Requirements and Safety Notes</h2>
+        </div>
+
+        <ul class="project-list">
+
+            <li>Pair the computer with the HC-05 before running the Python application.</li>
+
+            <li>Set the correct Bluetooth COM port in config.py.</li>
+
+            <li>Use 9600 baud for the Bluetooth serial connection.</li>
+
+            <li>Make sure the hand_landmarker.task model is available in the models folder.</li>
+
+            <li>Allow camera access to the Python application.</li>
+
+            <li>Do not power the motors directly from the Arduino 5V pin.</li>
+
+            <li>Use a suitable external motor power supply.</li>
+
+            <li>Check the HC-05 RX voltage requirements before connecting Arduino TX.</li>
+
+            <li>Test the stop command before normal robot operation.</li>
+
+            <li>Keep the robot in an open area during testing.</li>
+
+            <li>Disconnect power before changing hardware wiring.</li>
+
+        </ul>
+
+    </section>
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html" class="button secondary">
+            ← Back to Robotics Projects
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>
