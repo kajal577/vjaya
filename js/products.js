@@ -286,15 +286,7 @@ const products = [
         stock: 20,
         icon: "🔌"
     },
-    {
-        id: 27,
-        name: "HC-05 Bluetooth Module",
-        category: "Modules",
-        description: "Bluetooth serial communication for Arduino.",
-        price: 250,
-        stock: 20,
-        icon: "📶"
-    },
+   
 
     // ======================================
     // ROBOTICS KITS AND ACCESSORIES
@@ -362,7 +354,7 @@ const products = [
     {
         id: 27,
         name: "HC-05 Bluetooth Module",
-        category: "Modules",
+        category: "Bluetooth",
         description: "Bluetooth serial communication for Arduino.",
         price: 250,
         stock: 20,
