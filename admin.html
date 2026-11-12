@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin Dashboard | VJaYa Robotics</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+    <!-- LOGIN SCREEN -->
+    <section id="login-screen" class="login-screen">
+        <div class="login-card">
+            <div class="brand-mark">V<span>J</span>AYA</div>
+            <p class="brand-subtitle">ROBOTICS ADMINISTRATION</p>
+
+            <h1>Admin Login</h1>
+            <p class="muted">Sign in to manage your robotics store.</p>
+
+            <form id="login-form">
+                <label for="admin-email">Admin Email</label>
+                <input
+                    type="email"
+                    id="admin-email"
+                    placeholder="Enter admin email"
+                    autocomplete="username"
+                    required
+                >
+
+                <label for="admin-password">Password</label>
+                <input
+                    type="password"
+                    id="admin-password"
+                    placeholder="Enter password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <button type="submit" id="login-button">
+                    Sign In
+                </button>
+
+                <p id="login-error" class="error-message"></p>
+            </form>
+
+            <a href="index.html" class="back-link">← Back to Store</a>
+        </div>
+    </section>
+
+    <!-- ADMIN APPLICATION -->
+    <div id="admin-app" class="admin-app hidden">
+
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                V<span>J</span>AYA
+                <small>ROBOTICS ADMIN</small>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="nav-link active" data-section="overview">
+                    <span>▦</span> Overview
+                </button>
+
+                <button class="nav-link" data-section="products">
+                    <span>▣</span> Products
+                </button>
+
+                <button class="nav-link" data-section="orders">
+                    <span>▤</span> Orders
+                </button>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="index.html" class="store-link">Visit Store ↗</a>
+                <button id="logout-button" class="logout-button">
+                    Sign Out
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <p class="topbar-label">VJAYA ROBOTICS / ADMIN</p>
+                    <h1 id="page-title">Dashboard Overview</h1>
+                </div>
+                <div class="admin-profile">
+                    <span class="status-dot"></span>
+                    <span id="admin-email-display">Administrator</span>
+                </div>
+            </header>
+
+            <!-- OVERVIEW -->
+            <section id="overview-section" class="content-section">
+                <div class="section-heading">
+                    <div>
+                        <h2>Store Overview</h2>
+                        <p>Monitor your store performance.</p>
+                    </div>
+                    <button class="refresh-button" id="refresh-dashboard">
+                        ↻ Refresh
+                    </button>
+                </div>
+
+                <div class="stats-grid">
+                    <article class="stat-card">
+                        <span>Total Orders</span>
+                        <strong id="stat-total-orders">—</strong>
+                        <small>All orders received</small>
+                    </article>
+
+                    <article class="stat-card">
+                        <span>Paid Orders</span>
+                        <strong id="stat-paid-orders">—</strong>
+                        <small>Successfully paid</small>
+                    </article>
+
+                    <article class="stat-card">
+                        <span>Pending Orders</span>
+                        <strong id="stat-pending-orders">—</strong>
+                        <small>Awaiting payment</small>
+                    </article>
+
+                    <article class="stat-card">
+                        <span>Total Sales</span>
+                        <strong id="stat-total-sales">—</strong>
+                        <small>Confirmed sales</small>
+                    </article>
+
+                    <article class="stat-card">
+                        <span>Total Products</span>
+                        <strong id="stat-total-products">—</strong>
+                        <small>Products in inventory</small>
+                    </article>
+
+                    <article class="stat-card">
+                        <span>Low Stock</span>
+                        <strong id="stat-low-stock">—</strong>
+                        <small>Products needing attention</small>
+                    </article>
+                </div>
+
+                <div class="dashboard-panel">
+                    <h3>Admin Control Center</h3>
+                    <p>
+                        Manage your robotics products, monitor inventory,
+                        and review customer orders from one place.
+                    </p>
+                    <div class="quick-actions">
+                        <button data-section="products">Manage Products</button>
+                        <button data-section="orders">View Orders</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PRODUCTS -->
+            <section id="products-section" class="content-section hidden">
+                <div class="section-heading">
+                    <div>
+                        <h2>Product Management</h2>
+                        <p>View products and update available stock.</p>
+                    </div>
+                    <button class="refresh-button" id="refresh-products">
+                        ↻ Refresh
+                    </button>
+                </div>
+
+                <div class="table-panel">
+                    <div class="table-toolbar">
+                        <input
+                            type="search"
+                            id="product-search"
+                            placeholder="Search products..."
+                        >
+                        <span id="product-count">0 products</span>
+                    </div>
+
+                    <div class="table-scroll">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Current Stock</th>
+                                    <th>Update Stock</th>
+                                </tr>
+                            </thead>
+                            <tbody id="products-table-body">
+                                <tr>
+                                    <td colspan="5">Loading products...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ORDERS -->
+            <section id="orders-section" class="content-section hidden">
+                <div class="section-heading">
+                    <div>
+                        <h2>Order Management</h2>
+                        <p>Review customer orders and payment information.</p>
+                    </div>
+                    <button class="refresh-button" id="refresh-orders">
+                        ↻ Refresh
+                    </button>
+                </div>
+
+                <div class="table-panel">
+                    <div class="table-toolbar">
+                        <input
+                            type="search"
+                            id="order-search"
+                            placeholder="Search by order, customer or email..."
+                        >
+                        <span id="order-count">Recent orders</span>
+                    </div>
+
+                    <div class="table-scroll">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Email</th>
+                                    <th>Amount</th>
+                                    <th>Payment Status</th>
+                                    <th>Date</th>
+                                    <th>Details</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orders-table-body">
+                                <tr>
+                                    <td colspan="7">Loading orders...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <div id="admin-message" class="admin-message" role="status"></div>
+
+            <footer class="admin-footer">
+                VJaYa Robotics · Administration Panel
+            </footer>
+        </main>
+    </div>
+
+    <!-- ORDER DETAILS DIALOG -->
+    <dialog id="order-dialog" class="order-dialog">
+        <div class="dialog-header">
+            <h2>Order Details</h2>
+            <button id="close-order-dialog" aria-label="Close">✕</button>
+        </div>
+        <div id="order-details-content"></div>
+    </dialog>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
