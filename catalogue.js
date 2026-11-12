@@ -31,7 +31,7 @@ const products = [
     { id: 24, name: "BTS7960 Motor Driver", price: 450, stock: 20 },
     { id: 25, name: "1-Channel Relay Module", price: 80, stock: 20 },
     { id: 26, name: "4-Channel Relay Module", price: 180, stock: 20 },
-    { id: 27, name: "HC-05 Bluetooth Module", price: 250, stock: 20 },
+    { id: 27, name: "HC-05 Bluetooth ", price: 250, stock: 20 },
     { id: 28, name: "Robot Car Chassis", price: 250, stock: 20 },
     { id: 29, name: "Jumper Wire Set", price: 100, stock: 20 },
     { id: 30, name: "Breadboard", price: 90, stock: 20 },
