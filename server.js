@@ -8,6 +8,7 @@ const crypto = require("crypto");
 
 const products = require("./catalogue");
 const { pool, initDatabase } = require("./postgres");
+const createAdminRouter = require("./admin");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -50,6 +51,9 @@ app.use(cors({
 }));
 
 app.use(express.json({ limit: "20kb" }));
+
+// ADMIN DASHBOARD API
+app.use("/api/admin", createAdminRouter(pool, products));
 
 // ------------------------------------------
 // HEALTH CHECK
