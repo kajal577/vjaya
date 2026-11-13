@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Smart Home Gesture Control project by VJaYa Robotics. Control a light and fan using hand gestures, Python, OpenCV, MediaPipe, Arduino UNO and HC-05 Bluetooth.">
+
+    <title>Smart Home Gesture Control | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">SMART HOME AUTOMATION</span>
+
+        <h1>Smart Home Gesture Control</h1>
+
+        <p>
+            Control home appliances using hand gestures detected
+            through a computer webcam. This project combines
+            Python, OpenCV, MediaPipe, Arduino UNO and HC-05
+            Bluetooth communication to control a light and fan
+            without using physical switches.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            Smart Home Gesture Control is a hand-gesture-based
+            home automation project. It allows the user to
+            control a light and a fan using different hand
+            gestures in front of a computer webcam.
+        </p>
+
+        <p>
+            Python handles webcam access and hand gesture
+            detection using OpenCV and MediaPipe.
+        </p>
+
+        <p>
+            After detecting a gesture, the Python application
+            sends the corresponding command through Bluetooth
+            using an HC-05 module.
+        </p>
+
+        <p>
+            The Arduino UNO receives the Bluetooth command
+            and controls the light and fan through relay modules.
+        </p>
+
+        <div class="project-image-placeholder">
+            <p>Smart Home Gesture Control</p>
+            <span>Your actual Smart Home Gesture project photograph will appear here.</span>
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WHAT IT CAN DO</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Hand Gesture Detection</h3>
+                <p>
+                    Detect hand gestures using a computer webcam
+                    and MediaPipe.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Light Control</h3>
+                <p>
+                    Turn the light ON or OFF using
+                    different hand gestures.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Fan Control</h3>
+                <p>
+                    Control the fan using hand gestures
+                    detected by the webcam.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Bluetooth Communication</h3>
+                <p>
+                    Send commands wirelessly from the
+                    computer to Arduino using HC-05.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Arduino Automation</h3>
+                <p>
+                    Use Arduino UNO to process commands
+                    and control the relay modules.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Gesture Stability</h3>
+                <p>
+                    Use gesture stability checking before
+                    sending a detected gesture command.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMPONENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Arduino UNO</li>
+            <li>HC-05 Bluetooth Module</li>
+            <li>Two-Channel Relay Module</li>
+            <li>Light or Lamp</li>
+            <li>Fan</li>
+            <li>Computer or Laptop</li>
+            <li>Computer Webcam</li>
+            <li>USB Data Cable</li>
+            <li>Jumper Wires</li>
+            <li>Suitable Power Supply</li>
+        </ul>
+
+    </section>
+
+
+    <!-- WIRING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE CONNECTION</p>
+            <h2>Arduino UNO and HC-05 Wiring</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Component Pin</th>
+                        <th>Arduino UNO Connection</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>HC-05</td>
+                        <td>TXD</td>
+                        <td>D3 (Arduino SoftwareSerial RX)</td>
+                    </tr>
+
+                    <tr>
+                        <td>HC-05</td>
+                        <td>RXD</td>
+                        <td>D4 (Arduino SoftwareSerial TX)</td>
+                    </tr>
+
+                    <tr>
+                        <td>HC-05</td>
+                        <td>VCC</td>
+                        <td>Suitable module supply</td>
+                    </tr>
+
+                    <tr>
+                        <td>HC-05</td>
+                        <td>GND</td>
+                        <td>Arduino GND</td>
+                    </tr>
+
+                    <tr>
+                        <td>Light Relay</td>
+                        <td>IN1</td>
+                        <td>D7</td>
+                    </tr>
+
+                    <tr>
+                        <td>Fan Relay</td>
+                        <td>IN2</td>
+                        <td>D8</td>
+                    </tr>
+
+                    <tr>
+                        <td>Relay Module</td>
+                        <td>VCC</td>
+                        <td>Suitable module supply</td>
+                    </tr>
+
+                    <tr>
+                        <td>Relay Module</td>
+                        <td>GND</td>
+                        <td>Arduino GND</td>
+                    </tr>
+
+                    <tr>
+                        <td>Computer</td>
+                        <td>USB</td>
+                        <td>Arduino UNO USB connection</td>
+                    </tr>
+
+                    <tr>
+                        <td>Webcam</td>
+                        <td>USB / Camera</td>
+                        <td>Computer</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            The computer webcam connects to the computer.
+            Python communicates with Arduino UNO through
+            the HC-05 Bluetooth module.
+
+            The HC-05 TXD connects to Arduino D3, and
+            HC-05 RXD connects to Arduino D4.
+
+            Check the HC-05 logic-level requirements before
+            connecting its RXD pin. Use suitable relay contacts
+            and electrical protection for the appliances.
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>Smart Home Gesture Wiring Diagram</p>
+            <span>Your actual wiring photograph or diagram will appear here.</span>
+        </div>
+
+    </section>
+
+
+    <!-- SOFTWARE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Python Software and Libraries</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Python 3.11</li>
+            <li>OpenCV — Webcam access and image processing</li>
+            <li>MediaPipe — Hand gesture detection</li>
+            <li>PySerial — Bluetooth serial communication</li>
+            <li>NumPy — Numerical processing</li>
+            <li>Visual Studio Code</li>
+            <li>MediaPipe Hand Landmarker model</li>
+        </ul>
+
+        <p>
+            Install the required Python libraries using:
+        </p>
+
+        <pre><code>py -3.11 -m pip install -r requirements.txt</code></pre>
+
+    </section>
+
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>Step-by-Step Operation</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>Connect the HC-05 Bluetooth module to Arduino UNO.</li>
+
+            <li>Connect the relay module to Arduino UNO.</li>
+
+            <li>Connect the light and fan to their respective
+                relay output connections.</li>
+
+            <li>Upload the Arduino firmware.</li>
+
+            <li>Pair the computer with the HC-05 Bluetooth module.</li>
+
+            <li>Connect the computer webcam.</li>
+
+            <li>Start the Python Smart Home Gesture application.</li>
+
+            <li>Python captures live webcam frames using OpenCV.</li>
+
+            <li>MediaPipe processes the frames and detects hand gestures.</li>
+
+            <li>The Python application checks gesture stability.</li>
+
+            <li>The corresponding command is sent through HC-05 Bluetooth.</li>
+
+            <li>Arduino UNO receives the command and controls the relays.</li>
+
+            <li>The light and fan respond according to the detected gesture.</li>
+
+        </ol>
+
+    </section>
+
+
+    <!-- GESTURE COMMANDS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HAND GESTURE CONTROL</p>
+            <h2>Hand Gesture Commands</h2>
+        </div>
+
+        <p>
+            Each hand gesture performs a specific home automation
+            operation. The webcam detects the gesture, and the
+            computer sends the corresponding Bluetooth command
+            to Arduino UNO.
+        </p>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Hand Gesture</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>1 Finger Raised</td>
+                        <td>Light ON</td>
+                    </tr>
+
+                    <tr>
+                        <td>2 Fingers Raised</td>
+                        <td>Light OFF</td>
+                    </tr>
+
+                    <tr>
+                        <td>3 Fingers Raised</td>
+                        <td>Fan ON</td>
+                    </tr>
+
+                    <tr>
+                        <td>4 Fingers Raised</td>
+                        <td>Fan OFF</td>
+                    </tr>
+
+                    <tr>
+                        <td>Open Palm</td>
+                        <td>Light ON + Fan ON</td>
+                    </tr>
+
+                    <tr>
+                        <td>Closed Fist</td>
+                        <td>All OFF</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            The Python application detects and stabilizes
+            the hand gesture before sending the corresponding
+            command to Arduino UNO.
+        </div>
+
+    </section>
+
+
+    <!-- PROJECT SOFTWARE STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAM STRUCTURE</p>
+            <h2>Python Project Files</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>main.py</h3>
+                <p>
+                    Main Python application entry point.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>config.py</h3>
+                <p>
+                    Stores camera, Bluetooth serial port
+                    and project configuration.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>bluetooth_link.py</h3>
+                <p>
+                    Handles Bluetooth serial communication
+                    with Arduino UNO.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>vision.py</h3>
+                <p>
+                    Handles webcam access and hand
+                    gesture detection.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>requirements.txt</h3>
+                <p>
+                    Contains the Python dependencies
+                    required by the project.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ARDUINO PROGRAM STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">ARDUINO PROGRAM</p>
+            <h2>Arduino Firmware Files</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Smart_Home_Gesture.ino</h3>
+                <p>
+                    Main Arduino firmware entry point.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>config.h</h3>
+                <p>
+                    Hardware pin and configuration definitions.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>relay.h / relay.cpp</h3>
+                <p>
+                    Relay control module for the light and fan.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>bluetooth.h / bluetooth.cpp</h3>
+                <p>
+                    Bluetooth communication module
+                    for receiving commands.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+            <p>
+                Download the original Python and Arduino
+                Smart Home Gesture project files.
+            </p>
+        </div>
+
+        <h3>Python Application Files</h3>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/smart_home_gesture_control/python/main.py"
+               download>
+
+                <span>📄</span>
+                <h3>Main Application</h3>
+                <p>main.py</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/smart_home_gesture_control/python/config.py"
+               download>
+
+                <span>📄</span>
+                <h3>Configuration</h3>
+                <p>config.py</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/smart_home_gesture_control/python/bluetooth_link.py"
+               download>
+
+                <span>📄</span>
+                <h3>Bluetooth Communication</h3>
+                <p>bluetooth_link.py</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/smart_home_gesture_control/python/vision.py"
+               download>
+
+                <span>📄</span>
+                <h3>Vision Processing</h3>
+                <p>vision.py</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/smart_home_gesture_control/python/requirements.txt"
+               download>
+
+                <span>📄</span>
+                <h3>Python Requirements</h3>
+                <p>requirements.txt</p>
+                <strong>Download File ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/smart_home_gesture_control/python/models/hand_landmarker.task"
+               download>
+
+                <span>📄</span>
+                <h3>MediaPipe Model</h3>
+                <p>hand_landmarker.task</p>
+                <strong>Download Model ↓</strong>
+
+            </a>
+
+        </div>
+
+
+        <h3>Arduino Firmware Files</h3>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/smart_home_gesture_control/arduino/Smart_Home_Gesture.ino"
+               download>
+
+                <span>📄</span>
+                <h3>Main Arduino Program</h3>
+                <p>Smart_Home_Gesture.ino</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/smart_home_gesture_control/arduino/config.h"
+               download>
+
+                <span>📄</span>
+                <h3>Configuration</h3>
+                <p>config.h</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/smart_home_gesture_control/arduino/relay.h"
+               download>
+
+                <span>📄</span>
+                <h3>Relay Header</h3>
+                <p>relay.h</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/smart_home_gesture_control/arduino/relay.cpp"
+               download>
+
+                <span>📄</span>
+                <h3>Relay Module</h3>
+                <p>relay.cpp</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/smart_home_gesture_control/arduino/bluetooth.h"
+               download>
+
+                <span>📄</span>
+                <h3>Bluetooth Header</h3>
+                <p>bluetooth.h</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/smart_home_gesture_control/arduino/bluetooth.cpp"
+               download>
+
+                <span>📄</span>
+                <h3>Bluetooth Module</h3>
+                <p>bluetooth.cpp</p>
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+        </div>
+
+        <div class="project-note">
+            The download links use the Python and Arduino
+            folder structure shown above. Add the corresponding
+            original files to these locations before publishing
+            the project page.
+
+            The MediaPipe model file must also be included
+            at the specified models folder for its download link
+            to work.
+        </div>
+
+    </section>
+
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch It Working</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>Smart Home Gesture Demonstration</p>
+            <span>Your actual project demonstration video will appear here.</span>
+        </div>
+
+    </section>
+
+
+    <!-- SAFETY -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+            <h2>Safety and Operating Notes</h2>
+        </div>
+
+        <ul class="project-list">
+
+            <li>Check all Arduino and relay connections
+                before powering the circuit.</li>
+
+            <li>Use a suitable power supply for the relay module.</li>
+
+            <li>Check the HC-05 module's voltage and logic-level
+                requirements before connecting it.</li>
+
+            <li>Use correctly rated relay contacts for the
+                connected appliances.</li>
+
+            <li>Disconnect power before changing any wiring.</li>
+
+            <li>Keep mains-voltage connections insulated
+                and enclosed in a suitable electrical enclosure.</li>
+
+            <li>Do not touch exposed mains wiring or relay terminals.</li>
+
+            <li>Test the gesture detection and Bluetooth
+                communication before connecting actual appliances.</li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html"
+           class="button secondary">
+            ← Back to Robotics Projects
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>
