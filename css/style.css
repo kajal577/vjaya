@@ -43,3 +43,128 @@
     border-color: var(--accent);
     color: #071510;
 }
+
+
+
+/* =====================================
+   VJAYA ROBOTICS - STORE UPGRADE
+===================================== */
+
+.product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.product-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: linear-gradient(160deg, #14223a, #101a2c);
+    transition: transform .25s ease, border-color .25s ease,
+                box-shadow .25s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(98, 230, 197, .55);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, .25);
+}
+
+.product-art {
+    position: relative;
+    height: 190px;
+    padding: 18px;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #243c5b, #101a2c 75%);
+}
+
+.product-art img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform .3s ease;
+}
+
+.product-card:hover .product-art img {
+    transform: scale(1.07);
+}
+
+.product-art .product-icon {
+    font-size: 4rem;
+}
+
+.product-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.product-info h3 {
+    min-height: 48px;
+    margin: 0 0 8px;
+    font-size: 1.08rem;
+}
+
+.product-info p {
+    flex: 1;
+    min-height: 55px;
+    margin: 0;
+}
+
+.product-bottom {
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.product-bottom .price {
+    font-size: 1.15rem;
+}
+
+.add-button {
+    white-space: nowrap;
+    transition: .2s ease;
+}
+
+.add-button:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+}
+
+.stock-status {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--accent);
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+.stock-status.out-of-stock {
+    color: #ff9b9b;
+}
+
+@media (max-width: 900px) {
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .product-art {
+        height: 210px;
+    }
+
+    .product-info h3 {
+        min-height: auto;
+    }
+}
