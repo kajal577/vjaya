@@ -6,43 +6,8 @@
 const products = [
 
     // ======================================
-    // jumper wires
-    // ======================================
-
-     {
-        id: 32,
-        name: "male to male",
-        category: "boards",
-        description: "Wheels and caster for mobile robot platforms.",
-        price: 10,
-        stock: 20,
-        icon: "🛞"
-    },
-
-    {
-        id: 32,
-        name: "male to female",
-        category: "boards",
-        description: "Wheels and caster for mobile robot platforms.",
-        price: 10,
-        stock: 20,
-        icon: "🛞"
-    },
-    {
-        id: 32,
-        name: "female to female",
-        category: "boards",
-        description: "Wheels and caster for mobile robot platforms.",
-        price: 10,
-        stock: 20,
-        icon: "🛞"
-    },
-
-    // ======================================
     // DEVELOPMENT BOARDS
     // ======================================
-
-   
 
     {
         id: 1,
@@ -286,7 +251,15 @@ const products = [
         stock: 20,
         icon: "🔌"
     },
-   
+    {
+        id: 27,
+        name: "HC-05 Bluetooth Module",
+        category: "Modules",
+        description: "Bluetooth serial communication for Arduino.",
+        price: 250,
+        stock: 20,
+        icon: "📶"
+    },
 
     // ======================================
     // ROBOTICS KITS AND ACCESSORIES
@@ -345,21 +318,52 @@ const products = [
         price: 180,
         stock: 20,
         icon: "🛞"
-    },
-    
-    // ======================================
-    // Bluetooth
-    // ======================================
-
-    {
-        id: 27,
-        name: "HC-05 Bluetooth Module",
-        category: "Bluetooth",
-        description: "Bluetooth serial communication for Arduino.",
-        price: 250,
-        stock: 20,
-        icon: "📶"
-    },
-
+    }
 
 ];
+
+
+// ==========================================
+// PRODUCT IMAGE PATHS
+// Place the matching image files in images/products/
+// ==========================================
+
+const productImages = {
+    1: "images/products/esp32-development-board.jpg",
+    2: "images/products/arduino-uno.jpg",
+    3: "images/products/ultrasonic-hc-sr04.jpg",
+    4: "images/products/sg90-servo.jpg",
+    5: "images/products/l298n-motor-driver.jpg",
+    6: "images/products/robot-car-starter-kit.jpg",
+    7: "images/products/arduino-nano.jpg",
+    8: "images/products/arduino-mega-2560.jpg",
+    9: "images/products/esp32-cam.jpg",
+    10: "images/products/raspberry-pi-pico.jpg",
+    11: "images/products/nodemcu-esp8266.jpg",
+    12: "images/products/ir-sensor.jpg",
+    13: "images/products/pir-motion-sensor.jpg",
+    14: "images/products/dht11-sensor.jpg",
+    15: "images/products/soil-moisture-sensor.jpg",
+    16: "images/products/mpu6050-gyroscope.jpg",
+    17: "images/products/mq2-gas-sensor.jpg",
+    18: "images/products/dc-gear-motor.jpg",
+    19: "images/products/bo-motor.jpg",
+    20: "images/products/nema17-stepper-motor.jpg",
+    21: "images/products/mg996r-servo.jpg",
+    22: "images/products/28byj48-stepper-motor.jpg",
+    23: "images/products/l293d-motor-driver.jpg",
+    24: "images/products/bts7960-motor-driver.jpg",
+    25: "images/products/1-channel-relay.jpg",
+    26: "images/products/4-channel-relay.jpg",
+    27: "images/products/hc05-bluetooth-module.jpg",
+    28: "images/products/robot-car-chassis.jpg",
+    29: "images/products/jumper-wire-set.jpg",
+    30: "images/products/breadboard.jpg",
+    31: "images/products/battery-holder.jpg",
+    32: "images/products/robot-wheel-caster-set.jpg"
+};
+
+products.forEach(product => {
+    product.image = productImages[product.id] || "";
+});
+
