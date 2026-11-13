@@ -15,6 +15,14 @@ const roboticsProjects = [
         page: "smart_home_automation.html"
     },
 
+     {
+        id: "self_balancing_robot",
+        name: "SELF BALANCING ROBOT",
+        platform: "Arduino",
+        description: "An Arduino controlled robot project using a gyrosensor module and motor driver to control the car .",
+        page: "self_balancing_robot.html"
+    },
+
     {
         id: "maze_solver_car",
         name: "MAZE SOLVER CAR",
@@ -87,14 +95,14 @@ const roboticsProjects = [
         name: "LINE FOLLOWER ROBOT",
         platform: "Arduino",
         description: "An Arduino line follower car project using infrared sensors to follow a line on the ground.",
-        page: "line_follower_car.html"
+        page: "line_following_robot.html"
     },
     {
         id: "bluetooth_controlled_car",
         name: "BLUETOOTH CONTROLLED CAR",
         platform: "Arduino",
         description: "An Arduino Bluetooth controlled car project using a Bluetooth module and motor driver to control the car with a smartphone.",
-        page: "bluetooth_controlled_car.html"
+        page: "bluetooth_robot_car.html"
     },
 ];
 
