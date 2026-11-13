@@ -44,7 +44,7 @@ const roboticsProjects = [
         name: "SMART HOME GESTURE CONTROL",
         platform: "Arduino",
         description: "Control smart home devices using hand gestures detected by a webcam and processed with Python and OpenCV.",
-        page: "smart_home_gesture_control.html"
+        page: "smart_home_gesture.html"
     },
 
     {
