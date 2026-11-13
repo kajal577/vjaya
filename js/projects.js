@@ -84,7 +84,7 @@ const roboticsProjects = [
     },
     {
         id: "line_follower_car",
-        name: "LINE FOLLOWER CAR",
+        name: "LINE FOLLOWER ROBOT",
         platform: "Arduino",
         description: "An Arduino line follower car project using infrared sensors to follow a line on the ground.",
         page: "line_follower_car.html"
