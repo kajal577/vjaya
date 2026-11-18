@@ -18,6 +18,11 @@ pool.on("error", (error) => {
 });
 
 async function initDatabase() {
+
+    // --------------------------------------
+    // CREATE EXISTING TABLES
+    // --------------------------------------
+
     await pool.query(`
         CREATE TABLE IF NOT EXISTS inventory (
             product_id INTEGER PRIMARY KEY,
@@ -50,6 +55,32 @@ async function initDatabase() {
         );
     `);
 
+    // --------------------------------------
+    // ADD SHIPPING COLUMNS SAFELY
+    // Existing orders will be preserved.
+    // --------------------------------------
+
+    await pool.query(`
+        ALTER TABLE orders
+        ADD COLUMN IF NOT EXISTS subtotal INTEGER;
+
+        ALTER TABLE orders
+        ADD COLUMN IF NOT EXISTS shipping_charge INTEGER NOT NULL DEFAULT 0;
+
+        ALTER TABLE orders
+        ADD COLUMN IF NOT EXISTS delivery_pincode VARCHAR(6);
+
+        ALTER TABLE orders
+        ADD COLUMN IF NOT EXISTS courier_name TEXT;
+
+        ALTER TABLE orders
+        ADD COLUMN IF NOT EXISTS delivery_estimate TEXT;
+    `);
+
+    // --------------------------------------
+    // INITIALIZE INVENTORY
+    // --------------------------------------
+
     for (const product of products) {
         await pool.query(`
             INSERT INTO inventory
@@ -65,6 +96,7 @@ async function initDatabase() {
     }
 
     console.log("VJaYa Robotics PostgreSQL initialized.");
+    console.log("Shipping database columns checked.");
 }
 
 module.exports = {
