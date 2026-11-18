@@ -1,11 +1,18 @@
 
-// =====================================
-// VJAYA ROBOTICS STORE - APP
-// =====================================
+ // =====================================
+ // VJAYA ROBOTICS STORE - APP
+ // =====================================
 
 let selectedCategory = "All";
 let currentSearch = "";
 let sortOrder = "default";
+
+// =====================================
+// SHIPPING STATE
+// =====================================
+
+let currentShippingQuote = null;
+let shippingRequestId = 0;
 
 // =====================================
 // RENDER PRODUCTS
@@ -163,39 +170,297 @@ function setCartOpen(isOpen) {
 }
 
 // =====================================
-// INITIALIZE WEBSITE
+// PAYMENT API
 // =====================================
 
-
-// ==========================================
-// RAZORPAY CHECKOUT INTEGRATION
-// ==========================================
-
-// Local testing server.
-// Change this URL when the backend is deployed.
 const PAYMENT_API = "https://vjaya-robotics-api.onrender.com";
 
+// =====================================
+// SHIPPING HELPERS
+// =====================================
+
+function getDeliveryPincode() {
+    const input = document.getElementById("delivery-pincode");
+
+    return input ? input.value.trim() : "";
+}
+
+function getCartSignature() {
+    return cart
+        .map(item => `${item.id}:${item.quantity}`)
+        .sort()
+        .join("|");
+}
+
+function invalidateShippingQuote(message = "") {
+    currentShippingQuote = null;
+
+    // Cancel any previous quote request logically.
+    shippingRequestId++;
+
+    const shippingChargeElement =
+        document.getElementById("shipping-charge");
+
+    const finalTotalElement =
+        document.getElementById("final-total");
+
+    const shippingStatus =
+        document.getElementById("shipping-status");
+
+    const checkoutButton =
+        document.getElementById("checkout-button");
+
+    if (shippingChargeElement) {
+        shippingChargeElement.textContent = "Not calculated";
+    }
+
+    if (finalTotalElement) {
+        const subtotal = cart.reduce(
+            (sum, item) => sum + item.price * item.quantity,
+            0
+        );
+
+        finalTotalElement.textContent =
+            `₹${subtotal.toLocaleString("en-IN")}`;
+    }
+
+    if (shippingStatus) {
+        shippingStatus.textContent =
+            message ||
+            "Enter your delivery PIN code to calculate shipping automatically.";
+    }
+
+    if (checkoutButton) {
+        checkoutButton.disabled = true;
+    }
+}
+
+function updateCheckoutButton() {
+    const checkoutButton =
+        document.getElementById("checkout-button");
+
+    if (!checkoutButton) return;
+
+    const validQuote =
+        currentShippingQuote &&
+        currentShippingQuote.pincode === getDeliveryPincode() &&
+        currentShippingQuote.cartSignature === getCartSignature();
+
+    checkoutButton.disabled =
+        !cart.length || !validQuote;
+
+    checkoutButton.textContent = "Continue to checkout";
+}
+
+function displayShippingQuote(quote) {
+    const shippingChargeElement =
+        document.getElementById("shipping-charge");
+
+    const finalTotalElement =
+        document.getElementById("final-total");
+
+    const shippingStatus =
+        document.getElementById("shipping-status");
+
+    const subtotal = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+    );
+
+    if (shippingChargeElement) {
+        shippingChargeElement.textContent =
+            `₹${quote.shippingCharge.toLocaleString("en-IN")}`;
+    }
+
+    if (finalTotalElement) {
+        finalTotalElement.textContent =
+            `₹${(subtotal + quote.shippingCharge).toLocaleString("en-IN")}`;
+    }
+
+    if (shippingStatus) {
+        shippingStatus.textContent =
+            `Courier: ${quote.courierName || "Available"} | ` +
+            `Estimated delivery: ${quote.deliveryEstimate || "To be confirmed"}`;
+    }
+
+    updateCheckoutButton();
+}
+
+// =====================================
+// AUTOMATIC SHIPPING CALCULATION
+// =====================================
+
+async function calculateShippingAutomatically() {
+
+    const pincode = getDeliveryPincode();
+
+    // No products in cart.
+    if (!cart.length) {
+        invalidateShippingQuote("Your cart is empty.");
+        return;
+    }
+
+    // Wait until the customer enters a valid PIN.
+    if (!/^[0-9]{6}$/.test(pincode)) {
+        invalidateShippingQuote(
+            "Enter a valid 6-digit delivery PIN code."
+        );
+        return;
+    }
+
+    const cartSignature = getCartSignature();
+
+    // Avoid unnecessary duplicate API calls.
+    if (
+        currentShippingQuote &&
+        currentShippingQuote.pincode === pincode &&
+        currentShippingQuote.cartSignature === cartSignature
+    ) {
+        displayShippingQuote(currentShippingQuote);
+        return;
+    }
+
+    const shippingStatus =
+        document.getElementById("shipping-status");
+
+    const checkoutButton =
+        document.getElementById("checkout-button");
+
+    if (shippingStatus) {
+        shippingStatus.textContent =
+            "Calculating delivery charge...";
+    }
+
+    if (checkoutButton) {
+        checkoutButton.disabled = true;
+    }
+
+    const requestId = ++shippingRequestId;
+
+    try {
+        const response = await fetch(
+            `${PAYMENT_API}/api/shipping-rate`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    items: cart.map(item => ({
+                        id: item.id,
+                        quantity: item.quantity
+                    })),
+                    deliveryPincode: pincode
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        // Ignore an outdated request.
+        if (requestId !== shippingRequestId) {
+            return;
+        }
+
+        if (!response.ok || !data.success) {
+            throw new Error(
+                data.message || "Unable to calculate shipping."
+            );
+        }
+
+        currentShippingQuote = {
+            shippingCharge: Number(data.shippingCharge),
+            courierName: data.courierName,
+            deliveryEstimate: data.deliveryEstimate,
+            pincode: pincode,
+            cartSignature: cartSignature
+        };
+
+        displayShippingQuote(currentShippingQuote);
+
+    } catch (error) {
+
+        if (requestId !== shippingRequestId) {
+            return;
+        }
+
+        currentShippingQuote = null;
+
+        if (shippingStatus) {
+            shippingStatus.textContent =
+                error.message ||
+                "Unable to calculate delivery charge. Please try again.";
+        }
+
+        if (checkoutButton) {
+            checkoutButton.disabled = true;
+        }
+
+        const shippingChargeElement =
+            document.getElementById("shipping-charge");
+
+        if (shippingChargeElement) {
+            shippingChargeElement.textContent = "Unavailable";
+        }
+
+        console.error("Shipping calculation error:", error);
+    }
+}
+
+// =====================================
+// RAZORPAY CHECKOUT
+// =====================================
+
 async function startCheckout() {
-    const checkoutButton = document.getElementById("checkout-button");
+
+    const checkoutButton =
+        document.getElementById("checkout-button");
 
     if (!cart.length) {
         alert("Your cart is empty.");
         return;
     }
 
-    const customerForm = document.getElementById("customer-details");
+    const customerForm =
+        document.getElementById("customer-details");
 
-if (!customerForm.reportValidity()) return;
+    if (!customerForm.reportValidity()) {
+        return;
+    }
 
-const customer = {
-    name: document.getElementById("customer-name").value.trim(),
-    email: document.getElementById("customer-email").value.trim(),
-    phone: document.getElementById("customer-phone").value.trim(),
-    address: document.getElementById("customer-address").value.trim()
-};
+    const deliveryPincode = getDeliveryPincode();
+
+    if (!/^[0-9]{6}$/.test(deliveryPincode)) {
+        alert("Please enter a valid 6-digit delivery PIN code.");
+        return;
+    }
+
+    // Ensure the shipping quote matches the current cart and PIN.
+    if (
+        !currentShippingQuote ||
+        currentShippingQuote.pincode !== deliveryPincode ||
+        currentShippingQuote.cartSignature !== getCartSignature()
+    ) {
+        alert("Please wait while we calculate your delivery charge.");
+
+        await calculateShippingAutomatically();
+
+        if (!currentShippingQuote) {
+            return;
+        }
+    }
+
+    const customer = {
+        name: document.getElementById("customer-name").value.trim(),
+        email: document.getElementById("customer-email").value.trim(),
+        phone: document.getElementById("customer-phone").value.trim(),
+        address: document.getElementById("customer-address").value.trim()
+    };
 
     if (typeof Razorpay === "undefined") {
-        alert("Razorpay Checkout could not load. Check your internet connection.");
+        alert(
+            "Razorpay Checkout could not load. Check your internet connection."
+        );
         return;
     }
 
@@ -203,7 +468,11 @@ const customer = {
     checkoutButton.textContent = "Preparing payment...";
 
     try {
-        // Step 1: Ask backend to create a trusted order.
+
+        // ------------------------------------------
+        // STEP 1: CREATE BACKEND ORDER
+        // ------------------------------------------
+
         const orderResponse = await fetch(
             `${PAYMENT_API}/api/create-order`,
             {
@@ -216,7 +485,8 @@ const customer = {
                         id: item.id,
                         quantity: item.quantity
                     })),
-                     customer: customer
+                    customer: customer,
+                    deliveryPincode: deliveryPincode
                 })
             }
         );
@@ -224,10 +494,31 @@ const customer = {
         const orderData = await orderResponse.json();
 
         if (!orderResponse.ok || !orderData.success) {
-            throw new Error(orderData.message || "Could not create order.");
+            throw new Error(
+                orderData.message || "Could not create order."
+            );
         }
 
-        // Step 2: Open Razorpay Checkout.
+        // Update the cart with the final server-calculated shipping.
+        if (
+            typeof orderData.shippingCharge === "number" &&
+            typeof orderData.finalTotal === "number"
+        ) {
+            currentShippingQuote = {
+                shippingCharge: orderData.shippingCharge,
+                courierName: orderData.courierName,
+                deliveryEstimate: orderData.deliveryEstimate,
+                pincode: deliveryPincode,
+                cartSignature: getCartSignature()
+            };
+
+            displayShippingQuote(currentShippingQuote);
+        }
+
+        // ------------------------------------------
+        // STEP 2: OPEN RAZORPAY CHECKOUT
+        // ------------------------------------------
+
         const options = {
             key: orderData.key,
             amount: orderData.order.amount,
@@ -237,8 +528,13 @@ const customer = {
             order_id: orderData.order.id,
 
             handler: async function (response) {
+
                 try {
-                    // Step 3: Verify payment on backend.
+
+                    // ------------------------------------------
+                    // STEP 3: VERIFY PAYMENT ON BACKEND
+                    // ------------------------------------------
+
                     const verifyResponse = await fetch(
                         `${PAYMENT_API}/api/verify-payment`,
                         {
@@ -250,39 +546,59 @@ const customer = {
                         }
                     );
 
-                    const verifyData = await verifyResponse.json();
+                    const verifyData =
+                        await verifyResponse.json();
 
-                    if (!verifyResponse.ok || !verifyData.success) {
+                    if (
+                        !verifyResponse.ok ||
+                        !verifyData.success
+                    ) {
                         throw new Error(
-                            verifyData.message || "Payment verification failed."
+                            verifyData.message ||
+                            "Payment verification failed."
                         );
                     }
 
-                   // Save order details for the confirmation page.
-const orderId = response.razorpay_order_id;
-const paymentId = verifyData.paymentId;
+                    alert(
+                        "Payment successful!\n" +
+                        "Payment ID: " + verifyData.paymentId +
+                        "\nOrder ID: " + verifyData.orderId
+                    );
 
-// Clear cart only after successful server verification.
-cart.length = 0;
-renderCart();
-setCartOpen(false);
+                    // ------------------------------------------
+                    // CLEAR CART AFTER VERIFIED PAYMENT
+                    // ------------------------------------------
 
-// Redirect to the order confirmation page.
-window.location.href =
-    `order-success.html?order_id=${encodeURIComponent(orderId)}&payment_id=${encodeURIComponent(paymentId)}`;
+                    cart.length = 0;
+
+                    renderCart();
+
+                    invalidateShippingQuote(
+                        "Your cart is empty."
+                    );
+
+                    setCartOpen(false);
 
                 } catch (error) {
-                    alert("Payment verification issue: " + error.message);
+
+                    alert(
+                        "Payment verification issue: " +
+                        error.message
+                    );
+
                 } finally {
-                    checkoutButton.disabled = false;
-                    checkoutButton.textContent = "Checkout";
+
+                    checkoutButton.disabled = true;
+                    checkoutButton.textContent =
+                        "Continue to checkout";
                 }
             },
 
             modal: {
                 ondismiss: function () {
-                    checkoutButton.disabled = false;
-                    checkoutButton.textContent = "Checkout";
+                    updateCheckoutButton();
+                    checkoutButton.textContent =
+                        "Continue to checkout";
                 }
             },
 
@@ -291,53 +607,99 @@ window.location.href =
             }
         };
 
-        const razorpayCheckout = new Razorpay(options);
+        const razorpayCheckout =
+            new Razorpay(options);
 
-        razorpayCheckout.on("payment.failed", function (response) {
-            alert(
-                "Payment failed: " +
-                (response.error.description || "Please try again.")
-            );
+        razorpayCheckout.on(
+            "payment.failed",
+            function (response) {
 
-            checkoutButton.disabled = false;
-            checkoutButton.textContent = "Checkout";
-        });
+                alert(
+                    "Payment failed: " +
+                    (
+                        response.error.description ||
+                        "Please try again."
+                    )
+                );
+
+                updateCheckoutButton();
+
+                checkoutButton.textContent =
+                    "Continue to checkout";
+            }
+        );
 
         razorpayCheckout.open();
 
     } catch (error) {
+
         alert("Checkout error: " + error.message);
 
-        checkoutButton.disabled = false;
-        checkoutButton.textContent = "Checkout";
+        updateCheckoutButton();
+
+        checkoutButton.textContent =
+            "Continue to checkout";
     }
 }
 
+// =====================================
+// INITIALIZE WEBSITE
+// =====================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Product search
+    // ------------------------------------------
+    // PRODUCT SEARCH
+    // ------------------------------------------
+
     document.getElementById("product-search")
         .addEventListener("input", event => {
             searchProducts(event.target.value);
         });
 
-    // Add and remove cart items
+    // ------------------------------------------
+    // ADD AND REMOVE CART ITEMS
+    // ------------------------------------------
+
     document.addEventListener("click", event => {
 
-        const addButton = event.target.closest("[data-add]");
-        const removeButton = event.target.closest("[data-remove]");
+        const addButton =
+            event.target.closest("[data-add]");
+
+        const removeButton =
+            event.target.closest("[data-remove]");
 
         if (addButton && !addButton.disabled) {
+
             addToCart(Number(addButton.dataset.add));
+
+            // Cart changed. Shipping must be recalculated.
+            invalidateShippingQuote(
+                "Cart updated. Recalculating delivery charge..."
+            );
+
+            calculateShippingAutomatically();
         }
 
         if (removeButton) {
-            removeFromCart(Number(removeButton.dataset.remove));
+
+            removeFromCart(
+                Number(removeButton.dataset.remove)
+            );
+
+            // Cart changed. Shipping must be recalculated.
+            invalidateShippingQuote(
+                "Cart updated. Recalculating delivery charge..."
+            );
+
+            calculateShippingAutomatically();
         }
     });
 
-    // Cart controls
+    // ------------------------------------------
+    // CART CONTROLS
+    // ------------------------------------------
+
     document.getElementById("cart-toggle")
         .addEventListener("click", () => setCartOpen(true));
 
@@ -347,16 +709,64 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("cart-backdrop")
         .addEventListener("click", () => setCartOpen(false));
 
-    // Checkout demo
-    
-    document.getElementById("checkout-button")
-    .addEventListener("click", startCheckout);
+    // ------------------------------------------
+    // AUTOMATIC SHIPPING WHEN PIN CODE CHANGES
+    // ------------------------------------------
 
-    // Footer year
+    const pincodeInput =
+        document.getElementById("delivery-pincode");
+
+    if (pincodeInput) {
+
+        pincodeInput.addEventListener("input", () => {
+
+            invalidateShippingQuote(
+                "Enter a valid 6-digit PIN code to calculate shipping."
+            );
+
+            // Automatically calculate once the PIN is complete.
+            if (/^[0-9]{6}$/.test(pincodeInput.value.trim())) {
+                calculateShippingAutomatically();
+            }
+        });
+    }
+
+    // ------------------------------------------
+    // REMOVE OLD CALCULATE SHIPPING BUTTON
+    // ------------------------------------------
+
+    const calculateShippingButton =
+        document.getElementById("calculate-shipping-button");
+
+    if (calculateShippingButton) {
+        calculateShippingButton.remove();
+    }
+
+    // ------------------------------------------
+    // CHECKOUT
+    // ------------------------------------------
+
+    document.getElementById("checkout-button")
+        .addEventListener("click", startCheckout);
+
+    // Checkout starts disabled.
+    document.getElementById("checkout-button").disabled = true;
+
+    // ------------------------------------------
+    // FOOTER YEAR
+    // ------------------------------------------
+
     document.getElementById("year").textContent =
         new Date().getFullYear();
 
-    // Initial rendering
+    // ------------------------------------------
+    // INITIAL RENDERING
+    // ------------------------------------------
+
     renderProducts();
     renderCart();
+
+    invalidateShippingQuote(
+        "Enter your delivery PIN code to calculate shipping automatically."
+    );
 });
