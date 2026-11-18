@@ -114,45 +114,67 @@ app.post("/api/shipping-rate", async (req, res) => {
 
 
 // ------------------------------------------
-// CREATE RAZORPAY ORDER
+// CREATE RAZORPAY ORDER WITH SHIPPING
 // ------------------------------------------
 
 app.post("/api/create-order", async (req, res) => {
     try {
-        const { items, customer } = req.body;
-        // Validate customer details.
-if (
-    !customer ||
-    typeof customer.name !== "string" ||
-    typeof customer.email !== "string" ||
-    typeof customer.phone !== "string" ||
-    typeof customer.address !== "string"
-) {
-    return res.status(400).json({
-        success: false,
-        message: "Please provide all customer details."
-    });
-}
+        const { items, customer, deliveryPincode } = req.body || {};
 
-const customerName = customer.name.trim();
-const customerEmail = customer.email.trim();
-const customerPhone = customer.phone.trim();
-const shippingAddress = customer.address.trim();
+        // ------------------------------------------
+        // VALIDATE CUSTOMER DETAILS
+        // ------------------------------------------
 
-if (
-    !customerName ||
-    customerName.length > 100 ||
-    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customerEmail) ||
-    customerEmail.length > 254 ||
-    !/^[0-9+()\-\s]{7,20}$/.test(customerPhone) ||
-    !shippingAddress ||
-    shippingAddress.length > 1000
-) {
-    return res.status(400).json({
-        success: false,
-        message: "Please enter valid customer and delivery details."
-    });
-}
+        if (
+            !customer ||
+            typeof customer.name !== "string" ||
+            typeof customer.email !== "string" ||
+            typeof customer.phone !== "string" ||
+            typeof customer.address !== "string"
+        ) {
+            return res.status(400).json({
+                success: false,
+                message: "Please provide all customer details."
+            });
+        }
+
+        const customerName = customer.name.trim();
+        const customerEmail = customer.email.trim();
+        const customerPhone = customer.phone.trim();
+        const shippingAddress = customer.address.trim();
+
+        if (
+            !customerName ||
+            customerName.length > 100 ||
+            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customerEmail) ||
+            customerEmail.length > 254 ||
+            !/^[0-9+()\-\s]{7,20}$/.test(customerPhone) ||
+            !shippingAddress ||
+            shippingAddress.length > 1000
+        ) {
+            return res.status(400).json({
+                success: false,
+                message: "Please enter valid customer and delivery details."
+            });
+        }
+
+        // ------------------------------------------
+        // VALIDATE DELIVERY PIN CODE
+        // ------------------------------------------
+
+        if (
+            typeof deliveryPincode !== "string" ||
+            !/^[0-9]{6}$/.test(deliveryPincode)
+        ) {
+            return res.status(400).json({
+                success: false,
+                message: "Please enter a valid 6-digit delivery PIN code."
+            });
+        }
+
+        // ------------------------------------------
+        // VALIDATE CART
+        // ------------------------------------------
 
         if (!Array.isArray(items) || items.length === 0) {
             return res.status(400).json({
@@ -168,8 +190,12 @@ if (
             });
         }
 
-        let totalPaise = 0;
+        let subtotal = 0;
         const orderItems = [];
+
+        // ------------------------------------------
+        // VALIDATE PRODUCTS AND STOCK
+        // ------------------------------------------
 
         for (const item of items) {
             const productId = Number(item.id);
@@ -198,21 +224,24 @@ if (
                 });
             }
 
-           const inventoryResult = await pool.query(
-    `SELECT stock FROM inventory WHERE product_id = $1`,
-    [productId]
-);
+            // Check current database inventory.
+            const inventoryResult = await pool.query(
+                `SELECT stock
+                 FROM inventory
+                 WHERE product_id = $1`,
+                [productId]
+            );
 
-const inventoryItem = inventoryResult.rows[0];
+            const inventoryItem = inventoryResult.rows[0];
 
-if (!inventoryItem || quantity > inventoryItem.stock) {
-    return res.status(400).json({
-        success: false,
-        message: `${product.name} has insufficient stock.`
-    });
-}
+            if (!inventoryItem || quantity > inventoryItem.stock) {
+                return res.status(400).json({
+                    success: false,
+                    message: `${product.name} has insufficient stock.`
+                });
+            }
 
-            totalPaise += product.price * 100 * quantity;
+            subtotal += product.price * quantity;
 
             orderItems.push({
                 id: product.id,
@@ -221,12 +250,64 @@ if (!inventoryItem || quantity > inventoryItem.stock) {
             });
         }
 
-        if (!Number.isSafeInteger(totalPaise) || totalPaise <= 0) {
+        // ------------------------------------------
+        // VALIDATE PRODUCT SUBTOTAL
+        // ------------------------------------------
+
+        if (
+            !Number.isSafeInteger(subtotal) ||
+            subtotal <= 0
+        ) {
             return res.status(400).json({
                 success: false,
                 message: "Invalid order amount."
             });
         }
+
+        // ------------------------------------------
+        // CALCULATE SHIPPING USING SHIPROCKET
+        // ------------------------------------------
+
+        const shippingQuote = await getShippingQuote(
+            items,
+            deliveryPincode
+        );
+
+        const shippingCharge = Number(
+            shippingQuote.shippingCharge
+        );
+
+        if (
+            !Number.isSafeInteger(shippingCharge) ||
+            shippingCharge < 0
+        ) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid delivery charge."
+            });
+        }
+
+        // ------------------------------------------
+        // FINAL ORDER TOTAL
+        // ------------------------------------------
+
+        const finalTotal = subtotal + shippingCharge;
+
+        const totalPaise = finalTotal * 100;
+
+        if (
+            !Number.isSafeInteger(totalPaise) ||
+            totalPaise <= 0
+        ) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid final order amount."
+            });
+        }
+
+        // ------------------------------------------
+        // CREATE RAZORPAY ORDER
+        // ------------------------------------------
 
         const order = await razorpay.orders.create({
             amount: totalPaise,
@@ -234,84 +315,133 @@ if (!inventoryItem || quantity > inventoryItem.stock) {
             receipt: `vjaya_${Date.now()}`,
             notes: {
                 store: "VJaYa Robotics",
-                item_count: String(orderItems.length)
+                item_count: String(orderItems.length),
+                subtotal: String(subtotal),
+                shipping_charge: String(shippingCharge),
+                delivery_pincode: deliveryPincode,
+                courier: String(
+                    shippingQuote.courierName || ""
+                ).slice(0, 200)
             }
         });
 
+        // ------------------------------------------
+        // SAVE ORDER IN POSTGRESQL
+        // ------------------------------------------
 
-const client = await pool.connect();
+        const client = await pool.connect();
 
-try {
-    await client.query("BEGIN");
+        try {
+            await client.query("BEGIN");
 
-    await client.query(`
-        INSERT INTO orders (
-            order_id,
-            customer_name,
-            customer_email,
-            customer_phone,
-            shipping_address,
-            amount,
-            currency,
-            status
-        )
-        VALUES ($1, $2, $3, $4, $5, $6, $7, 'pending')
-    `, [
-        order.id,
-        customerName,
-        customerEmail,
-        customerPhone,
-        shippingAddress,
-        order.amount,
-        order.currency
-    ]);
+            await client.query(`
+                INSERT INTO orders (
+                    order_id,
+                    customer_name,
+                    customer_email,
+                    customer_phone,
+                    shipping_address,
+                    amount,
+                    currency,
+                    status,
+                    subtotal,
+                    shipping_charge,
+                    delivery_pincode,
+                    courier_name,
+                    delivery_estimate
+                )
+                VALUES (
+                    $1, $2, $3, $4, $5, $6, $7,
+                    'pending', $8, $9, $10, $11, $12
+                )
+            `, [
+                order.id,
+                customerName,
+                customerEmail,
+                customerPhone,
+                shippingAddress,
+                order.amount,
+                order.currency,
+                subtotal,
+                shippingCharge,
+                deliveryPincode,
+                shippingQuote.courierName || null,
+                shippingQuote.deliveryEstimate || null
+            ]);
 
-    for (const item of orderItems) {
-        const product = products.find(p => p.id === item.id);
+            // Save ordered products.
+            for (const item of orderItems) {
+                const product = products.find(
+                    p => p.id === item.id
+                );
 
-        await client.query(`
-            INSERT INTO order_items (
-                order_id,
-                product_id,
-                product_name,
-                unit_price,
-                quantity
-            )
-            VALUES ($1, $2, $3, $4, $5)
-        `, [
-            order.id,
-            item.id,
-            item.name,
-            product.price,
-            item.quantity
-        ]);
-    }
+                await client.query(`
+                    INSERT INTO order_items (
+                        order_id,
+                        product_id,
+                        product_name,
+                        unit_price,
+                        quantity
+                    )
+                    VALUES ($1, $2, $3, $4, $5)
+                `, [
+                    order.id,
+                    item.id,
+                    item.name,
+                    product.price,
+                    item.quantity
+                ]);
+            }
 
-    await client.query("COMMIT");
-} catch (error) {
-    await client.query("ROLLBACK");
-    throw error;
-} finally {
-    client.release();
-}
+            await client.query("COMMIT");
 
-        res.json({
+        } catch (error) {
+            await client.query("ROLLBACK");
+            throw error;
+
+        } finally {
+            client.release();
+        }
+
+        // ------------------------------------------
+        // RETURN ORDER AND SHIPPING INFORMATION
+        // ------------------------------------------
+
+        return res.json({
             success: true,
+
             key: process.env.RAZORPAY_KEY_ID,
+
             order: order,
-            items: orderItems
+
+            items: orderItems,
+
+            subtotal: subtotal,
+
+            shippingCharge: shippingCharge,
+
+            finalTotal: finalTotal,
+
+            courierName: shippingQuote.courierName,
+
+            deliveryEstimate: shippingQuote.deliveryEstimate,
+
+            deliveryPincode: deliveryPincode
         });
 
     } catch (error) {
-        console.error("Order creation failed:", error.message);
+        console.error(
+            "Order creation failed:",
+            error.message
+        );
 
-        res.status(500).json({
+        return res.status(500).json({
             success: false,
-            message: "Unable to create payment order."
+            message: error.message ||
+                "Unable to create payment order."
         });
     }
 });
-
 // ------------------------------------------
 // VERIFY PAYMENT SIGNATURE AND STATUS
 // ------------------------------------------
