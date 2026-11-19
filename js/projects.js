@@ -126,6 +126,13 @@ const roboticsProjects = [
         description: "An ESP32-based robotic arm project with simple movement and sound capabilities.",
         page: "robotic_arm.html"
     },
+    {
+        id: "auto_plant_watering",
+        name: "AUTOMATIC PLANT WATERING SYSTEM",
+        platform: "ESP32",
+        description: "An ESP32-based automatic plant watering system with soil moisture detection and pump control.",
+        page: "auto_plant_watering.html"
+    },
 ];
 
 const pageParams = new URLSearchParams(window.location.search);
