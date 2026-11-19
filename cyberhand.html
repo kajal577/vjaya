@@ -1,0 +1,660 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="CYBERHAND by VJaYa Robotics. Build a five-finger robotic hand using ESP32, flex sensors and servo motors.">
+
+    <title>CYBERHAND | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">ESP32 ROBOTICS PROJECT</span>
+
+        <h1>CYBERHAND – Robotic Hand</h1>
+
+        <p>
+            Build a five-finger robotic hand using an ESP32,
+            five flex sensors and five servo motors.
+            Control the robotic fingers by bending your fingers
+            while wearing a sensor-equipped glove.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            CYBERHAND is a five-finger robotic hand controlled
+            by an ESP32 development board. It uses five flex
+            sensors attached to a glove to detect finger bending.
+        </p>
+
+        <p>
+            Each flex sensor changes its electrical resistance
+            when bent. The ESP32 reads these changes through
+            its analog input pins and processes the sensor values.
+        </p>
+
+        <p>
+            Based on the detected finger movement, the ESP32
+            controls five servo motors. Each servo operates
+            one corresponding robotic finger.
+        </p>
+
+        <div class="project-gallery">
+
+            <div class="project-gallery-item">
+                <img src="images/products/cyberhand/cyberhand1.png"
+                     alt="CYBERHAND robotic hand front view">
+            </div>
+
+            <div class="project-gallery-item">
+                <img src="images/products/cyberhand/cyberhand2.png"
+                     alt="CYBERHAND robotic hand mechanical structure">
+            </div>
+
+            <div class="project-gallery-item">
+                <img src="images/products/cyberhand/cyberhand3.png"
+                     alt="CYBERHAND flex sensor glove">
+            </div>
+
+            <div class="project-gallery-item">
+                <img src="images/products/cyberhand/cyberhand4.png"
+                     alt="CYBERHAND ESP32 and servo connections">
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WHAT IT CAN DO</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Five-Finger Control</h3>
+                <p>
+                    Control all five robotic fingers independently
+                    using five flex sensors.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>ESP32 Controller</h3>
+                <p>
+                    Use the ESP32 to read sensor values
+                    and control the servo motors.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Finger Movement Detection</h3>
+                <p>
+                    Detect finger bending using flexible
+                    resistance sensors.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Servo-Based Movement</h3>
+                <p>
+                    Operate each robotic finger using
+                    an individual servo motor.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Real-Time Response</h3>
+                <p>
+                    Convert hand movements into robotic
+                    finger movements through sensor readings.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Modular Programming</h3>
+                <p>
+                    Keep sensor reading, servo control
+                    and configuration in separate files.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- HARDWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>ESP32 DevKit V1 development board</li>
+            <li>5 flex sensors</li>
+            <li>5 servo motors</li>
+            <li>5 × 10kΩ resistors</li>
+            <li>Robotic hand frame and finger linkages</li>
+            <li>Glove for mounting the flex sensors</li>
+            <li>External regulated 5V servo power supply</li>
+            <li>Breadboard and jumper wires</li>
+        </ul>
+
+        <div class="project-note">
+            Use a suitable external 5V supply for the servo motors.
+            Do not power all five servos from the ESP32 3.3V pin.
+            Connect the external supply GND to the ESP32 GND.
+        </div>
+
+    </section>
+
+    <!-- SOFTWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Software and Libraries</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Arduino IDE</li>
+            <li>ESP32 board package</li>
+            <li>ESP32Servo library</li>
+            <li>ESP32 analog input functions</li>
+        </ul>
+
+        <p>
+            The program is organized into separate files
+            for the main sketch, configuration, flex sensor
+            reading and servo motor control.
+        </p>
+
+    </section>
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>Step-by-Step Operation</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>
+                Wear the glove containing the five flex sensors.
+            </li>
+
+            <li>
+                Each flex sensor detects the bending
+                of its corresponding finger.
+            </li>
+
+            <li>
+                The voltage divider circuits convert
+                resistance changes into analog voltage signals.
+            </li>
+
+            <li>
+                The ESP32 reads the five analog sensor values.
+            </li>
+
+            <li>
+                The program processes the sensor readings
+                and maps them to servo positions.
+            </li>
+
+            <li>
+                The ESP32 sends control signals to the
+                five servo motors.
+            </li>
+
+            <li>
+                Each servo moves its corresponding
+                robotic finger.
+            </li>
+
+            <li>
+                The robotic hand follows the movements
+                detected by the glove.
+            </li>
+
+        </ol>
+
+    </section>
+
+    <!-- WIRING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE CONNECTIONS</p>
+            <h2>ESP32 Pin Connections</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Component Pin</th>
+                        <th>ESP32 Connection</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Thumb Flex Sensor</td>
+                        <td>Signal</td>
+                        <td>GPIO32</td>
+                    </tr>
+
+                    <tr>
+                        <td>Index Flex Sensor</td>
+                        <td>Signal</td>
+                        <td>GPIO33</td>
+                    </tr>
+
+                    <tr>
+                        <td>Middle Flex Sensor</td>
+                        <td>Signal</td>
+                        <td>GPIO34</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ring Flex Sensor</td>
+                        <td>Signal</td>
+                        <td>GPIO35</td>
+                    </tr>
+
+                    <tr>
+                        <td>Little Finger Flex Sensor</td>
+                        <td>Signal</td>
+                        <td>GPIO36</td>
+                    </tr>
+
+                    <tr>
+                        <td>Thumb Servo</td>
+                        <td>Signal</td>
+                        <td>GPIO13</td>
+                    </tr>
+
+                    <tr>
+                        <td>Index Servo</td>
+                        <td>Signal</td>
+                        <td>GPIO14</td>
+                    </tr>
+
+                    <tr>
+                        <td>Middle Servo</td>
+                        <td>Signal</td>
+                        <td>GPIO16</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ring Servo</td>
+                        <td>Signal</td>
+                        <td>GPIO17</td>
+                    </tr>
+
+                    <tr>
+                        <td>Little Finger Servo</td>
+                        <td>Signal</td>
+                        <td>GPIO18</td>
+                    </tr>
+
+                    <tr>
+                        <td>Servo Power Supply</td>
+                        <td>Positive</td>
+                        <td>External regulated 5V</td>
+                    </tr>
+
+                    <tr>
+                        <td>Servo Power Supply</td>
+                        <td>Ground</td>
+                        <td>Common GND with ESP32</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            Each flex sensor requires a voltage divider using
+            a 10kΩ resistor. Connect the sensor circuits to
+            3.3V and GND, and ensure that no ESP32 analog input
+            receives more than 3.3V. Confirm the final wiring
+            before powering the circuit.
+        </div>
+
+    </section>
+
+    <!-- FINGER MOVEMENT MAPPING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">FINGER CONTROL</p>
+            <h2>Finger Movement Mapping</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Flex Sensor</th>
+                        <th>Servo Motor</th>
+                        <th>Robotic Finger</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Flex Sensor 1</td>
+                        <td>Servo 1</td>
+                        <td>Thumb</td>
+                    </tr>
+
+                    <tr>
+                        <td>Flex Sensor 2</td>
+                        <td>Servo 2</td>
+                        <td>Index Finger</td>
+                    </tr>
+
+                    <tr>
+                        <td>Flex Sensor 3</td>
+                        <td>Servo 3</td>
+                        <td>Middle Finger</td>
+                    </tr>
+
+                    <tr>
+                        <td>Flex Sensor 4</td>
+                        <td>Servo 4</td>
+                        <td>Ring Finger</td>
+                    </tr>
+
+                    <tr>
+                        <td>Flex Sensor 5</td>
+                        <td>Servo 5</td>
+                        <td>Little Finger</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <p>
+            Each sensor controls its corresponding servo.
+            The sensor readings must be calibrated to determine
+            the correct open and closed positions of each finger.
+        </p>
+
+    </section>
+
+    <!-- PROJECT FILE STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAM STRUCTURE</p>
+            <h2>ESP32 Project Files</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>CYBERHAND.ino</h3>
+                <p>Main sketch and project initialization.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>config.h</h3>
+                <p>ESP32 pin assignments and project settings.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>flex_sensor.h / flex_sensor.cpp</h3>
+                <p>Flex sensor initialization and analog readings.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>servo_control.h / servo_control.cpp</h3>
+                <p>Servo initialization and finger movement control.</p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+
+            <p>
+                Download the CYBERHAND ESP32 project files.
+            </p>
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/cyberhand/CYBERHAND.ino"
+               download>
+                <span>📄</span>
+                <h3>Main Arduino Sketch</h3>
+                <p>CYBERHAND.ino</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/cyberhand/config.h"
+               download>
+                <span>📄</span>
+                <h3>Configuration</h3>
+                <p>config.h</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/cyberhand/flex_sensor.h"
+               download>
+                <span>📄</span>
+                <h3>Flex Sensor Header</h3>
+                <p>flex_sensor.h</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/cyberhand/flex_sensor.cpp"
+               download>
+                <span>📄</span>
+                <h3>Flex Sensor Module</h3>
+                <p>flex_sensor.cpp</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/cyberhand/servo_control.h"
+               download>
+                <span>📄</span>
+                <h3>Servo Control Header</h3>
+                <p>servo_control.h</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/cyberhand/servo_control.cpp"
+               download>
+                <span>📄</span>
+                <h3>Servo Control Module</h3>
+                <p>servo_control.cpp</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+        </div>
+
+        <div class="project-note">
+            The source-code download links will work after
+            the corresponding files are added to the
+            source/cyberhand/ folder.
+        </div>
+
+    </section>
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch CYBERHAND Working</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>CYBERHAND Robotic Hand Demonstration</p>
+            <span>
+                Add your actual robotic hand photograph
+                or demonstration video here.
+            </span>
+        </div>
+
+    </section>
+
+    <!-- IMPORTANT INFORMATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+            <h2>Setup and Safety Notes</h2>
+        </div>
+
+        <ul class="project-list">
+
+            <li>
+                Use an external regulated 5V power supply
+                suitable for the combined servo current.
+            </li>
+
+            <li>
+                Connect the external servo power supply GND
+                to the ESP32 GND.
+            </li>
+
+            <li>
+                Never connect a flex sensor voltage above
+                3.3V to an ESP32 analog input.
+            </li>
+
+            <li>
+                Calibrate each flex sensor before using
+                the robotic hand.
+            </li>
+
+            <li>
+                Check the mechanical finger linkages
+                before attaching the servo motors.
+            </li>
+
+            <li>
+                Keep servo movement within safe mechanical
+                limits to avoid damaging the fingers.
+            </li>
+
+            <li>
+                Disconnect power before changing wiring.
+            </li>
+
+        </ul>
+
+    </section>
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html" class="button secondary">
+            ← Back to Robotics Projects
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>
