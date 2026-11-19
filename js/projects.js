@@ -104,6 +104,13 @@ const roboticsProjects = [
         description: "An Arduino Bluetooth controlled car project using a Bluetooth module and motor driver to control the car with a smartphone.",
         page: "bluetooth_robot_car.html"
     },
+    {
+        id: "robo_duck",
+        name: "ROBO DUCK",
+        platform: "ESP32",
+        description: "An ESP32-based robo duck project with simple movement and sound capabilities.",
+        page: "robo_duck.html"
+    },
 ];
 
 const pageParams = new URLSearchParams(window.location.search);
