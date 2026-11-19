@@ -111,6 +111,14 @@ const roboticsProjects = [
         description: "An ESP32-based robo duck project with simple movement and sound capabilities.",
         page: "robo_duck.html"
     },
+
+     {
+        id: "CYBERHAND",
+        name: "CYBERHAND",
+        platform: "ESP32",
+        description: "An ESP32-based cyberhand project with simple movement and sound capabilities.",
+        page: "cyberhand.html"
+    },
 ];
 
 const pageParams = new URLSearchParams(window.location.search);
