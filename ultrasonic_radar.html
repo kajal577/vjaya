@@ -1,0 +1,675 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Ultrasonic Radar System by VJaYa Robotics. An Arduino UNO radar system using an HC-SR04 ultrasonic sensor and SG90 servo motor to detect nearby objects.">
+
+    <title>Ultrasonic Radar System | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">ARDUINO ROBOTICS PROJECT</span>
+
+        <h1>Ultrasonic Radar System</h1>
+
+        <p>
+            Build an ultrasonic radar system using an Arduino UNO,
+            HC-SR04 ultrasonic sensor and SG90 servo motor.
+            The rotating sensor scans its surroundings from
+            0 to 180 degrees and measures the distance of nearby objects.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            This Ultrasonic Radar System uses an Arduino UNO as its
+            main controller. An HC-SR04 ultrasonic sensor is mounted
+            on an SG90 servo motor to scan the surrounding area.
+        </p>
+
+        <p>
+            The servo rotates the ultrasonic sensor from 0 to
+            180 degrees. At each angle, the HC-SR04 sends ultrasonic
+            waves and measures the time taken for the reflected
+            waves to return.
+        </p>
+
+        <p>
+            The Arduino calculates the distance and sends the
+            scanning angle and distance readings to the Serial Monitor.
+            The servo then continues scanning in the opposite direction.
+        </p>
+
+        <div class="project-gallery">
+
+            <div class="project-gallery-item">
+                <img src="images/products/ultrasonic_radar/line1.png"
+                     alt="Ultrasonic Radar System front view">
+            </div>
+
+            <div class="project-gallery-item">
+                <img src="images/products/ultrasonic_radar/line2.png"
+                     alt="Ultrasonic Radar System Arduino connections">
+            </div>
+
+            <div class="project-gallery-item">
+                <img src="images/products/ultrasonic_radar/line3.png"
+                     alt="HC-SR04 ultrasonic sensor mounted on servo">
+            </div>
+
+            <div class="project-gallery-item">
+                <img src="images/products/ultrasonic_radar/line4.png"
+                     alt="Ultrasonic Radar System demonstration">
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WHAT IT CAN DO</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Automatic Scanning</h3>
+                <p>
+                    The SG90 servo automatically rotates the
+                    ultrasonic sensor between 0 and 180 degrees.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Object Detection</h3>
+                <p>
+                    Detect nearby objects using ultrasonic
+                    sound waves.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Distance Measurement</h3>
+                <p>
+                    Calculate the distance between the
+                    sensor and an object in centimetres.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Angle Measurement</h3>
+                <p>
+                    Identify the servo angle at which
+                    an object is detected.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Continuous Scanning</h3>
+                <p>
+                    Scan forward and backward continuously
+                    to monitor the surrounding area.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Serial Monitor Output</h3>
+                <p>
+                    Display real-time angle and distance
+                    readings through Arduino Serial Monitor.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- HARDWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Arduino UNO</li>
+            <li>HC-SR04 ultrasonic sensor</li>
+            <li>SG90 servo motor</li>
+            <li>Breadboard</li>
+            <li>Jumper wires</li>
+            <li>Regulated 5V power supply for servo</li>
+            <li>USB cable for Arduino UNO</li>
+        </ul>
+
+        <div class="project-note">
+            Use a suitable regulated 5V supply for the SG90 servo.
+            Connect the external supply GND to Arduino GND.
+            Do not power the servo directly from an Arduino GPIO pin.
+        </div>
+
+    </section>
+
+    <!-- SOFTWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Software and Libraries</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Arduino IDE</li>
+            <li>Arduino UNO board package</li>
+            <li>Servo library (standard Arduino library)</li>
+            <li>Arduino Serial Monitor</li>
+        </ul>
+
+        <p>
+            The Arduino program is organized into separate files
+            for the main sketch, configuration, servo control
+            and ultrasonic distance measurement.
+        </p>
+
+    </section>
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>Step-by-Step Operation</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>
+                Power the Arduino UNO, HC-SR04 ultrasonic sensor
+                and SG90 servo motor.
+            </li>
+
+            <li>
+                Arduino initializes the servo and ultrasonic sensor.
+            </li>
+
+            <li>
+                The servo moves the sensor to the first scanning angle.
+            </li>
+
+            <li>
+                The HC-SR04 sends an ultrasonic pulse through
+                its transmitter.
+            </li>
+
+            <li>
+                The ultrasonic wave reflects from a nearby object
+                and returns to the receiver.
+            </li>
+
+            <li>
+                Arduino measures the echo duration and calculates
+                the distance of the object.
+            </li>
+
+            <li>
+                The scanning angle and measured distance are
+                printed in the Serial Monitor.
+            </li>
+
+            <li>
+                The servo continues moving until it reaches
+                180 degrees.
+            </li>
+
+            <li>
+                The servo returns to 0 degrees and repeats
+                the scanning process.
+            </li>
+
+        </ol>
+
+    </section>
+
+    <!-- WIRING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE CONNECTIONS</p>
+            <h2>Arduino Pin Connections</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Component Pin</th>
+                        <th>Arduino Connection</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>SG90 Servo</td>
+                        <td>Signal</td>
+                        <td>D6</td>
+                    </tr>
+
+                    <tr>
+                        <td>SG90 Servo</td>
+                        <td>VCC</td>
+                        <td>External regulated 5V</td>
+                    </tr>
+
+                    <tr>
+                        <td>SG90 Servo</td>
+                        <td>GND</td>
+                        <td>Common GND</td>
+                    </tr>
+
+                    <tr>
+                        <td>HC-SR04</td>
+                        <td>VCC</td>
+                        <td>5V</td>
+                    </tr>
+
+                    <tr>
+                        <td>HC-SR04</td>
+                        <td>GND</td>
+                        <td>GND</td>
+                    </tr>
+
+                    <tr>
+                        <td>HC-SR04</td>
+                        <td>TRIG</td>
+                        <td>D9</td>
+                    </tr>
+
+                    <tr>
+                        <td>HC-SR04</td>
+                        <td>ECHO</td>
+                        <td>D10</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            The SG90 servo uses D6 as its signal connection.
+            The HC-SR04 uses D9 for TRIG and D10 for ECHO.
+            Connect the external servo power supply ground
+            to Arduino GND.
+        </div>
+
+    </section>
+
+    <!-- RADAR SCANNING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">RADAR SCANNING</p>
+            <h2>Scanning Process</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Servo Angle</th>
+                        <th>Sensor Operation</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>0°</td>
+                        <td>Measure distance at starting position</td>
+                    </tr>
+
+                    <tr>
+                        <td>30°</td>
+                        <td>Measure distance at 30 degrees</td>
+                    </tr>
+
+                    <tr>
+                        <td>60°</td>
+                        <td>Measure distance at 60 degrees</td>
+                    </tr>
+
+                    <tr>
+                        <td>90°</td>
+                        <td>Measure distance at centre position</td>
+                    </tr>
+
+                    <tr>
+                        <td>120°</td>
+                        <td>Measure distance at 120 degrees</td>
+                    </tr>
+
+                    <tr>
+                        <td>150°</td>
+                        <td>Measure distance at 150 degrees</td>
+                    </tr>
+
+                    <tr>
+                        <td>180°</td>
+                        <td>Measure distance at final position</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <p>
+            The actual program scans in 2-degree increments.
+            The angles in this table are examples to explain
+            the scanning process.
+        </p>
+
+    </section>
+
+    <!-- DISTANCE CALCULATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">DISTANCE MEASUREMENT</p>
+            <h2>Distance Calculation Formula</h2>
+        </div>
+
+        <p>
+            The HC-SR04 measures the time taken by an ultrasonic
+            wave to travel to an object and return to the sensor.
+            Arduino uses this time to calculate the distance.
+        </p>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Distance Formula</h3>
+                <p>
+                    Distance = (Echo Duration × 0.0343) / 2
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Measurement Unit</h3>
+                <p>
+                    The calculated distance is displayed
+                    in centimetres (cm).
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- PROJECT FILE STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAM STRUCTURE</p>
+            <h2>Arduino Project Files</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>ULTRASONIC_RADAR.ino</h3>
+                <p>Main sketch and radar scanning operation.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>config.h</h3>
+                <p>Pin assignments, scanning angles and timing settings.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>servo_control.h</h3>
+                <p>Servo motor function declarations.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>servo_control.cpp</h3>
+                <p>Servo initialization and movement functions.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>ultrasonic.h</h3>
+                <p>Ultrasonic sensor function declarations.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>ultrasonic.cpp</h3>
+                <p>Ultrasonic pulse generation and distance calculation.</p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+            <p>
+                Download the original Ultrasonic Radar System files.
+            </p>
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/ultrasonic_radar/ULTRASONIC_RADAR.ino"
+               download>
+                <span>📄</span>
+                <h3>Main Arduino Sketch</h3>
+                <p>ULTRASONIC_RADAR.ino</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ultrasonic_radar/config.h"
+               download>
+                <span>📄</span>
+                <h3>Configuration</h3>
+                <p>config.h</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ultrasonic_radar/servo_control.h"
+               download>
+                <span>📄</span>
+                <h3>Servo Header</h3>
+                <p>servo_control.h</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ultrasonic_radar/servo_control.cpp"
+               download>
+                <span>📄</span>
+                <h3>Servo Module</h3>
+                <p>servo_control.cpp</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ultrasonic_radar/ultrasonic.h"
+               download>
+                <span>📄</span>
+                <h3>Ultrasonic Header</h3>
+                <p>ultrasonic.h</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ultrasonic_radar/ultrasonic.cpp"
+               download>
+                <span>📄</span>
+                <h3>Ultrasonic Module</h3>
+                <p>ultrasonic.cpp</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+        </div>
+
+        <div class="project-note">
+            Download all six files and place them inside the
+            ULTRASONIC_RADAR folder before opening the project
+            in Arduino IDE.
+        </div>
+
+    </section>
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch the Radar Working</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>Ultrasonic Radar System Demonstration</p>
+            <span>
+                Add your actual radar photograph or demonstration video here.
+            </span>
+        </div>
+
+    </section>
+
+    <!-- IMPORTANT INFORMATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+            <h2>Setup and Safety Notes</h2>
+        </div>
+
+        <ul class="project-list">
+
+            <li>
+                Check all wiring before powering the circuit.
+            </li>
+
+            <li>
+                Use a suitable regulated 5V power supply for the servo.
+            </li>
+
+            <li>
+                Connect Arduino GND and external servo supply GND together.
+            </li>
+
+            <li>
+                Do not force the SG90 servo beyond its mechanical limits.
+            </li>
+
+            <li>
+                Keep the ultrasonic sensor unobstructed while scanning.
+            </li>
+
+            <li>
+                Avoid placing objects too close to the ultrasonic sensor.
+            </li>
+
+            <li>
+                The Arduino Serial Monitor displays angle and distance
+                readings, not a graphical radar screen.
+            </li>
+
+        </ul>
+
+    </section>
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html" class="button secondary">
+            ← Back to Robotics Projects
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>
