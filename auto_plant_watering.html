@@ -1,0 +1,714 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Automatic Plant Watering System using ESP32, soil moisture sensor and water pump. Learn how to build an automatic irrigation project with VJaYa Robotics.">
+
+    <title>Auto Plant Watering System | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">V<span>J</span>AYA<span class="brand-dot">.</span></a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">ESP32 IOT PROJECT</span>
+
+        <h1>Automatic Plant Watering System</h1>
+
+        <p>
+            Build an intelligent automatic plant watering system using
+            ESP32 and a soil moisture sensor. The system automatically
+            detects dry soil and switches ON a water pump to provide
+            water to the plant. When sufficient moisture is detected,
+            the pump automatically switches OFF.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+
+            <h2>About This Project</h2>
+
+        </div>
+
+        <p>
+            The Automatic Plant Watering System is designed to
+            automatically water plants according to soil moisture
+            levels.
+        </p>
+
+        <p>
+            An ESP32 reads the analog output of a soil moisture
+            sensor. When the soil becomes dry, the ESP32 activates
+            a relay module connected to a water pump.
+        </p>
+
+        <p>
+            Once the soil reaches the required moisture level,
+            the ESP32 switches OFF the pump. This helps reduce
+            unnecessary water usage and manual watering.
+        </p>
+
+       <div class="project-gallery">
+
+    <div class="project-gallery-item">
+        <img src="images/products/auto_plant_watering/line1.png"
+             alt="Automatic Plant Watering System Screenshot 1">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/auto_plant_watering/line2.png"
+             alt="Automatic Plant Watering System Screenshot 2">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/auto_plant_watering/line3.png"
+             alt="Automatic Plant Watering System Screenshot 3">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/auto_plant_watering/line4.png"
+             alt="Automatic Plant Watering System Screenshot 4">
+    </div>
+
+</div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">WHAT IT CAN DO</p>
+
+            <h2>Project Features</h2>
+
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Automatic Watering</h3>
+                <p>
+                    Automatically waters plants when the soil
+                    becomes dry.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Soil Moisture Detection</h3>
+                <p>
+                    Continuously measures soil moisture using
+                    a soil moisture sensor.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>ESP32 Controller</h3>
+                <p>
+                    Uses ESP32 to process sensor readings
+                    and control the watering system.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Automatic Pump Control</h3>
+                <p>
+                    Controls a water pump through a relay module.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Water Saving</h3>
+                <p>
+                    Avoids unnecessary watering by responding
+                    to soil moisture conditions.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- HARDWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+
+            <h2>Components Required</h2>
+
+        </div>
+
+        <ul class="project-list">
+
+            <li>ESP32 Development Board</li>
+            <li>Capacitive Soil Moisture Sensor</li>
+            <li>5V Relay Module</li>
+            <li>Mini DC Water Pump</li>
+            <li>Water Pipe / Tube</li>
+            <li>External Power Supply for Water Pump</li>
+            <li>Jumper Wires</li>
+            <li>Breadboard (Optional)</li>
+            <li>Plant Pot and Water Container</li>
+
+        </ul>
+
+        <div class="project-note">
+            Use a suitable external power supply for the water pump.
+            Never power the pump directly from an ESP32 GPIO pin.
+            Keep the ESP32 and its connections protected from water.
+        </div>
+
+    </section>
+
+
+    <!-- SOFTWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+
+            <h2>Software and Libraries</h2>
+
+        </div>
+
+        <ul class="project-list">
+
+            <li>Arduino IDE</li>
+            <li>ESP32 Board Package</li>
+            <li>Arduino Core for ESP32</li>
+            <li>USB Data Cable</li>
+
+        </ul>
+
+        <div class="project-note">
+            The basic automatic watering system does not require
+            any external Arduino library. Sensor reading and relay
+            control can be implemented using the ESP32 Arduino core.
+        </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">HOW IT WORKS</p>
+
+            <h2>Step-by-Step Operation</h2>
+
+        </div>
+
+        <ol class="project-list">
+
+            <li>
+                The ESP32 initializes the soil moisture sensor
+                and relay output pin.
+            </li>
+
+            <li>
+                The soil moisture sensor measures the moisture
+                level in the soil.
+            </li>
+
+            <li>
+                The sensor sends an analog signal to the ESP32.
+            </li>
+
+            <li>
+                The ESP32 compares the sensor reading with
+                the configured dry-soil threshold.
+            </li>
+
+            <li>
+                If the soil is dry, the ESP32 activates the relay
+                and switches ON the water pump.
+            </li>
+
+            <li>
+                Water is supplied to the plant through the pipe.
+            </li>
+
+            <li>
+                When sufficient moisture is detected, the ESP32
+                switches OFF the water pump.
+            </li>
+
+        </ol>
+
+    </section>
+
+
+    <!-- SENSOR AND CONTROL LOGIC -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">SENSOR / CONTROL LOGIC</p>
+
+            <h2>Automatic Watering Logic</h2>
+
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+
+                    <tr>
+                        <th>Soil Condition</th>
+                        <th>Water Pump Action</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Soil is dry</td>
+                        <td>Turn ON pump</td>
+                    </tr>
+
+                    <tr>
+                        <td>Soil moisture is increasing</td>
+                        <td>Continue watering until target is reached</td>
+                    </tr>
+
+                    <tr>
+                        <td>Soil is sufficiently moist</td>
+                        <td>Turn OFF pump</td>
+                    </tr>
+
+                    <tr>
+                        <td>Sensor reading is invalid</td>
+                        <td>Keep pump OFF as a safety response</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            Calibrate the moisture sensor in your own soil before
+            setting the threshold. Sensor readings vary between
+            sensors and soil conditions. Use separate ON and OFF
+            thresholds to prevent rapid relay switching.
+        </div>
+
+    </section>
+
+
+    <!-- PIN CONFIGURATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">ESP32 PIN CONFIGURATION</p>
+
+            <h2>Pin Connections</h2>
+
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+
+                    <tr>
+                        <th>Component</th>
+                        <th>ESP32 Connection</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Soil Sensor VCC</td>
+                        <td>3.3V</td>
+                    </tr>
+
+                    <tr>
+                        <td>Soil Sensor GND</td>
+                        <td>GND</td>
+                    </tr>
+
+                    <tr>
+                        <td>Soil Sensor AO</td>
+                        <td>GPIO 34</td>
+                    </tr>
+
+                    <tr>
+                        <td>Relay IN</td>
+                        <td>GPIO 26</td>
+                    </tr>
+
+                    <tr>
+                        <td>Relay VCC</td>
+                        <td>Suitable relay supply</td>
+                    </tr>
+
+                    <tr>
+                        <td>Relay GND</td>
+                        <td>GND</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            GPIO 34 is an input-only ADC pin. Use a sensor output
+            that stays within the ESP32's permitted input voltage.
+            Check relay module voltage and trigger compatibility.
+            The pump power circuit must be separate from the ESP32
+            GPIO supply.
+        </div>
+
+    </section>
+
+
+    <!-- PROJECT FILE STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROGRAM STRUCTURE</p>
+
+            <h2>ESP32 Project Files</h2>
+
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Auto_Plant_Watering.ino</h3>
+                <p>
+                    Main setup and automatic watering control loop.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>config.h</h3>
+                <p>
+                    ESP32 pin assignments and moisture thresholds.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>soil_sensor.h / soil_sensor.cpp</h3>
+                <p>
+                    Soil moisture sensor initialization and
+                    sensor reading functions.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>pump_control.h / pump_control.cpp</h3>
+                <p>
+                    Water pump relay initialization and
+                    ON/OFF control functions.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOURCE CODE DOWNLOAD -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROGRAMMING</p>
+
+            <h2>Complete Source Code</h2>
+
+            <p>
+                Download the individual ESP32 project files
+                from the source folder in this repository.
+            </p>
+
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/auto_plant_watering/Auto_Plant_Watering.ino"
+               download>
+
+                <span>📄</span>
+
+                <h3>Main ESP32 Sketch</h3>
+
+                <p>Auto_Plant_Watering.ino</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/auto_plant_watering/config.h"
+               download>
+
+                <span>📄</span>
+
+                <h3>Configuration</h3>
+
+                <p>config.h</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/auto_plant_watering/soil_sensor.h"
+               download>
+
+                <span>📄</span>
+
+                <h3>Soil Sensor Header</h3>
+
+                <p>soil_sensor.h</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/auto_plant_watering/soil_sensor.cpp"
+               download>
+
+                <span>📄</span>
+
+                <h3>Soil Sensor Module</h3>
+
+                <p>soil_sensor.cpp</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/auto_plant_watering/pump_control.h"
+               download>
+
+                <span>📄</span>
+
+                <h3>Pump Control Header</h3>
+
+                <p>pump_control.h</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/auto_plant_watering/pump_control.cpp"
+               download>
+
+                <span>📄</span>
+
+                <h3>Pump Control Module</h3>
+
+                <p>pump_control.cpp</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+        </div>
+
+        <div class="project-note">
+            These download links use the expected source-folder
+            structure. Upload the six matching source files to
+            this folder in your repository to activate the
+            download buttons.
+        </div>
+
+    </section>
+
+
+    <!-- PROJECT DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+
+            <h2>Watch the System Working</h2>
+
+        </div>
+
+        <div class="project-image-placeholder">
+
+            <p>Automatic Plant Watering Demonstration</p>
+
+            <span>
+                Add your actual project video, photograph,
+                or demonstration link here.
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- SAFETY NOTES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+
+            <h2>Setup and Safety Notes</h2>
+
+        </div>
+
+        <ul class="project-list">
+
+            <li>
+                Calibrate the soil moisture sensor before
+                configuring the watering threshold.
+            </li>
+
+            <li>
+                Never connect the water pump directly to
+                an ESP32 GPIO pin.
+            </li>
+
+            <li>
+                Use a suitable external power supply for
+                the water pump.
+            </li>
+
+            <li>
+                Check the relay module's voltage rating
+                and trigger compatibility before connecting it.
+            </li>
+
+            <li>
+                Keep the ESP32 board and electrical connections
+                away from water.
+            </li>
+
+            <li>
+                Use a protected and properly insulated
+                power connection.
+            </li>
+
+            <li>
+                Test the relay and pump separately before
+                running the automatic watering system.
+            </li>
+
+            <li>
+                Add a maximum pump-running timeout to
+                prevent continuous watering if the sensor fails.
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- BACK TO PROJECTS -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html" class="button secondary">
+            ← Back to Robotics Projects
+        </a>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <span>
+        © <span id="year"></span> VJaYa Robotics
+    </span>
+
+    <span>
+        Learn · Build · Create
+    </span>
+
+</footer>
+
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>
