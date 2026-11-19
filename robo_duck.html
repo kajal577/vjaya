@@ -1,0 +1,666 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="ROBO DUCK by VJaYa Robotics. A 25 cm ESP32 bipedal robot using six SG90 servo motors and a PCA9685 servo driver.">
+
+    <title>ROBO DUCK | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">ESP32 BIPEDAL ROBOT PROJECT</span>
+
+        <h1>ROBO DUCK</h1>
+
+        <p>
+            Build a 25 cm bipedal robot using an ESP32 DevKit V1,
+            six SG90 servo motors and a PCA9685 servo driver.
+            Explore 3D-printed mechanical parts, servo calibration,
+            leg assembly and robotic movement.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            ROBO DUCK is a 25 cm experimental bipedal robot
+            designed to demonstrate robotics, servo motor control
+            and mechanical movement.
+        </p>
+
+        <p>
+            The ESP32 DevKit V1 works as the main controller.
+            A PCA9685 16-channel PWM servo driver controls six
+            SG90 servo motors, with three motors assigned to
+            each leg.
+        </p>
+
+        <p>
+            Custom 3D-printed parts form the robot's hip brackets,
+            upper legs, lower legs and feet. The project includes
+            firmware development, servo testing, mechanical
+            assembly and movement experiments.
+        </p>
+
+        <div class="project-gallery">
+
+    <div class="project-gallery-item">
+        <img src="images/products/robo_duck/line1.png"
+             alt="robo_duck Screenshot 1">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/robo_duck/line2.png"
+             alt="robo_duck Screenshot 2">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/robo_duck/line3.png"
+             alt="robo_duck Screenshot 3">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/robo_duck/line4.png"
+             alt="robo_duck Screenshot 4">
+    </div>
+
+</div>
+
+
+      
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WHAT IT CAN DO</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>ESP32 Control</h3>
+                <p>
+                    ESP32 DevKit V1 works as the main
+                    microcontroller for the robot.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Six SG90 Servos</h3>
+                <p>
+                    Three servo motors are assigned
+                    to each leg.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>PCA9685 Servo Driver</h3>
+                <p>
+                    Controls six servo motors through
+                    individual PWM channels.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>3D Printed Body</h3>
+                <p>
+                    Custom-designed brackets, legs,
+                    links and feet form the robot structure.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Modular Firmware</h3>
+                <p>
+                    Separate modules handle servo control,
+                    walking functions and positioning.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Bipedal Movement</h3>
+                <p>
+                    Designed for experimenting with
+                    coordinated two-leg movement.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- HARDWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>ESP32 DevKit V1</li>
+            <li>PCA9685 16-channel PWM servo driver</li>
+            <li>6 × SG90 servo motors</li>
+            <li>External regulated 5V servo power supply</li>
+            <li>3D-printed robot body and leg components</li>
+            <li>Servo horns and mounting screws</li>
+            <li>Jumper wires</li>
+            <li>USB cable for programming</li>
+        </ul>
+
+        <div class="project-note">
+            Use an external regulated 5V power supply for the
+            six servo motors. Do not power all servos directly
+            from the ESP32. Connect the power supply ground,
+            PCA9685 ground and ESP32 ground together.
+        </div>
+
+    </section>
+
+    <!-- SOFTWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Software and Libraries</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Arduino IDE</li>
+            <li>ESP32 board package</li>
+            <li>Adafruit PWM Servo Driver library</li>
+            <li>Serial Monitor at 115200 baud</li>
+        </ul>
+
+        <p>
+            The Arduino firmware is organized into separate files
+            for the main sketch, configuration, servo control,
+            walking and balance-related positioning.
+        </p>
+
+    </section>
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>Step-by-Step Operation</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>
+                Power the ESP32 and PCA9685 servo driver.
+            </li>
+
+            <li>
+                Connect the ESP32 to the PCA9685 using
+                I2C communication.
+            </li>
+
+            <li>
+                Connect the six SG90 servo motors to
+                PCA9685 channels CH0 to CH5.
+            </li>
+
+            <li>
+                Upload the ROBO DUCK firmware using
+                Arduino IDE.
+            </li>
+
+            <li>
+                Initialize the PCA9685 and test
+                each servo channel individually.
+            </li>
+
+            <li>
+                Move the servos to their programmed
+                90-degree reference position.
+            </li>
+
+            <li>
+                Align and secure the servo horns
+                before mechanical assembly.
+            </li>
+
+            <li>
+                Mount the servos inside the
+                3D-printed hip and leg components.
+            </li>
+
+            <li>
+                Assemble the upper legs, knee links,
+                lower legs and feet.
+            </li>
+
+            <li>
+                Calibrate the completed mechanism
+                before attempting walking movements.
+            </li>
+
+        </ol>
+
+    </section>
+
+    <!-- WIRING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE CONNECTIONS</p>
+            <h2>ESP32 Pin Connections</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Component Pin</th>
+                        <th>ESP32 / Power Connection</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>PCA9685</td>
+                        <td>SDA</td>
+                        <td>GPIO 21</td>
+                    </tr>
+
+                    <tr>
+                        <td>PCA9685</td>
+                        <td>SCL</td>
+                        <td>GPIO 22</td>
+                    </tr>
+
+                    <tr>
+                        <td>PCA9685</td>
+                        <td>VCC</td>
+                        <td>ESP32 3.3V</td>
+                    </tr>
+
+                    <tr>
+                        <td>PCA9685</td>
+                        <td>GND</td>
+                        <td>Common GND</td>
+                    </tr>
+
+                    <tr>
+                        <td>PCA9685</td>
+                        <td>V+</td>
+                        <td>External regulated 5V positive</td>
+                    </tr>
+
+                    <tr>
+                        <td>External Supply</td>
+                        <td>Negative</td>
+                        <td>Common GND</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            PCA9685 VCC powers its logic circuit, while V+
+            supplies the servo power rail. Check the supply
+            polarity and voltage before connecting the servos.
+        </div>
+
+    </section>
+
+    <!-- SERVO COMMANDS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SERVO CONTROL</p>
+            <h2>Servo Channel Mapping</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Channel</th>
+                        <th>Mechanical Joint</th>
+                        <th>Leg</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>CH0</td>
+                        <td>Hip Roll</td>
+                        <td>Left</td>
+                    </tr>
+
+                    <tr>
+                        <td>CH1</td>
+                        <td>Hip Pitch</td>
+                        <td>Left</td>
+                    </tr>
+
+                    <tr>
+                        <td>CH2</td>
+                        <td>Knee</td>
+                        <td>Left</td>
+                    </tr>
+
+                    <tr>
+                        <td>CH3</td>
+                        <td>Hip Roll</td>
+                        <td>Right</td>
+                    </tr>
+
+                    <tr>
+                        <td>CH4</td>
+                        <td>Hip Pitch</td>
+                        <td>Right</td>
+                    </tr>
+
+                    <tr>
+                        <td>CH5</td>
+                        <td>Knee</td>
+                        <td>Right</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <p>
+            Each servo is controlled through its assigned
+            PCA9685 channel. The initial servo tests confirmed
+            movement on all six channels.
+        </p>
+
+    </section>
+
+    <!-- PROJECT FILE STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAM STRUCTURE</p>
+            <h2>Arduino Project Files</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>ROBO_DUCK.ino</h3>
+                <p>Main sketch and program initialization.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>config.h</h3>
+                <p>I2C pins and servo channel configuration.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>servo_control.h / servo_control.cpp</h3>
+                <p>Servo initialization and movement functions.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>walking.h / walking.cpp</h3>
+                <p>Experimental walking movement functions.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>balance.h / balance.cpp</h3>
+                <p>Standing and reset positioning functions.</p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+            <p>
+                Download the modular ROBO DUCK Arduino firmware files.
+            </p>
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/robo_duck/ROBO_DUCK.ino"
+               download>
+                <span>📄</span>
+                <h3>Main Arduino Sketch</h3>
+                <p>ROBO_DUCK.ino</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/robo_duck/config.h"
+               download>
+                <span>📄</span>
+                <h3>Configuration</h3>
+                <p>config.h</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/robo_duck/servo_control.h"
+               download>
+                <span>📄</span>
+                <h3>Servo Control Header</h3>
+                <p>servo_control.h</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/robo_duck/servo_control.cpp"
+               download>
+                <span>📄</span>
+                <h3>Servo Control Module</h3>
+                <p>servo_control.cpp</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/robo_duck/walking.h"
+               download>
+                <span>📄</span>
+                <h3>Walking Header</h3>
+                <p>walking.h</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/robo_duck/walking.cpp"
+               download>
+                <span>📄</span>
+                <h3>Walking Module</h3>
+                <p>walking.cpp</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/robo_duck/balance.h"
+               download>
+                <span>📄</span>
+                <h3>Balance Header</h3>
+                <p>balance.h</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/robo_duck/balance.cpp"
+               download>
+                <span>📄</span>
+                <h3>Balance Module</h3>
+                <p>balance.cpp</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+        </div>
+
+        <div class="project-note">
+            These download links expect the eight original firmware
+            files inside the source/robo_duck/ folder. Upload those
+            files to the repository using the same filenames.
+            The walking and balance functions are experimental;
+            verify the complete robot movement before presenting
+            them as tested walking or active balancing features.
+        </div>
+
+    </section>
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch ROBO DUCK in Action</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>ROBO DUCK Demonstration</p>
+            <span>
+                Add your actual robot photograph or walking
+                demonstration video here after testing.
+            </span>
+        </div>
+
+    </section>
+
+    <!-- IMPORTANT INFORMATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+            <h2>Setup and Safety Notes</h2>
+        </div>
+
+        <ul class="project-list">
+
+            <li>
+                Use an external regulated 5V supply
+                for the servo motors.
+            </li>
+
+            <li>
+                Connect ESP32, PCA9685 and servo
+                power supply grounds together.
+            </li>
+
+            <li>
+                Check servo orientation and horn alignment
+                before attaching mechanical links.
+            </li>
+
+            <li>
+                Avoid forcing the servo arms beyond
+                their mechanical travel limits.
+            </li>
+
+            <li>
+                Test servo movements before placing
+                the robot on the floor.
+            </li>
+
+            <li>
+                Support the robot during initial
+                movement and walking experiments.
+            </li>
+
+            <li>
+                Disconnect power before changing wiring
+                or mechanical connections.
+            </li>
+
+        </ul>
+
+    </section>
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html" class="button secondary">
+            ← Back to Robotics Projects
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>
