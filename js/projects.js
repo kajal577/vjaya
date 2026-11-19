@@ -140,6 +140,13 @@ const roboticsProjects = [
         description: "An Arduino-based ultrasonic radar system with object detection and distance measurement capabilities.",
         page: "ultrasonic_radar.html"
     },
+    {
+        id: "gps_tracking",
+        name: "GPS TRACKING SYSTEM",
+        platform: "Arduino",
+        description: "An Arduino-based GPS tracking system with location monitoring and data logging capabilities.",
+        page: "gps_tracking.html"
+    },
 ];
 
 const pageParams = new URLSearchParams(window.location.search);
