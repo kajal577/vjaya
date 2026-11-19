@@ -133,6 +133,13 @@ const roboticsProjects = [
         description: "An ESP32-based automatic plant watering system with soil moisture detection and pump control.",
         page: "auto_plant_watering.html"
     },
+    {
+        id: "ultrasonic_radar",
+        name: "ULTRASONIC RADAR SYSTEM",
+        platform: "Arduino",
+        description: "An Arduino-based ultrasonic radar system with object detection and distance measurement capabilities.",
+        page: "ultrasonic_radar.html"
+    },
 ];
 
 const pageParams = new URLSearchParams(window.location.search);
