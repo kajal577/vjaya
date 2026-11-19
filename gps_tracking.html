@@ -1,0 +1,700 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="GPS Tracking System by VJaYa Robotics. Track real-time GPS location using ESP32, NEO-6M GPS module and OLED display.">
+
+    <title>GPS Tracking System | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+
+</header>
+
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">ESP32 GPS PROJECT</span>
+
+        <h1>GPS Tracking System</h1>
+
+        <p>
+            Build a real-time GPS tracking system using an ESP32,
+            NEO-6M GPS module and OLED display. The GPS module
+            receives satellite signals and provides geographical
+            coordinates, including latitude, longitude and location
+            information, which are processed by the ESP32 and
+            displayed on the OLED screen.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+
+            <h2>About This Project</h2>
+
+        </div>
+
+        <p>
+            This project uses the NEO-6M GPS module to receive
+            geographical location information from GPS satellites.
+            The module communicates with the ESP32 through UART
+            serial communication.
+        </p>
+
+        <p>
+            The ESP32 reads and processes GPS information using
+            the GPS module library. The latitude, longitude,
+            satellite information and GPS connection status
+            are displayed on a 128x64 OLED display.
+        </p>
+
+        <div class="project-image-placeholder">
+
+            <p>ESP32 GPS Tracking System</p>
+
+            <span>
+                Add your actual GPS tracking project photograph
+                or demonstration image here.
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECT FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">WHAT IT CAN DO</p>
+
+            <h2>Project Features</h2>
+
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+
+                <h3>Real-Time GPS Tracking</h3>
+
+                <p>
+                    Receive geographical location information
+                    from GPS satellites.
+                </p>
+
+            </article>
+
+            <article class="project-info-card">
+
+                <h3>Latitude and Longitude</h3>
+
+                <p>
+                    Display the current geographical coordinates
+                    received from the GPS module.
+                </p>
+
+            </article>
+
+            <article class="project-info-card">
+
+                <h3>OLED Display</h3>
+
+                <p>
+                    Display GPS coordinates and connection
+                    information on a 128x64 OLED screen.
+                </p>
+
+            </article>
+
+            <article class="project-info-card">
+
+                <h3>UART Communication</h3>
+
+                <p>
+                    Communicate between the NEO-6M GPS module
+                    and ESP32 using serial communication.
+                </p>
+
+            </article>
+
+            <article class="project-info-card">
+
+                <h3>Modular Programming</h3>
+
+                <p>
+                    GPS processing and OLED display functions
+                    are organized into separate modules.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- HARDWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+
+            <h2>Components Required</h2>
+
+        </div>
+
+        <ul class="project-list">
+
+            <li>ESP32 Development Board</li>
+
+            <li>NEO-6M GPS Module</li>
+
+            <li>0.96-inch OLED Display (128x64, I2C)</li>
+
+            <li>Jumper Wires</li>
+
+            <li>Breadboard</li>
+
+            <li>USB Cable</li>
+
+            <li>Suitable Power Supply</li>
+
+        </ul>
+
+        <div class="project-note">
+
+            Check the voltage requirements of your GPS module
+            and OLED display before connecting them. Connect
+            all component grounds to the ESP32 GND.
+
+        </div>
+
+    </section>
+
+
+    <!-- SOFTWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+
+            <h2>Software and Libraries</h2>
+
+        </div>
+
+        <ul class="project-list">
+
+            <li>Arduino IDE</li>
+
+            <li>ESP32 Board Package</li>
+
+            <li>TinyGPSPlus Library</li>
+
+            <li>Adafruit GFX Library</li>
+
+            <li>Adafruit SSD1306 Library</li>
+
+            <li>Wire Library</li>
+
+            <li>HardwareSerial Library (ESP32)</li>
+
+        </ul>
+
+        <div class="project-note">
+
+            Install the required libraries through Arduino IDE
+            Library Manager before compiling the project.
+
+        </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">HOW IT WORKS</p>
+
+            <h2>Step-by-Step Operation</h2>
+
+        </div>
+
+        <ol class="project-list">
+
+            <li>
+                The ESP32 initializes the GPS module serial
+                communication and OLED display.
+            </li>
+
+            <li>
+                The NEO-6M GPS module starts receiving
+                satellite signals.
+            </li>
+
+            <li>
+                The GPS module sends location data to
+                the ESP32 through UART communication.
+            </li>
+
+            <li>
+                The ESP32 reads and processes the GPS
+                information using the TinyGPSPlus library.
+            </li>
+
+            <li>
+                The latitude, longitude and satellite
+                information are extracted from the GPS data.
+            </li>
+
+            <li>
+                The ESP32 updates the OLED display with
+                the received location information.
+            </li>
+
+            <li>
+                The system continuously updates the
+                location whenever new GPS data is received.
+            </li>
+
+        </ol>
+
+    </section>
+
+
+    <!-- GPS LOGIC -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">GPS / DISPLAY LOGIC</p>
+
+            <h2>GPS Tracking Information</h2>
+
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+
+                    <tr>
+                        <th>GPS Information</th>
+                        <th>System Response</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>GPS Data Received</td>
+                        <td>Process incoming GPS information</td>
+                    </tr>
+
+                    <tr>
+                        <td>Valid Latitude</td>
+                        <td>Display latitude coordinates</td>
+                    </tr>
+
+                    <tr>
+                        <td>Valid Longitude</td>
+                        <td>Display longitude coordinates</td>
+                    </tr>
+
+                    <tr>
+                        <td>Satellite Information</td>
+                        <td>Display available satellite count</td>
+                    </tr>
+
+                    <tr>
+                        <td>Valid GPS Fix</td>
+                        <td>Display current location</td>
+                    </tr>
+
+                    <tr>
+                        <td>No GPS Fix</td>
+                        <td>Display waiting for GPS signal</td>
+                    </tr>
+
+                    <tr>
+                        <td>No New GPS Data</td>
+                        <td>Continue checking for incoming data</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+
+            GPS location accuracy and satellite reception
+            depend on antenna placement, signal strength
+            and surrounding environmental conditions.
+            Initial satellite acquisition may take some time.
+
+        </div>
+
+    </section>
+
+
+    <!-- PROGRAM STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROGRAM STRUCTURE</p>
+
+            <h2>ESP32 Project Files</h2>
+
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+
+                <h3>GPS_TRACKING.ino</h3>
+
+                <p>
+                    Main setup and loop for initializing
+                    the GPS tracking system.
+                </p>
+
+            </article>
+
+            <article class="project-info-card">
+
+                <h3>config.h</h3>
+
+                <p>
+                    ESP32 pin assignments, UART settings
+                    and OLED configuration.
+                </p>
+
+            </article>
+
+            <article class="project-info-card">
+
+                <h3>gps_module.h / gps_module.cpp</h3>
+
+                <p>
+                    GPS initialization, serial communication
+                    and location data processing.
+                </p>
+
+            </article>
+
+            <article class="project-info-card">
+
+                <h3>display.h / display.cpp</h3>
+
+                <p>
+                    OLED initialization and GPS information
+                    display functions.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROGRAMMING</p>
+
+            <h2>Complete Source Code</h2>
+
+            <p>
+                Download the GPS Tracking System files
+                from the source folder in this repository.
+            </p>
+
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/gps_tracking/GPS_TRACKING.ino"
+               download>
+
+                <span>📄</span>
+
+                <h3>Main ESP32 Sketch</h3>
+
+                <p>GPS_TRACKING.ino</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/gps_tracking/config.h"
+               download>
+
+                <span>📄</span>
+
+                <h3>Configuration</h3>
+
+                <p>config.h</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/gps_tracking/gps_module.h"
+               download>
+
+                <span>📄</span>
+
+                <h3>GPS Header</h3>
+
+                <p>gps_module.h</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/gps_tracking/gps_module.cpp"
+               download>
+
+                <span>📄</span>
+
+                <h3>GPS Module</h3>
+
+                <p>gps_module.cpp</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/gps_tracking/display.h"
+               download>
+
+                <span>📄</span>
+
+                <h3>Display Header</h3>
+
+                <p>display.h</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/gps_tracking/display.cpp"
+               download>
+
+                <span>📄</span>
+
+                <h3>Display Module</h3>
+
+                <p>display.cpp</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+        </div>
+
+        <div class="project-note">
+
+            These download links use the expected source-folder
+            structure. Keep all six files inside the
+            source/gps_tracking/ folder.
+
+            Do not upload private credentials.
+
+        </div>
+
+    </section>
+
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+
+            <h2>Watch the GPS Tracking System Working</h2>
+
+        </div>
+
+        <div class="project-image-placeholder">
+
+            <p>ESP32 GPS Tracking Demonstration</p>
+
+            <span>
+                Add your actual GPS tracking project video,
+                photograph or demonstration link here.
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- SAFETY NOTES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+
+            <h2>Setup and Safety Notes</h2>
+
+        </div>
+
+        <ul class="project-list">
+
+            <li>
+                Check the NEO-6M module's voltage and
+                UART logic-level requirements before wiring.
+            </li>
+
+            <li>
+                Connect GPS TX to the ESP32 GPS UART RX pin.
+            </li>
+
+            <li>
+                Connect GPS RX to the ESP32 GPS UART TX pin
+                only when required, observing logic-level
+                compatibility.
+            </li>
+
+            <li>
+                Connect OLED SDA and SCL to the I2C pins
+                configured in config.h.
+            </li>
+
+            <li>
+                Connect the GND of the GPS module and OLED
+                display to ESP32 GND.
+            </li>
+
+            <li>
+                Keep the GPS antenna in an open area
+                for better satellite reception.
+            </li>
+
+            <li>
+                Do not expect an immediate GPS fix indoors
+                or in areas with poor satellite visibility.
+            </li>
+
+            <li>
+                Disconnect power before changing wiring.
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html"
+           class="button secondary">
+
+            ← Back to Robotics Projects
+
+        </a>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <span>
+        © <span id="year"></span> VJaYa Robotics
+    </span>
+
+    <span>
+        Learn · Build · Create
+    </span>
+
+</footer>
+
+
+<script>
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
