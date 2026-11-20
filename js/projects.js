@@ -147,6 +147,13 @@ const roboticsProjects = [
         description: "An Arduino-based GPS tracking system with location monitoring and data logging capabilities.",
         page: "gps_tracking.html"
     },
+    {
+        id: "esp32_cam_streaming",
+        name: "ESP32 CAMERA STREAMING",
+        platform: "ESP32",
+        description: "An ESP32-based camera streaming project with real-time video feed and image capture capabilities.",
+        page: "esp32_cam_streaming.html"
+    },
 ];
 
 const pageParams = new URLSearchParams(window.location.search);
