@@ -1,0 +1,656 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="ESP32-CAM Live Video Streaming by VJaYa Robotics. Stream live camera video to your smartphone or computer using Wi-Fi and the OV2640 camera.">
+
+    <title>ESP32-CAM Live Video Streaming | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+
+</header>
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">
+            ESP32-CAM WIFI PROJECT
+        </span>
+
+        <h1>ESP32-CAM Live Video Streaming</h1>
+
+        <p>
+            Build a wireless camera system using the AI Thinker
+            ESP32-CAM and OV2640 camera module. Stream live video
+            over Wi-Fi and view the camera feed directly from
+            your smartphone or computer browser.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+
+            <h2>About This Project</h2>
+
+        </div>
+
+        <p>
+            This project uses an AI Thinker ESP32-CAM development
+            board with an OV2640 camera sensor to capture images
+            and provide live video streaming through a Wi-Fi
+            web server.
+        </p>
+
+        <p>
+            The ESP32-CAM connects to a 2.4 GHz Wi-Fi network
+            and starts a web server. Users can enter the ESP32-CAM
+            IP address in a browser to view the camera feed.
+        </p>
+
+        <div class="project-gallery">
+
+    <div class="project-gallery-item">
+        <img src="images/products/esp32_cam_streaming/line1.png"
+             alt="ESP32-CAM Live Video Streaming Screenshot 1">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/esp32_cam_streaming/line2.png"
+             alt="ESP32-CAM Live Video Streaming Screenshot 2">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/esp32_cam_streaming/line3.png"
+             alt="ESP32-CAM Live Video Streaming Screenshot 3">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/esp32_cam_streaming/line4.png"
+             alt="ESP32-CAM Live Video Streaming Screenshot 4">
+    </div>
+
+</div>
+    </section>
+
+    <!-- PROJECT FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">WHAT IT CAN DO</p>
+
+            <h2>Project Features</h2>
+
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Live Video Streaming</h3>
+                <p>
+                    View camera images continuously through
+                    a web browser.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Wireless Connectivity</h3>
+                <p>
+                    Connect the camera to a Wi-Fi network
+                    without requiring an Ethernet cable.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Smartphone Monitoring</h3>
+                <p>
+                    Watch the camera feed from a smartphone
+                    connected to the same network.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Computer Monitoring</h3>
+                <p>
+                    Access the camera stream through
+                    a desktop or laptop browser.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Modular Camera Code</h3>
+                <p>
+                    Camera initialization and Wi-Fi functions
+                    are organized into separate files.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- HARDWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+
+            <h2>Components Required</h2>
+
+        </div>
+
+        <ul class="project-list">
+
+            <li>AI Thinker ESP32-CAM development board</li>
+
+            <li>OV2640 camera module</li>
+
+            <li>FTDI USB-to-TTL programmer or ESP32-CAM-MB programmer</li>
+
+            <li>5V regulated power supply</li>
+
+            <li>Jumper wires</li>
+
+            <li>USB cable</li>
+
+        </ul>
+
+        <div class="project-note">
+
+            Use a stable 5V power supply capable of providing
+            sufficient current for the ESP32-CAM.
+            Connect the programmer TX to ESP32-CAM U0R
+            and RX to U0T. Connect all grounds together.
+
+        </div>
+
+    </section>
+
+    <!-- SOFTWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+
+            <h2>Software and Libraries</h2>
+
+        </div>
+
+        <ul class="project-list">
+
+            <li>Arduino IDE</li>
+
+            <li>ESP32 board package</li>
+
+            <li>ESP32 Camera library (esp_camera.h)</li>
+
+            <li>WiFi library</li>
+
+            <li>WebServer library</li>
+
+            <li>AI Thinker ESP32-CAM board configuration</li>
+
+        </ul>
+
+        <div class="project-note">
+
+            The ESP32 camera and Wi-Fi libraries are provided
+            through the ESP32 Arduino platform.
+            Select AI Thinker ESP32-CAM in Arduino IDE.
+
+        </div>
+
+    </section>
+
+    <!-- HOW IT WORKS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">HOW IT WORKS</p>
+
+            <h2>Step-by-Step Operation</h2>
+
+        </div>
+
+        <ol class="project-list">
+
+            <li>
+                The ESP32-CAM initializes the OV2640 camera module.
+            </li>
+
+            <li>
+                The ESP32-CAM connects to the configured Wi-Fi network.
+            </li>
+
+            <li>
+                The device obtains an IP address from the router.
+            </li>
+
+            <li>
+                The ESP32 starts an HTTP web server.
+            </li>
+
+            <li>
+                The user opens the ESP32-CAM IP address
+                in a smartphone or computer browser.
+            </li>
+
+            <li>
+                The browser requests camera images from
+                the ESP32-CAM.
+            </li>
+
+            <li>
+                The camera captures and sends JPEG images
+                to the browser repeatedly.
+            </li>
+
+        </ol>
+
+    </section>
+
+    <!-- CAMERA LOGIC -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">CAMERA / WIFI LOGIC</p>
+
+            <h2>System Operation</h2>
+
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Input / Condition</th>
+                        <th>System Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>ESP32-CAM powered ON</td>
+                        <td>Initialize camera module</td>
+                    </tr>
+
+                    <tr>
+                        <td>Camera initialization successful</td>
+                        <td>Continue to Wi-Fi connection</td>
+                    </tr>
+
+                    <tr>
+                        <td>Wi-Fi credentials valid</td>
+                        <td>Connect to Wi-Fi network</td>
+                    </tr>
+
+                    <tr>
+                        <td>Wi-Fi connected</td>
+                        <td>Obtain local IP address</td>
+                    </tr>
+
+                    <tr>
+                        <td>Browser opens device IP</td>
+                        <td>Display streaming webpage</td>
+                    </tr>
+
+                    <tr>
+                        <td>Browser requests /capture</td>
+                        <td>Capture JPEG image</td>
+                    </tr>
+
+                    <tr>
+                        <td>Image captured successfully</td>
+                        <td>Send image to browser</td>
+                    </tr>
+
+                    <tr>
+                        <td>Camera capture fails</td>
+                        <td>Return an HTTP error response</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+
+            The current firmware sends JPEG images repeatedly
+            to create a live-view effect. This is not an MJPEG
+            multipart stream.
+
+        </div>
+
+    </section>
+
+    <!-- PROGRAM STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROGRAM STRUCTURE</p>
+
+            <h2>ESP32-CAM Project Files</h2>
+
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>ESP32_CAM_STREAMING.ino</h3>
+                <p>
+                    Main setup, web server initialization
+                    and request handling.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>config.h</h3>
+                <p>
+                    Wi-Fi credentials, camera pins
+                    and camera settings.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>wifi_manager.h / wifi_manager.cpp</h3>
+                <p>
+                    Wi-Fi initialization, connection
+                    and IP address management.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>camera_module.h / camera_module.cpp</h3>
+                <p>
+                    Camera configuration, PSRAM detection
+                    and camera initialization.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROGRAMMING</p>
+
+            <h2>Complete Source Code</h2>
+
+            <p>
+                Download the ESP32-CAM Live Video Streaming
+                project files from the source folder.
+            </p>
+
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/esp32_cam_streaming/ESP32_CAM_STREAMING.ino"
+               download>
+
+                <span>📄</span>
+
+                <h3>Main Arduino Sketch</h3>
+
+                <p>ESP32_CAM_STREAMING.ino</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/esp32_cam_streaming/config.h"
+               download>
+
+                <span>📄</span>
+
+                <h3>Configuration</h3>
+
+                <p>config.h</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/esp32_cam_streaming/wifi_manager.h"
+               download>
+
+                <span>📄</span>
+
+                <h3>Wi-Fi Header</h3>
+
+                <p>wifi_manager.h</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/esp32_cam_streaming/wifi_manager.cpp"
+               download>
+
+                <span>📄</span>
+
+                <h3>Wi-Fi Module</h3>
+
+                <p>wifi_manager.cpp</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/esp32_cam_streaming/camera_module.h"
+               download>
+
+                <span>📄</span>
+
+                <h3>Camera Header</h3>
+
+                <p>camera_module.h</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+            <a class="project-source-card"
+               href="source/esp32_cam_streaming/camera_module.cpp"
+               download>
+
+                <span>📄</span>
+
+                <h3>Camera Module</h3>
+
+                <p>camera_module.cpp</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+        </div>
+
+        <div class="project-note">
+
+            These download links expect the source files
+            to be stored inside:
+            source/esp32_cam_streaming/
+
+            Do not upload personal Wi-Fi credentials
+            in public source files.
+
+        </div>
+
+    </section>
+
+    <!-- PROJECT DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+
+            <h2>Watch the Camera Streaming</h2>
+
+        </div>
+
+        <div class="project-image-placeholder">
+
+            <p>ESP32-CAM Live Video Demonstration</p>
+
+            <span>
+                Add your actual camera photograph,
+                live streaming screenshot or demonstration video here.
+            </span>
+
+        </div>
+
+    </section>
+
+    <!-- IMPORTANT INFORMATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+
+            <h2>Setup and Safety Notes</h2>
+
+        </div>
+
+        <ul class="project-list">
+
+            <li>
+                Use a stable regulated 5V power supply
+                for the ESP32-CAM.
+            </li>
+
+            <li>
+                Use a 2.4 GHz Wi-Fi network.
+            </li>
+
+            <li>
+                Connect the FTDI TX pin to ESP32-CAM U0R
+                and FTDI RX to U0T.
+            </li>
+
+            <li>
+                Connect GPIO0 to GND only during firmware uploading.
+            </li>
+
+            <li>
+                Disconnect GPIO0 from GND and reset the board
+                after uploading.
+            </li>
+
+            <li>
+                Keep your Wi-Fi credentials private.
+            </li>
+
+            <li>
+                The default web server is intended for use
+                on a trusted local network.
+            </li>
+
+            <li>
+                Disconnect power before changing wiring.
+            </li>
+
+        </ul>
+
+    </section>
+
+    <!-- BACK TO PROJECTS -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html" class="button secondary">
+            ← Back to Robotics Projects
+        </a>
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <span>
+        © <span id="year"></span> VJaYa Robotics
+    </span>
+
+    <span>
+        Learn · Build · Create
+    </span>
+
+</footer>
+
+<script>
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
