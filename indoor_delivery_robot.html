@@ -1,0 +1,733 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Indoor Delivery Robot by VJaYa Robotics. Build an autonomous delivery robot using Raspberry Pi, Python, sensors and motor drivers.">
+
+    <title>Indoor Delivery Robot | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">RASPBERRY PI ROBOTICS PROJECT</span>
+
+        <h1>Indoor Delivery Robot</h1>
+
+        <p>
+            Build an intelligent indoor delivery robot using
+            Raspberry Pi, Python, distance sensors and motor drivers.
+            The robot can transport small packages or medicines
+            between selected indoor locations while detecting obstacles.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            The Indoor Delivery Robot is a mobile robotic system
+            designed to transport medicines, small packages and
+            other lightweight items inside buildings.
+        </p>
+
+        <p>
+            A Raspberry Pi acts as the main controller and runs
+            Python programs for robot operation, navigation,
+            sensor monitoring and communication.
+        </p>
+
+        <p>
+            Distance sensors detect nearby obstacles, while
+            motor drivers control the movement of the robot.
+            Wheel encoders can help estimate the distance travelled.
+        </p>
+
+        <p>
+            A web-based dashboard allows users to select delivery
+            destinations and monitor the robot's operating status.
+        </p>
+
+        <div class="project-gallery">
+
+            <div class="project-gallery-item">
+                <img src="images/products/indoor_delivery_robot/robot1.png"
+                     alt="Indoor delivery robot prototype">
+            </div>
+
+            <div class="project-gallery-item">
+                <img src="images/products/indoor_delivery_robot/robot2.png"
+                     alt="Indoor delivery robot hardware">
+            </div>
+
+            <div class="project-gallery-item">
+                <img src="images/products/indoor_delivery_robot/robot3.png"
+                     alt="Indoor delivery robot navigation">
+            </div>
+
+            <div class="project-gallery-item">
+                <img src="images/products/indoor_delivery_robot/robot4.png"
+                     alt="Indoor delivery robot package compartment">
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WHAT IT CAN DO</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Autonomous Movement</h3>
+                <p>
+                    Move between configured indoor delivery
+                    locations using programmed navigation.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Obstacle Detection</h3>
+                <p>
+                    Detect nearby obstacles using distance
+                    sensors and respond by stopping or avoiding them.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Package Delivery</h3>
+                <p>
+                    Carry medicines and lightweight packages
+                    inside a dedicated storage compartment.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Web Dashboard</h3>
+                <p>
+                    Select delivery destinations and monitor
+                    robot status through a web interface.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Motor Control</h3>
+                <p>
+                    Control the left and right motor groups
+                    using a dual-channel motor driver.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Live Status Monitoring</h3>
+                <p>
+                    Monitor battery status, movement state
+                    and delivery progress.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- HARDWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Raspberry Pi 5</li>
+            <li>Raspberry Pi power supply</li>
+            <li>TB6612FNG dual motor driver</li>
+            <li>4 DC geared motors</li>
+            <li>4-wheel robot chassis</li>
+            <li>Wheel encoders</li>
+            <li>VL53L0X distance sensors or ultrasonic sensors</li>
+            <li>Motor battery pack</li>
+            <li>5V regulated power supply for Raspberry Pi</li>
+            <li>Delivery storage compartment</li>
+            <li>Jumper wires and connectors</li>
+            <li>Emergency stop switch</li>
+        </ul>
+
+        <div class="project-note">
+            Raspberry Pi GPIO pins use 3.3V logic and are not
+            5V tolerant. Never connect a 5V sensor output directly
+            to a Raspberry Pi GPIO pin. Use suitable level
+            shifting where required.
+        </div>
+
+    </section>
+
+    <!-- SOFTWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Software and Libraries</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Raspberry Pi OS</li>
+            <li>Python 3</li>
+            <li>Thonny IDE or Visual Studio Code</li>
+            <li>gpiozero or suitable GPIO library</li>
+            <li>Flask web framework</li>
+            <li>OpenCV (optional for camera-based navigation)</li>
+            <li>ROS 2 (optional for advanced autonomous navigation)</li>
+            <li>Raspberry Pi Camera (optional)</li>
+        </ul>
+
+        <p>
+            The Python program is organized into separate modules
+            for configuration, motor control, sensor monitoring,
+            navigation, delivery management and web communication.
+        </p>
+
+    </section>
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>Step-by-Step Operation</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>
+                Power the Raspberry Pi, motor driver,
+                sensors and robot control system.
+            </li>
+
+            <li>
+                Start the Python robot control program.
+            </li>
+
+            <li>
+                Open the robot's web dashboard using
+                a phone or computer.
+            </li>
+
+            <li>
+                Select the required delivery destination.
+            </li>
+
+            <li>
+                The Raspberry Pi receives the destination
+                and starts the navigation process.
+            </li>
+
+            <li>
+                The distance sensors monitor the surroundings
+                and detect obstacles.
+            </li>
+
+            <li>
+                The motor control module operates the
+                left and right motors.
+            </li>
+
+            <li>
+                Wheel encoders help estimate movement
+                and distance travelled.
+            </li>
+
+            <li>
+                The robot follows its configured route
+                toward the delivery destination.
+            </li>
+
+            <li>
+                When the robot reaches the destination,
+                it stops and updates its delivery status.
+            </li>
+
+        </ol>
+
+    </section>
+
+    <!-- HARDWARE CONNECTIONS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE CONNECTIONS</p>
+            <h2>Raspberry Pi Pin Connections</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Component Pin</th>
+                        <th>Raspberry Pi Connection</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>TB6612FNG</td>
+                        <td>AIN1</td>
+                        <td>GPIO17</td>
+                    </tr>
+
+                    <tr>
+                        <td>TB6612FNG</td>
+                        <td>AIN2</td>
+                        <td>GPIO27</td>
+                    </tr>
+
+                    <tr>
+                        <td>TB6612FNG</td>
+                        <td>PWMA</td>
+                        <td>GPIO18</td>
+                    </tr>
+
+                    <tr>
+                        <td>TB6612FNG</td>
+                        <td>BIN1</td>
+                        <td>GPIO22</td>
+                    </tr>
+
+                    <tr>
+                        <td>TB6612FNG</td>
+                        <td>BIN2</td>
+                        <td>GPIO23</td>
+                    </tr>
+
+                    <tr>
+                        <td>TB6612FNG</td>
+                        <td>PWMB</td>
+                        <td>GPIO13</td>
+                    </tr>
+
+                    <tr>
+                        <td>TB6612FNG</td>
+                        <td>STBY</td>
+                        <td>GPIO24</td>
+                    </tr>
+
+                    <tr>
+                        <td>VL53L0X</td>
+                        <td>SDA</td>
+                        <td>GPIO2 (I2C SDA)</td>
+                    </tr>
+
+                    <tr>
+                        <td>VL53L0X</td>
+                        <td>SCL</td>
+                        <td>GPIO3 (I2C SCL)</td>
+                    </tr>
+
+                    <tr>
+                        <td>VL53L0X</td>
+                        <td>VIN / GND</td>
+                        <td>Suitable supply / Common GND</td>
+                    </tr>
+
+                    <tr>
+                        <td>Wheel Encoders</td>
+                        <td>Encoder Outputs</td>
+                        <td>GPIO inputs (configured in software)</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            These are proposed BCM GPIO assignments for the
+            example design. The four motors are arranged as
+            two left-side motors and two right-side motors,
+            controlled in pairs.
+
+            Check the TB6612FNG current ratings against the
+            combined motor current before connecting the motors.
+            Use suitable regulated supplies and a common ground.
+        </div>
+
+    </section>
+
+    <!-- ROBOT NAVIGATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">ROBOT NAVIGATION</p>
+            <h2>Navigation and Control</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>System</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Distance Sensors</td>
+                        <td>Detect nearby obstacles.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Wheel Encoders</td>
+                        <td>Estimate wheel movement and distance.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Motor Driver</td>
+                        <td>Control robot movement.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Navigation Module</td>
+                        <td>Manage configured routes and destinations.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Delivery Module</td>
+                        <td>Manage delivery tasks and status.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Web Dashboard</td>
+                        <td>Receive user commands and show robot status.</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            Basic obstacle avoidance does not provide full
+            autonomous mapping or localization. Advanced
+            room-to-room navigation requires an appropriate
+            mapping and localization system, such as ROS 2
+            with LiDAR and odometry.
+        </div>
+
+    </section>
+
+    <!-- PROJECT FILE STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAM STRUCTURE</p>
+            <h2>Python Project Files</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>main.py</h3>
+                <p>
+                    Main program and robot initialization.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>config.py</h3>
+                <p>
+                    GPIO assignments and robot configuration.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>motor_control.py</h3>
+                <p>
+                    Motor initialization, speed and movement control.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>sensors.py</h3>
+                <p>
+                    Distance sensor and obstacle monitoring.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>navigation.py</h3>
+                <p>
+                    Route management and robot navigation.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>delivery.py</h3>
+                <p>
+                    Delivery task and destination management.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>web_server.py</h3>
+                <p>
+                    Flask dashboard and user communication.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>encoder.py</h3>
+                <p>
+                    Wheel encoder readings and movement estimation.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+
+            <p>
+                The project firmware is organized into separate
+                Python modules. Add the completed files to the
+                source folder to enable these downloads.
+            </p>
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/indoor_delivery_robot/main.py"
+               download>
+                <span>📄</span>
+                <h3>Main Python Program</h3>
+                <p>main.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/indoor_delivery_robot/config.py"
+               download>
+                <span>📄</span>
+                <h3>Configuration</h3>
+                <p>config.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/indoor_delivery_robot/motor_control.py"
+               download>
+                <span>📄</span>
+                <h3>Motor Control</h3>
+                <p>motor_control.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/indoor_delivery_robot/sensors.py"
+               download>
+                <span>📄</span>
+                <h3>Sensor Module</h3>
+                <p>sensors.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/indoor_delivery_robot/navigation.py"
+               download>
+                <span>📄</span>
+                <h3>Navigation Module</h3>
+                <p>navigation.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/indoor_delivery_robot/delivery.py"
+               download>
+                <span>📄</span>
+                <h3>Delivery Module</h3>
+                <p>delivery.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/indoor_delivery_robot/encoder.py"
+               download>
+                <span>📄</span>
+                <h3>Encoder Module</h3>
+                <p>encoder.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/indoor_delivery_robot/web_server.py"
+               download>
+                <span>📄</span>
+                <h3>Web Dashboard Server</h3>
+                <p>web_server.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch the Robot Working</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>Indoor Delivery Robot Demonstration</p>
+            <span>
+                Add your actual robot photograph or demonstration
+                video here.
+            </span>
+        </div>
+
+    </section>
+
+    <!-- IMPORTANT INFORMATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+            <h2>Setup and Safety Notes</h2>
+        </div>
+
+        <ul class="project-list">
+
+            <li>
+                Never connect 5V signals directly to Raspberry Pi GPIO.
+            </li>
+
+            <li>
+                Use a separate suitable motor power supply.
+            </li>
+
+            <li>
+                Connect the Raspberry Pi and motor driver grounds together.
+            </li>
+
+            <li>
+                Verify the motor driver current rating before
+                connecting the motors.
+            </li>
+
+            <li>
+                Test motor directions with the wheels raised.
+            </li>
+
+            <li>
+                Install a physical emergency stop switch.
+            </li>
+
+            <li>
+                Test obstacle detection at low speed before
+                enabling autonomous operation.
+            </li>
+
+            <li>
+                Do not transport people, hazardous materials
+                or unsecured heavy packages.
+            </li>
+
+        </ul>
+
+    </section>
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html" class="button secondary">
+            ← Back to Robotics Projects
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>
