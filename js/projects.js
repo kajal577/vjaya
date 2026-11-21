@@ -168,6 +168,20 @@ const roboticsProjects = [
         description: "An ESP32-based automatic plant watering system with soil moisture detection and pump control.",
         page: "auto_plant_watering.html"
     },
+     {
+        id: "raspberry_pi_robot_dog",
+        name: "RASPBERRY PI ROBOT DOG",
+        platform: "Raspberry Pi",
+        description: "An ESP32-based raspberry pi robot dog with simple movement and sound capabilities.",
+        page: "raspberry_pi_robot_dog.html"
+    },
+    {
+        id: "indoor_mapping_robot",
+        name: "INDOOR MAPPING ROBOT",
+        platform: "Raspberry Pi",
+        description: "An ESP32-based indoor mapping robot with LiDAR and odometry capabilities.",
+        page: "indoor_mapping_robot.html"
+    },
 ];
 
 const pageParams = new URLSearchParams(window.location.search);
