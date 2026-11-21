@@ -154,6 +154,20 @@ const roboticsProjects = [
         description: "An ESP32-based camera streaming project with real-time video feed and image capture capabilities.",
         page: "esp32_cam_streaming.html"
     },
+    {
+        id: "indoor_delivery_robot",
+        name: "INDOOR DELIVERY ROBOT",
+        platform: "Raspberry Pi",
+        description: "An ESP32-based indoor delivery robot with obstacle avoidance and navigation capabilities.",
+        page: "indoor_delivery_robot.html"
+    },
+    {
+        id: "auto_plant_watering",
+        name: "AUTOMATIC PLANT WATERING SYSTEM",
+        platform: "ESP32",
+        description: "An ESP32-based automatic plant watering system with soil moisture detection and pump control.",
+        page: "auto_plant_watering.html"
+    },
 ];
 
 const pageParams = new URLSearchParams(window.location.search);
