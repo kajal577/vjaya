@@ -1,0 +1,635 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Raspberry Pi Robot Dog by VJaYa Robotics. A quadruped robot using servo motors, PCA9685 and Python control.">
+
+    <title>Raspberry Pi Robot Dog | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">RASPBERRY PI ROBOTICS PROJECT</span>
+
+        <h1>Raspberry Pi Robot Dog</h1>
+
+        <p>
+            Build a quadruped robot dog using Raspberry Pi,
+            12 servo motors and a PCA9685 servo driver.
+            Control the robot to stand, sit, walk, turn
+            and detect nearby obstacles.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            This Raspberry Pi Robot Dog uses a Raspberry Pi
+            as its main controller. The robot has four legs,
+            with three servo motors controlling each leg.
+        </p>
+
+        <p>
+            A PCA9685 servo driver generates the control
+            signals for the servo motors. Python software
+            controls the individual joints and coordinates
+            the movements of all four legs.
+        </p>
+
+        <p>
+            The robot can be programmed to stand, sit,
+            walk forward and backward, turn left and right,
+            and detect obstacles using a distance sensor.
+            Voice control and camera-based AI can be added
+            as optional features.
+        </p>
+
+        <div class="project-gallery">
+
+            <div class="project-gallery-item">
+                <img src="images/products/raspberry_pi_robot_dog/line1.png"
+                     alt="Raspberry Pi quadruped robot dog">
+            </div>
+
+            <div class="project-gallery-item">
+                <img src="images/products/raspberry_pi_robot_dog/line2.png"
+                     alt="Robot dog servo leg assembly">
+            </div>
+
+            <div class="project-gallery-item">
+                <img src="images/products/raspberry_pi_robot_dog/line3.png"
+                     alt="Robot dog servo driver and wiring">
+            </div>
+
+            <div class="project-gallery-item">
+                <img src="images/products/raspberry_pi_robot_dog/line4.png"
+                     alt="Robot dog walking demonstration">
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WHAT IT CAN DO</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Stand and Sit</h3>
+                <p>
+                    Move the legs into calibrated
+                    standing and sitting positions.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Forward Walking</h3>
+                <p>
+                    Coordinate all four legs to
+                    move the robot forward.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Backward Walking</h3>
+                <p>
+                    Move the robot backward using
+                    a coordinated leg movement.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Turning Control</h3>
+                <p>
+                    Coordinate leg movements to
+                    turn the robot left or right.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Obstacle Detection</h3>
+                <p>
+                    Detect nearby obstacles using
+                    a distance sensor.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Voice Control</h3>
+                <p>
+                    Optionally control the robot
+                    using simple voice commands.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- HARDWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Raspberry Pi 5</li>
+            <li>Quadruped robot dog frame</li>
+            <li>12 compatible servo motors</li>
+            <li>PCA9685 16-channel servo driver</li>
+            <li>External regulated servo power supply</li>
+            <li>HC-SR04 ultrasonic distance sensor</li>
+            <li>Jumper wires and connectors</li>
+            <li>Servo mounting screws and hardware</li>
+            <li>Suitable robot battery pack</li>
+            <li>Optional USB microphone</li>
+            <li>Optional speaker and camera</li>
+        </ul>
+
+        <div class="project-note">
+            Use a separate regulated power supply for the
+            servo motors. Do not power 12 servos directly
+            from the Raspberry Pi. Connect the Raspberry Pi,
+            PCA9685 and servo supply grounds together.
+        </div>
+
+    </section>
+
+    <!-- SOFTWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Software and Libraries</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Raspberry Pi OS</li>
+            <li>Python 3</li>
+            <li>I2C interface enabled</li>
+            <li>Adafruit PCA9685 library</li>
+            <li>Adafruit Servo library</li>
+            <li>Compatible Raspberry Pi GPIO library</li>
+            <li>Optional speech recognition library</li>
+            <li>Optional camera and AI libraries</li>
+        </ul>
+
+        <p>
+            The Python program is organized into separate
+            files for servo control, leg control, gait
+            generation, movement, obstacle detection
+            and robot commands.
+        </p>
+
+    </section>
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>Step-by-Step Operation</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>
+                Assemble the quadruped frame and
+                install the servo motors.
+            </li>
+
+            <li>
+                Identify the hip, upper-leg and
+                lower-leg servo for each leg.
+            </li>
+
+            <li>
+                Connect the PCA9685 servo driver
+                to the Raspberry Pi using I2C.
+            </li>
+
+            <li>
+                Connect the servo motors to the
+                PCA9685 output channels.
+            </li>
+
+            <li>
+                Use Python to test one servo
+                at a time.
+            </li>
+
+            <li>
+                Calibrate the servo center positions
+                and safe movement limits.
+            </li>
+
+            <li>
+                Create a stable standing pose
+                and test the sitting position.
+            </li>
+
+            <li>
+                Develop coordinated leg movements
+                for forward and backward walking.
+            </li>
+
+            <li>
+                Add turning and obstacle detection
+                after basic movement is stable.
+            </li>
+
+            <li>
+                Optionally add voice commands
+                and camera-based AI features.
+            </li>
+
+        </ol>
+
+    </section>
+
+    <!-- WIRING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE CONNECTIONS</p>
+            <h2>Raspberry Pi Pin Connections</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Component Pin</th>
+                        <th>Raspberry Pi Connection</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>PCA9685</td>
+                        <td>VCC</td>
+                        <td>Raspberry Pi 3.3V</td>
+                    </tr>
+
+                    <tr>
+                        <td>PCA9685</td>
+                        <td>GND</td>
+                        <td>Raspberry Pi GND</td>
+                    </tr>
+
+                    <tr>
+                        <td>PCA9685</td>
+                        <td>SDA</td>
+                        <td>GPIO2 / Physical Pin 3</td>
+                    </tr>
+
+                    <tr>
+                        <td>PCA9685</td>
+                        <td>SCL</td>
+                        <td>GPIO3 / Physical Pin 5</td>
+                    </tr>
+
+                    <tr>
+                        <td>PCA9685</td>
+                        <td>V+</td>
+                        <td>External servo power supply</td>
+                    </tr>
+
+                    <tr>
+                        <td>Servos</td>
+                        <td>Channels 0–11</td>
+                        <td>12 servo motors</td>
+                    </tr>
+
+                    <tr>
+                        <td>HC-SR04</td>
+                        <td>TRIG</td>
+                        <td>Configured GPIO output</td>
+                    </tr>
+
+                    <tr>
+                        <td>HC-SR04</td>
+                        <td>ECHO</td>
+                        <td>GPIO input through voltage divider</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            Raspberry Pi GPIO uses 3.3V logic and is not
+            5V tolerant. Connect the HC-SR04 ECHO output
+            through a suitable voltage divider or level
+            shifter. Verify servo voltage and current
+            requirements before connecting the power supply.
+        </div>
+
+    </section>
+
+    <!-- PROJECT FILE STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAM STRUCTURE</p>
+            <h2>Raspberry Pi Project Files</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>main.py</h3>
+                <p>Main program and robot startup.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>config.py</h3>
+                <p>Servo channels and robot settings.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>servo_driver.py</h3>
+                <p>PCA9685 initialization and servo control.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>leg_control.py</h3>
+                <p>Control individual leg joints.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>gait.py</h3>
+                <p>Generate coordinated walking sequences.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>movement.py</h3>
+                <p>Forward, backward and turning functions.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>obstacle_detection.py</h3>
+                <p>Distance measurement and obstacle detection.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>robot_controller.py</h3>
+                <p>Robot commands and movement coordination.</p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+            <p>
+                Download the Raspberry Pi Robot Dog project files.
+            </p>
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/raspberry_pi_robot_dog/main.py"
+               download>
+                <span>📄</span>
+                <h3>Main Python Program</h3>
+                <p>main.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/raspberry_pi_robot_dog/config.py"
+               download>
+                <span>📄</span>
+                <h3>Configuration</h3>
+                <p>config.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/raspberry_pi_robot_dog/servo_driver.py"
+               download>
+                <span>📄</span>
+                <h3>Servo Driver</h3>
+                <p>servo_driver.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/raspberry_pi_robot_dog/leg_control.py"
+               download>
+                <span>📄</span>
+                <h3>Leg Control</h3>
+                <p>leg_control.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/raspberry_pi_robot_dog/gait.py"
+               download>
+                <span>📄</span>
+                <h3>Gait Module</h3>
+                <p>gait.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/raspberry_pi_robot_dog/movement.py"
+               download>
+                <span>📄</span>
+                <h3>Movement Module</h3>
+                <p>movement.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/raspberry_pi_robot_dog/obstacle_detection.py"
+               download>
+                <span>📄</span>
+                <h3>Obstacle Detection</h3>
+                <p>obstacle_detection.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/raspberry_pi_robot_dog/robot_controller.py"
+               download>
+                <span>📄</span>
+                <h3>Robot Controller</h3>
+                <p>robot_controller.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+        </div>
+
+        <div class="project-note">
+            Add the matching Python files to the source folder
+            when the project firmware is completed.
+        </div>
+
+    </section>
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch the Robot Working</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>Raspberry Pi Robot Dog Demonstration</p>
+            <span>
+                Add your actual robot photograph or
+                walking demonstration video here.
+            </span>
+        </div>
+
+    </section>
+
+    <!-- IMPORTANT INFORMATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+            <h2>Setup and Safety Notes</h2>
+        </div>
+
+        <ul class="project-list">
+
+            <li>
+                Do not power all 12 servos directly
+                from the Raspberry Pi.
+            </li>
+
+            <li>
+                Use a regulated external servo
+                power supply with sufficient current.
+            </li>
+
+            <li>
+                Connect Raspberry Pi, PCA9685
+                and servo supply grounds together.
+            </li>
+
+            <li>
+                Verify the servo voltage and
+                stall current before connecting.
+            </li>
+
+            <li>
+                Use a voltage divider or level
+                shifter for the HC-SR04 ECHO pin.
+            </li>
+
+            <li>
+                Support the robot while calibrating
+                servo angles and testing movements.
+            </li>
+
+            <li>
+                Keep fingers away from moving
+                joints and mechanical linkages.
+            </li>
+
+            <li>
+                Start with slow movements and
+                conservative servo limits.
+            </li>
+
+        </ul>
+
+    </section>
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html" class="button secondary">
+            ← Back to Robotics Projects
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,612 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Indoor Mapping Robot by VJaYa Robotics. A Raspberry Pi robot using 2D LiDAR, SLAM and autonomous navigation.">
+
+    <title>Indoor Mapping Robot | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">RASPBERRY PI ROBOTICS PROJECT</span>
+
+        <h1>Indoor Mapping Robot</h1>
+
+        <p>
+            Build an autonomous indoor mapping robot using
+            Raspberry Pi, 2D LiDAR, wheel encoders and ROS 2.
+            The robot scans its surroundings, creates a 2D map
+            and navigates between selected locations.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            This Indoor Mapping Robot uses a Raspberry Pi as its
+            main computer. A 2D LiDAR sensor scans the surrounding
+            environment and measures the distance to nearby walls
+            and obstacles.
+        </p>
+
+        <p>
+            Wheel encoders provide movement information to estimate
+            the robot's position. SLAM software combines the sensor
+            data and movement information to create a 2D map of
+            the indoor environment.
+        </p>
+
+        <p>
+            After creating a map, the robot can use localization
+            and navigation software to estimate its position and
+            travel toward a selected destination.
+        </p>
+
+        <div class="project-gallery">
+
+            <div class="project-gallery-item">
+                <img src="images/products/indoor_mapping_robot/line1.png"
+                     alt="Indoor mapping robot overview">
+            </div>
+
+            <div class="project-gallery-item">
+                <img src="images/products/indoor_mapping_robot/line2.png"
+                     alt="2D LiDAR sensor mounted on robot">
+            </div>
+
+            <div class="project-gallery-item">
+                <img src="images/products/indoor_mapping_robot/line3.png"
+                     alt="Indoor robot mapping visualization">
+            </div>
+
+            <div class="project-gallery-item">
+                <img src="images/products/indoor_mapping_robot/line4.png"
+                     alt="Autonomous indoor navigation robot">
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WHAT IT CAN DO</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>2D Room Mapping</h3>
+                <p>
+                    Scan walls and obstacles to create an
+                    indoor occupancy map.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Live Localization</h3>
+                <p>
+                    Estimate the robot's position and orientation
+                    on the saved map.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Path Planning</h3>
+                <p>
+                    Plan a route between the starting position
+                    and a selected destination.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Obstacle Detection</h3>
+                <p>
+                    Use LiDAR scan data to detect nearby
+                    walls and obstacles.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Autonomous Navigation</h3>
+                <p>
+                    Follow a planned route using compatible
+                    ROS 2 navigation software.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Map Saving</h3>
+                <p>
+                    Save the created map and use it for
+                    future navigation sessions.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- HARDWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Raspberry Pi 5</li>
+            <li>Compatible 2D LiDAR sensor</li>
+            <li>RPLIDAR or LD19 compatible model</li>
+            <li>2 DC geared motors with wheel encoders</li>
+            <li>Dual motor driver compatible with the motors</li>
+            <li>Differential-drive robot chassis</li>
+            <li>Robot wheels and mounting hardware</li>
+            <li>Suitable battery pack</li>
+            <li>Regulated power supply for Raspberry Pi</li>
+            <li>Jumper wires and connectors</li>
+            <li>Physical emergency stop switch</li>
+        </ul>
+
+        <div class="project-note">
+            Select a LiDAR model supported by your chosen
+            ROS 2 software. Verify the motor driver, battery
+            voltage and current ratings before connecting
+            the hardware.
+        </div>
+
+    </section>
+
+    <!-- SOFTWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Software and Libraries</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Raspberry Pi OS or compatible Ubuntu image</li>
+            <li>ROS 2 compatible with the selected operating system</li>
+            <li>Python 3</li>
+            <li>Compatible LiDAR driver package</li>
+            <li>SLAM mapping package</li>
+            <li>Robot localization software</li>
+            <li>Navigation software</li>
+            <li>RViz or compatible visualization tool</li>
+        </ul>
+
+        <p>
+            The robot software is organized into separate files
+            for configuration, LiDAR communication, motor control,
+            encoders, odometry, mapping and navigation.
+        </p>
+
+    </section>
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>Step-by-Step Operation</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>
+                Assemble the robot chassis and mount the
+                LiDAR sensor securely.
+            </li>
+
+            <li>
+                Connect the motors, motor driver,
+                wheel encoders and LiDAR.
+            </li>
+
+            <li>
+                Install a compatible operating system
+                and ROS 2 software.
+            </li>
+
+            <li>
+                Test the LiDAR and verify that scan
+                data is received correctly.
+            </li>
+
+            <li>
+                Calibrate the wheel diameter,
+                wheel separation and encoder readings.
+            </li>
+
+            <li>
+                Start the SLAM software and slowly
+                move the robot around the room.
+            </li>
+
+            <li>
+                The robot combines LiDAR scans and
+                movement data to build a 2D map.
+            </li>
+
+            <li>
+                Save the map for future localization.
+            </li>
+
+            <li>
+                Set a navigation goal and test
+                autonomous movement.
+            </li>
+
+        </ol>
+
+    </section>
+
+    <!-- WIRING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE CONNECTIONS</p>
+            <h2>Raspberry Pi Pin Connections</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Component Pin</th>
+                        <th>Raspberry Pi Connection</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>2D LiDAR</td>
+                        <td>USB</td>
+                        <td>Raspberry Pi USB port</td>
+                    </tr>
+
+                    <tr>
+                        <td>2D LiDAR</td>
+                        <td>UART TX</td>
+                        <td>Configured serial RX</td>
+                    </tr>
+
+                    <tr>
+                        <td>2D LiDAR</td>
+                        <td>UART RX</td>
+                        <td>Configured serial TX</td>
+                    </tr>
+
+                    <tr>
+                        <td>Motor Driver</td>
+                        <td>Motor A output</td>
+                        <td>Left DC motor</td>
+                    </tr>
+
+                    <tr>
+                        <td>Motor Driver</td>
+                        <td>Motor B output</td>
+                        <td>Right DC motor</td>
+                    </tr>
+
+                    <tr>
+                        <td>Left Encoder</td>
+                        <td>A / B signals</td>
+                        <td>Configured GPIO inputs</td>
+                    </tr>
+
+                    <tr>
+                        <td>Right Encoder</td>
+                        <td>A / B signals</td>
+                        <td>Configured GPIO inputs</td>
+                    </tr>
+
+                    <tr>
+                        <td>Motor Driver</td>
+                        <td>Logic control</td>
+                        <td>Configured GPIO pins</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            Pin assignments depend on the selected motor driver
+            and LiDAR model. Use a suitable motor driver interface.
+            Do not connect motors directly to Raspberry Pi GPIO.
+            Use separate motor power and connect signal grounds.
+        </div>
+
+    </section>
+
+    <!-- PROJECT FILE STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAM STRUCTURE</p>
+            <h2>Raspberry Pi Project Files</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>main.py</h3>
+                <p>Main application and robot startup.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>config.py</h3>
+                <p>Robot settings, ports and configuration values.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>lidar_node.py</h3>
+                <p>LiDAR communication and scan data.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>motor_controller.py</h3>
+                <p>Motor driver control and movement commands.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>encoder_reader.py</h3>
+                <p>Read wheel encoder signals.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>odometry.py</h3>
+                <p>Calculate robot movement and position.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>mapping.py</h3>
+                <p>SLAM mapping configuration.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>navigation.py</h3>
+                <p>Navigation goals and route following.</p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+            <p>
+                Download the Indoor Mapping Robot project files.
+            </p>
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/indoor_mapping_robot/main.py"
+               download>
+                <span>📄</span>
+                <h3>Main Python Program</h3>
+                <p>main.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/indoor_mapping_robot/config.py"
+               download>
+                <span>📄</span>
+                <h3>Configuration</h3>
+                <p>config.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/indoor_mapping_robot/lidar_node.py"
+               download>
+                <span>📄</span>
+                <h3>LiDAR Module</h3>
+                <p>lidar_node.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/indoor_mapping_robot/motor_controller.py"
+               download>
+                <span>📄</span>
+                <h3>Motor Controller</h3>
+                <p>motor_controller.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/indoor_mapping_robot/odometry.py"
+               download>
+                <span>📄</span>
+                <h3>Odometry Module</h3>
+                <p>odometry.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/indoor_mapping_robot/mapping.py"
+               download>
+                <span>📄</span>
+                <h3>Mapping Module</h3>
+                <p>mapping.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/indoor_mapping_robot/navigation.py"
+               download>
+                <span>📄</span>
+                <h3>Navigation Module</h3>
+                <p>navigation.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+        </div>
+
+        <div class="project-note">
+            Add the matching Python files to the source folder
+            when the project firmware is completed.
+        </div>
+
+    </section>
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch the Robot Working</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>Indoor Mapping Robot Demonstration</p>
+            <span>
+                Add your actual robot photograph or
+                mapping demonstration video here.
+            </span>
+        </div>
+
+    </section>
+
+    <!-- IMPORTANT INFORMATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+            <h2>Setup and Safety Notes</h2>
+        </div>
+
+        <ul class="project-list">
+
+            <li>
+                Test the motors with the robot wheels
+                raised before moving on the floor.
+            </li>
+
+            <li>
+                Use a suitable motor driver and
+                separate motor power supply.
+            </li>
+
+            <li>
+                Verify the LiDAR voltage and
+                communication interface.
+            </li>
+
+            <li>
+                Calibrate wheel dimensions and
+                encoder readings for accurate mapping.
+            </li>
+
+            <li>
+                Use a physical emergency stop
+                during autonomous testing.
+            </li>
+
+            <li>
+                Keep the robot away from stairs,
+                people and pets during early tests.
+            </li>
+
+            <li>
+                Use compatible ROS 2 and operating
+                system versions.
+            </li>
+
+        </ul>
+
+    </section>
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html" class="button secondary">
+            ← Back to Robotics Projectss
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>
