@@ -1,0 +1,1292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Smart Parking System with Number Plate Recognition using Raspberry Pi 5 and Camera Module 3. Learn to build an automated parking management system with VJaYa Robotics.">
+
+    <title>Smart Parking System | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+
+</header>
+
+
+<main class="project-detail-page">
+
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">
+            RASPBERRY PI ROBOTICS PROJECT
+        </span>
+
+        <h1>Smart Parking System with Number Plate Recognition</h1>
+
+        <p>
+            Build an intelligent parking management system using
+            Raspberry Pi 5 and Camera Module 3.
+
+            Automatically capture vehicle images, recognize
+            registration plates, monitor parking slots, operate
+            entrance and exit barriers, and calculate parking fees.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+
+            <h2>About This Project</h2>
+
+        </div>
+
+        <p>
+            The Smart Parking System uses a Raspberry Pi 5 as its
+            main controller. A Raspberry Pi Camera Module 3 captures
+            vehicle images when a vehicle approaches the entrance.
+        </p>
+
+        <p>
+            OpenCV processes the captured image, while Tesseract OCR
+            attempts to recognize the vehicle registration number.
+            The system checks the recognized number against its
+            parking database.
+        </p>
+
+        <p>
+            IR sensors monitor the entrance, exit and individual
+            parking spaces. SG90 servo motors operate the miniature
+            entrance and exit barriers.
+        </p>
+
+        <p>
+            A Flask web dashboard displays parking availability,
+            currently parked vehicles and parking information.
+            An I2C LCD provides messages at the parking entrance.
+        </p>
+
+
+        <div class="project-gallery">
+
+    <div class="project-gallery-item">
+        <img src="images/products/smart_parking/line1.png"
+              alt="smart_parking Screenshot 3">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/smart_parking/line2.png"
+             alt="smart_parking Screenshot 2">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/smart_parking/line3.png"
+             alt="smart_parking Screenshot 3">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/smart_parking/line4.png"
+             alt="smart_parking Screenshot 4">
+    </div>
+
+</div>
+
+    </section>
+
+
+    <!-- PROJECT FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">WHAT IT CAN DO</p>
+
+            <h2>Project Features</h2>
+
+        </div>
+
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+
+                <h3>Number Plate Recognition</h3>
+
+                <p>
+                    Capture vehicle images and use OCR to attempt
+                    automatic registration plate recognition.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Automatic Entry Barrier</h3>
+
+                <p>
+                    Control the entrance barrier using an SG90
+                    servo after vehicle authorization.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Automatic Exit Barrier</h3>
+
+                <p>
+                    Operate the exit barrier after checking
+                    the vehicle's parking record and exit process.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Parking Slot Monitoring</h3>
+
+                <p>
+                    Monitor four individual parking spaces
+                    using IR sensors.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Parking Fee Calculation</h3>
+
+                <p>
+                    Calculate parking charges using the vehicle's
+                    recorded entry and exit times.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Live Web Dashboard</h3>
+
+                <p>
+                    View parking availability and currently
+                    parked vehicles through a Flask dashboard.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>SQLite Database</h3>
+
+                <p>
+                    Store vehicle records, parking slots,
+                    entry times and exit information.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>LCD Information Display</h3>
+
+                <p>
+                    Display vehicle information, parking
+                    availability and access messages.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Image Processing</h3>
+
+                <p>
+                    Process captured vehicle images to locate
+                    possible number plate regions for OCR.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- HARDWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+
+            <h2>Components Required</h2>
+
+        </div>
+
+
+        <ul class="project-list">
+
+            <li>Raspberry Pi 5</li>
+
+            <li>Raspberry Pi Camera Module 3</li>
+
+            <li>MicroSD card with operating system</li>
+
+            <li>Raspberry Pi compatible power supply</li>
+
+            <li>2 SG90 servo motors</li>
+
+            <li>6 IR obstacle or vehicle detection sensors</li>
+
+            <li>16×2 I2C LCD display</li>
+
+            <li>External regulated 5V servo power supply</li>
+
+            <li>Jumper wires</li>
+
+            <li>Breadboard or suitable wiring connections</li>
+
+            <li>Parking model structure and miniature barriers</li>
+
+            <li>Vehicle models for testing</li>
+
+        </ul>
+
+
+        <div class="project-note">
+
+            Raspberry Pi GPIO pins operate at 3.3V and are not
+            5V tolerant. Check the output voltage of every sensor
+            before connecting it to the Raspberry Pi.
+
+            Use a suitable level shifter where required.
+
+            Power the SG90 servos using an external regulated
+            5V supply and connect the supply ground to Raspberry
+            Pi ground.
+
+        </div>
+
+    </section>
+
+
+    <!-- SOFTWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+
+            <h2>Software and Libraries</h2>
+
+        </div>
+
+
+        <ul class="project-list">
+
+            <li>Raspberry Pi OS 64-bit</li>
+
+            <li>Python 3</li>
+
+            <li>Picamera2</li>
+
+            <li>OpenCV</li>
+
+            <li>NumPy</li>
+
+            <li>Pillow</li>
+
+            <li>Tesseract OCR</li>
+
+            <li>pytesseract</li>
+
+            <li>gpiozero</li>
+
+            <li>lgpio</li>
+
+            <li>RPLCD</li>
+
+            <li>Flask</li>
+
+            <li>SQLite3</li>
+
+            <li>Python threading and logging libraries</li>
+
+        </ul>
+
+
+        <p>
+            The Python application is organized into separate
+            modules for camera operation, image processing,
+            number plate recognition, database management,
+            parking sensors, servo gates, LCD display,
+            fee calculation and the web dashboard.
+        </p>
+
+    </section>
+
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">HOW IT WORKS</p>
+
+            <h2>Step-by-Step Operation</h2>
+
+        </div>
+
+
+        <ol class="project-list">
+
+            <li>
+                Power on the Raspberry Pi 5 and initialize
+                the parking system.
+            </li>
+
+            <li>
+                Initialize the Camera Module 3, parking sensors,
+                LCD display and servo barriers.
+            </li>
+
+            <li>
+                The entrance IR sensor detects an approaching
+                vehicle.
+            </li>
+
+            <li>
+                The camera captures an image of the vehicle.
+            </li>
+
+            <li>
+                OpenCV processes the captured image and attempts
+                to identify the number plate region.
+            </li>
+
+            <li>
+                Tesseract OCR attempts to extract the registration
+                number from the processed plate image.
+            </li>
+
+            <li>
+                The system checks the recognized number and
+                validates it against the configured plate format.
+            </li>
+
+            <li>
+                The parking manager checks available parking
+                spaces using sensor readings and database records.
+            </li>
+
+            <li>
+                If the vehicle is authorized and a parking
+                space is available, the system records the
+                entry and assigned parking slot.
+            </li>
+
+            <li>
+                The entrance servo opens the miniature barrier
+                after successful authorization.
+            </li>
+
+            <li>
+                The vehicle enters and occupies its assigned
+                parking space.
+            </li>
+
+            <li>
+                When the vehicle approaches the exit, the
+                system attempts to identify its number plate
+                and retrieve its parking record.
+            </li>
+
+            <li>
+                The parking fee calculator calculates the
+                applicable parking charge.
+            </li>
+
+            <li>
+                After the exit process is authorized, the
+                exit barrier opens and the parking record
+                is updated.
+            </li>
+
+            <li>
+                The dashboard displays updated parking
+                availability and vehicle information.
+            </li>
+
+        </ol>
+
+
+        <div class="project-note">
+
+            OCR recognition is not guaranteed to be correct.
+            A recognized registration number must be checked
+            against the parking record, and uncertain results
+            should be reviewed manually before opening a gate.
+
+        </div>
+
+    </section>
+
+
+    <!-- HARDWARE CONNECTIONS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">HARDWARE CONNECTIONS</p>
+
+            <h2>Raspberry Pi 5 Pin Connections</h2>
+
+        </div>
+
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Component</th>
+
+                        <th>Component Pin</th>
+
+                        <th>Raspberry Pi Connection</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+                        <td>Entry SG90 Servo</td>
+                        <td>Signal</td>
+                        <td>GPIO 18 (BCM)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Exit SG90 Servo</td>
+                        <td>Signal</td>
+                        <td>GPIO 19 (BCM)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Entry IR Sensor</td>
+                        <td>OUT</td>
+                        <td>GPIO 23 (BCM)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Exit IR Sensor</td>
+                        <td>OUT</td>
+                        <td>GPIO 24 (BCM)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Parking Slot 1</td>
+                        <td>OUT</td>
+                        <td>GPIO 5 (BCM)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Parking Slot 2</td>
+                        <td>OUT</td>
+                        <td>GPIO 6 (BCM)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Parking Slot 3</td>
+                        <td>OUT</td>
+                        <td>GPIO 12 (BCM)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Parking Slot 4</td>
+                        <td>OUT</td>
+                        <td>GPIO 13 (BCM)</td>
+                    </tr>
+
+                    <tr>
+                        <td>I2C LCD</td>
+                        <td>SDA</td>
+                        <td>GPIO 2 (SDA)</td>
+                    </tr>
+
+                    <tr>
+                        <td>I2C LCD</td>
+                        <td>SCL</td>
+                        <td>GPIO 3 (SCL)</td>
+                    </tr>
+
+                    <tr>
+                        <td>I2C LCD</td>
+                        <td>VCC / GND</td>
+                        <td>Suitable supply / Common GND</td>
+                    </tr>
+
+                    <tr>
+                        <td>Camera Module 3</td>
+                        <td>Camera Connector</td>
+                        <td>Raspberry Pi Camera Interface</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <div class="project-note">
+
+            GPIO numbers in this table use BCM numbering.
+
+            The Camera Module 3 connects through the Raspberry Pi
+            camera connector, not through ordinary GPIO pins.
+
+            Confirm the voltage and active-state behavior of
+            each IR sensor before connecting it.
+
+        </div>
+
+    </section>
+
+
+    <!-- PARKING SLOT SYSTEM -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PARKING MANAGEMENT</p>
+
+            <h2>Parking Slot Configuration</h2>
+
+        </div>
+
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Parking Slot</th>
+
+                        <th>GPIO Pin (BCM)</th>
+
+                        <th>Purpose</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+                        <td>P1</td>
+                        <td>GPIO 5</td>
+                        <td>Monitor Parking Slot 1</td>
+                    </tr>
+
+                    <tr>
+                        <td>P2</td>
+                        <td>GPIO 6</td>
+                        <td>Monitor Parking Slot 2</td>
+                    </tr>
+
+                    <tr>
+                        <td>P3</td>
+                        <td>GPIO 12</td>
+                        <td>Monitor Parking Slot 3</td>
+                    </tr>
+
+                    <tr>
+                        <td>P4</td>
+                        <td>GPIO 13</td>
+                        <td>Monitor Parking Slot 4</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <p>
+            Each parking slot has an individual IR sensor.
+            The parking manager uses sensor readings together
+            with database records to determine slot availability.
+        </p>
+
+    </section>
+
+
+    <!-- NUMBER PLATE RECOGNITION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">ARTIFICIAL INTELLIGENCE</p>
+
+            <h2>Number Plate Recognition Process</h2>
+
+        </div>
+
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+
+                <h3>1. Image Capture</h3>
+
+                <p>
+                    Camera Module 3 captures the vehicle image
+                    when the entry or exit process begins.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>2. Image Processing</h3>
+
+                <p>
+                    OpenCV resizes, enhances and processes
+                    the captured image.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>3. Plate Detection</h3>
+
+                <p>
+                    The image processor searches for possible
+                    rectangular number plate regions.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>4. OCR Recognition</h3>
+
+                <p>
+                    Tesseract OCR attempts to extract
+                    characters from the plate image.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>5. Plate Validation</h3>
+
+                <p>
+                    The extracted text is cleaned and checked
+                    against the configured registration format.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>6. Database Verification</h3>
+
+                <p>
+                    The system checks whether the recognized
+                    vehicle has a valid parking record.
+                </p>
+
+            </article>
+
+        </div>
+
+
+        <div class="project-note">
+
+            The example recognition pipeline uses image-processing
+            heuristics and OCR. It is a learning prototype, not
+            a guaranteed or officially verified number plate
+            recognition service.
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECT FILE STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROGRAM STRUCTURE</p>
+
+            <h2>Python Project Files</h2>
+
+        </div>
+
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>main.py</h3>
+                <p>Main application controller.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>config.py</h3>
+                <p>GPIO pins, camera settings and project configuration.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>camera.py</h3>
+                <p>Camera Module 3 initialization and image capture.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>vehicle_detection.py</h3>
+                <p>Vehicle motion detection and image capture coordination.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>image_processing.py</h3>
+                <p>Image enhancement and possible number plate region extraction.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>plate_recognition.py</h3>
+                <p>Number plate OCR and text validation.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>database.py</h3>
+                <p>SQLite vehicle and parking record management.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>parking_manager.py</h3>
+                <p>Parking slot allocation and availability management.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>sensors.py</h3>
+                <p>Entry, exit and parking slot IR sensor management.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>entry_gate.py</h3>
+                <p>Entrance SG90 servo barrier controller.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>exit_gate.py</h3>
+                <p>Exit SG90 servo barrier controller.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>lcd_display.py</h3>
+                <p>16×2 I2C LCD display controller.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>fee_calculator.py</h3>
+                <p>Parking duration and fee calculation.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>dashboard.py</h3>
+                <p>Flask web-based parking dashboard.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>requirements.txt</h3>
+                <p>Python dependencies required by the project.</p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROGRAMMING</p>
+
+            <h2>Complete Source Code</h2>
+
+            <p>
+                Download the individual Python files and
+                requirements for the Smart Parking System.
+            </p>
+
+        </div>
+
+
+        <div class="project-source-grid">
+
+
+            <a class="project-source-card"
+               href="source/smart_parking_system/main.py"
+               download>
+
+                <span>📄</span>
+
+                <h3>Main Application</h3>
+
+                <p>main.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/smart_parking_system/config.py"
+               download>
+
+                <span>📄</span>
+
+                <h3>Configuration</h3>
+
+                <p>config.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/smart_parking_system/camera.py"
+               download>
+
+                <span>📄</span>
+
+                <h3>Camera Module</h3>
+
+                <p>camera.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/smart_parking_system/vehicle_detection.py"
+               download>
+
+                <span>📄</span>
+
+                <h3>Vehicle Detection</h3>
+
+                <p>vehicle_detection.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/smart_parking_system/image_processing.py"
+               download>
+
+                <span>📄</span>
+
+                <h3>Image Processing</h3>
+
+                <p>image_processing.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/smart_parking_system/plate_recognition.py"
+               download>
+
+                <span>📄</span>
+
+                <h3>Plate Recognition</h3>
+
+                <p>plate_recognition.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/smart_parking_system/database.py"
+               download>
+
+                <span>📄</span>
+
+                <h3>Database Module</h3>
+
+                <p>database.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/smart_parking_system/parking_manager.py"
+               download>
+
+                <span>📄</span>
+
+                <h3>Parking Manager</h3>
+
+                <p>parking_manager.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/smart_parking_system/sensors.py"
+               download>
+
+                <span>📄</span>
+
+                <h3>Sensor Module</h3>
+
+                <p>sensors.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/smart_parking_system/entry_gate.py"
+               download>
+
+                <span>📄</span>
+
+                <h3>Entry Gate</h3>
+
+                <p>entry_gate.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/smart_parking_system/exit_gate.py"
+               download>
+
+                <span>📄</span>
+
+                <h3>Exit Gate</h3>
+
+                <p>exit_gate.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/smart_parking_system/lcd_display.py"
+               download>
+
+                <span>📄</span>
+
+                <h3>LCD Display</h3>
+
+                <p>lcd_display.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/smart_parking_system/fee_calculator.py"
+               download>
+
+                <span>📄</span>
+
+                <h3>Fee Calculator</h3>
+
+                <p>fee_calculator.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/smart_parking_system/dashboard.py"
+               download>
+
+                <span>📄</span>
+
+                <h3>Web Dashboard</h3>
+
+                <p>dashboard.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/smart_parking_system/requirements.txt"
+               download>
+
+                <span>📄</span>
+
+                <h3>Python Requirements</h3>
+
+                <p>requirements.txt</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+        </div>
+
+
+        <div class="project-note">
+
+            Place the downloaded Python files inside the
+            SMART_PARKING_SYSTEM folder.
+
+            Keep the original filenames and folder structure.
+            Create the database, captured_images and logs
+            directories as required by the application.
+
+            Make sure the download paths match your website
+            repository before publishing.
+
+        </div>
+
+    </section>
+
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+
+            <h2>Watch the Smart Parking System Working</h2>
+
+        </div>
+
+
+        <div class="project-image-placeholder">
+
+            <p>Smart Parking System Demonstration</p>
+
+            <span>
+                Add your actual parking model photograph
+                or demonstration video here.
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- IMPORTANT INFORMATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+
+            <h2>Setup and Safety Notes</h2>
+
+        </div>
+
+
+        <ul class="project-list">
+
+            <li>
+                Use Raspberry Pi OS and install the required
+                camera and GPIO packages.
+            </li>
+
+            <li>
+                Enable and test the Raspberry Pi camera
+                before starting the application.
+            </li>
+
+            <li>
+                Never connect a 5V sensor output directly
+                to a Raspberry Pi GPIO input.
+            </li>
+
+            <li>
+                Use an external regulated power supply
+                for both SG90 servo motors.
+            </li>
+
+            <li>
+                Connect all required grounds together.
+            </li>
+
+            <li>
+                Verify the I2C LCD address before running
+                the LCD module.
+            </li>
+
+            <li>
+                Test the camera and OCR recognition under
+                suitable lighting conditions.
+            </li>
+
+            <li>
+                OCR output can contain mistakes. Do not
+                rely only on OCR confidence or plate-format
+                matching for gate authorization.
+            </li>
+
+            <li>
+                Test servo movement using a small model
+                barrier before installing the mechanism.
+            </li>
+
+            <li>
+                A real barrier requires vehicle-clearance
+                detection and obstruction protection.
+            </li>
+
+            <li>
+                Protect the Flask dashboard with authentication
+                before making it accessible outside a trusted
+                local network.
+            </li>
+
+            <li>
+                Disconnect power before changing hardware wiring.
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html" class="button secondary">
+            ← Back to Robotics Projects
+        </a>
+
+    </section>
+
+
+</main>
+
+
+<footer>
+
+    <span>
+        © <span id="year"></span> VJaYa Robotics
+    </span>
+
+    <span>
+        Learn · Build · Create
+    </span>
+
+</footer>
+
+
+<script>
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+</script>
+
+
+</body>
+</html>
