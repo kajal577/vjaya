@@ -1,0 +1,80 @@
+
+# ==========================================
+# AUTONOMOUS ROBOT VACUUM
+# File: robot_description.yaml
+# Raspberry Pi 5 + ROS 2 Jazzy
+# VJaYa Robotics
+# ==========================================
+
+robot_description:
+
+  ros__parameters:
+
+    # Robot identification
+
+    robot_name: "autonomous_robot_vacuum"
+
+    robot_type: "differential_drive"
+
+    # ======================================
+    # COORDINATE FRAMES
+    # ======================================
+
+    base_frame: "base_link"
+
+    base_footprint_frame: "base_footprint"
+
+    odom_frame: "odom"
+
+    map_frame: "map"
+
+    # ======================================
+    # ROBOT DIMENSIONS
+    # ======================================
+
+    robot_length: 0.30
+
+    robot_width: 0.26
+
+    robot_height: 0.12
+
+    robot_mass: 2.0
+
+    # ======================================
+    # WHEEL CONFIGURATION
+    # ======================================
+
+    wheel_radius: 0.035
+
+    wheel_separation: 0.22
+
+    wheel_count: 2
+
+    drive_type: "differential"
+
+    # ======================================
+    # SENSOR FRAMES
+    # ======================================
+
+    lidar_frame: "lidar_link"
+
+    imu_frame: "imu_link"
+
+    front_ultrasonic_frame: "ultrasonic_front_link"
+
+    rear_ultrasonic_frame: "ultrasonic_rear_link"
+
+    front_bumper_frame: "bumper_front_link"
+
+    rear_bumper_frame: "bumper_rear_link"
+
+    # ======================================
+    # ROBOT MODEL
+    # ======================================
+
+    urdf_file: "description/robot.urdf"
+
+    publish_robot_description: true
+
+    use_sim_time: false
+

@@ -1,0 +1,12 @@
+bumper_controller:
+  ros__parameters:
+
+    # BCM GPIO numbers
+    # Replace -1 with actual GPIO pins.
+
+    front_bumper_pin: -1
+    rear_bumper_pin: -1
+
+    pull_up: true
+
+    debounce_time: 0.05

@@ -1,0 +1,18 @@
+ultrasonic_controller:
+  ros__parameters:
+
+    # BCM GPIO numbers
+    # Replace -1 with actual GPIO pins.
+
+    front_trigger_pin: -1
+    front_echo_pin: -1
+
+    rear_trigger_pin: -1
+    rear_echo_pin: -1
+
+    min_range: 0.02
+    max_range: 3.0
+
+    stop_distance: 0.25
+
+    update_rate: 5.0
