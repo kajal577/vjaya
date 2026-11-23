@@ -196,6 +196,13 @@ const roboticsProjects = [
         description: "An raspberry pi-based autonomous robot vacuum with navigation and cleaning capabilities.",
         page: "autonomous_robot_vacuum.html"
     },
+    {
+        id: "smart_parking",
+        name: "SMART PARKING SYSTEM",
+        platform: "Raspberry Pi",
+        description: "An raspberry pi-based smart parking system with number plate recognition and automated barrier control.",
+        page: "smart_parking.html"
+    },
 ];
 
 const pageParams = new URLSearchParams(window.location.search);
