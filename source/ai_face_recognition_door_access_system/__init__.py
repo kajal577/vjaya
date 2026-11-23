@@ -1,0 +1,1 @@
+"""Camera module for AI Face Recognition Door Access."""

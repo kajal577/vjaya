@@ -1,0 +1,5 @@
+numpy
+Pillow
+gpiozero
+lgpio
+opencv-contrib-python
