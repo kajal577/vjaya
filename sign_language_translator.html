@@ -1,0 +1,655 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Sign Language Translator by VJaYa Robotics. A Raspberry Pi 5 AI project using Python, OpenCV, MediaPipe and machine learning to recognize hand gestures and convert them into text and speech.">
+
+    <title>Sign Language Translator | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">RASPBERRY PI AI PROJECT</span>
+
+        <h1>Sign Language Translator</h1>
+
+        <p>
+            Build an AI-powered Sign Language Gesture Recognition
+            and Speech System using Raspberry Pi 5, Python,
+            OpenCV and MediaPipe.
+            Recognize hand gestures using a webcam, convert
+            recognized signs into text and speak the result
+            through a connected speaker.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            This Sign Language Translator uses Raspberry Pi 5
+            as its main computing platform. A webcam captures
+            the user's hand gestures and sends the video frames
+            to the Python application.
+        </p>
+
+        <p>
+            MediaPipe detects the hand and extracts 21 hand
+            landmarks. These landmarks are converted into
+            numerical features that are processed by a trained
+            machine learning model.
+        </p>
+
+        <p>
+            The AI model recognizes the hand gesture and
+            displays the corresponding label on the screen.
+            The text-to-speech module then converts the
+            recognized label into spoken words.
+        </p>
+
+        <div class="project-gallery">
+
+    <div class="project-gallery-item">
+        <img src="images/products/sign_language_translator/line1.png"
+             alt="Sign language translator Screenshot 1">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/sign_language_translator/line2.png"
+             alt="Sign language translator Screenshot 2">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/sign_language_translator/line3.png"
+             alt="Sign language translator Screenshot 3">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/sign_language_translator/line4.png"
+             alt="Sign language translator Screenshot 4">
+    </div>
+
+</div>
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WHAT IT CAN DO</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Hand Detection</h3>
+                <p>
+                    Detect hand position and landmarks
+                    using the webcam and MediaPipe.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>AI Gesture Recognition</h3>
+                <p>
+                    Recognize trained hand gestures
+                    using a machine learning model.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Text Translation</h3>
+                <p>
+                    Display the recognized gesture
+                    as readable text.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Voice Output</h3>
+                <p>
+                    Convert recognized text into
+                    spoken words using text-to-speech.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Confidence Detection</h3>
+                <p>
+                    Display the AI model's confidence
+                    for the recognized gesture.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Custom Gesture Training</h3>
+                <p>
+                    Collect your own hand-sign samples
+                    and train the AI model.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- HARDWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Raspberry Pi 5</li>
+            <li>USB webcam or compatible camera</li>
+            <li>MicroSD card with Raspberry Pi OS</li>
+            <li>USB speaker or compatible audio output</li>
+            <li>Raspberry Pi 5 power supply</li>
+            <li>Monitor, keyboard and mouse for setup</li>
+            <li>Internet connection for initial software installation</li>
+        </ul>
+
+        <div class="project-note">
+            The project does not require Arduino, motor drivers
+            or a robot chassis. It is an AI-based computer
+            vision and speech processing project.
+        </div>
+
+    </section>
+
+    <!-- SOFTWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Software and Libraries</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Raspberry Pi OS</li>
+            <li>Python 3</li>
+            <li>OpenCV</li>
+            <li>MediaPipe</li>
+            <li>NumPy</li>
+            <li>Scikit-learn</li>
+            <li>Joblib</li>
+            <li>pyttsx3 Text-to-Speech library</li>
+        </ul>
+
+        <p>
+            The Python program is organized into separate
+            files for configuration, hand tracking,
+            speech output, data collection, model training
+            and the main application.
+        </p>
+
+    </section>
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>Step-by-Step Operation</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>
+                Power on the Raspberry Pi 5 and connect
+                the webcam and speaker.
+            </li>
+
+            <li>
+                Start the Python Sign Language Translator
+                application.
+            </li>
+
+            <li>
+                The webcam captures live video of the
+                user's hand.
+            </li>
+
+            <li>
+                OpenCV processes the camera frames and
+                prepares them for hand detection.
+            </li>
+
+            <li>
+                MediaPipe detects the hand and extracts
+                its 21 landmarks.
+            </li>
+
+            <li>
+                The landmark coordinates are converted
+                into numerical features.
+            </li>
+
+            <li>
+                The trained machine learning model
+                predicts the recognized hand gesture.
+            </li>
+
+            <li>
+                The recognized gesture is displayed
+                as text on the screen.
+            </li>
+
+            <li>
+                The text-to-speech module speaks
+                the recognized gesture through the speaker.
+            </li>
+
+        </ol>
+
+    </section>
+
+    <!-- SYSTEM ARCHITECTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">AI SYSTEM ARCHITECTURE</p>
+            <h2>System Processing Pipeline</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Camera Input</h3>
+                <p>
+                    Captures live hand gesture video
+                    using the webcam.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Hand Tracking</h3>
+                <p>
+                    MediaPipe extracts hand landmarks
+                    and coordinate information.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Feature Processing</h3>
+                <p>
+                    Normalizes landmark coordinates
+                    into numerical input features.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>AI Classification</h3>
+                <p>
+                    The trained Random Forest model
+                    predicts the gesture label.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Text Display</h3>
+                <p>
+                    Displays the recognized gesture
+                    and confidence percentage.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Speech Output</h3>
+                <p>
+                    Converts the recognized label
+                    into spoken words.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- DATA COLLECTION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">MACHINE LEARNING</p>
+            <h2>Training Your Own Hand Signs</h2>
+        </div>
+
+        <p>
+            The project includes a data collection program
+            that allows you to record your own hand gestures.
+            Each gesture is saved with a label and its
+            corresponding hand landmark features.
+        </p>
+
+        <p>
+            You can collect samples for signs such as
+            HELLO, YES, NO and THANK_YOU.
+            After collecting the training samples,
+            run the model training program to create
+            the gesture recognition model.
+        </p>
+
+        <ul class="project-list">
+            <li>Choose a gesture label.</li>
+            <li>Show the gesture to the webcam.</li>
+            <li>Press SPACE to save a training sample.</li>
+            <li>Collect samples for each gesture.</li>
+            <li>Train the AI model using the collected data.</li>
+            <li>Run the main application to recognize signs.</li>
+        </ul>
+
+        <div class="project-note">
+            Use verified Indian Sign Language (ISL) references
+            if you are building an ISL-focused system.
+            This starter project recognizes custom static
+            gestures and is not yet a complete sentence-level
+            sign language translator.
+        </div>
+
+    </section>
+
+    <!-- PROJECT FILE STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAM STRUCTURE</p>
+            <h2>Python Project Files</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>main.py</h3>
+                <p>
+                    Main application for live gesture
+                    recognition and speech output.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>config.py</h3>
+                <p>
+                    Camera settings, model paths
+                    and recognition configuration.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>hand_tracker.py</h3>
+                <p>
+                    MediaPipe hand landmark detection
+                    and feature extraction.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>speech.py</h3>
+                <p>
+                    Text-to-speech processing
+                    and voice output.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>collect_data.py</h3>
+                <p>
+                    Collects and saves hand gesture
+                    training samples.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>train_model.py</h3>
+                <p>
+                    Trains the machine learning
+                    gesture classification model.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+            <p>
+                Download the individual Python source files
+                for the Sign Language Translator project.
+            </p>
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/sign_language_translator/main.py"
+               download>
+                <span>📄</span>
+                <h3>Main Application</h3>
+                <p>main.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/sign_language_translator/config.py"
+               download>
+                <span>📄</span>
+                <h3>Configuration</h3>
+                <p>config.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/sign_language_translator/hand_tracker.py"
+               download>
+                <span>📄</span>
+                <h3>Hand Tracker</h3>
+                <p>hand_tracker.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/sign_language_translator/speech.py"
+               download>
+                <span>📄</span>
+                <h3>Speech Module</h3>
+                <p>speech.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/sign_language_translator/collect_data.py"
+               download>
+                <span>📄</span>
+                <h3>Data Collection</h3>
+                <p>collect_data.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/sign_language_translator/train_model.py"
+               download>
+                <span>📄</span>
+                <h3>AI Model Training</h3>
+                <p>train_model.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/sign_language_translator/requirements.txt"
+               download>
+                <span>📄</span>
+                <h3>Requirements</h3>
+                <p>requirements.txt</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/sign_language_translator/README.md"
+               download>
+                <span>📄</span>
+                <h3>Project Guide</h3>
+                <p>README.md</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+        </div>
+
+        <div class="project-note">
+            The download links use the folder:
+            source/sign_language_translator/
+
+            Upload the corresponding source files to this
+            folder in your website so the download buttons
+            work correctly.
+        </div>
+
+    </section>
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch the Translator Working</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>Sign Language Translator Demonstration</p>
+            <span>
+                Add your actual Raspberry Pi project
+                photograph or demonstration video here.
+            </span>
+        </div>
+
+    </section>
+
+    <!-- IMPORTANT INFORMATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+            <h2>Setup and Project Notes</h2>
+        </div>
+
+        <ul class="project-list">
+
+            <li>
+                Use a compatible webcam and verify
+                the camera index in config.py.
+            </li>
+
+            <li>
+                Collect sufficient training samples
+                for every gesture label.
+            </li>
+
+            <li>
+                Use balanced training data for
+                better gesture classification.
+            </li>
+
+            <li>
+                Ensure the hand is clearly visible
+                and well-lit during recognition.
+            </li>
+
+            <li>
+                A confidence score does not guarantee
+                that a gesture has been translated correctly.
+            </li>
+
+            <li>
+                The starter model recognizes static
+                hand gestures. Dynamic signs require
+                additional movement-based recognition.
+            </li>
+
+            <li>
+                Full sign language translation requires
+                hand movement, facial expressions,
+                body position and language grammar.
+            </li>
+
+        </ul>
+
+    </section>
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html" class="button secondary">
+            ← Back to Robotics Projects
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>
