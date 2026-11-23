@@ -1,0 +1,658 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Gesture-Controlled Robotic Arm by VJaYa Robotics. Control a robotic arm using Raspberry Pi 5, MediaPipe hand tracking and PCA9685 servo driver.">
+
+    <title>Gesture-Controlled Robotic Arm | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">RASPBERRY PI ROBOTICS PROJECT</span>
+
+        <h1>Gesture-Controlled Robotic Arm</h1>
+
+        <p>
+            Build an intelligent robotic arm using Raspberry Pi 5,
+            a camera, servo motors and a PCA9685 servo driver.
+            Control the robotic arm by moving your hand in front
+            of the camera using computer vision and MediaPipe.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            This Gesture-Controlled Robotic Arm uses Raspberry Pi 5
+            as its main controller. A camera captures the user's
+            hand movements and MediaPipe detects 21 hand landmarks.
+        </p>
+
+        <p>
+            Python processes the detected hand coordinates and
+            converts them into servo movement commands. The
+            PCA9685 servo driver controls the robotic arm joints.
+        </p>
+
+        <p>
+            The system supports a 4-DOF or 5-DOF robotic arm.
+            Hand movements control the base, shoulder, elbow
+            and wrist, while finger gestures control the gripper.
+        </p>
+
+        <div class="project-gallery">
+
+            <div class="project-gallery-item">
+                <img src="images/products/gesture_robotic_arm/arm1.png"
+                     alt="Gesture robotic arm image 1">
+            </div>
+
+            <div class="project-gallery-item">
+                <img src="images/products/gesture_robotic_arm/arm2.png"
+                     alt="Gesture robotic arm image 2">
+            </div>
+
+            <div class="project-gallery-item">
+                <img src="images/products/gesture_robotic_arm/arm3.png"
+                     alt="Gesture robotic arm image 3">
+            </div>
+
+            <div class="project-gallery-item">
+                <img src="images/products/gesture_robotic_arm/arm4.png"
+                     alt="Gesture robotic arm image 4">
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WHAT IT CAN DO</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>Hand Detection</h3>
+                <p>
+                    Detect hand movements using a camera
+                    and MediaPipe computer vision.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Base Rotation</h3>
+                <p>
+                    Move your hand left or right to
+                    rotate the robotic arm base.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Shoulder Movement</h3>
+                <p>
+                    Move your hand up or down to
+                    control the shoulder joint.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Elbow Control</h3>
+                <p>
+                    Use hand landmark distance to
+                    calculate elbow movement.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Wrist Control</h3>
+                <p>
+                    Control wrist movement using
+                    detected hand coordinates.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Gesture Gripper</h3>
+                <p>
+                    Open your hand to open the gripper
+                    and make a fist to close it.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- HARDWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Raspberry Pi 5</li>
+            <li>USB Webcam or Raspberry Pi Camera</li>
+            <li>4-DOF or 5-DOF Servo Robotic Arm</li>
+            <li>PCA9685 16-Channel Servo Driver</li>
+            <li>Suitable External Servo Power Supply</li>
+            <li>MicroSD Card</li>
+            <li>Raspberry Pi Power Supply</li>
+            <li>Jumper Wires</li>
+            <li>Monitor, Keyboard and Mouse</li>
+        </ul>
+
+        <div class="project-note">
+            Use a separate suitable power supply for the servo
+            motors. Do not power multiple servos directly from
+            the Raspberry Pi 5. Connect all grounds together.
+        </div>
+
+    </section>
+
+    <!-- SOFTWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Software and Libraries</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Raspberry Pi OS 64-bit</li>
+            <li>Python 3</li>
+            <li>OpenCV</li>
+            <li>MediaPipe</li>
+            <li>Adafruit CircuitPython PCA9685</li>
+            <li>Adafruit CircuitPython Motor</li>
+            <li>Adafruit Blinka</li>
+            <li>I2C Interface</li>
+        </ul>
+
+        <p>
+            The Python program is divided into separate modules
+            for camera capture, hand tracking, gesture processing,
+            servo control and configuration.
+        </p>
+
+    </section>
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>Step-by-Step Operation</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>
+                Power on the Raspberry Pi 5.
+            </li>
+
+            <li>
+                Connect the camera to the Raspberry Pi.
+            </li>
+
+            <li>
+                Connect the PCA9685 servo driver using I2C.
+            </li>
+
+            <li>
+                Connect the robotic arm servos to
+                the assigned PCA9685 channels.
+            </li>
+
+            <li>
+                Start the Python application.
+            </li>
+
+            <li>
+                The camera captures your hand movements.
+            </li>
+
+            <li>
+                MediaPipe detects 21 hand landmarks.
+            </li>
+
+            <li>
+                Python converts hand coordinates into
+                servo target angles.
+            </li>
+
+            <li>
+                The PCA9685 controls the robotic arm servos.
+            </li>
+
+            <li>
+                Finger gestures control the robotic gripper.
+            </li>
+
+        </ol>
+
+    </section>
+
+    <!-- WIRING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE CONNECTIONS</p>
+            <h2>Raspberry Pi 5 Pin Connections</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Component Pin</th>
+                        <th>Raspberry Pi Connection</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>PCA9685</td>
+                        <td>VCC</td>
+                        <td>3.3V</td>
+                    </tr>
+
+                    <tr>
+                        <td>PCA9685</td>
+                        <td>GND</td>
+                        <td>GND</td>
+                    </tr>
+
+                    <tr>
+                        <td>PCA9685</td>
+                        <td>SDA</td>
+                        <td>GPIO 2 (Pin 3)</td>
+                    </tr>
+
+                    <tr>
+                        <td>PCA9685</td>
+                        <td>SCL</td>
+                        <td>GPIO 3 (Pin 5)</td>
+                    </tr>
+
+                    <tr>
+                        <td>PCA9685</td>
+                        <td>V+</td>
+                        <td>External Servo Supply Positive</td>
+                    </tr>
+
+                    <tr>
+                        <td>USB Camera</td>
+                        <td>USB</td>
+                        <td>Raspberry Pi USB Port</td>
+                    </tr>
+
+                    <tr>
+                        <td>Servo Motors</td>
+                        <td>Signal</td>
+                        <td>PCA9685 Channels 0–4</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            PCA9685 VCC is the logic supply and connects to
+            Raspberry Pi 3.3V. PCA9685 V+ is the separate
+            servo power input. Never connect servo supply
+            voltage to the Raspberry Pi 3.3V pin.
+        </div>
+
+    </section>
+
+    <!-- GESTURE COMMANDS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">GESTURE CONTROL</p>
+            <h2>Example Hand Gestures</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Hand Movement</th>
+                        <th>Robotic Arm Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Move hand left</td>
+                        <td>Rotate base left</td>
+                    </tr>
+
+                    <tr>
+                        <td>Move hand right</td>
+                        <td>Rotate base right</td>
+                    </tr>
+
+                    <tr>
+                        <td>Move hand up</td>
+                        <td>Move shoulder joint</td>
+                    </tr>
+
+                    <tr>
+                        <td>Move hand down</td>
+                        <td>Move shoulder joint</td>
+                    </tr>
+
+                    <tr>
+                        <td>Open hand</td>
+                        <td>Open gripper</td>
+                    </tr>
+
+                    <tr>
+                        <td>Make a fist</td>
+                        <td>Close gripper</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <p>
+            Servo directions and angle ranges must be calibrated
+            according to the actual robotic arm construction.
+        </p>
+
+    </section>
+
+    <!-- PROJECT FILE STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAM STRUCTURE</p>
+            <h2>Python Project Files</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>main.py</h3>
+                <p>Main application and module coordination.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>config.py</h3>
+                <p>Camera settings, servo channels and angle limits.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>camera.py</h3>
+                <p>Camera initialization and video capture.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>hand_tracking.py</h3>
+                <p>MediaPipe hand detection and landmark extraction.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>gesture_control.py</h3>
+                <p>Hand movement and gesture processing.</p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>servo_control.py</h3>
+                <p>PCA9685 servo motor control.</p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+
+            <p>
+                Download the individual Python files
+                for the Gesture-Controlled Robotic Arm.
+            </p>
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/gesture_robotic_arm/main.py"
+               download>
+                <span>📄</span>
+                <h3>Main Python Program</h3>
+                <p>main.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/gesture_robotic_arm/config.py"
+               download>
+                <span>📄</span>
+                <h3>Configuration</h3>
+                <p>config.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/gesture_robotic_arm/camera.py"
+               download>
+                <span>📄</span>
+                <h3>Camera Module</h3>
+                <p>camera.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/gesture_robotic_arm/hand_tracking.py"
+               download>
+                <span>📄</span>
+                <h3>Hand Tracking Module</h3>
+                <p>hand_tracking.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/gesture_robotic_arm/gesture_control.py"
+               download>
+                <span>📄</span>
+                <h3>Gesture Control Module</h3>
+                <p>gesture_control.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/gesture_robotic_arm/servo_control.py"
+               download>
+                <span>📄</span>
+                <h3>Servo Control Module</h3>
+                <p>servo_control.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/gesture_robotic_arm/requirements.txt"
+               download>
+                <span>📄</span>
+                <h3>Python Requirements</h3>
+                <p>requirements.txt</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+        </div>
+
+        <div class="project-note">
+            Update the download paths if your website uses
+            a different source-folder structure.
+        </div>
+
+    </section>
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch the Robotic Arm Working</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>Gesture-Controlled Robotic Arm Demonstration</p>
+            <span>
+                Add your actual robotic arm photograph
+                or demonstration video here.
+            </span>
+        </div>
+
+    </section>
+
+    <!-- IMPORTANT INFORMATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+            <h2>Setup and Safety Notes</h2>
+        </div>
+
+        <ul class="project-list">
+
+            <li>
+                Use a suitable external power supply
+                for the servo motors.
+            </li>
+
+            <li>
+                Connect Raspberry Pi, PCA9685 and
+                servo power grounds together.
+            </li>
+
+            <li>
+                Enable I2C before using the PCA9685.
+            </li>
+
+            <li>
+                Verify the PCA9685 I2C address.
+            </li>
+
+            <li>
+                Calibrate the servo angles before
+                operating the robotic arm.
+            </li>
+
+            <li>
+                Keep fingers away from moving joints
+                and the robotic gripper.
+            </li>
+
+            <li>
+                Keep a physical power switch available
+                for the servo supply.
+            </li>
+
+            <li>
+                Disconnect power before changing wiring.
+            </li>
+
+        </ul>
+
+    </section>
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html" class="button secondary">
+            ← Back to Robotics Projects
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>

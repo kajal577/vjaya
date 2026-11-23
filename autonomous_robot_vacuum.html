@@ -1,0 +1,552 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Autonomous Robot Vacuum by VJaYa Robotics. Learn to build a Raspberry Pi 5 robot using ROS 2 Jazzy, LiDAR, SLAM Toolbox and Nav2.">
+
+    <title>Autonomous Robot Vacuum | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+    <section class="project-detail-hero">
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+        <span class="project-tag">RASPBERRY PI ROBOTICS PROJECT</span>
+
+        <h1>Autonomous Robot Vacuum</h1>
+
+        <p>
+            Build an indoor autonomous mobile robot using Raspberry Pi 5
+            and ROS 2 Jazzy. The robot uses LiDAR to map rooms, localize
+            itself and navigate around furniture. Cleaning brushes and
+            suction can be added after autonomous navigation is working.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+    </section>
+
+    <!-- PROJECT OVERVIEW -->
+    <section class="project-content-section" id="project-overview">
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            This Autonomous Robot Vacuum uses a Raspberry Pi 5 as its
+            main computer. ROS 2 Jazzy provides the robotics software
+            framework for sensor communication, robot control,
+            mapping and navigation.
+        </p>
+
+        <p>
+            A LiDAR sensor publishes laser scan data. SLAM Toolbox uses
+            the scan and odometry information to create a map of the
+            indoor environment. Nav2 uses the map and robot pose to
+            plan paths and navigate toward selected destinations.
+        </p>
+
+        <p>
+            The project is organized into separate Python modules for
+            motor control, encoders, sensors, safety monitoring,
+            odometry and navigation. The initial stage focuses on
+            mapping and safe movement. Vacuum and brush hardware are
+            kept as a separate later stage.
+        </p>
+
+        <div class="project-gallery">
+            <div class="project-gallery-item">
+                <img src="images/products/autonomous_robot_vacuum/vacuum1.png"
+                     alt="Autonomous robot vacuum project image 1">
+            </div>
+            <div class="project-gallery-item">
+                <img src="images/products/autonomous_robot_vacuum/vacuum2.png"
+                     alt="Autonomous robot vacuum project image 2">
+            </div>
+            <div class="project-gallery-item">
+                <img src="images/products/autonomous_robot_vacuum/vacuum3.png"
+                     alt="Autonomous robot vacuum project image 3">
+            </div>
+            <div class="project-gallery-item">
+                <img src="images/products/autonomous_robot_vacuum/vacuum4.png"
+                     alt="Autonomous robot vacuum project image 4">
+            </div>
+        </div>
+
+        <div class="project-note">
+            Replace the four sample image paths above with your own project
+            photographs or screenshots when they are available.
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="project-content-section">
+        <div class="project-section-heading">
+            <p class="eyebrow">WHAT IT CAN DO</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+            <article class="project-info-card">
+                <h3>LiDAR Obstacle Sensing</h3>
+                <p>
+                    Receive laser scan measurements to detect walls,
+                    furniture and nearby objects.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Room Mapping</h3>
+                <p>
+                    Use SLAM Toolbox to build a two-dimensional map
+                    while the robot explores an indoor area.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Autonomous Navigation</h3>
+                <p>
+                    Use Nav2 to plan a route and navigate to a selected
+                    goal on the saved map.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Wheel Odometry</h3>
+                <p>
+                    Use wheel encoder measurements to estimate the
+                    robot's movement.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Safety Monitoring</h3>
+                <p>
+                    Monitor bumper switches and ultrasonic sensors.
+                    Stop movement when an emergency or invalid sensor
+                    condition is detected.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Expandable Cleaning System</h3>
+                <p>
+                    Add separately powered vacuum and brush motors
+                    after the navigation platform has been tested.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- HARDWARE REQUIREMENTS -->
+    <section class="project-content-section">
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Raspberry Pi 5</li>
+            <li>Compatible power supply for Raspberry Pi 5</li>
+            <li>2D LiDAR sensor (select the driver for the exact model)</li>
+            <li>Differential-drive robot chassis</li>
+            <li>2 DC geared motors with wheel encoders</li>
+            <li>Motor driver compatible with the selected motors</li>
+            <li>Motor battery pack with suitable protection</li>
+            <li>IMU sensor</li>
+            <li>Front and rear ultrasonic distance sensors</li>
+            <li>Front and rear bumper switches</li>
+            <li>Jumper wires, connectors and mounting hardware</li>
+            <li>Optional vacuum motor and brush motor for the later cleaning stage</li>
+        </ul>
+
+        <div class="project-note">
+            Do not connect motors directly to Raspberry Pi GPIO pins.
+            Use a suitable motor driver and a separate motor power supply.
+            Connect the grounds as required by the driver manufacturer's
+            wiring instructions. Check all voltage levels before wiring.
+        </div>
+    </section>
+
+    <!-- SOFTWARE REQUIREMENTS -->
+    <section class="project-content-section">
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Software and ROS 2 Packages</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Ubuntu 24.04 64-bit for Raspberry Pi 5</li>
+            <li>ROS 2 Jazzy</li>
+            <li>Python 3</li>
+            <li>colcon build tools</li>
+            <li>ROS 2 Nav2</li>
+            <li>SLAM Toolbox</li>
+            <li>robot_state_publisher</li>
+            <li>robot_localization</li>
+            <li>gpiozero and a compatible Raspberry Pi GPIO backend</li>
+            <li>RViz2 for visualization</li>
+        </ul>
+
+        <p>
+            Install ROS 2 packages using the Ubuntu and ROS 2 package
+            installation instructions. The Python requirements file
+            contains additional Python dependencies; ROS 2 packages
+            should be installed through the ROS/Ubuntu package manager,
+            not replaced with pip packages.
+        </p>
+    </section>
+
+    <!-- WORKING PRINCIPLE -->
+    <section class="project-content-section">
+        <div class="project-section-heading">
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>Step-by-Step Operation</h2>
+        </div>
+
+        <ol class="project-list">
+            <li>Install Ubuntu 24.04 64-bit and ROS 2 Jazzy on Raspberry Pi 5.</li>
+            <li>Assemble the differential-drive chassis and connect the motor driver, encoders and sensors.</li>
+            <li>Configure GPIO pins, encoder pins, wheel dimensions and encoder resolution.</li>
+            <li>Install dependencies and build the ROS 2 workspace using colcon.</li>
+            <li>Install the hardware-specific LiDAR driver for your sensor model.</li>
+            <li>Start robot nodes and verify sensor topics, odometry and TF frames.</li>
+            <li>Start SLAM Toolbox and move the robot slowly to create a map.</li>
+            <li>Save the map and configure Nav2 for the measured robot dimensions.</li>
+            <li>Test navigation at low speed in a clear, supervised area.</li>
+            <li>Add and test cleaning motors only after navigation and emergency-stop systems work reliably.</li>
+        </ol>
+    </section>
+
+    <!-- SYSTEM ARCHITECTURE -->
+    <section class="project-content-section">
+        <div class="project-section-heading">
+            <p class="eyebrow">SYSTEM ARCHITECTURE</p>
+            <h2>How the ROS 2 Modules Work Together</h2>
+        </div>
+
+        <div class="project-info-grid">
+            <article class="project-info-card">
+                <h3>Hardware Layer</h3>
+                <p>Motor control, wheel encoders, LiDAR, IMU, ultrasonic sensors and bumper switches.</p>
+            </article>
+            <article class="project-info-card">
+                <h3>Sensor Processing</h3>
+                <p>Publish standardized ROS 2 messages for laser scans, IMU readings, distance measurements and bumper events.</p>
+            </article>
+            <article class="project-info-card">
+                <h3>Mapping and Localization</h3>
+                <p>SLAM Toolbox builds the map. Odometry and TF provide robot movement information.</p>
+            </article>
+            <article class="project-info-card">
+                <h3>Navigation</h3>
+                <p>Nav2 plans and controls movement. The velocity safety layer can block motion during an emergency.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- PROJECT FILE STRUCTURE -->
+    <section class="project-content-section">
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAM STRUCTURE</p>
+            <h2>Project Files</h2>
+        </div>
+
+        <div class="project-info-grid">
+            <article class="project-info-card">
+                <h3>main.py</h3>
+                <p>Starts the main robot launch description.</p>
+            </article>
+            <article class="project-info-card">
+                <h3>hardware/</h3>
+                <p>Motor control, wheel encoder and cleaning-system modules.</p>
+            </article>
+            <article class="project-info-card">
+                <h3>sensors/</h3>
+                <p>LiDAR filtering, IMU relay, ultrasonic and bumper modules.</p>
+            </article>
+            <article class="project-info-card">
+                <h3>navigation/</h3>
+                <p>Safety controller, velocity gate and odometry TF publisher.</p>
+            </article>
+            <article class="project-info-card">
+                <h3>config/</h3>
+                <p>Robot dimensions, SLAM, Nav2, EKF and sensor parameters.</p>
+            </article>
+            <article class="project-info-card">
+                <h3>launch/ and description/</h3>
+                <p>ROS 2 launch files, URDF robot model and RViz configuration.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- CONNECTIONS -->
+    <section class="project-content-section">
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE CONNECTIONS</p>
+            <h2>Connection and Configuration Guide</h2>
+        </div>
+
+        <p>
+            This project does not assume universal GPIO assignments.
+            The supplied configuration uses placeholder pin values
+            until the actual motor driver, encoder, ultrasonic sensor
+            and bumper wiring have been selected.
+        </p>
+
+        <div class="project-table-wrapper">
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th>Device</th>
+                        <th>Connection / Interface</th>
+                        <th>Configuration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>LiDAR</td><td>USB or supported interface</td><td>Device path and baud rate in the LiDAR driver</td></tr>
+                    <tr><td>IMU</td><td>I2C or supported interface</td><td>Address and hardware driver configuration</td></tr>
+                    <tr><td>Left and right motors</td><td>Motor driver inputs</td><td>GPIO values in motor-control configuration</td></tr>
+                    <tr><td>Wheel encoders</td><td>Encoder output channels</td><td>GPIO pins and ticks per wheel revolution</td></tr>
+                    <tr><td>Ultrasonic sensors</td><td>Trigger and echo pins</td><td>GPIO values in ultrasonic.yaml</td></tr>
+                    <tr><td>Bumper switches</td><td>Switch input and ground</td><td>GPIO values in bumper.yaml</td></tr>
+                    <tr><td>Vacuum and brush motors</td><td>Separate suitable driver or switching circuit</td><td>Disabled until the cleaning stage is installed</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="project-note">
+            Raspberry Pi GPIO uses 3.3V logic and is not 5V tolerant.
+            Never connect a 5V ultrasonic echo output directly to a
+            Raspberry Pi GPIO input. Use a suitable level shifter or
+            voltage divider. Confirm the electrical interface of every
+            sensor before connecting it.
+        </div>
+    </section>
+
+    <!-- ROS TOPICS -->
+    <section class="project-content-section">
+        <div class="project-section-heading">
+            <p class="eyebrow">ROS 2 COMMUNICATION</p>
+            <h2>Important ROS 2 Topics</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th>Topic</th>
+                        <th>Message Type</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>/scan</td><td>sensor_msgs/LaserScan</td><td>Filtered LiDAR scan</td></tr>
+                    <tr><td>/imu/raw</td><td>sensor_msgs/Imu</td><td>Input expected from the IMU hardware driver</td></tr>
+                    <tr><td>/imu/data</td><td>sensor_msgs/Imu</td><td>Processed/relayed IMU message</td></tr>
+                    <tr><td>/wheel/odometry</td><td>nav_msgs/Odometry</td><td>Wheel encoder odometry</td></tr>
+                    <tr><td>/ultrasonic/front</td><td>sensor_msgs/Range</td><td>Front distance measurement</td></tr>
+                    <tr><td>/ultrasonic/rear</td><td>sensor_msgs/Range</td><td>Rear distance measurement</td></tr>
+                    <tr><td>/bumper/emergency</td><td>std_msgs/Bool</td><td>Bumper emergency state</td></tr>
+                    <tr><td>/safety/emergency</td><td>std_msgs/Bool</td><td>Safety state consumed by velocity control</td></tr>
+                    <tr><td>/cmd_vel</td><td>geometry_msgs/Twist</td><td>Velocity command sent to motor control</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- SOURCE CODE -->
+    <section class="project-content-section" id="source-code">
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+            <p>
+                Download the project files individually. Keep the folder
+                structure shown in the project so that ROS 2 can find
+                the Python modules, configuration files, launch files
+                and robot description.
+            </p>
+        </div>
+
+        <h3>Project documentation and package files</h3>
+        <div class="project-source-grid">
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/README.md" download><span>📄</span><h3>Project Guide</h3><p>README.md</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/requirements.txt" download><span>📄</span><h3>Python Requirements</h3><p>requirements.txt</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/package.xml" download><span>📄</span><h3>ROS Package Metadata</h3><p>package.xml</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/setup.py" download><span>📄</span><h3>Package Setup</h3><p>setup.py</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/setup.cfg" download><span>📄</span><h3>Setup Configuration</h3><p>setup.cfg</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/resource/autonomous_robot_vacuum" download><span>📄</span><h3>ROS Resource Marker</h3><p>resource/autonomous_robot_vacuum</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/autonomous_robot_vacuum/__init__.py" download><span>📄</span><h3>Python Package Init</h3><p>autonomous_robot_vacuum/__init__.py</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/autonomous_robot_vacuum/main.py" download><span>📄</span><h3>Main Launcher</h3><p>autonomous_robot_vacuum/main.py</p><strong>Download Code ↓</strong></a>
+        </div>
+
+        <h3>Hardware modules</h3>
+        <div class="project-source-grid">
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/autonomous_robot_vacuum/hardware/__init__.py" download><span>📄</span><h3>Hardware Package Init</h3><p>hardware/__init__.py</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/autonomous_robot_vacuum/hardware/motor_control.py" download><span>📄</span><h3>Motor Control</h3><p>hardware/motor_control.py</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/autonomous_robot_vacuum/hardware/encoder.py" download><span>📄</span><h3>Wheel Encoder</h3><p>hardware/encoder.py</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/autonomous_robot_vacuum/hardware/cleaning_system.py" download><span>📄</span><h3>Cleaning System</h3><p>hardware/cleaning_system.py</p><strong>Download Code ↓</strong></a>
+        </div>
+
+        <h3>Sensor modules</h3>
+        <div class="project-source-grid">
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/autonomous_robot_vacuum/sensors/__init__.py" download><span>📄</span><h3>Sensor Package Init</h3><p>sensors/__init__.py</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/autonomous_robot_vacuum/sensors/lidar.py" download><span>📄</span><h3>LiDAR Processing</h3><p>sensors/lidar.py</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/autonomous_robot_vacuum/sensors/imu.py" download><span>📄</span><h3>IMU Processing</h3><p>sensors/imu.py</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/autonomous_robot_vacuum/sensors/ultrasonic.py" download><span>📄</span><h3>Ultrasonic Sensors</h3><p>sensors/ultrasonic.py</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/autonomous_robot_vacuum/sensors/bumper.py" download><span>📄</span><h3>Bumper Sensors</h3><p>sensors/bumper.py</p><strong>Download Code ↓</strong></a>
+        </div>
+
+        <h3>Navigation and safety modules</h3>
+        <div class="project-source-grid">
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/autonomous_robot_vacuum/navigation/__init__.py" download><span>📄</span><h3>Navigation Package Init</h3><p>navigation/__init__.py</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/autonomous_robot_vacuum/navigation/safety_controller.py" download><span>📄</span><h3>Safety Controller</h3><p>navigation/safety_controller.py</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/autonomous_robot_vacuum/navigation/velocity_controller.py" download><span>📄</span><h3>Velocity Controller</h3><p>navigation/velocity_controller.py</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/autonomous_robot_vacuum/navigation/odometry.py" download><span>📄</span><h3>Odometry TF Publisher</h3><p>navigation/odometry.py</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/autonomous_robot_vacuum/robot_state_publisher.py" download><span>📄</span><h3>Robot State Helper</h3><p>robot_state_publisher.py</p><strong>Download Code ↓</strong></a>
+        </div>
+
+        <h3>Configuration files</h3>
+        <div class="project-source-grid">
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/config/robot_config.py" download><span>📄</span><h3>Robot Configuration</h3><p>config/robot_config.py</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/config/robot_description.yaml" download><span>📄</span><h3>Robot Description Parameters</h3><p>config/robot_description.yaml</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/config/slam_toolbox.yaml" download><span>📄</span><h3>SLAM Toolbox Settings</h3><p>config/slam_toolbox.yaml</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/config/nav2_params.yaml" download><span>📄</span><h3>Nav2 Parameters</h3><p>config/nav2_params.yaml</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/config/ekf.yaml" download><span>📄</span><h3>EKF Parameters</h3><p>config/ekf.yaml</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/config/ultrasonic.yaml" download><span>📄</span><h3>Ultrasonic Settings</h3><p>config/ultrasonic.yaml</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/config/bumper.yaml" download><span>📄</span><h3>Bumper Settings</h3><p>config/bumper.yaml</p><strong>Download Code ↓</strong></a>
+        </div>
+
+        <h3>Launch and robot description files</h3>
+        <div class="project-source-grid">
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/launch/robot.launch.py" download><span>📄</span><h3>Robot Launch</h3><p>launch/robot.launch.py</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/launch/slam.launch.py" download><span>📄</span><h3>SLAM Launch</h3><p>launch/slam.launch.py</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/launch/navigation.launch.py" download><span>📄</span><h3>Navigation Launch</h3><p>launch/navigation.launch.py</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/description/robot.urdf" download><span>📄</span><h3>Robot URDF Model</h3><p>description/robot.urdf</p><strong>Download Code ↓</strong></a>
+            <a class="project-source-card" href="source/autonomous_robot_vacuum/description/robot.rviz" download><span>📄</span><h3>RViz Configuration</h3><p>description/robot.rviz</p><strong>Download Code ↓</strong></a>
+        </div>
+
+        <div class="project-note">
+            These download links expect the project files to be uploaded
+            to the matching folders under
+            <strong>source/autonomous_robot_vacuum/</strong>.
+        </div>
+    </section>
+
+    <!-- DEMONSTRATION -->
+    <section class="project-content-section">
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch the Robot Working</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>Autonomous Robot Vacuum Demonstration</p>
+            <span>
+                Add your actual robot mapping video, RViz screenshot
+                or demonstration photograph here.
+            </span>
+        </div>
+    </section>
+
+    <!-- IMPORTANT INFORMATION -->
+    <section class="project-content-section">
+        <div class="project-section-heading">
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+            <h2>Setup and Safety Notes</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>
+                The supplied LiDAR and IMU processing nodes expect
+                hardware-specific driver nodes to publish their input
+                topics. Select and configure drivers for the exact
+                sensor models.
+            </li>
+            <li>
+                Configure all GPIO pins and encoder resolution before
+                enabling motor movement. Placeholder values are not
+                working hardware pin assignments.
+            </li>
+            <li>
+                Calibrate wheel radius, wheel separation, robot size
+                and sensor mounting positions using the assembled robot.
+            </li>
+            <li>
+                Verify that only one node publishes each required TF
+                transform. Incorrect or duplicate transforms can break
+                mapping and navigation.
+            </li>
+            <li>
+                Review and test ROS 2 topic remappings and message types
+                for the installed Jazzy/Nav2 version before running
+                autonomous movement.
+            </li>
+            <li>
+                Test the emergency stop, bumper switches and sensor
+                failure behavior with the wheels raised and at low speed.
+            </li>
+            <li>
+                Keep the robot supervised during all tests. Software
+                safety functions do not replace a physical power
+                disconnect or emergency stop.
+            </li>
+            <li>
+                Disconnect power before changing wiring or working
+                on the motor driver.
+            </li>
+        </ul>
+
+        <div class="project-note">
+            This is a project starter package, not a pre-calibrated,
+            plug-and-play vacuum robot. The exact LiDAR model, IMU,
+            motor driver, encoder specification and wiring are needed
+            to complete hardware integration and validation.
+        </div>
+    </section>
+
+    <!-- BACK BUTTON -->
+    <section class="project-content-section">
+        <a href="projects.html" class="button secondary">
+            ← Back to Robotics Projects
+        </a>
+    </section>
+
+</main>
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>
