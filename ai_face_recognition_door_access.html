@@ -1,0 +1,941 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="AI Face Recognition Door Access System by VJaYa Robotics. A Raspberry Pi 5 smart door access system using Camera Module 3, OpenCV face recognition and a 5V solenoid demonstration lock.">
+
+    <title>AI Face Recognition Door Access System | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+</header>
+
+<main class="project-detail-page">
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">RASPBERRY PI AI PROJECT</span>
+
+        <h1>AI Face Recognition Door Access System</h1>
+
+        <p>
+            Build an intelligent door access system using
+            Raspberry Pi 5, Camera Module 3 and OpenCV.
+            Recognize registered faces, grant access to
+            authorized users and operate a 5V solenoid
+            demonstration lock with a physical manual override.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+            <h2>About This Project</h2>
+        </div>
+
+        <p>
+            The AI Face Recognition Door Access System uses
+            a Raspberry Pi 5 as its main controller.
+            A Raspberry Pi Camera Module 3 captures images
+            of people standing in front of the door.
+        </p>
+
+        <p>
+            OpenCV processes the camera frames and detects
+            human faces. The face recognition module compares
+            the detected face with previously registered
+            users stored in the system.
+        </p>
+
+        <p>
+            When an authorized user is recognized, the
+            Raspberry Pi activates a relay driver to operate
+            the 5V solenoid demonstration lock.
+            Unknown faces are denied access.
+        </p>
+
+        <p>
+            The system also includes a physical manual
+            override button, buzzer alerts and an SQLite
+            database for recording access events.
+        </p>
+
+        <div class="project-gallery">
+
+    <div class="project-gallery-item">
+        <img src="images/products/ai_face_recognition_door_access/line1.png"
+             alt="AI Face Recognition Door Access System Screenshot 1">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/ai_face_recognition_door_access/line2.png"
+             alt="AI Face Recognition Door Access System Screenshot 2">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/ai_face_recognition_door_access/line3.png"
+             alt="AI Face Recognition Door Access System Screenshot 3">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/ai_face_recognition_door_access/line4.png"
+             alt="AI Face Recognition Door Access System Screenshot 4">
+    </div>
+
+</div>
+
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">WHAT IT CAN DO</p>
+            <h2>Project Features</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>AI Face Detection</h3>
+                <p>
+                    Detect human faces from live camera
+                    frames using OpenCV.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Face Recognition</h3>
+                <p>
+                    Compare detected faces with registered
+                    user images using an LBPH recognition model.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Authorized Access</h3>
+                <p>
+                    Allow registered users to activate
+                    the demonstration door lock.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Unknown Face Detection</h3>
+                <p>
+                    Deny access when a detected face
+                    does not match an authorized user.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Automatic Door Relocking</h3>
+                <p>
+                    Automatically return the demonstration
+                    lock to its locked state after the
+                    configured unlock duration.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Manual Override</h3>
+                <p>
+                    Provide a physical push button
+                    for manual unlocking.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Audio Alerts</h3>
+                <p>
+                    Generate buzzer alerts for successful
+                    and unsuccessful access attempts.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>Access History</h3>
+                <p>
+                    Store access events, user details,
+                    timestamps and access methods in SQLite.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- HARDWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+            <h2>Components Required</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Raspberry Pi 5</li>
+            <li>Raspberry Pi Camera Module 3</li>
+            <li>5V solenoid demonstration door lock</li>
+            <li>5V relay module or suitable lock driver circuit</li>
+            <li>Physical push button for manual override</li>
+            <li>Active buzzer</li>
+            <li>OLED display (optional)</li>
+            <li>Suitable Raspberry Pi power supply</li>
+            <li>Separate suitable power supply for the solenoid lock</li>
+            <li>Flyback protection for the inductive lock load</li>
+            <li>Jumper wires</li>
+            <li>Connecting terminals and breadboard</li>
+        </ul>
+
+        <div class="project-note">
+            Important: Never connect the 5V solenoid directly
+            to a Raspberry Pi GPIO pin. Use a properly rated
+            relay or driver, a separate lock power supply,
+            common ground where required, and suitable
+            flyback protection. Verify the relay's active
+            polarity before operation.
+        </div>
+
+    </section>
+
+    <!-- SOFTWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+            <h2>Software and Libraries</h2>
+        </div>
+
+        <ul class="project-list">
+            <li>Raspberry Pi OS</li>
+            <li>Python 3</li>
+            <li>Raspberry Pi Camera Software (Picamera2)</li>
+            <li>OpenCV</li>
+            <li>OpenCV Contrib Face Recognition (LBPH)</li>
+            <li>NumPy</li>
+            <li>GPIO Zero</li>
+            <li>lgpio GPIO backend</li>
+            <li>SQLite3 database</li>
+            <li>Pillow</li>
+        </ul>
+
+        <p>
+            The Python application is organized into
+            separate modules for camera management,
+            face detection, face recognition, hardware
+            control, security and access logging.
+        </p>
+
+    </section>
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HOW IT WORKS</p>
+            <h2>Step-by-Step Operation</h2>
+        </div>
+
+        <ol class="project-list">
+
+            <li>
+                Power the Raspberry Pi 5 and connect
+                the Camera Module 3.
+            </li>
+
+            <li>
+                Start the Python application and initialize
+                the camera, GPIO pins and database.
+            </li>
+
+            <li>
+                Register authorized users by capturing
+                multiple face images.
+            </li>
+
+            <li>
+                Train the face recognition model using
+                the registered face images.
+            </li>
+
+            <li>
+                The camera continuously captures
+                frames from the entrance.
+            </li>
+
+            <li>
+                OpenCV detects faces in the captured
+                camera frames.
+            </li>
+
+            <li>
+                The face recognizer compares the detected
+                face with the registered face database.
+            </li>
+
+            <li>
+                If an authorized face is recognized,
+                the access control module grants access.
+            </li>
+
+            <li>
+                The relay driver activates the
+                5V solenoid demonstration lock.
+            </li>
+
+            <li>
+                After the configured unlock duration,
+                the system returns the lock to its
+                locked state.
+            </li>
+
+            <li>
+                If an unknown face is detected,
+                the system denies access and activates
+                the warning buzzer.
+            </li>
+
+            <li>
+                The physical manual override button
+                can also activate the unlocking process.
+            </li>
+
+            <li>
+                Access events are recorded in the
+                SQLite database.
+            </li>
+
+        </ol>
+
+    </section>
+
+    <!-- HARDWARE CONNECTIONS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">HARDWARE CONNECTIONS</p>
+            <h2>Raspberry Pi GPIO Connections</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Component Pin</th>
+                        <th>Raspberry Pi Connection</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Relay Driver</td>
+                        <td>IN / Control</td>
+                        <td>GPIO17 (BCM)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Manual Override Button</td>
+                        <td>One Terminal</td>
+                        <td>GPIO27 (BCM)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Manual Override Button</td>
+                        <td>Other Terminal</td>
+                        <td>GND</td>
+                    </tr>
+
+                    <tr>
+                        <td>Buzzer</td>
+                        <td>Signal</td>
+                        <td>GPIO22 (BCM)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Camera Module 3</td>
+                        <td>Camera Connector</td>
+                        <td>Raspberry Pi Camera Interface</td>
+                    </tr>
+
+                    <tr>
+                        <td>Solenoid Lock</td>
+                        <td>Power Connections</td>
+                        <td>Separate suitable lock supply through driver</td>
+                    </tr>
+
+                    <tr>
+                        <td>Relay Driver</td>
+                        <td>VCC / GND</td>
+                        <td>Compatible supply / GND</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="project-note">
+            GPIO numbers use BCM numbering.
+            Raspberry Pi GPIO operates at 3.3V logic.
+            Never apply 5V to a GPIO input.
+            Use a suitable transistor or driver for a
+            buzzer if its electrical requirements exceed
+            the GPIO output capability.
+            Verify the relay module's input compatibility.
+        </div>
+
+    </section>
+
+    <!-- ACCESS CONTROL STATES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">ACCESS CONTROL</p>
+            <h2>System Access States</h2>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Condition</th>
+                        <th>System Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Authorized Face</td>
+                        <td>Grant access and activate lock driver</td>
+                    </tr>
+
+                    <tr>
+                        <td>Unknown Face</td>
+                        <td>Deny access and activate warning buzzer</td>
+                    </tr>
+
+                    <tr>
+                        <td>Manual Override</td>
+                        <td>Activate manual unlocking process</td>
+                    </tr>
+
+                    <tr>
+                        <td>Unlock Timer Completed</td>
+                        <td>Return demonstration lock to locked state</td>
+                    </tr>
+
+                    <tr>
+                        <td>Camera Error</td>
+                        <td>Do not grant face-based access</td>
+                    </tr>
+
+                    <tr>
+                        <td>System Shutdown</td>
+                        <td>Set lock output to its configured locked state</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <p>
+            Face recognition is used as an educational
+            identification demonstration. LBPH is not
+            liveness detection and can be fooled by
+            photographs or video. Do not rely on this
+            prototype as the sole security mechanism
+            for a real entrance.
+        </p>
+
+    </section>
+
+    <!-- PROJECT FILE STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAM STRUCTURE</p>
+            <h2>Python Project Files</h2>
+        </div>
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+                <h3>main.py</h3>
+                <p>
+                    Main application and coordination
+                    of all project modules.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>config.py</h3>
+                <p>
+                    GPIO assignments, camera settings
+                    and security configuration.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>camera/camera_manager.py</h3>
+                <p>
+                    Camera initialization, frame capture
+                    and camera shutdown.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>recognition/face_detector.py</h3>
+                <p>
+                    Detects human faces from camera frames
+                    using OpenCV.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>recognition/face_recognizer.py</h3>
+                <p>
+                    Trains and operates the LBPH
+                    face recognition model.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>recognition/face_database.py</h3>
+                <p>
+                    Registers users and manages
+                    their face image collections.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>hardware/door_lock.py</h3>
+                <p>
+                    Controls the demonstration lock
+                    through the relay driver.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>hardware/manual_override.py</h3>
+                <p>
+                    Handles the physical manual
+                    override push button.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>hardware/buzzer.py</h3>
+                <p>
+                    Controls access granted and
+                    access denied audio alerts.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>hardware/display.py</h3>
+                <p>
+                    Displays door access status
+                    and system messages.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>security/access_control.py</h3>
+                <p>
+                    Handles access permissions,
+                    unlocking and automatic relocking.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>security/access_logger.py</h3>
+                <p>
+                    Stores access events and
+                    timestamps in SQLite.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>register_faces.py</h3>
+                <p>
+                    Captures and registers authorized
+                    user face images.
+                </p>
+            </article>
+
+            <article class="project-info-card">
+                <h3>utils/helpers.py</h3>
+                <p>
+                    Face normalization, validation
+                    and image processing helpers.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROGRAMMING</p>
+            <h2>Complete Source Code</h2>
+            <p>
+                Download the original Raspberry Pi AI Face
+                Recognition Door Access System files.
+            </p>
+        </div>
+
+        <div class="project-source-grid">
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/main.py"
+               download>
+                <span>📄</span>
+                <h3>Main Application</h3>
+                <p>main.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/config.py"
+               download>
+                <span>📄</span>
+                <h3>Configuration</h3>
+                <p>config.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/requirements.txt"
+               download>
+                <span>📄</span>
+                <h3>Dependencies</h3>
+                <p>requirements.txt</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/register_faces.py"
+               download>
+                <span>📄</span>
+                <h3>Face Registration</h3>
+                <p>register_faces.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/camera/__init__.py"
+               download>
+                <span>📄</span>
+                <h3>Camera Package</h3>
+                <p>camera/__init__.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/camera/camera_manager.py"
+               download>
+                <span>📄</span>
+                <h3>Camera Manager</h3>
+                <p>camera_manager.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/recognition/__init__.py"
+               download>
+                <span>📄</span>
+                <h3>Recognition Package</h3>
+                <p>recognition/__init__.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/recognition/face_detector.py"
+               download>
+                <span>📄</span>
+                <h3>Face Detector</h3>
+                <p>face_detector.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/recognition/face_recognizer.py"
+               download>
+                <span>📄</span>
+                <h3>Face Recognizer</h3>
+                <p>face_recognizer.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/recognition/face_database.py"
+               download>
+                <span>📄</span>
+                <h3>Face Database</h3>
+                <p>face_database.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/hardware/__init__.py"
+               download>
+                <span>📄</span>
+                <h3>Hardware Package</h3>
+                <p>hardware/__init__.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/hardware/door_lock.py"
+               download>
+                <span>📄</span>
+                <h3>Door Lock Controller</h3>
+                <p>door_lock.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/hardware/manual_override.py"
+               download>
+                <span>📄</span>
+                <h3>Manual Override</h3>
+                <p>manual_override.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/hardware/buzzer.py"
+               download>
+                <span>📄</span>
+                <h3>Buzzer Controller</h3>
+                <p>buzzer.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/hardware/display.py"
+               download>
+                <span>📄</span>
+                <h3>Status Display</h3>
+                <p>display.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/security/__init__.py"
+               download>
+                <span>📄</span>
+                <h3>Security Package</h3>
+                <p>security/__init__.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/security/access_control.py"
+               download>
+                <span>📄</span>
+                <h3>Access Control</h3>
+                <p>access_control.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/security/access_logger.py"
+               download>
+                <span>📄</span>
+                <h3>Access Logger</h3>
+                <p>access_logger.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/utils/__init__.py"
+               download>
+                <span>📄</span>
+                <h3>Utilities Package</h3>
+                <p>utils/__init__.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+            <a class="project-source-card"
+               href="source/ai_face_recognition_door_access/utils/helpers.py"
+               download>
+                <span>📄</span>
+                <h3>Helper Functions</h3>
+                <p>helpers.py</p>
+                <strong>Download Code ↓</strong>
+            </a>
+
+        </div>
+
+        <div class="project-note">
+            Keep the folder names and file paths exactly as
+            shown in the project structure. All source files
+            must be uploaded to the corresponding folders
+            inside source/ai_face_recognition_door_access/.
+        </div>
+
+    </section>
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+            <h2>Watch the System Working</h2>
+        </div>
+
+        <div class="project-image-placeholder">
+            <p>AI Face Recognition Door Access Demonstration</p>
+            <span>
+                Add your actual Raspberry Pi face recognition
+                demonstration photograph or video here.
+            </span>
+        </div>
+
+    </section>
+
+    <!-- IMPORTANT INFORMATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+            <h2>Setup and Safety Notes</h2>
+        </div>
+
+        <ul class="project-list">
+
+            <li>
+                Use Raspberry Pi OS with compatible
+                Camera Module 3 and Picamera2 support.
+            </li>
+
+            <li>
+                Ensure the camera is detected before
+                starting the Python application.
+            </li>
+
+            <li>
+                Register authorized users before
+                launching the recognition application.
+            </li>
+
+            <li>
+                Verify that the OpenCV installation
+                supports the LBPH face recognition module.
+            </li>
+
+            <li>
+                Never connect the solenoid lock directly
+                to Raspberry Pi GPIO.
+            </li>
+
+            <li>
+                Use a suitable relay or driver and
+                separate power supply for the lock.
+            </li>
+
+            <li>
+                Keep a physical manual release mechanism
+                accessible at all times.
+            </li>
+
+            <li>
+                Test the relay output and lock behavior
+                before connecting the complete system.
+            </li>
+
+            <li>
+                Face recognition alone does not provide
+                reliable protection against photographs,
+                videos or spoofing attacks.
+            </li>
+
+            <li>
+                Do not use this educational prototype
+                as the sole access-control system
+                for a real building.
+            </li>
+
+        </ul>
+
+    </section>
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html" class="button secondary">
+            ← Back to Robotics Projects
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    <span>© <span id="year"></span> VJaYa Robotics</span>
+    <span>Learn · Build · Create</span>
+</footer>
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>
