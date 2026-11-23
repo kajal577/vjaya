@@ -1,0 +1,38 @@
+
+# ============================================================
+# VJaYa Robotics
+# PROJECT 07: SMART PARKING SYSTEM
+# Python Dependencies
+# ============================================================
+
+# Raspberry Pi Camera Module 3
+picamera2
+
+# Image processing
+opencv-python
+
+# Image and numerical processing
+numpy
+Pillow
+
+# Number plate recognition (OCR)
+pytesseract
+
+# Raspberry Pi GPIO control
+gpiozero
+lgpio
+
+# LCD display support
+RPLCD
+
+# Web dashboard
+Flask
+
+# Database support
+# SQLite is included with Python
+
+# Logging and configuration
+python-dotenv
+
+# Date and time utilities
+python-dateutil
