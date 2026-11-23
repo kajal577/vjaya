@@ -158,7 +158,7 @@ const roboticsProjects = [
         id: "indoor_delivery_robot",
         name: "INDOOR DELIVERY ROBOT",
         platform: "Raspberry Pi",
-        description: "An ESP32-based indoor delivery robot with obstacle avoidance and navigation capabilities.",
+        description: "An raspberry pi-based indoor delivery robot with obstacle avoidance and navigation capabilities.",
         page: "indoor_delivery_robot.html"
     },
     {
@@ -172,15 +172,29 @@ const roboticsProjects = [
         id: "raspberry_pi_robot_dog",
         name: "RASPBERRY PI ROBOT DOG",
         platform: "Raspberry Pi",
-        description: "An ESP32-based raspberry pi robot dog with simple movement and sound capabilities.",
+        description: "An raspberry pi-based raspberry pi robot dog with simple movement and sound capabilities.",
         page: "raspberry_pi_robot_dog.html"
     },
     {
         id: "indoor_mapping_robot",
         name: "INDOOR MAPPING ROBOT",
         platform: "Raspberry Pi",
-        description: "An ESP32-based indoor mapping robot with LiDAR and odometry capabilities.",
+        description: "An raspberry pi-based indoor mapping robot with LiDAR and odometry capabilities.",
         page: "indoor_mapping_robot.html"
+    },
+    {
+        id: "gesture_controlled_robotic_arm",
+        name: "GESTURE CONTROLLED ROBOTIC ARM",
+        platform: "Raspberry Pi",
+        description: "An raspberry pi-based robotic arm controlled by hand gestures.",
+        page: "gesture_controlled_robotic_arm.html"
+    },
+    {
+        id: "autonomous_robot_vacuum",
+        name: "AUTONOMOUS ROBOT VACUUM",
+        platform: "Raspberry Pi",
+        description: "An raspberry pi-based autonomous robot vacuum with navigation and cleaning capabilities.",
+        page: "autonomous_robot_vacuum.html"
     },
 ];
 
