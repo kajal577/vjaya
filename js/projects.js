@@ -210,6 +210,13 @@ const roboticsProjects = [
         description: "An raspberry pi-based AI traffic monitoring system with vehicle detection and congestion analysis.",
         page: "ai_traffic_monitoring.html"
     },
+    {
+        id: "ai_face_recognition_door_access",
+        name: "AI FACE RECOGNITION DOOR ACCESS SYSTEM",
+        platform: "Raspberry Pi",
+        description: "An raspberry pi-based AI face recognition door access system with secure authentication.",
+        page: "ai_face_recognition_door_access.html"
+    },
 ];
 
 const pageParams = new URLSearchParams(window.location.search);
