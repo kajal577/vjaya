@@ -1,0 +1,1488 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="AI Traffic Monitoring System by VJaYa Robotics. Build an intelligent traffic monitoring system using Raspberry Pi 5, Hailo-8L AI accelerator and Camera Module 3.">
+
+    <title>AI Traffic Monitoring System | VJaYa Robotics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <a class="brand" href="index.html">
+        V<span>J</span>AYA<span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#learn">Learn</a>
+        <a href="index.html#store">Store</a>
+    </nav>
+
+</header>
+
+
+<main class="project-detail-page">
+
+
+    <!-- PROJECT HERO -->
+
+    <section class="project-detail-hero">
+
+        <p class="eyebrow">VJAYA ROBOTICS PROJECT</p>
+
+        <span class="project-tag">RASPBERRY PI AI PROJECT</span>
+
+        <h1>AI Traffic Monitoring System</h1>
+
+        <p>
+            Build an intelligent traffic monitoring system using
+            Raspberry Pi 5, Hailo-8L AI accelerator and Raspberry Pi
+            Camera Module 3.
+
+            Detect vehicles, track their movement, automatically
+            count traffic and estimate road congestion using
+            real-time artificial intelligence and computer vision.
+        </p>
+
+        <a href="#project-overview" class="button primary">
+            Explore Project
+        </a>
+
+    </section>
+
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="project-content-section" id="project-overview">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROJECT OVERVIEW</p>
+
+            <h2>About This Project</h2>
+
+        </div>
+
+        <p>
+            The AI Traffic Monitoring System is a computer vision
+            project that uses a Raspberry Pi 5 and Hailo-8L AI
+            accelerator to monitor vehicles on a road.
+        </p>
+
+        <p>
+            The Raspberry Pi Camera Module 3 captures live traffic
+            footage. The Hailo AI accelerator processes the camera
+            frames and detects vehicles such as cars, motorcycles,
+            buses and trucks.
+        </p>
+
+        <p>
+            The system tracks detected vehicles, assigns tracking
+            IDs and counts vehicles crossing a predefined counting
+            line. It also estimates traffic density and identifies
+            possible congestion conditions.
+        </p>
+
+        <p>
+            A Flask-based web dashboard displays live camera
+            footage, vehicle statistics and traffic congestion
+            information.
+        </p>
+
+
+        <div class="project-gallery">
+
+    <div class="project-gallery-item">
+        <img src="images/products/ai_traffic_monitoring/line1.png"
+             alt="ai_traffic_monitoring Screenshot 1">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/ai_traffic_monitoring/line2.png"
+             alt="ai_traffic_monitoring Screenshot 2">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/ai_traffic_monitoring/line3.png"
+             alt="ai_traffic_monitoring Screenshot 3">
+    </div>
+
+    <div class="project-gallery-item">
+        <img src="images/products/ai_traffic_monitoring/line4.png"
+             alt="ai_traffic_monitoring Screenshot 4">
+    </div>
+
+</div>
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">WHAT IT CAN DO</p>
+
+            <h2>Project Features</h2>
+
+        </div>
+
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+
+                <h3>AI Vehicle Detection</h3>
+
+                <p>
+                    Detect vehicles in live road footage using
+                    a Hailo-8L AI accelerator.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Vehicle Classification</h3>
+
+                <p>
+                    Identify different vehicle categories,
+                    including cars, motorcycles, buses and trucks.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Vehicle Tracking</h3>
+
+                <p>
+                    Assign unique tracking IDs to detected
+                    vehicles and follow their movement
+                    across video frames.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Automatic Vehicle Counting</h3>
+
+                <p>
+                    Count vehicles when they cross a predefined
+                    virtual counting line.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Traffic Density Analysis</h3>
+
+                <p>
+                    Analyze the number of vehicles currently
+                    visible in the camera frame.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Congestion Detection</h3>
+
+                <p>
+                    Estimate traffic conditions as Low,
+                    Medium, High or Severe based on
+                    detected vehicle density.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Live Web Dashboard</h3>
+
+                <p>
+                    Monitor live camera footage, vehicle
+                    statistics and congestion information
+                    through a browser.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Traffic Data Storage</h3>
+
+                <p>
+                    Store traffic statistics and vehicle
+                    records in an SQLite database.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Real-Time Processing</h3>
+
+                <p>
+                    Use hardware-accelerated AI inference
+                    to process camera frames efficiently.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- HARDWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">HARDWARE REQUIREMENTS</p>
+
+            <h2>Components Required</h2>
+
+        </div>
+
+
+        <ul class="project-list">
+
+            <li>Raspberry Pi 5 (recommended 8GB RAM)</li>
+
+            <li>Raspberry Pi AI Kit with Hailo-8L accelerator</li>
+
+            <li>Raspberry Pi Camera Module 3</li>
+
+            <li>Camera ribbon cable compatible with Raspberry Pi 5</li>
+
+            <li>Raspberry Pi 5 official power supply (27W recommended)</li>
+
+            <li>Active cooler or suitable cooling system</li>
+
+            <li>MicroSD card (64GB or higher recommended)</li>
+
+            <li>Ethernet cable or Wi-Fi connection</li>
+
+            <li>Monitor, keyboard and mouse (for initial setup)</li>
+
+            <li>Camera mounting stand or enclosure</li>
+
+        </ul>
+
+
+        <div class="project-note">
+
+            The Hailo-8L AI accelerator requires a compatible
+            Raspberry Pi AI Kit and software environment.
+            Verify the Hailo installation and PCIe connection
+            before running the AI inference program.
+
+        </div>
+
+    </section>
+
+
+    <!-- SOFTWARE REQUIREMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">SOFTWARE REQUIREMENTS</p>
+
+            <h2>Software and Libraries</h2>
+
+        </div>
+
+
+        <ul class="project-list">
+
+            <li>Raspberry Pi OS 64-bit compatible with Raspberry Pi 5</li>
+
+            <li>Python 3</li>
+
+            <li>HailoRT</li>
+
+            <li>Hailo-8L compatible HEF AI model</li>
+
+            <li>Picamera2</li>
+
+            <li>OpenCV</li>
+
+            <li>NumPy</li>
+
+            <li>Flask</li>
+
+            <li>SQLite3</li>
+
+            <li>Raspberry Pi Camera Software</li>
+
+        </ul>
+
+
+        <p>
+            The project uses separate Python modules for camera
+            capture, Hailo AI inference, vehicle classification,
+            tracking, counting, traffic analysis, congestion
+            detection, database storage and dashboard management.
+        </p>
+
+        <div class="project-note">
+
+            Install HailoRT and Picamera2 using compatible
+            Raspberry Pi system packages. The HEF model must
+            be compiled for Hailo-8L and its output format
+            must match the project's detection decoder.
+
+        </div>
+
+    </section>
+
+
+    <!-- WORKING PRINCIPLE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">HOW IT WORKS</p>
+
+            <h2>Step-by-Step Operation</h2>
+
+        </div>
+
+
+        <ol class="project-list">
+
+            <li>
+                Power on the Raspberry Pi 5 and initialize
+                the Hailo-8L AI accelerator.
+            </li>
+
+            <li>
+                Initialize the Raspberry Pi Camera Module 3
+                using Picamera2.
+            </li>
+
+            <li>
+                Capture live video frames from the road.
+            </li>
+
+            <li>
+                Resize and preprocess camera frames for
+                the AI detection model.
+            </li>
+
+            <li>
+                Send the processed frames to the Hailo-8L
+                accelerator for AI inference.
+            </li>
+
+            <li>
+                Detect vehicles such as cars, motorcycles,
+                buses and trucks.
+            </li>
+
+            <li>
+                Classify the detected objects according
+                to their vehicle categories.
+            </li>
+
+            <li>
+                Assign tracking IDs and follow vehicle
+                movement across consecutive frames.
+            </li>
+
+            <li>
+                Count vehicles when they cross the
+                predefined virtual counting line.
+            </li>
+
+            <li>
+                Analyze the number of vehicles currently
+                present in the camera view.
+            </li>
+
+            <li>
+                Estimate traffic density and classify
+                congestion conditions.
+            </li>
+
+            <li>
+                Save traffic statistics in the SQLite database.
+            </li>
+
+            <li>
+                Display live camera footage and traffic
+                information on the Flask web dashboard.
+            </li>
+
+        </ol>
+
+    </section>
+
+
+    <!-- HARDWARE CONNECTIONS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">HARDWARE CONNECTIONS</p>
+
+            <h2>Raspberry Pi Hardware Connections</h2>
+
+        </div>
+
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+
+                    <tr>
+                        <th>Component</th>
+                        <th>Connection</th>
+                        <th>Raspberry Pi Connection</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+                        <td>Camera Module 3</td>
+                        <td>Camera ribbon connector</td>
+                        <td>CAM/DISP connector</td>
+                    </tr>
+
+                    <tr>
+                        <td>Hailo-8L AI Accelerator</td>
+                        <td>PCIe interface</td>
+                        <td>Compatible Raspberry Pi 5 PCIe connection</td>
+                    </tr>
+
+                    <tr>
+                        <td>Power Supply</td>
+                        <td>USB-C</td>
+                        <td>Raspberry Pi 5 USB-C power port</td>
+                    </tr>
+
+                    <tr>
+                        <td>Cooling Fan</td>
+                        <td>Compatible fan connector</td>
+                        <td>Raspberry Pi cooling connection</td>
+                    </tr>
+
+                    <tr>
+                        <td>Network</td>
+                        <td>Ethernet / Wi-Fi</td>
+                        <td>Network interface</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <div class="project-note">
+
+            The Raspberry Pi AI Kit uses the Raspberry Pi 5
+            PCIe interface through its compatible HAT connection.
+            Follow the official installation instructions for
+            the particular Hailo hardware kit.
+
+            The Camera Module 3 connects using the compatible
+            camera connector and ribbon cable. Disconnect power
+            before connecting or removing hardware.
+
+        </div>
+
+    </section>
+
+
+    <!-- VEHICLE CLASSIFICATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">AI VEHICLE RECOGNITION</p>
+
+            <h2>Supported Vehicle Categories</h2>
+
+        </div>
+
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+
+                    <tr>
+                        <th>Vehicle Class</th>
+                        <th>COCO Class ID</th>
+                        <th>Detection Label</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+                        <td>Car</td>
+                        <td>2</td>
+                        <td>car</td>
+                    </tr>
+
+                    <tr>
+                        <td>Motorcycle</td>
+                        <td>3</td>
+                        <td>motorcycle</td>
+                    </tr>
+
+                    <tr>
+                        <td>Bus</td>
+                        <td>5</td>
+                        <td>bus</td>
+                    </tr>
+
+                    <tr>
+                        <td>Truck</td>
+                        <td>7</td>
+                        <td>truck</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <p>
+            These class IDs correspond to the COCO dataset.
+            The selected Hailo model must use compatible class
+            mappings for the classification module to work correctly.
+        </p>
+
+    </section>
+
+
+    <!-- TRAFFIC MONITORING -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">TRAFFIC ANALYSIS</p>
+
+            <h2>Traffic Congestion Levels</h2>
+
+        </div>
+
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+
+                    <tr>
+                        <th>Traffic Level</th>
+                        <th>Vehicle Count</th>
+                        <th>System Interpretation</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+                        <td>Low</td>
+                        <td>0 – 4</td>
+                        <td>Low vehicle density</td>
+                    </tr>
+
+                    <tr>
+                        <td>Medium</td>
+                        <td>5 – 14</td>
+                        <td>Moderate vehicle density</td>
+                    </tr>
+
+                    <tr>
+                        <td>High</td>
+                        <td>15 – 29</td>
+                        <td>Heavy vehicle density</td>
+                    </tr>
+
+                    <tr>
+                        <td>Severe</td>
+                        <td>30 or more</td>
+                        <td>Very high vehicle density</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <div class="project-note">
+
+            These are configurable example thresholds used by
+            the project. They estimate the number of vehicles
+            visible in the camera frame, not actual road capacity
+            or measured traffic speed.
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECT FILE STRUCTURE -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROGRAM STRUCTURE</p>
+
+            <h2>Python Project Files</h2>
+
+        </div>
+
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+
+                <h3>main.py</h3>
+
+                <p>
+                    Main application and coordination
+                    of all project modules.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>config.py</h3>
+
+                <p>
+                    Central configuration for camera,
+                    AI model, tracking and dashboard.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>camera.py</h3>
+
+                <p>
+                    Initializes Camera Module 3
+                    and captures video frames.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>vehicle_detector.py</h3>
+
+                <p>
+                    Loads the Hailo HEF model and
+                    performs AI vehicle detection.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>vehicle_tracker.py</h3>
+
+                <p>
+                    Tracks detected vehicles and
+                    assigns unique tracking IDs.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>vehicle_counter.py</h3>
+
+                <p>
+                    Counts vehicles crossing
+                    the virtual counting line.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>vehicle_classifier.py</h3>
+
+                <p>
+                    Classifies cars, motorcycles,
+                    buses and trucks.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>traffic_analyzer.py</h3>
+
+                <p>
+                    Analyzes detected vehicles
+                    and calculates traffic statistics.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>congestion_detector.py</h3>
+
+                <p>
+                    Estimates traffic congestion
+                    levels using vehicle density.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>database.py</h3>
+
+                <p>
+                    Creates and manages the SQLite
+                    traffic database.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>dashboard.py</h3>
+
+                <p>
+                    Provides a live Flask dashboard
+                    with video and traffic statistics.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>requirements.txt</h3>
+
+                <p>
+                    Lists the additional Python
+                    package dependencies.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMPLETE SOURCE CODE -->
+
+    <section class="project-content-section" id="source-code">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROGRAMMING</p>
+
+            <h2>Complete Source Code</h2>
+
+            <p>
+                Download the original AI Traffic Monitoring
+                System Python files individually.
+            </p>
+
+        </div>
+
+
+        <div class="project-source-grid">
+
+
+            <a class="project-source-card"
+               href="source/ai_traffic_monitoring/main.py"
+               download="main.py">
+
+                <span>📄</span>
+
+                <h3>Main Application</h3>
+
+                <p>main.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/ai_traffic_monitoring/config.py"
+               download="config.py">
+
+                <span>📄</span>
+
+                <h3>Configuration</h3>
+
+                <p>config.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/ai_traffic_monitoring/camera.py"
+               download="camera.py">
+
+                <span>📄</span>
+
+                <h3>Camera Module</h3>
+
+                <p>camera.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/ai_traffic_monitoring/vehicle_detector.py"
+               download="vehicle_detector.py">
+
+                <span>📄</span>
+
+                <h3>AI Vehicle Detector</h3>
+
+                <p>vehicle_detector.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/ai_traffic_monitoring/vehicle_tracker.py"
+               download="vehicle_tracker.py">
+
+                <span>📄</span>
+
+                <h3>Vehicle Tracker</h3>
+
+                <p>vehicle_tracker.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/ai_traffic_monitoring/vehicle_counter.py"
+               download="vehicle_counter.py">
+
+                <span>📄</span>
+
+                <h3>Vehicle Counter</h3>
+
+                <p>vehicle_counter.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/ai_traffic_monitoring/vehicle_classifier.py"
+               download="vehicle_classifier.py">
+
+                <span>📄</span>
+
+                <h3>Vehicle Classifier</h3>
+
+                <p>vehicle_classifier.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/ai_traffic_monitoring/traffic_analyzer.py"
+               download="traffic_analyzer.py">
+
+                <span>📄</span>
+
+                <h3>Traffic Analyzer</h3>
+
+                <p>traffic_analyzer.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/ai_traffic_monitoring/congestion_detector.py"
+               download="congestion_detector.py">
+
+                <span>📄</span>
+
+                <h3>Congestion Detector</h3>
+
+                <p>congestion_detector.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/ai_traffic_monitoring/database.py"
+               download="database.py">
+
+                <span>📄</span>
+
+                <h3>Database Module</h3>
+
+                <p>database.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/ai_traffic_monitoring/dashboard.py"
+               download="dashboard.py">
+
+                <span>📄</span>
+
+                <h3>Web Dashboard</h3>
+
+                <p>dashboard.py</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+            <a class="project-source-card"
+               href="source/ai_traffic_monitoring/requirements.txt"
+               download="requirements.txt">
+
+                <span>📄</span>
+
+                <h3>Dependencies</h3>
+
+                <p>requirements.txt</p>
+
+                <strong>Download Code ↓</strong>
+
+            </a>
+
+
+        </div>
+
+
+        <div class="project-note">
+
+            The Hailo HEF model is a separate hardware-specific
+            binary file. It must be obtained separately and placed
+            inside the models folder.
+
+            The utils folder also contains an __init__.py file
+            for the Python utility package.
+
+        </div>
+
+    </section>
+
+
+    <!-- INSTALLATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">INSTALLATION GUIDE</p>
+
+            <h2>How to Install the Project</h2>
+
+        </div>
+
+
+        <ol class="project-list">
+
+            <li>
+                Install a compatible 64-bit Raspberry Pi OS
+                on Raspberry Pi 5.
+            </li>
+
+            <li>
+                Connect the Hailo-8L AI Kit and Camera Module 3
+                using the compatible hardware connections.
+            </li>
+
+            <li>
+                Update Raspberry Pi OS using the system
+                package manager.
+            </li>
+
+            <li>
+                Install the compatible HailoRT runtime,
+                Picamera2 and OpenCV packages.
+            </li>
+
+            <li>
+                Create the AI_TRAFFIC_MONITORING project
+                directory on Raspberry Pi.
+            </li>
+
+            <li>
+                Download all Python source files and place
+                them in their corresponding folders.
+            </li>
+
+            <li>
+                Place the compatible Hailo-8L HEF vehicle
+                detection model inside the models folder.
+            </li>
+
+            <li>
+                Create a Python virtual environment using
+                system-site-packages to access the installed
+                Raspberry Pi camera and Hailo libraries.
+            </li>
+
+            <li>
+                Install the additional packages listed
+                in requirements.txt.
+            </li>
+
+            <li>
+                Check the camera and Hailo accelerator
+                before launching the application.
+            </li>
+
+            <li>
+                Run main.py to start the traffic
+                monitoring application.
+            </li>
+
+            <li>
+                Open the dashboard using the Raspberry Pi
+                IP address and port 5000.
+            </li>
+
+        </ol>
+
+    </section>
+
+
+    <!-- COMMANDS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">TERMINAL COMMANDS</p>
+
+            <h2>Run the Project</h2>
+
+        </div>
+
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+
+                <h3>Update Raspberry Pi</h3>
+
+                <p>
+                    <code>sudo apt update</code>
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Install Camera Support</h3>
+
+                <p>
+                    <code>sudo apt install python3-picamera2</code>
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Verify Hailo</h3>
+
+                <p>
+                    <code>hailortcli fw-control identify</code>
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Test Camera</h3>
+
+                <p>
+                    <code>rpicam-hello --timeout 5000</code>
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Activate Environment</h3>
+
+                <p>
+                    <code>source .venv/bin/activate</code>
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Start Application</h3>
+
+                <p>
+                    <code>python main.py</code>
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- DASHBOARD -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">LIVE MONITORING</p>
+
+            <h2>Traffic Monitoring Dashboard</h2>
+
+        </div>
+
+
+        <p>
+            The Flask dashboard provides a browser-based
+            interface for monitoring the traffic system.
+            It displays live camera footage, detected vehicle
+            statistics and estimated congestion levels.
+        </p>
+
+
+        <div class="project-gallery">
+
+            <div class="project-gallery-item">
+
+                <img src="images/products/ai_traffic_monitoring/dashboard1.png"
+                     alt="AI traffic monitoring dashboard overview">
+
+            </div>
+
+
+            <div class="project-gallery-item">
+
+                <img src="images/products/ai_traffic_monitoring/dashboard2.png"
+                     alt="AI vehicle counting dashboard">
+
+            </div>
+
+        </div>
+
+
+        <div class="project-note">
+
+            After starting the Flask application, open:
+
+            <br><br>
+
+            http://RASPBERRY_PI_IP:5000
+
+            <br><br>
+
+            Replace RASPBERRY_PI_IP with the actual IP address
+            of your Raspberry Pi.
+
+        </div>
+
+    </section>
+
+
+    <!-- DEMONSTRATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">PROJECT DEMONSTRATION</p>
+
+            <h2>Watch the AI Traffic Monitoring System Working</h2>
+
+        </div>
+
+
+        <div class="project-image-placeholder">
+
+            <p>AI Traffic Monitoring System Demonstration</p>
+
+            <span>
+                Add your actual Raspberry Pi traffic monitoring
+                photograph or demonstration video here.
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- IMPORTANT INFORMATION -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">IMPORTANT INFORMATION</p>
+
+            <h2>Setup and Safety Notes</h2>
+
+        </div>
+
+
+        <ul class="project-list">
+
+            <li>
+                Use a Hailo-8L compatible HEF model.
+                Models compiled for other Hailo devices may
+                not work with this hardware.
+            </li>
+
+            <li>
+                Verify the AI model input resolution,
+                tensor output shape and class mapping.
+            </li>
+
+            <li>
+                The vehicle detection decoder must match
+                the actual model output format.
+            </li>
+
+            <li>
+                Mount the camera securely and select a
+                suitable viewing angle for the road.
+            </li>
+
+            <li>
+                Avoid installing the camera where direct
+                sunlight or poor lighting makes vehicle
+                detection unreliable.
+            </li>
+
+            <li>
+                Use adequate cooling and a suitable power
+                supply for Raspberry Pi 5 and the AI Kit.
+            </li>
+
+            <li>
+                Keep the camera and AI accelerator
+                connections secure.
+            </li>
+
+            <li>
+                The traffic congestion thresholds are
+                configurable example values and should
+                be calibrated for the monitored road.
+            </li>
+
+            <li>
+                This project is an educational monitoring
+                prototype, not a certified traffic enforcement
+                or road-safety system.
+            </li>
+
+            <li>
+                Follow local privacy rules and obtain
+                necessary permissions before monitoring
+                public roads.
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- FUTURE IMPROVEMENTS -->
+
+    <section class="project-content-section">
+
+        <div class="project-section-heading">
+
+            <p class="eyebrow">FUTURE IMPROVEMENTS</p>
+
+            <h2>Possible Project Extensions</h2>
+
+        </div>
+
+
+        <div class="project-info-grid">
+
+            <article class="project-info-card">
+
+                <h3>Vehicle Speed Estimation</h3>
+
+                <p>
+                    Estimate vehicle speed using calibrated
+                    road geometry and tracking over time.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Multiple Camera Monitoring</h3>
+
+                <p>
+                    Extend the system to monitor several
+                    road locations using multiple cameras.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Traffic Signal Integration</h3>
+
+                <p>
+                    Develop a traffic signal control prototype
+                    using traffic density information.
+                </p>
+
+            </article>
+
+
+            <article class="project-info-card">
+
+                <h3>Cloud Traffic Analytics</h3>
+
+                <p>
+                    Send aggregated traffic statistics to
+                    a remote server for analysis.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- BACK BUTTON -->
+
+    <section class="project-content-section">
+
+        <a href="projects.html" class="button secondary">
+            ← Back to Robotics Projects
+        </a>
+
+    </section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <span>
+        © <span id="year"></span> VJaYa Robotics
+    </span>
+
+    <span>
+        Learn · Build · Create
+    </span>
+
+</footer>
+
+
+<script>
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+</script>
+
+
+</body>
+</html>
