@@ -203,6 +203,13 @@ const roboticsProjects = [
         description: "An raspberry pi-based smart parking system with number plate recognition and automated barrier control.",
         page: "smart_parking.html"
     },
+    {
+        id: "ai_traffic_monitoring",
+        name: "AI TRAFFIC MONITORING SYSTEM",
+        platform: "Raspberry Pi",
+        description: "An raspberry pi-based AI traffic monitoring system with vehicle detection and congestion analysis.",
+        page: "ai_traffic_monitoring.html"
+    },
 ];
 
 const pageParams = new URLSearchParams(window.location.search);
