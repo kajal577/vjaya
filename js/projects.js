@@ -217,6 +217,13 @@ const roboticsProjects = [
         description: "An raspberry pi-based AI face recognition door access system with secure authentication.",
         page: "ai_face_recognition_door_access.html"
     },
+    {
+        id: "sign_language_translator",
+        name: "SIGN LANGUAGE TRANSLATOR",
+        platform: "Raspberry Pi",
+        description: "An raspberry pi-based sign language translator with gesture recognition and text-to-speech capabilities.",
+        page: "sign_language_translator.html"
+    },
 ];
 
 const pageParams = new URLSearchParams(window.location.search);
